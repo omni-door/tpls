@@ -2,8 +2,15 @@
   "name": "@omni-door/tpl-toolkit",
   "version": "0.2.15",
   "description": "The JS-SDK project template",
+  "bin": {
+    "omni-toolkit": "./bin/omni-door-toolkit.js"
+  },
   "keywords": [
-    "toolkit"
+    "template",
+    "toolkit",
+    "SDK",
+    "omni",
+    "omni-door"
   ],
   "author": "bobby.li <bobby.lhan@gmail.com>",
   "homepage": "https://github.com/omni-door/tpls/tree/master/packages/tpl-toolkit#readme",

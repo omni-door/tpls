@@ -2,8 +2,14 @@
   "name": "@omni-door/tpl-component-library-react",
   "version": "0.2.16",
   "description": "The React component-library-react project template",
+  "bin": {
+    "omni-component-library-react": "./bin/omni-door-component-library-react.js"
+  },
   "keywords": [
-    "component-library-react"
+    "template",
+    "component-library-react",
+    "omni",
+    "omni-door"
   ],
   "author": "bobby.li <bobby.lhan@gmail.com>",
   "homepage": "https://github.com/omni-door/tpls/tree/master/packages/tpl-component-library-react#readme",

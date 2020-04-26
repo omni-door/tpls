@@ -2,8 +2,14 @@
   "name": "@omni-door/tpl-spa-react",
   "version": "0.2.21",
   "description": "The React single-page-application project template",
+  "bin": {
+    "omni-spa-react": "./bin/omni-door-spa-react.js"
+  },
   "keywords": [
-    "single-page-application"
+    "template",
+    "single-page-application",
+    "omni",
+    "omni-door"
   ],
   "author": "bobby.li <bobby.lhan@gmail.com>",
   "homepage": "https://github.com/omni-door/tpls/tree/master/packages/tpl-spa-react#readme",
