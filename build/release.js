@@ -30,37 +30,42 @@ const { exec } = require('child_process');
 
   if (!!~packages.indexOf('全部发布')) {
     // 全部发布
-    exec('lerna run release', function (err) {
+    const spinner = ora(`全部模板项目发布中，请稍后……\n`).start();
+    spinner.spinner = 'earth';
+    spinner.color = 'magenta';
+    exec('lerna run release', function (err, stdout, stderr) {
       if (err) {
         console.error(err);
-        console.error(`发布过程遇到错误，终止发布！`);
+        spinner.fail(`发布过程遇到错误，终止发布！`);
         process.exit(1);
       }
       console.info(stdout || stderr);
+      spinner.succeed(`模板发布成功！`);
     });
   } else {
     for (let i = 0; i < packages.length; i++) {
       const package = packages[i];
-      await new Promise((resolve, reject) => {
-        const workPath = `${path.resolve(process.cwd(), 'packages', package)}`;
-        const spinner = ora(`模板 ${package} 发布中，请稍后……\n`).start();
-        spinner.spinner = 'weather';
-        spinner.color = 'magenta';
-        exec(`cd ${workPath} && yarn release ${version === '自动迭代' ? '' : `-m ${version}`}`, function (err, stdout, stderr) {
-          if (err) {
-            spinner.color = 'red';
-            spinner.fail(`模板 ${package} 发布失败！`);
-            reject(err);
-          }
-          console.info(stdout || stderr);
-          spinner.color = 'green';
-          spinner.succeed(`模板 ${package} 发布成功！`);
-          resolve();
+      const spinner = ora(`模板 ${package} 发布中，请稍后……\n`).start();
+      spinner.spinner = 'weather';
+      spinner.color = 'magenta';
+      try {
+        await new Promise((resolve, reject) => {
+          const workPath = `${path.resolve(process.cwd(), 'packages', package)}`;
+          exec(`cd ${workPath} && npm run release ${version === '自动迭代' ? '' : `-- -m ${version}`}`, function (err, stdout, stderr) {
+            if (err) {
+              reject(err);
+            }
+            console.info(stdout || stderr);
+            spinner.color = 'green';
+            spinner.succeed(`模板 ${package} 发布成功！`);
+            resolve();
+          });
         });
-      }).catch(err => {
+      } catch (err) {
         console.error(err);
-        console.error(`${package} 的发布过程遇到错误，终止该包的发布！`);
-      });
+        spinner.color = 'red';
+        spinner.fail(`${package} 的发布过程遇到错误，终止该包的发布！`);
+      }
     }
   }
 })();
