@@ -64,6 +64,7 @@ export type InitOptions = {
   commitlint: boolean;
   style: STYLE;
   stylelint: boolean;
+  install: boolean;
   pkgtool?: PKJTOOL;
   isSlient?: boolean;
   tpls?: (tpls: TPLS_ORIGIN_INITIAL) => TPLS_INITIAL_RETURE;
@@ -85,6 +86,7 @@ async function init ({
   commitlint,
   style,
   stylelint,
+  install,
   tpls,
   pkgtool = 'yarn',
   isSlient,
@@ -146,7 +148,7 @@ async function init ({
   const pathToFileContentMap = {
     // default files
     [`${configFileName}`]: tpl.omni(params),
-    'package.json': tpl.pkj(devDependencyMap['@types/react'])(params),
+    'package.json': install && tpl.pkj(devDependencyMap['@types/react'])(params),
     '.gitignore': tpl.gitignore(params),
     [`src/index.${ts ? 'tsx' : 'jsx'}`]: tpl.source_index_react(params),
     'src/index.html': tpl.source_html(params),
@@ -282,23 +284,58 @@ async function init ({
   logTime('依赖解析', true);
 
   // 项目依赖安装
-  logTime('安装依赖');
-  exec([
-    installCli,
-    installDevCli,
-    installBuildDevCli,
-    installTsDevCli,
-    installTestDevCli,
-    installEslintDevCli,
-    installPrettierDevCli,
-    installCommitlintDevCli,
-    installStylelintDevCli,
-    installServerDevCli,
-    installCustomDevCli
-  ], res => {
-    logTime('安装依赖', true);
-    success(res);
-  }, error, isSlient);
+  if (install) {
+    logTime('安装依赖');
+    exec([
+      installCli,
+      installDevCli,
+      installBuildDevCli,
+      installTsDevCli,
+      installTestDevCli,
+      installEslintDevCli,
+      installPrettierDevCli,
+      installCommitlintDevCli,
+      installStylelintDevCli,
+      installServerDevCli,
+      installCustomDevCli
+    ], res => {
+      logTime('安装依赖', true);
+      success(res);
+    }, error, isSlient);
+  } else {
+    logTime('生成静态依赖文件');
+    const processDepStr = (str: string, prefix: string) => {
+      if (!str) return '';
+      let result = '';
+      const arr = str.split(' ').filter(v => !!v);
+
+      for (let i = 0; i < arr.length; i++) {
+        const item = arr[i];
+        if (!item) continue;
+        const lastInd = item.lastIndexOf('@');
+        const name = item.substr(0, lastInd);
+        const version = item.substr(lastInd + 1);
+        if (i + 1 === arr.length) {
+          result += `    "${name}": "${version}"`;
+        } else {
+          result += `    "${name}": "${version}",\n`;
+        }
+      }
+
+      return `"${prefix}": {\n${result}\n  },`;
+    }
+    output_file({
+      file_path: 'package.json',
+      file_content: tpl.pkj(devDependencyMap['@types/react'])({
+        ...params,
+        install,
+        dependencies: processDepStr(dependencies_str, 'dependencies'),
+        devDependencies: processDepStr(`${defaultDepStr || ''} ${buildDepStr || ''} ${tsDepStr || ''} ${testDepStr || ''} ${eslintDepStr || ''} ${prettierDepStr || ''} ${commitlintDepStr || ''} ${stylelintDepStr || ''} ${devServerDepStr || ''} ${customDepStr || ''}`, 'devDependencies')
+      })
+    });
+    logTime('生成静态依赖文件', true);
+    success([]);
+  }
 }
 
 const default_tpl_new_list = {

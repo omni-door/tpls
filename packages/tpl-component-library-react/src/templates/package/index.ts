@@ -42,6 +42,8 @@ const tpl =
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
   },
+  \${!install ? dependencies : ''}
+  \${!install ? devDependencies : ''}
   \${
     (type_react && ts && \`\${alter_strategy({
       stable: 'resolutions'

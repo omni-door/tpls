@@ -45,6 +45,7 @@ if (args.length > 0) {
       commitlint: false,
       style: 'scss' as STYLE,
       stylelint: true,
+      install: true,
       pkgtool: 'yarn' as PKJTOOL
     };
     for (let i = 0; i < args.length; i++) {

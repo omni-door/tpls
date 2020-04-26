@@ -1,4 +1,4 @@
-import { tpl_engine_init, DEVSERVER } from '@omni-door/utils';
+import { tpl_engine_init } from '@omni-door/utils';
 import script_test from './script_test';
 import script_commitlint from './script_commitlint';
 import script_lint from './script_lint';
@@ -33,6 +33,8 @@ const tpl =
   \${alter('commitlint', 'commitlint')}
   "keywords": [],
   "author": "",
+  \${!install ? dependencies : ''}
+  \${!install ? devDependencies : ''}
   "license": "ISC"
 }
 \``;

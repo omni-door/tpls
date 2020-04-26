@@ -7,9 +7,18 @@ const { exec } = require('child_process');
 (async function () {
   const list_packages = fs.readdirSync(path.resolve(__dirname, '../packages/'));
 
-  const { packages } = await inquirer.prompt([{
+  const { packages, version } = await inquirer.prompt([{
     name: 'packages',
     type: 'checkbox',
+    choices: [ ...list_packages, '全部发布' ],
+    message: '请选择本次要发布的模板'
+  }, {
+    name: 'version',
+    type: 'checkbox',
+    when: function (answer) {
+      if(!~answer.packages.indexOf('全部发布')) return true;
+      return false;
+    },
     choices: [ ...list_packages, '全部发布' ],
     message: '请选择本次要发布的模板'
   }]);
@@ -37,7 +46,7 @@ const { exec } = require('child_process');
         const spinner = ora(`模板 ${package} 发布中，请稍后……\n`).start();
         spinner.spinner = 'weather';
         spinner.color = 'magenta';
-        exec(`cd ${workPath} && yarn release`, function (err, stdout, stderr) {
+        exec(`cd ${workPath} && yarn release -m ${version}`, function (err, stdout, stderr) {
           if (err) {
             spinner.color = 'red';
             spinner.fail(`模板 ${package} 发布失败！`);

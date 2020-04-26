@@ -29,6 +29,8 @@ const tpl =
   \${alter('commitlint', 'commitlint')}
   "keywords": [],
   "author": "",
+  \${!install ? dependencies : ''}
+  \${!install ? devDependencies : ''}
   \${
     (type_react && ts && \`\${alter_strategy({
       stable: 'resolutions'
