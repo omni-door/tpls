@@ -159,7 +159,7 @@ async function init ({
       type_react: devDependencyMap['@types/react'],
       project_name,
       devServer
-    })(params),
+    })({ ...params, install, dependencies: '', devDependencies: '' }),
     '.gitignore': tpl.gitignore(params),
     '.npmignore': tpl.npmignore(params),
     [`src/components/index.${ts ? 'ts' : 'js'}`]: tpl.source_index(params),

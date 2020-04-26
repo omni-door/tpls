@@ -40,7 +40,7 @@ const { exec } = require('child_process');
         process.exit(1);
       }
       console.info(stdout || stderr);
-      spinner.succeed(`模板发布成功！`);
+      spinner.succeed(`所有模板发布成功！`);
     });
   } else {
     for (let i = 0; i < packages.length; i++) {
