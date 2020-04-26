@@ -1,6 +1,6 @@
 {
   "name": "@omni-door/tpl-component-library-react",
-  "version": "0.2.17",
+  "version": "0.2.18",
   "description": "The React component-library-react project template",
   "bin": {
     "omni-component-library-react": "./bin/omni-door-component-library-react.js"
