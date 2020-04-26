@@ -16,7 +16,7 @@ const { exec } = require('child_process');
     name: 'version',
     type: 'input',
     when: function (answer) {
-      if(!~answer.packages.indexOf('全部发布')) return true;
+      if(answer.packages.length > 0 && !~answer.packages.indexOf('全部发布')) return true;
       return false;
     },
     default: '自动迭代',
