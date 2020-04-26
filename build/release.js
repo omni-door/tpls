@@ -51,7 +51,7 @@ const { exec } = require('child_process');
       try {
         await new Promise((resolve, reject) => {
           const workPath = `${path.resolve(process.cwd(), 'packages', package)}`;
-          exec(`cd ${workPath} && yarn release ${version === '自动迭代' ? '' : `-m ${version}`}`, function (err, stdout, stderr) {
+          exec(`cd ${workPath} && yarn release ${version === '自动迭代' ? '' : `${version}`}`, function (err, stdout, stderr) {
             if (err) {
               reject(err);
               return;
