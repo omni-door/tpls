@@ -102,7 +102,6 @@ export function devDependencies (strategy: STRATEGY, config: Config) {
   const stylelintDependencies = stylelint ? [
     dependency('stylelint'),
     dependency('stylelint-config-standard'),
-    dependency('stylelint-config-standard'),
     dependency('stylelint-config-css-modules'),
     dependency('stylelint-config-rational-order'),
     dependency('stylelint-config-prettier'),
