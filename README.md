@@ -11,7 +11,7 @@ English | [简体中文](./README.zh-CN.md)
 | [@omni-door/tpl-toolkit](https://github.com/omni-door/tpls/tree/master/packages/tpl-toolkit#readme) | toolkit template |
 | [@omni-door/tpl-component-library-react](https://github.com/omni-door/tpls/tree/master/packages/tpl-component-library-react#readme) | React Component-Library template |
 
-## 开发说明
+## develop
 - install all templates dependencies
   ```shell
   yarn bootstrap
@@ -32,7 +32,7 @@ English | [简体中文](./README.zh-CN.md)
   yarn build
   ```
 
-- release all
+- release
   ```shell
   yarn release
   ```

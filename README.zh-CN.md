@@ -32,7 +32,7 @@
   yarn build
   ```
 
-- 发布全部子包(版本自动迭代)
+- 发布
   ```shell
   yarn release
   ```
