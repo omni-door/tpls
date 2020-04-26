@@ -306,7 +306,7 @@ async function init ({
       return `"${prefix}": {\n${result}\n  },`;
     };
     output_file({
-      file_path: 'package.json',
+      file_path: path.resolve(initPath, 'package.json'),
       file_content: tpl.pkj({
         ...params,
         install,
