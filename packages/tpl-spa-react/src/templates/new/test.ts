@@ -4,7 +4,7 @@ const tpl =
 `\`import * as React from 'react';
 import { configure, shallow, render, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import \${componentName} from '../index';
+import { \${componentName} } from '../index';
 
 configure({ adapter: new Adapter() });
 
