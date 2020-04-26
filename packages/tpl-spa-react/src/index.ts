@@ -148,7 +148,7 @@ async function init ({
   const pathToFileContentMap = {
     // default files
     [`${configFileName}`]: tpl.omni(params),
-    'package.json': tpl.pkj(devDependencyMap['@types/react'])({ ...params, install, dependencies: '', devDependencies: '' }),
+    'package.json': install && tpl.pkj(devDependencyMap['@types/react'])({ ...params, install, dependencies: '', devDependencies: '' }),
     '.gitignore': tpl.gitignore(params),
     [`src/index.${ts ? 'tsx' : 'jsx'}`]: tpl.source_index_react(params),
     'src/index.html': tpl.source_html(params),

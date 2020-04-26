@@ -142,7 +142,7 @@ async function init ({
   const pathToFileContentMap = {
     // default files
     [`${configFileName}`]: tpl.omni(build)(params),
-    'package.json': tpl.pkj({ ...params, install, dependencies: '', devDependencies: '' }),
+    'package.json': install && tpl.pkj({ ...params, install, dependencies: '', devDependencies: '' }),
     '.gitignore': tpl.gitignore(params),
     '.npmignore': tpl.npmignore(params),
     [`src/toolkit/index.${ts ? 'ts' : 'js'}`]: tpl.indexTpl(params),
