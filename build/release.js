@@ -14,13 +14,13 @@ const { exec } = require('child_process');
     message: '请选择本次要发布的模板'
   }, {
     name: 'version',
-    type: 'checkbox',
+    type: 'input',
     when: function (answer) {
       if(!~answer.packages.indexOf('全部发布')) return true;
       return false;
     },
-    choices: [ ...list_packages, '全部发布' ],
-    message: '请选择本次要发布的模板'
+    default: '自动迭代',
+    message: '请输入版本号，忽略则自动迭代版本号'
   }]);
 
   if (!packages || packages.length < 1) {
@@ -46,7 +46,7 @@ const { exec } = require('child_process');
         const spinner = ora(`模板 ${package} 发布中，请稍后……\n`).start();
         spinner.spinner = 'weather';
         spinner.color = 'magenta';
-        exec(`cd ${workPath} && yarn release -m ${version}`, function (err, stdout, stderr) {
+        exec(`cd ${workPath} && yarn release ${version === '自动迭代' ? '' : `-m ${version}`}`, function (err, stdout, stderr) {
           if (err) {
             spinner.color = 'red';
             spinner.fail(`模板 ${package} 发布失败！`);
