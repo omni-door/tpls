@@ -2,7 +2,9 @@
   "name": "root",
   "private": true,
   "devDependencies": {
-    "lerna": "^3.20.2"
+    "inquirer": "^7.1.0",
+    "lerna": "^3.20.2",
+    "ora": "^4.0.4"
   },
   "scripts": {
     "bootstrap": "yarn && lerna bootstrap",
@@ -10,6 +12,6 @@
     "lint": "lerna run lint",
     "lint:fix": "lerna run lint:fix",
     "build": "lerna run build",
-    "release": "lerna run release"
+    "release": "node ./build/release.js"
   }
 }
