@@ -1,5 +1,9 @@
 # @omni-door/tpls
 
+[![Build Status](https://travis-ci.com/omni-door/tpls.svg?branch=master)](https://travis-ci.com/omni-door/tpls)
+[![codecov](https://codecov.io/gh/omni-door/tpls/branch/master/graph/badge.svg)](https://codecov.io/gh/omni-door/tpls)
+[![license](http://img.shields.io/npm/l/%40omni-door%2Ftpls.svg)](https://github.com/omni-door/tpls/blob/master/LICENSE)
+
 [English](./README.md) | 简体中文
 
 `@omni-door/tpls` 是用 lerna 管理的多包项目，其包含了 `@omni-door/cli` 所依赖的模板项目集合，请使用 [lerna](https://lerna.js.org/) 进行项目管理和开发

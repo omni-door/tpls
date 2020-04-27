@@ -1,5 +1,9 @@
 # @omni-door/tpls
 
+[![Build Status](https://travis-ci.com/omni-door/tpls.svg?branch=master)](https://travis-ci.com/omni-door/tpls)
+[![codecov](https://codecov.io/gh/omni-door/tpls/branch/master/graph/badge.svg)](https://codecov.io/gh/omni-door/tpls)
+[![license](http://img.shields.io/npm/l/%40omni-door%2Ftpls.svg)](https://github.com/omni-door/tpls/blob/master/LICENSE)
+
 English | [简体中文](./README.zh-CN.md)
 
 `@omni-door/tpls` is a monorepo that manage by [lerna](https://lerna.js.org/) which contain the `@omni-door/cli` dependencies templates collection
@@ -9,7 +13,7 @@ English | [简体中文](./README.zh-CN.md)
 | --- | --- |
 | [@omni-door/tpl-spa-react](https://github.com/omni-door/tpls/tree/master/packages/tpl-spa-react#readme) | React Single-Application-App template |
 | [@omni-door/tpl-toolkit](https://github.com/omni-door/tpls/tree/master/packages/tpl-toolkit#readme) | Toolkit template |
-| [@omni-door/tpl-component-library-react](https://github.com/omni-door/tpls/tree/master/packages/tpl-component-library-react#readme) | React Component-Library template |
+| [@omni-door/tpls](https://github.com/omni-door/tpls/tree/master/packages/tpls#readme) | React Component-Library template |
 
 ## develop
 - install all templates dependencies
