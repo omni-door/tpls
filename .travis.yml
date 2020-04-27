@@ -9,6 +9,7 @@ before_install:
   - npm i -g codecov
 install:
   - yarn
+  - yarn bootstrap
 script:
   - npm run lint
   - npm run test
