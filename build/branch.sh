@@ -2,7 +2,7 @@
 
 branch=$1
 pkgName=$2
-name="🐸  [Omni-Door/${pkgName}]"
+name="🐸  [OMNI-DOOR/${pkgName}]"
 
 checkBranch () {
   if [ -z "$branch" ]; then

@@ -1,7 +1,7 @@
 #! /bin/bash
 
 pkgName=$1
-name="🐸  [Omni-Door/${pkgName}]"
+name="🐸  [OMNI-DOOR/${pkgName}]"
 dot="."
 iterate=$2
 

@@ -1,6 +1,6 @@
 #! /bin/bash
 pkgName=$1
-name="🐸  [Omni-Door/${pkgName}]"
+name="🐸  [OMNI-DOOR/${pkgName}]"
 
 if [ $? -eq 0 ]
 then
