@@ -327,8 +327,8 @@ async function init ({
         const item = arr[i];
         if (!item) continue;
         const lastInd = item.lastIndexOf('@');
-        const name = item.substr(0, lastInd);
-        const version = item.substr(lastInd + 1);
+        const name = lastInd === 0 ? item : item.substr(0, lastInd);
+        const version = lastInd === 0 ? 'latest' : item.substr(lastInd + 1);
         if (i + 1 === arr.length) {
           result += `    "${name}": "${version}"`;
         } else {
