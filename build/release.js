@@ -7,20 +7,29 @@ const { exec } = require('child_process');
 (async function () {
   const list_packages = fs.readdirSync(path.resolve(__dirname, '../packages/'));
 
-  const { packages, version } = await inquirer.prompt([{
+  const { packages, tactic, version } = await inquirer.prompt([{
     name: 'packages',
     type: 'checkbox',
     choices: [ ...list_packages, '全部发布' ],
     message: '请选择本次要发布的模板'
   }, {
-    name: 'version',
-    type: 'input',
+    name: 'tactic',
+    type: 'list',
     when: function (answer) {
       if(answer.packages.length > 0 && !~answer.packages.indexOf('全部发布')) return true;
       return false;
     },
+    choices: [ '自动迭代', '手动迭代', '忽略迭代' ],
     default: '自动迭代',
-    message: '请输入版本号，忽略则自动迭代版本号'
+    message: '请选择迭代策略'
+  }, {
+    name: 'version',
+    type: 'input',
+    when: function (answer) {
+      if(answer.tactic === '手动迭代') return true;
+      return false;
+    },
+    message: '请输入版本号'
   }]);
 
   if (!packages || packages.length < 1) {
@@ -51,7 +60,13 @@ const { exec } = require('child_process');
       try {
         await new Promise((resolve, reject) => {
           const workPath = `${path.resolve(process.cwd(), 'packages', package)}`;
-          exec(`cd ${workPath} && yarn release ${version === '自动迭代' ? '' : `${version}`}`, function (err, stdout, stderr) {
+          const versionTactic =
+            tactic === '忽略迭代'
+              ? 'i'
+              : version
+                ? version
+                : ''
+          exec(`cd ${workPath} && yarn release ${versionTactic}`, function (err, stdout, stderr) {
             if (err) {
               reject(err);
               return;
