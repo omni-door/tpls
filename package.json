@@ -13,5 +13,6 @@
     "lint:fix": "lerna run lint:fix",
     "build": "lerna run build",
     "release": "node ./build/release.js"
-  }
+  },
+  "license": "MIT"
 }
