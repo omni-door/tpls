@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.com/omni-door/tpls.svg?branch=master)](https://travis-ci.com/omni-door/tpls)
 [![codecov](https://codecov.io/gh/omni-door/tpls/branch/master/graph/badge.svg)](https://codecov.io/gh/omni-door/tpls)
-[![license](http://img.shields.io/npm/l/%40omni-door%2Ftpls.svg)](https://github.com/omni-door/tpls/blob/master/LICENSE)
+[![license](http://img.shields.io/npm/l/%40omni-door%2Fcli.svg)](https://github.com/omni-door/tpls/blob/master/LICENSE)
 
 [English](./README.md) | 简体中文
 
