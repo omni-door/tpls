@@ -21,7 +21,9 @@ module.exports = {
       // }
     ], // 开发服务代理配置 (dev-server proxy config)
     port: 6200, // 开发服务端口号 (dev-server port)
-    logLevel: 'error' // 开发服务日志输出等级，可选 'debug'、'info'、'warn'、'error'、'silent' (The log-level which dev-server will apply)
+    devMiddlewareOptions: {
+      logLevel: 'error' // 开发服务日志输出等级，可选 'debug'、'info'、'warn'、'error'、'silent' (The log-level which dev-server will apply)
+    }
   },
 
   build: {
