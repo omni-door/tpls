@@ -62,6 +62,7 @@ export type InitOptions = {
   projectName: string;
   initPath: string;
   configFileName?: string;
+  git?: string;
   devServer: DEVSERVER;
   ts: boolean;
   test: boolean;
@@ -85,6 +86,7 @@ async function init ({
   projectName: project_name,
   initPath,
   configFileName = 'omni.config.js',
+  git = '',
   devServer,
   ts,
   test,
@@ -154,7 +156,7 @@ async function init ({
   const params = { project_type, project_name, ts, test, eslint, prettier, commitlint, style, stylelint, strategy, configFileName };
   const pathToFileContentMap = {
     // default files
-    [`${configFileName}`]: tpl.omni(devServer === 'docz')(params),
+    [`${configFileName}`]: tpl.omni(devServer === 'docz')({ ...params, git }),
     'package.json': install && tpl.pkj({
       type_react: devDependencyMap['@types/react'],
       project_name,

@@ -39,7 +39,7 @@ module.exports = {
   },
 
   release: {
-    git: '', // 发布的git仓库地址 (project git repo url)
+    git: '\${git}', // 发布的git仓库地址 (project git repo url)
     npm: '', // 发布的npm仓库地址 (npm depository url)
     preflight: {
       test: \${!!test}, // 发布前是否进行单元测试 (whether or not process unit-test)
