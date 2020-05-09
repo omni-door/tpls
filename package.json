@@ -12,6 +12,7 @@
     "lint": "lerna run lint",
     "lint:fix": "lerna run lint:fix",
     "build": "lerna run build",
+    "upgrade:utils": "lerna run upgrade:utils",
     "release": "node ./build/release.js"
   },
   "license": "MIT"

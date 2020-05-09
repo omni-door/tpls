@@ -1,6 +1,6 @@
 {
   "name": "@omni-door/tpl-toolkit",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "The JS-SDK project template",
   "bin": {
     "omni-toolkit": "./bin/omni-door-toolkit.js"
@@ -39,13 +39,14 @@
     "build:tsc": "tsc --build",
     "build:branch": "../../build/branch.sh",
     "build:version": "../../build/version.sh",
-    "release": "npm run build:branch master Tpl-Toolkit && npm run build && npm run build:version Tpl-Toolkit"
+    "release": "npm run build:branch master Tpl-Toolkit && npm run build && npm run build:version Tpl-Toolkit",
+    "upgrade:utils": "yarn upgrade @omni-door/utils@latest"
   },
   "bugs": {
     "url": "https://github.com/omni-door/tpls/issues"
   },
   "dependencies": {
-    "@omni-door/utils": "^0.1.13"
+    "@omni-door/utils": "^0.1.14"
   },
   "devDependencies": {
     "@types/chai": "^4.2.11",
