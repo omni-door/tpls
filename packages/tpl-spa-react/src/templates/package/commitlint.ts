@@ -3,14 +3,14 @@ const tpl =
 "husky": {
   "hooks": {
     "pre-commit": "lint-staged",
-    "pre-push": \${
+    "pre-push": "\${
       (eslint || stylelint || prettier) && test
-        ? '"npm run lint && npm run test"'
+        ? 'npm run lint && npm run test'
         : (eslint || stylelint || prettier)
-            ? '"npm run lint"'
+            ? 'npm run lint'
             : test
-              ? '"npm run test"'
-              : ''},
+              ? 'npm run test'
+              : ''}",
     "commit-msg": "npm run lint:commit"
   }
 },
