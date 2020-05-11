@@ -53,6 +53,7 @@ module.exports = merge(commonConfig, {
         }
       })
     ],
+    chunkIds: 'named',
     splitChunks: {
       chunks: 'all',
       cacheGroups: {
