@@ -4,6 +4,7 @@ import tpl_babel from '../babel';
 import tpl_bisheng from '../bisheng';
 import tpl_bisheng_posts from '../bisheng/posts';
 import tpl_commitlint from '../commitlint';
+import tpl_editor from '../editor';
 import tpl_docz from '../docz';
 import tpl_docz_mdx from '../docz/mdx';
 import tpl_docz_gatsby from '../docz/gatsby';
@@ -42,6 +43,12 @@ describe('tpl_bisheng_posts template test', function () {
 describe('tpl_commitlint template test', function () {
   it('type checking', function () {
     expect(tpl_commitlint).to.be.a('function');
+  });
+});
+
+describe('tpl_editor template test', function () {
+  it('type checking', function () {
+    expect(tpl_editor).to.be.a('function');
   });
 });
 

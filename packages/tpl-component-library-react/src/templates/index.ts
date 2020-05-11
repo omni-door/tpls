@@ -1,5 +1,6 @@
 import babel, { tpl_babel } from './babel';
 import commitlint, { tpl_commitlint } from './commitlint';
+import editor, { tpl_editor } from './editor';
 import eslint, { tpl_eslint } from './eslint';
 import eslintignore, { tpl_ignore_eslint } from './ignore/eslintignore';
 import gitignore, { tpl_ignore_git } from './ignore/gitignore';
@@ -35,6 +36,7 @@ import component_stories, { tpl_new_story } from './new/stories';
 
 export { default as babel, tpl_babel } from './babel';
 export { default as commitlint, tpl_commitlint } from './commitlint';
+export { default as editor, tpl_editor } from './editor';
 export { default as eslint, tpl_eslint } from './eslint';
 export { default as eslintignore, tpl_ignore_eslint } from './ignore/eslintignore';
 export { default as gitignore, tpl_ignore_git } from './ignore/gitignore';
@@ -71,6 +73,7 @@ export { default as component_stories, tpl_new_story } from './new/stories';
 export const tpls = {
   babel,
   commitlint,
+  editor,
   eslint,
   eslintignore,
   gitignore,
@@ -110,6 +113,7 @@ export const tpls_origin = {
   tpl_bisheng,
   tpl_bisheng_posts,
   tpl_commitlint,
+  tpl_editor,
   tpl_docz,
   tpl_docz_mdx,
   tpl_eslint,
