@@ -21,13 +21,13 @@ updateVersion () {
     newVersion=$(echo ${version/${dot}${subVersion}${dot}${subSubVersion}/${dot}${subVersion}${dot}${newSubSubVersion}})
     newVersionLine=$(echo "${versionLine/${version}/${newVersion}}")
     echo -e "\033[36m${name}: Auto version iteration to ${newVersion}\033[0m"
-    sed -i "" "s/${versionLine}/${newVersionLine}/g" "package.json"
+    sed -i "s/${versionLine}/${newVersionLine}/g" "package.json"
   elif [ -n "$manualVersion" ]
     then
     newVersion=$(echo ${version/${version}/${manualVersion}})
     newVersionLine=$(echo "${versionLine/${version}/${newVersion}}")
     echo -e "\033[35m${name}: Manual version iteration to ${manualVersion}\033[0m"
-    sed -i "" "s/${versionLine}/${newVersionLine}/g" "package.json"
+    sed -i "s/${versionLine}/${newVersionLine}/g" "package.json"
   else
     echo -e "\033[41;37m${name}: Please input correct version number\033[0m"
     exit 1
