@@ -20,6 +20,7 @@ The JS-SDK project template for @omni-door
 | --- | --- |
 | babel | babel.config.js |
 | commitlint | commitlint.config.js |
+| editor | .editorconfig |
 | eslint | .eslintrc.js |
 | ignore | .eslintignore & .gitignore & .npmignore & .prettierignore |
 | karma | karma.conf.js |

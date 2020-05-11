@@ -21,6 +21,7 @@ The React component-library-react project template
 | babel | babel.config.js |
 | bisheng | bisheng.config.js & posts/README.md |
 | commitlint | commitlint.config.js |
+| editor | .editorconfig |
 | docz | .doczrc.js & gatsby-config.js |
 | eslint | .eslintrc.js |
 | ignore | .eslintignore & .gitignore & .npmignore & .prettierignore |

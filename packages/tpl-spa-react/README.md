@@ -20,7 +20,7 @@ The React single-page-application project template
 | --- | --- |
 | babel | babel.config.js |
 | commitlint | commitlint.config.js |
-| editor | .editorConfig |
+| editor | .editorconfig |
 | eslint | .eslintrc.js |
 | ignore | .eslintignore & .gitignore & .npmignore & .prettierignore |
 | jest | jest.config.js |
