@@ -2,6 +2,7 @@ import { describe, it } from 'mocha';
 import { expect } from 'chai';
 import tpl_babel from '../babel';
 import tpl_commitlint from '../commitlint';
+import tpl_editor from '../editor';
 import tpl_eslint from '../eslint';
 import tpl_eslintignore from '../ignore/eslintignore';
 import tpl_gitignore from '../ignore/gitignore';
@@ -25,6 +26,12 @@ describe('tpl_babel template test', function () {
 describe('tpl_commitlint template test', function () {
   it('type checking', function () {
     expect(tpl_commitlint).to.be.a('function');
+  });
+});
+
+describe('tpl_editor template test', function () {
+  it('type checking', function () {
+    expect(tpl_editor).to.be.a('function');
   });
 });
 
