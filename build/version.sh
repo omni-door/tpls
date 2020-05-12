@@ -4,6 +4,15 @@ pkgName=$1
 name="🐸  [OMNI-DOOR/${pkgName}]"
 dot="."
 iterate=$2
+OS=`uname`
+
+replaceVersion () {
+  if [ "$OS" = "Darwin" ]; then
+    sed -i "" "s/$1/$2/g" "package.json"
+  else
+    sed -i"" "s/$1/$2/g" "package.json"
+  fi
+}
 
 updateVersion () {
   versionLine=$(grep \"version\" package.json)
@@ -21,13 +30,13 @@ updateVersion () {
     newVersion=$(echo ${version/${dot}${subVersion}${dot}${subSubVersion}/${dot}${subVersion}${dot}${newSubSubVersion}})
     newVersionLine=$(echo "${versionLine/${version}/${newVersion}}")
     echo -e "\033[36m${name}: Auto version iteration to ${newVersion}\033[0m"
-    sed -i "s/${versionLine}/${newVersionLine}/g" "package.json"
+    replaceVersion "$versionLine" "$newVersionLine"
   elif [ -n "$manualVersion" ]
     then
     newVersion=$(echo ${version/${version}/${manualVersion}})
     newVersionLine=$(echo "${versionLine/${version}/${newVersion}}")
     echo -e "\033[35m${name}: Manual version iteration to ${manualVersion}\033[0m"
-    sed -i "s/${versionLine}/${newVersionLine}/g" "package.json"
+    replaceVersion "$versionLine" "$newVersionLine"
   else
     echo -e "\033[41;37m${name}: Please input correct version number\033[0m"
     exit 1
