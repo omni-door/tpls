@@ -2,7 +2,7 @@ import { tpl_engine_new } from '@omni-door/utils';
 
 const tpl = 
 `\`import React, { memo\${ts ? ', FC ' : ''}} from 'react';
-\${style ? \`import './style/\${componentName}.\${style === 'all' ? 'less' : style}';\` : ''}
+\${style ? \`import './style/\${componentName}.\${style === 'all' ? 'scss' : style}';\` : ''}
 
 \${ts ? \`export interface \${componentName}Props {}\` : ''}
 

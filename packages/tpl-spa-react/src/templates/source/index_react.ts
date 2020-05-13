@@ -6,8 +6,8 @@ import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import React from 'react';
 import { render } from 'react-dom';
-\${style ? \`import styles from './index.\${style === 'all' ? 'less' : style}';
-import './reset.\${style === 'all' ? 'less' : style}';\` : ''}
+\${style ? \`import styles from './index.\${style === 'all' ? 'scss' : style}';
+import './reset.\${style === 'all' ? 'scss' : style}';\` : ''}
 
 const App = () => (
   <div className={\${style ? 'styles.main' : "'main'"}}>

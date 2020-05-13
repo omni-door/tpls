@@ -146,7 +146,7 @@ async function init ({
   // 生成项目文件
   logTime('生成文件');
   const params = { project_type, project_name, ts, test, eslint, prettier, commitlint, style, stylelint, strategy, configFileName };
-  const suffix_stylesheet = style && style === 'all' ? 'less' : style;
+  const suffix_stylesheet = style && style === 'all' ? 'scss' : style;
   const pathToFileContentMap = {
     // default files
     [`${configFileName}`]: tpl.omni({ ...params, git }),
