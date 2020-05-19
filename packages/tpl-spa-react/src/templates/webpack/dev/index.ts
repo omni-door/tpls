@@ -17,7 +17,9 @@ const commonConfig = require('./webpack.config.common.js');
 
 module.exports = merge(commonConfig, {
   mode: 'development',
-  devtool: 'cheap-module-eval-source-map',
+  cache: true,
+  devtool: false,
+  // devtool: 'cheap-module-eval-source-map',
   optimization: {
     minimize: false,
   },
