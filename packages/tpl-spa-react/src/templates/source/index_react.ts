@@ -23,9 +23,11 @@ const App = () => (
 
 render(<App />, document.getElementById('root'));
 
+\${ !ts ? '/* eslint-disable no-undef */' : '' }
 if (module.hot) {
   module.hot.accept();
 }
+\${ !ts ? '/* eslint-enable no-undef */' : '' }
 \``;
 
 export const tpl_src_index = {
