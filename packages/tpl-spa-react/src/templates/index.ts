@@ -11,13 +11,14 @@ import omni, { tpl_omni } from './omni';
 import pkj, { tpl_package } from './package';
 import prettier, { tpl_prettier } from './prettier';
 import readme, { tpl_readme } from './readme';
-import tsconfig, { tpl_tsconfig } from './tsconfig';
-import stylelint, { tpl_stylelint } from './stylelint';
 import source_index_react, { tpl_src_index } from './source/index_react';
 import source_html, { tpl_src_html } from './source/html';
 import source_d, { tpl_src_declaration } from './source/declaration';
 import source_index_style, { tpl_src_style } from './source/style';
 import source_index_reset, { tpl_src_reset } from './source/reset';
+import stylelint, { tpl_stylelint } from './stylelint';
+import tsconfig, { tpl_tsconfig } from './tsconfig';
+import vscode, { tpl_vscode_setting } from './vsc';
 import webpack_config_common, { tpl_webpack_common } from './webpack/common';
 import webpack_config_dev, { tpl_webpack_dev } from './webpack/dev';
 import webpack_config_prod, { tpl_webpack_prod } from './webpack/prod';
@@ -41,13 +42,14 @@ export { default as omni, tpl_omni } from './omni';
 export { default as pkj, tpl_package } from './package';
 export { default as prettier, tpl_prettier } from './prettier';
 export { default as readme, tpl_readme } from './readme';
-export { default as tsconfig, tpl_tsconfig } from './tsconfig';
-export { default as stylelint,tpl_stylelint } from './stylelint';
 export { default as source_index_react, tpl_src_index } from './source/index_react';
 export { default as source_html, tpl_src_html } from './source/html';
 export { default as source_d, tpl_src_declaration } from './source/declaration';
 export { default as source_index_style, tpl_src_style } from './source/style';
 export { default as source_index_reset, tpl_src_reset } from './source/reset';
+export { default as stylelint, tpl_stylelint } from './stylelint';
+export { default as tsconfig, tpl_tsconfig } from './tsconfig';
+export { default as vscode, tpl_vscode_setting } from './vsc';
 export { default as webpack_config_common, tpl_webpack_common } from './webpack/common';
 export { default as webpack_config_dev, tpl_webpack_dev } from './webpack/dev';
 export { default as webpack_config_prod, tpl_webpack_prod } from './webpack/prod';
@@ -74,6 +76,7 @@ export const tpls = {
   readme,
   stylelint,
   tsconfig,
+  vscode,
   source_index_react,
   source_html,
   source_d,
@@ -106,6 +109,7 @@ export const tpls_origin = {
   tpl_prettier,
   tpl_stylelint,
   tpl_tsconfig,
+  tpl_vscode_setting,
   tpl_src_index,
   tpl_src_html,
   tpl_src_declaration,
