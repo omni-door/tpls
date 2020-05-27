@@ -12,6 +12,7 @@ import pkj, { tpl_package } from './package';
 import prettier, { tpl_prettier } from './prettier';
 import readme, { tpl_readme } from './readme';
 import tsconfig, { tpl_tsconfig } from './tsconfig';
+import vscode, { tpl_vscode_setting } from './vsc';
 import stylelint, { tpl_stylelint } from './stylelint';
 import styleguidist, { tpl_styleguidist } from './styleguidist';
 import source_index, { tpl_src_index } from './source/index';
@@ -48,6 +49,7 @@ export { default as pkj, tpl_package } from './package';
 export { default as prettier, tpl_prettier } from './prettier';
 export { default as readme, tpl_readme } from './readme';
 export { default as tsconfig, tpl_tsconfig } from './tsconfig';
+export { default as vscode, tpl_vscode_setting } from './vsc';
 export { default as stylelint, tpl_stylelint } from './stylelint';
 export { default as styleguidist, tpl_styleguidist } from './styleguidist';
 export { default as source_index, tpl_src_index } from './source/index';
@@ -87,6 +89,7 @@ export const tpls = {
   stylelint,
   styleguidist,
   tsconfig,
+  vscode,
   source_index,
   source_d,
   storybook_addons,
@@ -143,7 +146,8 @@ export const tpls_origin = {
   tpl_storybook_webpack,
   tpl_styleguidist,
   tpl_stylelint,
-  tpl_tsconfig
+  tpl_tsconfig,
+  tpl_vscode_setting
 };
 
 type TPLS = {

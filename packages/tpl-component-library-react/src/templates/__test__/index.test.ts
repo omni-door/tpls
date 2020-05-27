@@ -21,6 +21,7 @@ import tpl_prettier from '../prettier';
 import tpl_readme from '../readme';
 import tpl_stylelint from '../stylelint';
 import tpl_tsconfig from '../tsconfig';
+import tpl_vscode from '../vsc';
 
 describe('tpl_babel template test', function () {
   it('type checking', function () {
@@ -151,5 +152,11 @@ describe('tpl_stylelint template test', function () {
 describe('tpl_tsconfig template test', function () {
   it('type checking', function () {
     expect(tpl_tsconfig).to.be.a('function');
+  });
+});
+
+describe('tpl_vscode template test', function () {
+  it('type checking', function () {
+    expect(tpl_vscode).to.be.a('function');
   });
 });

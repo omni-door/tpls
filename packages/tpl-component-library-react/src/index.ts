@@ -169,6 +169,7 @@ async function init ({
     'tsconfig.json': ts && tpl.tsconfig(params), // tsconfig
     'jest.config.js': test && tpl.jest(params), // test files
     // lint files
+    '.vscode/settings.json': tpl.vscode(params),
     '.editorconfig': (eslint || prettier) && tpl.editor(params),
     '.eslintrc.js': eslint && tpl.eslint(params),
     '.eslintignore': eslint && tpl.eslintignore(params),

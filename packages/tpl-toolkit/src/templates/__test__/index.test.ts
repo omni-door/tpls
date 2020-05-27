@@ -16,6 +16,7 @@ import tpl_prettier from '../prettier';
 import tpl_prettierignore from '../ignore/prettierignore';
 import tpl_readme from '../readme';
 import tpl_tsconfig from '../tsconfig';
+import tpl_vscode from '../vsc';
 
 describe('tpl_babel template test', function () {
   it('type checking', function () {
@@ -110,5 +111,11 @@ describe('tpl_readme template test', function () {
 describe('tpl_tsconfig template test', function () {
   it('type checking', function () {
     expect(tpl_tsconfig).to.be.a('function');
+  });
+});
+
+describe('tpl_vscode template test', function () {
+  it('type checking', function () {
+    expect(tpl_vscode).to.be.a('function');
   });
 });

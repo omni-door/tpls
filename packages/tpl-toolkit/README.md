@@ -33,3 +33,4 @@ The JS-SDK project template for @omni-door
 | source | the standard templates in `src` folder |
 | tsconfig | tsconfig.json |
 | umi | .umirc.js & .env |
+| vsc | .vscode/settings.json |

@@ -19,6 +19,7 @@ import component_readme, { tpl_new_readme } from './new/readme';
 import component_test, { tpl_new_test } from './new/test';
 import umirc, { tpl_umirc } from './umi/umirc';
 import env, { tpl_env } from './umi/env';
+import vscode, { tpl_vscode_setting } from './vsc';
 
 export { default as babel, tpl_babel } from './babel';
 export { default as commitlint, tpl_commitlint } from './commitlint';
@@ -41,6 +42,7 @@ export { default as component_readme, tpl_new_readme } from './new/readme';
 export { default as component_test, tpl_new_test } from './new/test';
 export { default as umirc, tpl_umirc } from './umi/umirc';
 export { default as env, tpl_env } from './umi/env';
+export { default as vscode, tpl_vscode_setting } from './vsc';
 
 export const tpls = {
   babel,
@@ -63,7 +65,8 @@ export const tpls = {
   component_readme,
   component_test,
   umirc,
-  env
+  env,
+  vscode
 };
 
 export const tpls_origin = {
@@ -87,7 +90,8 @@ export const tpls_origin = {
   tpl_karma,
   tpl_mocha,
   tpl_umirc,
-  tpl_env
+  tpl_env,
+  tpl_vscode_setting
 };
 
 type TPLS = {

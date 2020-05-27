@@ -36,3 +36,4 @@ The React component-library-react project template
 | styleguidist | styleguide.config.js |
 | stylelint | stylelint.config.js |
 | tsconfig | tsconfig.json |
+| vsc | .vscode/settings.json |
