@@ -6,6 +6,7 @@ const tpl =
 *~
 ~*
 
+.vscode
 build
 src
 *test*
