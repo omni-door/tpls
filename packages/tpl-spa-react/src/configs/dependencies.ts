@@ -40,6 +40,7 @@ export function devDependencies (strategy: STRATEGY, config: Config) {
 
   const loaderDependencies = [
     dependency('babel-loader'),
+    dependency('cache-loader'),
     style ? dependency('style-loader') : '',
     style ? dependency('css-loader') : '',
     (style === 'all' || style === 'less') ? dependency('less') : '',

@@ -21,6 +21,7 @@ export const devDependencies = {
   '@typescript-eslint/eslint-plugin': '2.19.2',
   '@typescript-eslint/parser': '2.19.2',
   'babel-loader': '~8.1.0',
+  'cache-loader': '~4.1.0',
   'css-loader': '~3.4.2',
   'cssnano': '4.1.10',
   'del': '5.1.0',

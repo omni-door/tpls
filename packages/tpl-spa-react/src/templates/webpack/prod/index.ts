@@ -91,11 +91,12 @@ module.exports = merge(commonConfig, {
     new MiniCssExtractPlugin({
       filename: hash ? \\\`[name].[\\\${typeof hash === 'string' ? hash : 'contenthash'}:8].css\\\` : '[name].css'
     }),
-    new BundleAnalyzerPlugin({
-      analyzerMode: 'static',
-      defaultSizes: 'parsed',
-      reportFilename: './bundle_analysis.html'
-    }),
+    // ! 需要分析打包时，请打开注释
+    // new BundleAnalyzerPlugin({
+    //   analyzerMode: 'static',
+    //   defaultSizes: 'parsed',
+    //   reportFilename: './bundle_analysis.html'
+    // }),
     new HtmlWebpackPlugin({
       path: path.resolve(outDir),
       template: path.resolve(srcDir, 'index.html'),

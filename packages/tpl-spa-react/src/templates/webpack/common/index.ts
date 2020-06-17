@@ -17,6 +17,9 @@ module.exports = {
         test: \${ts ? /\\\.(js|jsx|ts|tsx)$/ : /\\\.(js|jsx)$/},
         use: [
           {
+            loader: 'cache-loader'
+          },
+          {
             loader: 'babel-loader'
           }
         ]
@@ -36,7 +39,10 @@ module.exports = {
     ],
   },
   plugins: [
-    new WebpackBar()
+    new WebpackBar({
+      name: '[OMNI-DOOR]:',
+      profile: true
+    })
   ],
   resolve: {
     extensions: [\${ts ? "'.ts', '.tsx', " : ''}'.js', '.jsx', \${style ? (style === 'css' ? "'.css'" : (style === 'less' ? "'.less', '.css'" : style === 'scss' ? "'.scss', '.css', '.sass'" : "'.scss', '.less', '.css', '.sass'")) : ''}]
