@@ -45,6 +45,9 @@ module.exports = {
     })
   ],
   resolve: {
+    alias: {
+      '@': path.resolve(__dirname, '../src')
+    },
     extensions: [\${ts ? "'.ts', '.tsx', " : ''}'.js', '.jsx', \${style ? (style === 'css' ? "'.css'" : (style === 'less' ? "'.less', '.css'" : style === 'scss' ? "'.scss', '.css', '.sass'" : "'.scss', '.less', '.css', '.sass'")) : ''}]
   }
 };
