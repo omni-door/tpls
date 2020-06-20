@@ -78,8 +78,7 @@ module.exports = {
     root: path.resolve('src'),
     typescript: \${!!ts}, // 是否创建ts文件 (whether or not generate typescript)
     test: \${!!test}, // 是否创建单元测试文件 (whether or not generate unit test frame)
-    stylesheet: '\${style === 'all' ? 'scss' : style}', // 样式文件类型 (stylesheet type)
-    readme: [true, 'md'] // [是否生成ReadMe文件, 创建md 或 mdx文件] ([whether or not README.md, generate mdx or md file])
+    stylesheet: '\${style === 'all' ? 'scss' : style}' // 样式文件类型 (stylesheet type)
   },
 
   plugins: []
