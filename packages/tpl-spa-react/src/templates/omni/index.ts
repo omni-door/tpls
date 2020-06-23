@@ -10,7 +10,7 @@ module.exports = {
   type: '\${project_type}', // 项目类型，请勿任意变动 (project type, please don't modify)
 
   dev: {
-    webpack: require(path.resolve('configs/webpack.config.dev.js')), // 开发服务端webpack配置 (dev-server webpack configuration)
+    webpack: require(path.resolve(__dirname, 'webpack.config.dev.js')), // 开发服务端webpack配置 (dev-server webpack configuration)
     proxy:  [
       // {
       //   route: '/api',
@@ -33,18 +33,18 @@ module.exports = {
 
     // 输入路径 (the build source directory)
     // 务必使用绝对路径 (must be a absolute path)
-    srcDir: path.resolve('src'),
+    srcDir: path.resolve(__dirname, '../src'),
 
     // 输出路径 (the directory for compiled project)
     // 务必使用绝对路径 (must be a absolute path)
-    outDir: path.resolve('dist'),
+    outDir: path.resolve(__dirname, '../dist'),
 
     // 构建的资源是否加上hash，可选 'hash'、'contenthash'、'chunkhash' (whether the hash tag add to building result)
     hash: true,
 
     // 构建阶段的自定义配置回调 (The callback will be call in the build-process)
     // 返回自定义的配置 (You can return your custom build configuration)
-    configuration: config => merge(config, require(path.resolve('configs/webpack.config.prod.js'))),
+    configuration: config => merge(config, require(path.resolve(__dirname, 'webpack.config.prod.js'))),
 
     reserve: {
       style: false, // 构建结果是否保留样式文件 (whether or not reserve the stylesheet files)
@@ -75,7 +75,7 @@ module.exports = {
   template: {
     // 生成模板的根路径 (the root directory for generate template)
     // 务必使用绝对路径 (must be a absolute path)
-    root: path.resolve('src'),
+    root: path.resolve(__dirname, '../src'),
     typescript: \${!!ts}, // 是否创建ts文件 (whether or not generate typescript)
     test: \${!!test}, // 是否创建单元测试文件 (whether or not generate unit test frame)
     stylesheet: '\${style === 'all' ? 'scss' : style}' // 样式文件类型 (stylesheet type)

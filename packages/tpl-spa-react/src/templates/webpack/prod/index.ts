@@ -16,7 +16,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 const commonConfig = require(path.resolve(__dirname, 'webpack.config.common.js'));
-const { build } = require(path.resolve(__dirname, '../\${configFileName}'));
+const { build } = require(path.resolve(__dirname, '\${configFileName}'));
 const {
   srcDir = path.resolve(__dirname, '../src/'),
   outDir = path.resolve(__dirname, '../lib/'),

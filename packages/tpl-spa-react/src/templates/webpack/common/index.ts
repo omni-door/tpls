@@ -6,7 +6,7 @@ const tpl =
 const path = require('path');
 const WebpackBar = require('webpackbar');
 
-const cliConfig = require(path.resolve(__dirname, '../\${configFileName}'));
+const cliConfig = require(path.resolve(__dirname, '\${configFileName}'));
 const hash = cliConfig && cliConfig.build && cliConfig.build.hash;
 
 
