@@ -19,7 +19,7 @@ module.exports = {
   ],
 
   roots: [
-    "<rootDir>/src"
+    "<rootDir>/../src"
   ],
 
   testRegex: "(test|__test__)/.*.test.(tsx|ts|jsx|js)?$",
