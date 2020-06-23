@@ -45,7 +45,7 @@ const tpl =
   \${alter('stylelint', 'field_stylelint')}
   \${alter('commitlint', 'field_commitlint')}
   "omni": {
-    "path": "./configs/omni.config.js"
+    "filePath": "./configs/omni.config.js"
   },
   "license": "ISC"
 }

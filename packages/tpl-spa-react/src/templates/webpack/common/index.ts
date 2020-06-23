@@ -20,7 +20,10 @@ module.exports = {
             loader: 'cache-loader'
           },
           {
-            loader: 'babel-loader'
+            loader: 'babel-loader',
+            options: {
+              configFile: path.resolve(__dirname, 'babel.config.js')
+            }
           }
         ]
       },
