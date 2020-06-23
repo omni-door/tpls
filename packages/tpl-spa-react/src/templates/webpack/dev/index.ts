@@ -54,7 +54,7 @@ module.exports = merge(commonConfig, {
       environmentHash: {
         root: process.cwd(),
         directories: [],
-        files: ['package-lock.json', 'yarn.lock', 'omni.config.js', 'babel.config.js', 'configs/*'],
+        files: ['package-lock.json', 'yarn.lock', 'configs/*'],
       },
       info: {
         mode: 'none',
