@@ -162,7 +162,7 @@ async function init ({
     'configs/webpack.config.dev.js': tpl.webpack_config_dev(params),
     'configs/webpack.config.prod.js': tpl.webpack_config_prod(params),
     'tsconfig.json': ts && tpl.tsconfig(params), // tsconfig
-    'jest.config.js': test && tpl.jest(params), // test files
+    'configs/jest.config.js': test && tpl.jest(params), // test files
     // lint files
     '.vscode/settings.json': tpl.vscode(params),
     '.editorconfig': (eslint || prettier) && tpl.editor(params),
