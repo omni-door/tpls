@@ -149,7 +149,7 @@ async function init ({
   const suffix_stylesheet = style && style === 'all' ? 'scss' : style;
   const pathToFileContentMap = {
     // default files
-    [`${configFileName}`]: tpl.omni({ ...params, git }),
+    [`configs/${configFileName}`]: tpl.omni({ ...params, git }),
     'package.json': install && tpl.pkj(devDependencyMap['@types/react'])({ ...params, install, dependencies: '', devDependencies: '' }),
     '.gitignore': tpl.gitignore(params),
     [`src/index.${ts ? 'tsx' : 'jsx'}`]: tpl.source_index_react(params),
@@ -166,13 +166,13 @@ async function init ({
     // lint files
     '.vscode/settings.json': tpl.vscode(params),
     '.editorconfig': (eslint || prettier) && tpl.editor(params),
-    '.eslintrc.js': eslint && tpl.eslint(params),
+    'configs/.eslintrc.js': eslint && tpl.eslint(params),
     '.eslintignore': eslint && tpl.eslintignore(params),
-    'prettier.config.js': prettier && tpl.prettier(params),
+    'configs/prettier.config.js': prettier && tpl.prettier(params),
     '.prettierignore': prettier && tpl.prettierignore(params),
-    'stylelint.config.js': stylelint && tpl.stylelint(params),
-    'commitlint.config.js': commitlint && tpl.commitlint(params),
-    'babel.config.js': tpl.babel(params), // build files
+    'configs/stylelint.config.js': stylelint && tpl.stylelint(params),
+    'configs/commitlint.config.js': commitlint && tpl.commitlint(params),
+    'configs/babel.config.js': tpl.babel(params), // build files
     'README.md': tpl.readme(params) // ReadMe
   };
   const file_path = (p: string) => path.resolve(initPath, p);
