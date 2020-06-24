@@ -25,7 +25,8 @@ module.exports = merge(commonConfig, {
   },
   entry: [
     'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
-    path.join(__dirname, '../src/index.\${ts ? 'tsx' : 'jsx'}')
+    path.join(__dirname, '../src/index.\${ts ? 'tsx' : 'jsx'}'),
+    publicPath: '/'
   ],
   output: {
     filename: 'main.js',
