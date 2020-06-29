@@ -54,6 +54,8 @@ export function devDependencies (strategy: STRATEGY, config: Config) {
     dependency('@babel/core'),
     dependency('@babel/preset-env'),
     dependency('@babel/preset-react'),
+    dependency('@babel/plugin-transform-runtime'),
+    dependency('@babel/plugin-proposal-class-properties'),
     ts ? dependency('@babel/preset-typescript') : ''
   ];
 
@@ -76,7 +78,6 @@ export function devDependencies (strategy: STRATEGY, config: Config) {
     dependency('@types/react-dom'),
     dependency('typescript'),
     dependency('ts-node'),
-    dependency('ts-loader'),
     ...testTypesDependencies
   ] : [];
 
@@ -133,8 +134,7 @@ export function devDependencies (strategy: STRATEGY, config: Config) {
     dependency('awesome-typescript-loader'),
     dependency('react-docgen-typescript-loader'),
     dependency('storybook-readme'),
-    ...loaderDependencies,
-    ...babelDependencies
+    ...loaderDependencies
   ];
 
   const bishengDependencies = [
@@ -150,7 +150,6 @@ export function devDependencies (strategy: STRATEGY, config: Config) {
     dependency('webpack'),
     ts ? dependency('react-docgen-typescript') : '',
     ...loaderDependencies,
-    ...babelDependencies
   ];
 
   let devServerDependencies: string[] = [];
@@ -169,11 +168,23 @@ export function devDependencies (strategy: STRATEGY, config: Config) {
       break;
   }
 
+  const buildDependencies = [
+    dependency('gulp'),
+    dependency('gulp-autoprefixer'),
+    dependency('gulp-babel'),
+    dependency('gulp-cssnano'),
+    dependency('gulp-less'),
+    dependency('gulp-sass'),
+    dependency('through2'),
+    ...babelDependencies
+  ];
+
   const defaultDep = [
     dependency('@omni-door/cli'),
     dependency('del'),
     dependency('react'),
-    dependency('react-dom')
+    dependency('react-dom'),
+    dependency('prop-types')
   ];
 
   return {
@@ -185,7 +196,8 @@ export function devDependencies (strategy: STRATEGY, config: Config) {
       ...prettierDependencies,
       ...commitlintDependencies,
       ...stylelintDependencies,
-      ...devServerDependencies
+      ...devServerDependencies,
+      ...buildDependencies
     ],
     defaultDepArr: defaultDep,
     defaultDepStr: arr2str(defaultDep),
@@ -202,7 +214,9 @@ export function devDependencies (strategy: STRATEGY, config: Config) {
     stylelintDepArr: stylelintDependencies,
     stylelintDepStr: arr2str(stylelintDependencies),
     devServerDepArr: devServerDependencies,
-    devServerDepStr: arr2str(devServerDependencies)
+    devServerDepStr: arr2str(devServerDependencies),
+    buildDepArr: buildDependencies,
+    buildDepStr: arr2str(buildDependencies),
   };
 }
 

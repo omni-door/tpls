@@ -3,9 +3,11 @@ import { expect } from 'chai';
 import component_class from '../class_component';
 import component_function from '../functional_component';
 import component_index from '../index';
+import component_interface from '../interface';
 import component_mdx from '../mdx';
 import component_readme from '../readme';
 import component_stories from '../stories';
+import component_style from '../style';
 import component_stylesheet from '../stylesheet';
 import component_test from '../test';
 
@@ -27,6 +29,12 @@ describe('component_index template test', function () {
   });
 });
 
+describe('component_interface template test', function () {
+  it('type checking', function () {
+    expect(component_interface).to.be.a('function');
+  });
+});
+
 describe('component_mdx template test', function () {
   it('type checking', function () {
     expect(component_mdx).to.be.a('function');
@@ -42,6 +50,12 @@ describe('component_readme template test', function () {
 describe('component_stories template test', function () {
   it('type checking', function () {
     expect(component_stories).to.be.a('function');
+  });
+});
+
+describe('component_style template test', function () {
+  it('type checking', function () {
+    expect(component_style).to.be.a('function');
   });
 });
 

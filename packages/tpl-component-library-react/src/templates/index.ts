@@ -29,7 +29,9 @@ import mdx, { tpl_docz_mdx } from './docz/mdx';
 import component_class, { tpl_new_class } from './new/class_component';
 import component_functional, { tpl_new_functional } from './new/functional_component';
 import component_index, { tpl_new_index } from './new/index';
+import component_interface, { tpl_new_interface } from './new/interface';
 import component_readme, { tpl_new_readme } from './new/readme';
+import component_style, { tpl_new_style } from './new/style';
 import component_stylesheet, { tpl_new_stylesheet } from './new/stylesheet';
 import component_test, { tpl_new_test } from './new/test';
 import component_mdx, { tpl_new_mdx } from './new/mdx';
@@ -66,7 +68,9 @@ export { default as mdx, tpl_docz_mdx } from './docz/mdx';
 export { default as component_class, tpl_new_class } from './new/class_component';
 export { default as component_functional, tpl_new_functional } from './new/functional_component';
 export { default as component_index, tpl_new_index } from './new/index';
+export { default as component_interface, tpl_new_interface } from './new/interface';
 export { default as component_readme, tpl_new_readme } from './new/readme';
+export { default as component_style, tpl_new_style } from './new/style';
 export { default as component_stylesheet, tpl_new_stylesheet } from './new/stylesheet';
 export { default as component_test, tpl_new_test } from './new/test';
 export { default as component_mdx, tpl_new_mdx } from './new/mdx';
@@ -104,7 +108,9 @@ export const tpls = {
   component_class,
   component_functional,
   component_index,
+  component_interface,
   component_readme,
+  component_style,
   component_stylesheet,
   component_test,
   component_mdx,
@@ -129,9 +135,11 @@ export const tpls_origin = {
   tpl_new_class,
   tpl_new_functional,
   tpl_new_index,
+  tpl_new_interface,
   tpl_new_mdx,
   tpl_new_readme,
   tpl_new_story,
+  tpl_new_style,
   tpl_new_stylesheet,
   tpl_new_test,
   tpl_omni,
@@ -162,7 +170,9 @@ export type TPLS_INITIAL = Omit<TPLS,
   'component_class' |
   'component_functional' |
   'component_index' |
+  'component_interface' |
   'component_readme' |
+  'component_style' |
   'component_stylesheet' |
   'component_test' |
   'component_mdx' |
@@ -173,7 +183,9 @@ export type TPLS_ORIGIN_INITIAL = Omit<TPLS_ORIGIN,
   'tpl_new_class' |
   'tpl_new_functional' |
   'tpl_new_index' |
+  'tpl_new_interface' |
   'tpl_new_readme' |
+  'tpl_new_style' |
   'tpl_new_stylesheet' |
   'tpl_new_test' |
   'tpl_new_story' |
@@ -188,7 +200,9 @@ export type TPLS_NEW = Pick<TPLS,
   'component_class' |
   'component_functional' |
   'component_index' |
+  'component_interface' |
   'component_readme' |
+  'component_style' |
   'component_stylesheet' |
   'component_test' |
   'component_mdx' |
@@ -199,7 +213,9 @@ export type TPLS_ORIGIN_NEW = Pick<TPLS_ORIGIN,
   'tpl_new_class' |
   'tpl_new_functional' |
   'tpl_new_index' |
+  'tpl_new_interface' |
   'tpl_new_readme' |
+  'tpl_new_style' |
   'tpl_new_stylesheet' |
   'tpl_new_test' |
   'tpl_new_story' |

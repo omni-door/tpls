@@ -35,7 +35,9 @@ const {
   component_class,
   component_functional,
   component_index,
+  component_interface,
   component_readme,
+  component_style,
   component_stylesheet,
   component_test,
   component_mdx,
@@ -47,9 +49,11 @@ const {
   tpl_new_class,
   tpl_new_functional,
   tpl_new_index,
+  tpl_new_interface,
   tpl_new_mdx,
   tpl_new_readme,
   tpl_new_story,
+  tpl_new_style,
   tpl_new_stylesheet,
   tpl_new_test,
   ...origin_tpl_list
@@ -249,6 +253,8 @@ async function init ({
     stylelintDepStr,
     devServerDepArr,
     devServerDepStr,
+    buildDepArr,
+    buildDepStr,
     devDepArr
   } = devDependencies(strategy, {
     ts,
@@ -278,6 +284,7 @@ async function init ({
         commitlintDepArr = [ ...intersection(commitlintDepArr, commitlintDepArr.filter(v => v !== item_rm)) ];
         stylelintDepArr = [ ...intersection(stylelintDepArr, stylelintDepArr.filter(v => v !== item_rm)) ];
         devServerDepArr = [ ...intersection(devServerDepArr, devServerDepArr.filter(v => v !== item_rm)) ];
+        buildDepArr = [ ...intersection(buildDepArr, buildDepArr.filter(v => v !== item_rm)) ];
       }
       defaultDepStr = arr2str(defaultDepArr);
       tsDepStr = arr2str(tsDepArr);
@@ -287,6 +294,7 @@ async function init ({
       commitlintDepStr = arr2str(commitlintDepArr);
       stylelintDepStr = arr2str(stylelintDepArr);
       devServerDepStr = arr2str(devServerDepArr);
+      buildDepStr = arr2str(buildDepArr);
       customDepStr = arr2str(add);
     }
   }
@@ -299,6 +307,7 @@ async function init ({
   const installCommitlintDevCli = commitlintDepStr ? `${installDevCliPrefix} ${commitlintDepStr}` : '';
   const installStylelintDevCli = stylelintDepStr ? `${installDevCliPrefix} ${stylelintDepStr}` : '';
   const installServerDevCli = devServerDepStr ? `${installDevCliPrefix} ${devServerDepStr}` : '';
+  const installBuildDevCli = buildDepStr ? `${installDevCliPrefix} ${buildDepStr}` : '';
   const installCustomDevCli = customDepStr ? `${installDevCliPrefix} ${customDepStr}` : '';
   logTime('依赖解析', true);
 
@@ -315,6 +324,7 @@ async function init ({
       installCommitlintDevCli,
       installStylelintDevCli,
       installServerDevCli,
+      installBuildDevCli,
       installCustomDevCli
     ], res => {
       logTime('安装依赖', true);
@@ -364,7 +374,9 @@ const default_tpl_new_list = {
   component_class,
   component_functional,
   component_index,
+  component_interface,
   component_readme,
+  component_style,
   component_stylesheet,
   component_test,
   component_mdx,
@@ -375,9 +387,11 @@ const origin_tpl_new_list = {
   tpl_new_class,
   tpl_new_functional,
   tpl_new_index,
+  tpl_new_interface,
   tpl_new_mdx,
   tpl_new_readme,
   tpl_new_story,
+  tpl_new_style,
   tpl_new_stylesheet,
   tpl_new_test
 };
@@ -442,18 +456,22 @@ export function newTpl ({
   };
   // component tpl
   const content_index = tpl.component_index(params);
+  const content_interface = ts && tpl.component_interface({ ...params, cc: type === 'cc' });
   const content_cc = type === 'cc' && tpl.component_class(params);
   const content_fc = type === 'fc' && tpl.component_functional(params);
   const content_readme = md === 'md' && tpl.component_readme(params);
   const content_mdx = md === 'mdx' && tpl.component_mdx(params);
   const content_stories = hasStorybook && tpl.component_stories(params);
-  const content_style = stylesheet && tpl.component_stylesheet(params);
+  const content_style = stylesheet && tpl.component_style(params);
+  const content_stylesheet = stylesheet && tpl.component_stylesheet(params);
   const content_test = test && tpl.component_test(params);
 
   const pathToFileContentMap = {
     [`index.${ts ? 'ts' : 'js'}`]: content_index,
     [`${componentName}.${ts ? 'tsx' : 'jsx'}`]: content_fc || content_cc,
-    [`style/${componentName}.${stylesheet}`]: content_style,
+    'interface.ts': content_interface,
+    [`style/index.${ts ? 'ts' : 'js'}`]: content_style,
+    [`style/${componentName}.${stylesheet}`]: content_stylesheet,
     [`__test__/index.test.${
       ts
         ? 'tsx'

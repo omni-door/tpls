@@ -7,6 +7,7 @@ route: /\${componentName}
 ---
 import { Playground, Props } from 'docz';
 import { \${componentName} } from './index';
+\${style ? "import './style';" : ''}
 
 # \${componentName} 组件
 

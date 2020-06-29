@@ -6,10 +6,10 @@ export const dependencies = {
 };
 
 export const devDependencies = {
-  '@babel/core': '~7.9.0',
-  '@babel/preset-env': '~7.9.0',
-  '@babel/preset-react': '~7.9.1',
-  '@babel/preset-typescript': '~7.9.0',
+  '@babel/core': '~7.10.0',
+  '@babel/preset-env': '~7.10.0',
+  '@babel/preset-react': '~7.10.0',
+  '@babel/preset-typescript': '~7.10.0',
   '@commitlint/cli': '8.3.5',
   '@types/enzyme': '3.10.5',
   '@types/enzyme-adapter-react-16': '1.0.6',

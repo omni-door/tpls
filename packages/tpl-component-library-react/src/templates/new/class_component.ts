@@ -2,11 +2,8 @@ import { tpl_engine_new } from '@omni-door/utils';
 
 const tpl = 
 `\`import React, { PureComponent } from 'react';
-\${style ? \`import './style/\${componentName}.\${style === 'all' ? 'scss' : style}';\` : ''}
-
-\${ts ? \`export interface \${componentName}Props {}
-
-export interface \${componentName}States {}\` : ''}
+import propTypes from 'prop-types';
+\${ts ? \`import { \${componentName}Props, \${componentName}States } from './interface';\` : ''}
 
 export class \${componentName} extends PureComponent\${ts ? \`<\${componentName}Props, \${componentName}States>\` : ''} {
   \${ts ? 'public ' : ''}render() {
@@ -21,6 +18,14 @@ export class \${componentName} extends PureComponent\${ts ? \`<\${componentName}
     );
   }
 }
+
+/**
+ * 使用 prop-types 是为了确保即便宿主环境没有使用 typescript 也依然能够进行类型检查
+ * prop-types can make sure the type-check whatever the environment whether or not use typescript
+ */
+\${componentName}.propTypes = {
+  className: propTypes.string
+};
 
 export default \${componentName};
 \``;

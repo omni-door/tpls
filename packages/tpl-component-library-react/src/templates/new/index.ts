@@ -1,10 +1,13 @@
 import { tpl_engine_new } from '@omni-door/utils';
 
 const tpl = 
-`\`\${ts ? \`import * as \${componentName} from './\${componentName}'\` : \`import \${componentName} from './\${componentName}'\`};
+`\`import \${componentName} from './\${componentName}';
 
 export { \${componentName} } from './\${componentName}';
+
 export default \${componentName};
+
+export * from './interface';
 \``;
 
 export const tpl_new_index = {
