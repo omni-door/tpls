@@ -43,8 +43,7 @@ module.exports = {
   },
   plugins: [
     new WebpackBar({
-      name: '[OMNI-DOOR]:',
-      profile: true
+      name: '[OMNI-DOOR]:'
     })
   ],
   resolve: {
