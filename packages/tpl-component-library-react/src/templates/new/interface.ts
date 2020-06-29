@@ -1,7 +1,7 @@
 import { tpl_engine_new } from '@omni-door/utils';
 
 const tpl = 
-`\`\${cc ? \`export interface \${componentName}States {}\` : ''}
+`\`\${cc ? \`export interface \${componentName}States {}\n\` : ''}
 export interface \${componentName}Props {
   className?: string;
 }
