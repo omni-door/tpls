@@ -5,11 +5,13 @@ const tpl =
 import { setOptions } from '@storybook/addon-options';
 import { addReadme } from 'storybook-readme';
 import { withInfo } from '@storybook/addon-info';
+import { themes } from '@storybook/theming';
 
 addDecorator(withInfo);
 addDecorator(addReadme);
 setOptions({
   name: '\${project_name}',
+  theme: themes.dark
 });
 
 const req = require.context('../src/', true, /\.stories\.(tsx|jsx)$/);

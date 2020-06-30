@@ -132,6 +132,7 @@ export function devDependencies (strategy: STRATEGY, config: Config) {
     dependency('@storybook/addon-knobs'),
     dependency('@storybook/addon-links'),
     dependency('@storybook/addon-notes'),
+    dependency('@storybook/theming'),
     dependency('awesome-typescript-loader'),
     dependency('react-docgen-typescript-loader'),
     dependency('storybook-readme'),

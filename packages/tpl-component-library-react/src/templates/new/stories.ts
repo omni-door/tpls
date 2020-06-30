@@ -14,6 +14,7 @@ storiesOf('\${componentName}', module)
       highlightSidebar: true,
       codeTheme: 'github'
     },
+    options: { theme: { base: '' } },
     viewport: {
       viewports: INITIAL_VIEWPORTS,
       defaultViewport: 'iphone6'
