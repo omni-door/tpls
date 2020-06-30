@@ -172,8 +172,10 @@ export function devDependencies (strategy: STRATEGY, config: Config) {
     dependency('gulp'),
     dependency('gulp-autoprefixer'),
     dependency('gulp-babel'),
+    dependency('gulp-concat'),
     dependency('gulp-cssnano'),
     dependency('gulp-less'),
+    dependency('gulp-minify-css'),
     dependency('gulp-sass'),
     dependency('through2'),
     ...babelDependencies
