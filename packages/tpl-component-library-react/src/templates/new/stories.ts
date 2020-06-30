@@ -4,6 +4,7 @@ const tpl =
 `\`import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
+import { themes } from '@storybook/theming';
 import { \${componentName} } from '../index';
 \${style ? "import '../style';" : ''}
 
@@ -14,7 +15,7 @@ storiesOf('\${componentName}', module)
       highlightSidebar: true,
       codeTheme: 'github'
     },
-    options: { theme: { base: '' } },
+    options: { theme: themes.light },
     viewport: {
       viewports: INITIAL_VIEWPORTS,
       defaultViewport: 'iphone6'
