@@ -73,6 +73,7 @@ export const devDependencies = {
   '@storybook/react': '5.2.5',
   '@storybook/addons': '5.2.5',
   '@storybook/addon-options': '5.2.5',
+  '@storybook/addon-viewport': '5.2.7',
   '@storybook/addon-actions': '5.2.5',
   '@storybook/addon-docs': '5.2.5',
   '@storybook/addon-info': '5.2.5',
