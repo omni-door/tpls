@@ -83,7 +83,9 @@ export function devDependencies (strategy: STRATEGY, config: Config) {
   ] : [];
 
   const dumiDependencies = [
-    dependency('dumi')
+    dependency('dumi'),
+    dependency('ip'),
+    dependency('detect-port')
   ];
 
   const defaultDep = [

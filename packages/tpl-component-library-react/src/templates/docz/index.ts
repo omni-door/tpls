@@ -7,8 +7,7 @@ module.exports = {
   title: '\${project_name}',
   typescript: \${ts ? true : false},
   src: './src/',
-  files: '**/*.{md,markdown,mdx}',
-  port: 6200
+  files: '**/*.{md,markdown,mdx}'
 };
 \``;
 

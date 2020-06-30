@@ -164,7 +164,7 @@ async function init ({
     'README.md': tpl.readme(params),
     // dumi-config files
     [`.umirc.${ts ? 'ts' : 'js'}`]: tpl.umirc(params),
-    '.env': tpl.env(params),
+    // '.env': tpl.env(params),
     // test files
     'mocha.opts': test && tpl.mocha(params),
     'karma.conf.js': test && tpl.karma(params),

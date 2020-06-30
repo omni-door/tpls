@@ -8,6 +8,11 @@ const path = require('path');
 module.exports = {
   type: '\${project_type}', // 项目类型，请勿任意变动 (project type, please don't modify)
 
+  dev: {
+    port: 6200, // 开发服务端口号 (dev-server port)
+    serverType: 'dumi' // 开发服务类型 (dev-server type)
+  },
+
   build: {
     // 构建完成后是否自动发布 (auto release project after build success)
     autoRelease: false,

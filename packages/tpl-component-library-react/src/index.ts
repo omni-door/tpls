@@ -160,7 +160,7 @@ async function init ({
   const params = { project_type, project_name, ts, test, eslint, prettier, commitlint, style, stylelint, strategy, configFileName };
   const pathToFileContentMap = {
     // default files
-    [`${configFileName}`]: tpl.omni(devServer === 'docz')({ ...params, git }),
+    [`${configFileName}`]: tpl.omni({ ...params, git, devServer }),
     'package.json': install && tpl.pkj({
       type_react: devDependencyMap['@types/react'],
       project_name,

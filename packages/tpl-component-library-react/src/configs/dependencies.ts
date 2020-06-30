@@ -153,19 +153,22 @@ export function devDependencies (strategy: STRATEGY, config: Config) {
     ...loaderDependencies,
   ];
 
-  let devServerDependencies: string[] = [];
+  const devServerDependencies: string[] = [
+    dependency('ip'),
+    dependency('detect-port')
+  ];
   switch(devServer) {
     case 'docz':
-      devServerDependencies = doczDependencies;
+      devServerDependencies.push(...doczDependencies);
       break;
     case 'storybook':
-      devServerDependencies = storybookDependencies;
+      devServerDependencies.push(...storybookDependencies);
       break;
     case 'bisheng':
-      devServerDependencies = bishengDependencies;
+      devServerDependencies.push(...bishengDependencies);
       break;
     case 'styleguidist':
-      devServerDependencies = styleguidistDependencies;
+      devServerDependencies.push(...styleguidistDependencies);
       break;
   }
 

@@ -8,6 +8,11 @@ const path = require('path');
 module.exports = {
   type: '\${project_type}', // 项目类型，请勿任意变动 (project type, please don't modify)
 
+  dev: {
+    port: 6200, // 开发服务端口号 (dev-server port)
+    serverType: '\${devServer}' // 开发服务类型 (dev-server type)
+  },
+
   build: {
     // 构建完成后是否自动发布 (auto release project after build success)
     autoRelease: false,
@@ -58,7 +63,7 @@ module.exports = {
     typescript: \${!!ts}, // 是否创建ts文件 (whether or not generate typescript)
     test: \${!!test}, // 是否创建单元测试文件 (whether or not generate unit test frame)
     stylesheet: '\${style === 'all' ? 'scss' : style}', // 样式文件类型 (stylesheet type)
-    readme: [true, \${mdx ? "'mdx'" : "'md'"}] // [是否生成ReadMe文件, 创建md 或 mdx文件] ([whether or not README.md, generate mdx or md file])
+    readme: [true, \${devServer === 'docz' ? "'mdx'" : "'md'"}] // [是否生成ReadMe文件, 创建md 或 mdx文件] ([whether or not README.md, generate mdx or md file])
   },
 
   plugins: []
@@ -69,4 +74,4 @@ export const tpl_omni = {
   tpl
 };
 
-export default (mdx: boolean) => tpl_engine_init(tpl_omni, 'tpl', { mdx });
+export default tpl_engine_init(tpl_omni, 'tpl');

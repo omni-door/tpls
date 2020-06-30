@@ -18,8 +18,8 @@ const tpl =
   "module": "es/components/index.js",
   "typings": "lib/components/index.d.ts",
   "scripts": {
-    \${devScript ? \`"start": "\${devScript}",
-    "dev": "\${devScript}",\` : ''}
+    "start": "omni dev",
+    "dev": "omni dev",
     \${alter('test', 'script_test')}
     \${include('script_lint')}
     \${alter('eslint', 'script_lint_es')}
