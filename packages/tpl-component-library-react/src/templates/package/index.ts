@@ -80,11 +80,11 @@ export default ({
   switch(devServer) {
     case 'docz':
       devScript = 'docz dev';
-      demoScript = `docz build --base /${project_name.toLowerCase()}`;
+      demoScript = `docz build --base /dist-docz`;
       break;
     case 'storybook':
       devScript = 'start-storybook -p 6200';
-      demoScript = `build-storybook -c .storybook -o .${project_name.toLowerCase()}`;
+      demoScript = `build-storybook -c .storybook -o dist-story`;
       break;
     case 'bisheng':
       devScript = 'bisheng start';
