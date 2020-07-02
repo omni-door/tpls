@@ -12,7 +12,7 @@ const tpl =
 node_modules
 lib
 es
-dist
+dist*
 
 package-lock.json
 
