@@ -13,10 +13,10 @@ or
 npm run dev
 \\\`\\\`\\\`
 
-## Create a Tool
+## Create a Module
 
 \\\`\\\`\\\`shell
-npm run new [toolName]
+npm run new
 \\\`\\\`\\\`
 
 ## Build project
@@ -36,12 +36,12 @@ npm run build -- -n
 npm run release
 \\\`\\\`\\\`
 
-### Ignoring the automatic iteration version
+### Ignoring version of iteration
 \\\`\\\`\\\`shell
 npm run release -- -i
 \\\`\\\`\\\`
 
-### Manual iteration version
+### Manual specify version of iteration
 \\\`\\\`\\\`shell
 npm run release -- -m 0.3.25
 \\\`\\\`\\\`

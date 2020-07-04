@@ -15,14 +15,13 @@ npm run dev
 
 ## Create a Component
 
-### Class Component
 \\\`\\\`\\\`shell
-npm run new [componentName]
+npm run new
 \\\`\\\`\\\`
 
-### Functional Component
+### Create a functional Component which name is Button
 \\\`\\\`\\\`shell
-npm run new [componentName] -- -f
+npm run new Button -- -f
 \\\`\\\`\\\`
 
 ## Build project
@@ -42,12 +41,12 @@ npm run build -- -n
 npm run release
 \\\`\\\`\\\`
 
-### Ignoring the automatic iteration version
+### Ignoring version of iteration
 \\\`\\\`\\\`shell
 npm run release -- -i
 \\\`\\\`\\\`
 
-### Manual iteration version
+### Manual specify version of iteration
 \\\`\\\`\\\`shell
 npm run release -- -m 0.3.25
 \\\`\\\`\\\`
