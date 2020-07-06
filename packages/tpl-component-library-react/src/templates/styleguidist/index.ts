@@ -21,9 +21,10 @@ module.exports = {
   },
   moduleAliases: {
 		'rsg-example': path.resolve(__dirname, 'src'),
-	},
+  },
+  styleguideDir: 'dist-styleguide',
   ribbon: {
-    url: '',
+    url: '\${git || ''}',
     text: 'Fork me on GitLab'
   },
   version,

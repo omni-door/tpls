@@ -9,6 +9,7 @@ module.exports = {
   port: 6200,
   root: '/bisheng/',
   theme: 'bisheng-theme-one',
+  output: 'dist-bisheng',
   themeConfig: {
     home: '/',
     sitename: '\${project_name}',

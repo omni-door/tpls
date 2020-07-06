@@ -193,7 +193,7 @@ async function init ({
     '.storybook/webpack.config.js': devServer === 'storybook' && tpl.storybook_webpack(params),
     'doczrc.js': devServer === 'docz' && tpl.doczrc(params),
     'gatsby-config.js': devServer === 'docz' && tpl.gatsby(params),
-    'styleguide.config.js': devServer === 'styleguidist' && tpl.styleguidist(params)
+    'styleguide.config.js': devServer === 'styleguidist' && tpl.styleguidist({ ...params, git })
   };
   /**
    * create files
