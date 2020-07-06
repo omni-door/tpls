@@ -362,7 +362,7 @@ async function init ({
         ...params,
         install,
         dependencies: processDepStr(dependencies_str, 'dependencies'),
-        devDependencies: processDepStr(`${defaultDepStr || ''} ${tsDepStr || ''} ${testDepStr || ''} ${eslintDepStr || ''} ${prettierDepStr || ''} ${commitlintDepStr || ''} ${stylelintDepStr || ''} ${devServerDepStr || ''} ${customDepStr || ''}`, 'devDependencies')
+        devDependencies: processDepStr(`${defaultDepStr || ''} ${tsDepStr || ''} ${testDepStr || ''} ${eslintDepStr || ''} ${prettierDepStr || ''} ${commitlintDepStr || ''} ${stylelintDepStr || ''} ${devServerDepStr || ''} ${buildDepStr || ''} ${customDepStr || ''}`, 'devDependencies')
       })
     });
     logTime('生成静态依赖文件', true);
