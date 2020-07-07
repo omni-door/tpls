@@ -45,7 +45,7 @@ module.exports = {
 
   release: {
     git: '\${git}', // 发布的git仓库地址 (project git repo url)
-    npm: '', // 发布的npm仓库地址 (npm depository url)
+    npm: '\${npm}', // 发布的npm仓库地址 (npm depository url)
     preflight: {
       test: \${!!test}, // 发布前是否进行单元测试 (whether or not process unit-test)
       eslint: \${!!eslint}, // 发布前是否进行eslint检测 (whether or not process eslint fix and check)
