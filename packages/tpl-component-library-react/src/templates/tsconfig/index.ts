@@ -67,7 +67,7 @@ const tpl =
     "configs/",
     "lib/",
     "es/",
-    "dist/",
+    "dist*/",
     "build/",
     "server/",
     "demo/",
