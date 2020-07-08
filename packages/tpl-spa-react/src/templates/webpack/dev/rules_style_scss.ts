@@ -7,7 +7,7 @@ const tpl =
             resourceQuery: /modules/,
             use: [
               'style-loader',
-              { loader: 'css-loader', options: { modules: true } },
+              { loader: 'css-loader', options: { modules: { localIdentName: '[local]___[hash:base64:6]' } } },
               'sass-loader'
             ]
           },
