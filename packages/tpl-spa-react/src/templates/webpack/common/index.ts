@@ -16,9 +16,9 @@ module.exports = {
       {
         test: \${ts ? /\\\.(js|jsx|ts|tsx)$/ : /\\\.(js|jsx)$/},
         use: [
-          {
-            loader: 'cache-loader'
-          },
+          // {
+          //   loader: 'cache-loader'
+          // },
           {
             loader: 'babel-loader',
             options: {
