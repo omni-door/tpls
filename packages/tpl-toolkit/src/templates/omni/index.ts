@@ -10,6 +10,7 @@ module.exports = {
 
   dev: {
     port: 6200, // 开发服务端口号 (dev-server port)
+    // host: 'dev.domain.com', // 开发服务端host (dev-server host)
     serverType: 'dumi' // 开发服务类型 (dev-server type)
   },
 
