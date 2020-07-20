@@ -16,6 +16,7 @@ node_modules
 .docz
 demo
 server
+dist-*
 
 # config files
 .eslintignore
