@@ -54,8 +54,8 @@ module.exports = merge(commonConfig, {
     new HardSourceWebpackPlugin({
       environmentHash: {
         root: process.cwd(),
-        directories: [],
-        files: ['package-lock.json', 'yarn.lock', 'configs/*'],
+        directories: ['configs'],
+        files: ['package.json', 'tsconfig.json', 'package-lock.json', 'yarn.lock']
       },
       info: {
         mode: 'none',
