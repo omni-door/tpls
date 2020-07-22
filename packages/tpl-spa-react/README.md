@@ -9,7 +9,7 @@ The React single-page-application project template
 [![license](http://img.shields.io/npm/l/%40omni-door%2Ftpl-spa-react.svg)](https://github.com/omni-door/tpl-spa-react/blob/master/LICENSE)
 
 ## Install
-* Clone the repo: `git clone git@github.com:omni-door/tpl-spa-react.git`
+* Clone the repo: `git@github.com:omni-door/tpls.git`
 
 * Install with [npm](https://www.npmjs.com/package/@omni-door/tpl-spa-react): `npm install @omni-door/tpl-spa-react`
 

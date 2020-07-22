@@ -9,7 +9,7 @@ The React component-library-react project template
 [![license](http://img.shields.io/npm/l/%40omni-door%2Ftpl-component-library-react.svg)](https://github.com/omni-door/tpl-component-library-react/blob/master/LICENSE)
 
 ## Install
-* Clone the repo: `git clone git@github.com:omni-door/tpl-component-library-react.git`
+* Clone the repo: `git@github.com:omni-door/tpls.git`
 
 * Install with [npm](https://www.npmjs.com/package/@omni-door/tpl-component-library-react): `npm install @omni-door/tpl-component-library-react`
 

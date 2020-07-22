@@ -9,7 +9,7 @@ The JS-SDK project template for @omni-door
 [![license](http://img.shields.io/npm/l/%40omni-door%2Ftpl-toolkit.svg)](https://github.com/omni-door/tpl-toolkit/blob/master/LICENSE)
 
 ## Install
-* Clone the repo: `git clone git@github.com:omni-door/tpl-toolkit.git`
+* Clone the repo: `git@github.com:omni-door/tpls.git`
 
 * Install with [npm](https://www.npmjs.com/package/@omni-door/tpl-toolkit): `npm install @omni-door/tpl-toolkit`
 
