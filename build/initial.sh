@@ -199,7 +199,7 @@ export async function \$init ({
             return result;
           } catch (err) {
             logWarn(err);
-            logWarn(`自定义模板 [\${name}] 解析出错，将使用默认模板进行初始化！(The custom template [\${name}] parsing occured error, the default template will be used \\for initialization!)`);
+            logWarn(\`自定义模板 [\${name}] 解析出错，将使用默认模板进行初始化！(The custom template [\${name}] parsing occured error, the default template will be used for initialization!)\`);
             return originTpl(config);
           }
         };
@@ -235,11 +235,11 @@ export async function \$init ({
 
   // 项目依赖解析
   logTime('依赖解析');
-  let installCliPrefix = pkgtool === 'yarn' ? `\${pkgtool} add --cwd \${initPath}` : `\${pkgtool} install --save --prefix \${initPath}`;
-  let installDevCliPrefix = pkgtool === 'yarn' ? `\${pkgtool} add -D --cwd \${initPath}` : `\${pkgtool} install --save-dev --prefix \${initPath}`;
+  let installCliPrefix = pkgtool === 'yarn' ? \`\${pkgtool} add --cwd \${initPath}\` : \`\${pkgtool} install --save --prefix \${initPath}\`;
+  let installDevCliPrefix = pkgtool === 'yarn' ? \`\${pkgtool} add -D --cwd \${initPath}\` : \`\${pkgtool} install --save-dev --prefix \${initPath}\`;
   if (pkgtool === 'cnpm' && initPath !== process.cwd()) {
-    installCliPrefix = `cd \${initPath} && \${installCliPrefix}`;
-    installDevCliPrefix = `cd \${initPath} && \${installDevCliPrefix}`;
+    installCliPrefix = \`cd \${initPath} && \${installCliPrefix}\`;
+    installDevCliPrefix = \`cd \${initPath} && \${installDevCliPrefix}\`;
   }
 
   let {
@@ -250,18 +250,18 @@ export async function \$init ({
   if (typeof dependencies_custom === 'function') {
     const result = dependencies_custom(depArr);
     if (result instanceof Array) {
-      dependencies_str = `\${depStr} \${arr2str(result)}`;
+      dependencies_str = \`\${depStr} \${arr2str(result)}\`;
     } else {
       const { add = [], remove = [] } = result;
       for (let i = 0; i < remove.length; i++) {
         const item_rm = remove[i];
         depArr = [ ...intersection(depArr, depArr.filter(v => v !== item_rm)) ];
       }
-      dependencies_str = `\${arr2str(depArr)} \${arr2str(add)}`;
+      dependencies_str = \`\${arr2str(depArr)} \${arr2str(add)}\`;
     }
   }
 
-  const installCli = dependencies_str ? `\${installCliPrefix} \${dependencies_str}` : '';
+  const installCli = dependencies_str ? \`\${installCliPrefix} \${dependencies_str}\` : '';
   let {
     defaultDepArr,
     defaultDepStr
@@ -290,8 +290,8 @@ export async function \$init ({
     }
   }
 
-  const installDevCli = defaultDepStr ? `\${installDevCliPrefix} \${defaultDepStr}` : '';
-  const installCustomDevCli = customDepStr ? `\${installDevCliPrefix} \${customDepStr}` : '';
+  const installDevCli = defaultDepStr ? \`\${installDevCliPrefix} \${defaultDepStr}\` : '';
+  const installCustomDevCli = customDepStr ? \`\${installDevCliPrefix} \${customDepStr}\` : '';
   logTime('依赖解析', true);
 
   // 项目依赖安装
@@ -319,13 +319,13 @@ export async function \$init ({
         const name = lastInd === 0 ? item : item.substr(0, lastInd);
         const version = lastInd === 0 ? 'latest' : item.substr(lastInd + 1);
         if (i + 1 === arr.length) {
-          result += `    "\${name}": "\${version}"`;
+          result += \`    "\${name}": "\${version}"\`;
         } else {
-          result += `    "\${name}": "\${version}",\n`;
+          result += \`    "\${name}": "\${version}",\n\`;
         }
       }
 
-      return `"\${prefix}": {\n\${result}\n  },`;
+      return \`"\${prefix}": {\n\${result}\n  },\`;
     };
     output_file({
       file_path: path.resolve(initPath, 'package.json'),
@@ -333,7 +333,7 @@ export async function \$init ({
         ...params,
         install,
         dependencies: processDepStr(dependencies_str, 'dependencies'),
-        devDependencies: processDepStr(`\${defaultDepStr || ''} \${customDepStr || ''}`, 'devDependencies')
+        devDependencies: processDepStr(\`\${defaultDepStr || ''} \${customDepStr || ''}\`, 'devDependencies')
       })
     });
     logTime('生成静态依赖文件', true);
@@ -381,7 +381,7 @@ export function \$new ({
   tpls?: (tpls: TPLS_ORIGIN_NEW) => TPLS_NEW_RETURE;
 }) {
   logTime('创建组件');
-  logInfo(`开始创建 \${componentName} \${type === 'cc' ? '类' : '函数'}组件 (Start create \${componentName} \${type === 'cc' ? 'class' : 'functional'} component)`);
+  logInfo(\`开始创建 \${componentName} \${type === 'cc' ? '类' : '函数'}组件 \(Start create \${componentName} \${type === 'cc' ? 'class' : 'functional'} component\)\`);
   let custom_tpl_new_list = {};
   try {
     custom_tpl_new_list = typeof tpls === 'function'
@@ -397,7 +397,7 @@ export function \$new ({
           return tpl && tpl(config);
         } catch (err) {
           logWarn(err);
-          logWarn(`自定义模板 [\${name}] 解析出错，将使用默认模板进行创建组件！(The custom template [\${name}] parsing occured error, the default template will be used \\for initialization!)`);    
+          logWarn(\`自定义模板 [\${name}] 解析出错，将使用默认模板进行创建组件！(The custom template [\${name}] parsing occured error, the default template will be used for initialization!)\`);    
         }
 
         return tpls_new[name](config);
