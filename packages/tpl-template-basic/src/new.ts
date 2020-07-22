@@ -56,7 +56,7 @@ export function $new ({
     }
   } catch (err_tpls) {
     logWarn(err_tpls);
-    logWarn('生成自定义模板出错，将全部使用默认模板进行创建组件！(The custom template generating occured error, all will be initializated with the default template!)');
+    logWarn('生成自定义模板出错，将全部使用默认模板进行创建模板！(The custom template generating occured error, all will be initializated with the default template!)');
   }
   const tpl = { ...tpls_new, ...custom_tpl_new_list };
   const params = {
