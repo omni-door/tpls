@@ -1,6 +1,7 @@
 import { BUILD, STRATEGY, STYLE, PKJTOOL } from '@omni-door/utils';
 import { parse } from 'path';
-import init, { newTpl } from './index';
+import $init from './init';
+import $new from './new';
 const args = process.argv.slice(2);
 
 type Option = {
@@ -25,7 +26,7 @@ if (args.length > 0) {
           ? false
           : val;
     }
-    newTpl(options);
+    $new(options);
   } else if (args[0] === 'init') {
     const options = {
       build: 'rollup' as BUILD,
@@ -51,6 +52,6 @@ if (args.length > 0) {
           ? false
           : val as any;
     }
-    init(options);
+    $init(options);
   }
 }

@@ -60,7 +60,7 @@ export { default as component_readme, tpl_new_readme } from './new/readme';
 export { default as component_stylesheet, tpl_new_stylesheet } from './new/stylesheet';
 export { default as component_test, tpl_new_test } from './new/test';
 
-// init command
+/* -- templates - init --  */
 export const tpls_init = {
   babel,
   commitlint,
@@ -127,7 +127,7 @@ export type TPLS_INITIAL_FN = TPLS_INITIAL[keyof TPLS_INITIAL];
 
 export type TPLS_INITIAL_RETURE = Partial<TPLS_INITIAL>;
 
-// new command
+/* -- templates - new --  */
 export const tpls_new = {
   component_class,
   component_functional,

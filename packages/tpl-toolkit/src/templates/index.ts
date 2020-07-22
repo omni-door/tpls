@@ -44,7 +44,8 @@ export { default as umirc, tpl_umirc } from './umi/umirc';
 export { default as env, tpl_env } from './umi/env';
 export { default as vscode, tpl_vscode_setting } from './vsc';
 
-export const tpls = {
+/* -- templates - init --  */
+export const tpls_init = {
   babel,
   commitlint,
   editor,
@@ -61,15 +62,12 @@ export const tpls = {
   indexTpl,
   karma,
   mocha,
-  component_index,
-  component_readme,
-  component_test,
   umirc,
   env,
   vscode
 };
 
-export const tpls_origin = {
+export const tpls_origin_init = {
   tpl_babel,
   tpl_commitlint,
   tpl_editor,
@@ -77,9 +75,6 @@ export const tpls_origin = {
   tpl_ignore_eslint,
   tpl_ignore_git,
   tpl_ignore_npm,
-  tpl_new_index,
-  tpl_new_readme,
-  tpl_new_test,
   tpl_omni,
   tpl_package,
   tpl_prettier,
@@ -94,44 +89,44 @@ export const tpls_origin = {
   tpl_vscode_setting
 };
 
-type TPLS = {
-  [T in keyof typeof tpls]: typeof tpls[T];
+export type TPLS_INITIAL = {
+  [T in keyof typeof tpls_init]: typeof tpls_init[T];
 };
 
-type TPLS_ORIGIN = {
-  [T in keyof typeof tpls_origin]: typeof tpls_origin[T];
+export type TPLS_ORIGIN_INITIAL = {
+  [T in keyof typeof tpls_origin_init]: typeof tpls_origin_init[T];
 };
-
-export type TPLS_INITIAL = Omit<TPLS,
-  'component_index' |
-  'component_readme' |
-  'component_test'
->;
-
-export type TPLS_ORIGIN_INITIAL = Omit<TPLS_ORIGIN,
-  'tpl_new_index' |
-  'tpl_new_readme' |
-  'tpl_new_test'
->;
 
 export type TPLS_INITIAL_FN = TPLS_INITIAL[keyof TPLS_INITIAL];
 
 export type TPLS_INITIAL_RETURE = Partial<TPLS_INITIAL>;
 
-export type TPLS_NEW = Pick<TPLS,
-  'component_index' |
-  'component_readme' |
-  'component_test'
->;
+/* -- templates - new --  */
+export const tpls_new = {
+  component_index,
+  component_readme,
+  component_test,
+};
 
-export type TPLS_ORIGIN_NEW = Pick<TPLS_ORIGIN,
-  'tpl_new_index' |
-  'tpl_new_readme' |
-  'tpl_new_test'
->;
+export const tpls_origin_new = {
+  tpl_new_index,
+  tpl_new_readme,
+  tpl_new_test
+};
+
+export type TPLS_NEW = {
+  [T in keyof typeof tpls_new]: typeof tpls_new[T];
+};
+
+export type TPLS_ORIGIN_NEW = {
+  [T in keyof typeof tpls_origin_new]: typeof tpls_origin_new[T];
+};
 
 export type TPLS_NEW_FN = TPLS_NEW[keyof TPLS_NEW];
 
 export type TPLS_NEW_RETURE = Partial<TPLS_NEW>;
 
-export default tpls;
+export default {
+  ...tpls_init,
+  ...tpls_new
+};
