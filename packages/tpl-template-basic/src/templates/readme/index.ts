@@ -3,7 +3,7 @@ import { tpl_engine_init } from '@omni-door/utils';
 const tpl = 
 `\`# \${project_name}
 
-## 启动项目(Run project)
+## Run project
 
 \\\`\\\`\\\`shell
 npm start
@@ -13,40 +13,40 @@ or
 npm run dev
 \\\`\\\`\\\`
 
-## 新建模块(Create a Module)
+## Create a Module
 
 \\\`\\\`\\\`shell
 npm run new
 \\\`\\\`\\\`
 
-## 构建项目(Build project)
+## Build project
 
 \\\`\\\`\\\`shell
 npm run build
 \\\`\\\`\\\`
 
-### 构建项目时绕过所有检查(Bypass all pre-check before building)
+### Bypass all pre-check before building
 \\\`\\\`\\\`shell
 npm run build -- -n
 \\\`\\\`\\\`
 
-## 发布项目(Release project)
+## Release project
 
 \\\`\\\`\\\`shell
 npm run release
 \\\`\\\`\\\`
 
-### 发布项目时忽略版本迭代(Ignoring version of iteration)
+### Ignoring version of iteration
 \\\`\\\`\\\`shell
 npm run release -- -i
 \\\`\\\`\\\`
 
-### 发布项目时指定迭代的版本(Manual specify version of iteration)
+### Manual specify version of iteration
 \\\`\\\`\\\`shell
 npm run release -- -m 0.3.25
 \\\`\\\`\\\`
 
-### 发布项目时绕过所有检查(Bypass all pre-check before release)
+### Bypass all pre-check before release
 \\\`\\\`\\\`shell
 npm run release -- -n
 \\\`\\\`\\\`
