@@ -76,7 +76,8 @@ export { default as component_test, tpl_new_test } from './new/test';
 export { default as component_mdx, tpl_new_mdx } from './new/mdx';
 export { default as component_stories, tpl_new_story } from './new/stories';
 
-export const tpls = {
+/* -- templates - init --  */
+export const tpls_init = {
   babel,
   commitlint,
   editor,
@@ -104,20 +105,10 @@ export const tpls = {
   gatsby,
   bisheng,
   posts_readme,
-  mdx,
-  component_class,
-  component_functional,
-  component_index,
-  component_interface,
-  component_readme,
-  component_style,
-  component_stylesheet,
-  component_test,
-  component_mdx,
-  component_stories
+  mdx
 };
 
-export const tpls_origin = {
+export const tpls_origin_init = {
   tpl_babel,
   tpl_bisheng,
   tpl_bisheng_posts,
@@ -132,16 +123,6 @@ export const tpls_origin = {
   tpl_ignore_npm,
   tpl_ignore_prettier,
   tpl_jest,
-  tpl_new_class,
-  tpl_new_functional,
-  tpl_new_index,
-  tpl_new_interface,
-  tpl_new_mdx,
-  tpl_new_readme,
-  tpl_new_story,
-  tpl_new_style,
-  tpl_new_stylesheet,
-  tpl_new_test,
   tpl_omni,
   tpl_package,
   tpl_prettier,
@@ -158,72 +139,58 @@ export const tpls_origin = {
   tpl_vscode_setting
 };
 
-type TPLS = {
-  [T in keyof typeof tpls]: typeof tpls[T];
+export type TPLS_INITIAL = {
+  [T in keyof typeof tpls_init]: typeof tpls_init[T];
 };
 
-type TPLS_ORIGIN = {
-  [T in keyof typeof tpls_origin]: typeof tpls_origin[T];
+export type TPLS_ORIGIN_INITIAL = {
+  [T in keyof typeof tpls_origin_init]: typeof tpls_origin_init[T];
 };
-
-export type TPLS_INITIAL = Omit<TPLS,
-  'component_class' |
-  'component_functional' |
-  'component_index' |
-  'component_interface' |
-  'component_readme' |
-  'component_style' |
-  'component_stylesheet' |
-  'component_test' |
-  'component_mdx' |
-  'component_stories'
->;
-
-export type TPLS_ORIGIN_INITIAL = Omit<TPLS_ORIGIN,
-  'tpl_new_class' |
-  'tpl_new_functional' |
-  'tpl_new_index' |
-  'tpl_new_interface' |
-  'tpl_new_readme' |
-  'tpl_new_style' |
-  'tpl_new_stylesheet' |
-  'tpl_new_test' |
-  'tpl_new_story' |
-  'tpl_new_mdx'
->;
 
 export type TPLS_INITIAL_FN = TPLS_INITIAL[keyof TPLS_INITIAL];
 
 export type TPLS_INITIAL_RETURE = Partial<TPLS_INITIAL>;
 
-export type TPLS_NEW = Pick<TPLS,
-  'component_class' |
-  'component_functional' |
-  'component_index' |
-  'component_interface' |
-  'component_readme' |
-  'component_style' |
-  'component_stylesheet' |
-  'component_test' |
-  'component_mdx' |
-  'component_stories'
->;
+/* -- templates - new --  */
+export const tpls_new = {
+  component_class,
+  component_functional,
+  component_index,
+  component_interface,
+  component_readme,
+  component_style,
+  component_stylesheet,
+  component_test,
+  component_mdx,
+  component_stories
+};
 
-export type TPLS_ORIGIN_NEW = Pick<TPLS_ORIGIN,
-  'tpl_new_class' |
-  'tpl_new_functional' |
-  'tpl_new_index' |
-  'tpl_new_interface' |
-  'tpl_new_readme' |
-  'tpl_new_style' |
-  'tpl_new_stylesheet' |
-  'tpl_new_test' |
-  'tpl_new_story' |
-  'tpl_new_mdx'
->;
+export const tpls_origin_new = {
+  tpl_new_class,
+  tpl_new_functional,
+  tpl_new_index,
+  tpl_new_interface,
+  tpl_new_mdx,
+  tpl_new_readme,
+  tpl_new_story,
+  tpl_new_style,
+  tpl_new_stylesheet,
+  tpl_new_test
+};
+
+export type TPLS_NEW = {
+  [T in keyof typeof tpls_new]: typeof tpls_new[T];
+};
+
+export type TPLS_ORIGIN_NEW = {
+  [T in keyof typeof tpls_origin_new]: typeof tpls_origin_new[T];
+};
 
 export type TPLS_NEW_FN = TPLS_NEW[keyof TPLS_NEW];
 
 export type TPLS_NEW_RETURE = Partial<TPLS_NEW>;
 
-export default tpls;
+export default {
+  ...tpls_init,
+  ...tpls_new
+};
