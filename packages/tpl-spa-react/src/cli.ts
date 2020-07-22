@@ -1,6 +1,7 @@
-import { STRATEGY, STYLE, PKJTOOL, MARKDOWN, logErr } from '@omni-door/utils';
+import { STRATEGY, STYLE, PKJTOOL, logErr } from '@omni-door/utils';
 import { parse } from 'path';
-import init, { newTpl } from './index';
+import $init from './init';
+import $new from './new';
 const args = process.argv.slice(2);
 
 type Option = {
@@ -28,7 +29,7 @@ if (args.length > 0) {
           : val;
     }
     try {
-      newTpl(options);
+      $new(options);
     } catch (err) {
       logErr(err);
       process.exit(1);
@@ -58,7 +59,7 @@ if (args.length > 0) {
           : val;
     }
     try {
-      init(options);
+      $init(options);
     } catch (err) {
       logErr(err);
       process.exit(1);

@@ -1,0 +1,32 @@
+{
+  "name": "@omni-door/tpl-template-basic",
+  "version": "0.0.1",
+  "description": "A template for create other templates",
+  "bin": {
+    "omni-template-basic": "./bin/omni-door-template-basic.js"
+  },
+  "keywords": [
+    "template"
+  ],
+  "author": "bobby.li <bobby.lhan@gmail.com>",
+  "homepage": "https://github.com/omni-door/tpls#readme",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omni-door/tpls.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/omni-door/tpls/issues"
+  }
+}
