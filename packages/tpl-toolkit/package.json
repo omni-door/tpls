@@ -39,7 +39,7 @@
     "build:tsc": "tsc --build",
     "build:branch": "../../build/branch.sh",
     "build:version": "../../build/version.sh",
-    "release": "npm run build:branch master Tpl-Toolkit && npm run build && npm run build:version Tpl-Toolkit",
+    "release": "npm run build:branch master TPL-TOOLKIT && npm run build && npm run build:version TPL-TOOLKIT",
     "upgrade:utils": "yarn upgrade @omni-door/utils@latest"
   },
   "bugs": {

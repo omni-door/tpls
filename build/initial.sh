@@ -995,16 +995,16 @@ echo '# mocha.opts
 
 
 # package.json
+upperName=$(echo ${projectName} | tr "[a-z]" "[A-Z]")
 echo "{
-  \"name\": \"@omni-door/${projectName}\",
-  \"version\": \"0.5.2\",
+  \"name\": \"@omni-door/tpl-${projectName}\",
+  \"version\": \"0.0.1\",
   \"description\": \"\",
   \"bin\": {
-    \"omni-${projectName}\": \"./bin/omni-door-spa-react.js\"
+    \"omni-${projectName}\": \"./bin/${prefix}-spa-react.js\"
   },
   \"keywords\": [
     \"template\",
-    \"single-page-application\",
     \"omni\",
     \"omni-door\"
   ],
@@ -1035,7 +1035,7 @@ echo "{
     \"build:tsc\": \"tsc --build\",
     \"build:branch\": \"../../build/branch.sh\",
     \"build:version\": \"../../build/version.sh\",
-    \"release\": \"npm run build:branch master Tpl-Spa-React && npm run build && npm run build:version Tpl-Spa-React\",
+    \"release\": \"npm run build:branch master TPL-${upperName} && npm run build && npm run build:version TPL-${upperName}\",
     \"upgrade:utils\": \"yarn upgrade @omni-door/utils@latest\"
   },
   \"bugs\": {
@@ -1046,15 +1046,15 @@ echo "{
 
 
 # README.md
-echo "# 🐸 @omni-door/tpl-${projectName}
-The React single-page-application project template
+echo "# 🐸 @${prefix}/tpl-${projectName}
+The ${projectName} project template
 
-[![NPM downloads](http://img.shields.io/npm/dm/%40omni-door%2Ftpl-spa-react.svg?style=flat-square)](https://www.npmjs.com/package/@omni-door/tpl-${projectName})
-[![npm version](https://badge.fury.io/js/%40omni-door%2Ftpl-spa-react.svg)](https://badge.fury.io/js/%40omni-door%2Ftpl-spa-react)
+[![NPM downloads](http://img.shields.io/npm/dm/%40omni-door%2Ftpl-${projectName}.svg?style=flat-square)](https://www.npmjs.com/package/@omni-door/tpl-${projectName})
+[![npm version](https://badge.fury.io/js/%40omni-door%2Ftpl-${projectName}.svg)](https://badge.fury.io/js/%40omni-door%2Ftpl-${projectName})
 [![Build Status](https://travis-ci.com/omni-door/tpl-${projectName}.svg?branch=master)](https://travis-ci.com/omni-door/tpl-${projectName})
 [![codecov](https://codecov.io/gh/omni-door/tpl-${projectName}/branch/master/graph/badge.svg)](https://codecov.io/gh/omni-door/tpl-${projectName})
-[![install size](https://packagephobia.now.sh/badge?p=%40omni-door%2Ftpl-spa-react)](https://packagephobia.now.sh/result?p=%40omni-door%2Ftpl-spa-react)
-[![license](http://img.shields.io/npm/l/%40omni-door%2Ftpl-spa-react.svg)](https://github.com/omni-door/tpl-${projectName}/blob/master/LICENSE)
+[![install size](https://packagephobia.now.sh/badge?p=%40omni-door%2Ftpl-${projectName})](https://packagephobia.now.sh/result?p=%40omni-door%2Ftpl-${projectName})
+[![license](http://img.shields.io/npm/l/%40omni-door%2Ftpl-${projectName}.svg)](https://github.com/omni-door/tpl-${projectName}/blob/master/LICENSE)
 
 ## Install
 * Clone the repo: \`git@github.com:omni-door/tpls.git\`
