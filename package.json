@@ -7,6 +7,8 @@
     "ora": "^4.0.4"
   },
   "scripts": {
+    "initial": "node ./build/initial.js",
+    "new": "node ./build/new.js",
     "bootstrap": "yarn && lerna bootstrap",
     "test": "lerna run test",
     "lint": "lerna run lint",

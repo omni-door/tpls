@@ -11,7 +11,7 @@ const { exec } = require('child_process');
     name: 'packages',
     type: 'checkbox',
     choices: [ ...list_packages, '全部发布' ],
-    message: '请选择本次要发布的模板'
+    message: '请选择本次要发布的模板(可多选)：'
   }, {
     name: 'tactic',
     type: 'list',
@@ -21,7 +21,7 @@ const { exec } = require('child_process');
     },
     choices: [ '自动迭代', '手动迭代', '忽略迭代' ],
     default: '自动迭代',
-    message: '请选择迭代策略'
+    message: '请选择迭代策略：'
   }, {
     name: 'version',
     type: 'input',
