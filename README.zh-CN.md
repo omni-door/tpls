@@ -16,6 +16,16 @@
 | [@omni-door/tpl-component-library-react](https://github.com/omni-door/tpls/tree/master/packages/tpl-component-library-react#readme) | React组件库模板 |
 
 ## 开发说明
+- 初始化一个脚手架模板
+  ```shell
+  yarn initial
+  ```
+
+- 新建一个脚手架的模板文件
+  ```shell
+  yarn new
+  ```
+
 - 安装依赖
   ```shell
   yarn bootstrap

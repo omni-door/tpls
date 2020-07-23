@@ -16,6 +16,16 @@ English | [简体中文](./README.zh-CN.md)
 | [@omni-door/tpl-component-library-react](https://github.com/omni-door/tpls/tree/master/packages/tpl-component-library-react#readme) | React Component-Library template |
 
 ## develop
+- initial a cli-template
+  ```shell
+  yarn initial
+  ```
+
+- create a cli-template's file
+  ```shell
+  yarn new
+  ```
+
 - install all templates dependencies
   ```shell
   yarn bootstrap

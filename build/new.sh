@@ -3,12 +3,13 @@
 packageName=$(echo ${1} | tr "[A-Z]" "[a-z]")
 templateName=$(echo ${2} | tr "[A-Z]" "[a-z]")
 type=$(echo ${3} | tr "[A-Z]" "[a-z]")
+dirName="packages/${packageName}/src/templates"
 
 # generate template
 
 if [ "$type" == "init" ]; then
-  dirName="packages/${packageName}/template/${templateName}"
-  mkdir ${dirName}
+  tplPath="${dirName}/${templateName}"
+  mkdir ${tplPath}
 
   echo "import { tpl_engine_init } from '@omni-door/utils';
 
@@ -21,12 +22,11 @@ if [ "$type" == "init" ]; then
     tpl
   };
 
-  export default tpl_engine_init(tpl_${templateName}, 'tpl');" > ${dirName}/index.ts
+  export default tpl_engine_init(tpl_${templateName}, 'tpl');" > ${tplPath}/index.ts
 else
-  dirName="packages/${packageName}/template/new/${templateName}"
-  mkdir ${dirName}
+  tplPath="${dirName}/new"
 
-  echo "import { tpl_new_init } from '@omni-door/utils';
+  echo "import { tpl_engine_new } from '@omni-door/utils';
 
   const tpl = 
   \`\\\`\\\${use_strict}
@@ -37,5 +37,5 @@ else
     tpl
   };
 
-  export default tpl_new_init(tpl_${templateName}, 'tpl');" > ${dirName}/index.ts
+  export default tpl_engine_new(tpl_${templateName}, 'tpl');" > ${tplPath}/${templateName}.ts
 fi
