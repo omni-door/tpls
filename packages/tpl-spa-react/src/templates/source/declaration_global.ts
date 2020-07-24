@@ -25,8 +25,8 @@ declare module '*.md' {
 }
 \``;
 
-export const tpl_src_declaration = {
+export const tpl_src_declaration_global = {
   tpl
 };
 
-export default tpl_engine_init(tpl_src_declaration, 'tpl');
+export default tpl_engine_init(tpl_src_declaration_global, 'tpl');

@@ -13,9 +13,17 @@ import prettier, { tpl_prettier } from './prettier';
 import readme, { tpl_readme } from './readme';
 import source_index_react, { tpl_src_index } from './source/index_react';
 import source_html, { tpl_src_html } from './source/html';
-import source_d, { tpl_src_declaration } from './source/declaration';
+import source_d_i, { tpl_src_declaration_index } from './source/declaration_index';
+import source_d_g, { tpl_src_declaration_global } from './source/declaration_global';
 import source_index_style, { tpl_src_style } from './source/style';
 import source_index_reset, { tpl_src_reset } from './source/reset';
+import source_page_index, { tpl_src_page_index } from './source/page/index';
+import source_page_page, { tpl_src_page_page } from './source/page/page';
+import source_page_page_nest, { tpl_src_page_page_nest } from './source/page/page_nest';
+import source_page_style, { tpl_src_page_style } from './source/page/style';
+import source_component_index, { tpl_src_component_index } from './source/component';
+import source_component_cp, { tpl_src_component_cp } from './source/component/component';
+import source_component_style, { tpl_src_component_style } from './source/component/style';
 import stylelint, { tpl_stylelint } from './stylelint';
 import tsconfig, { tpl_tsconfig } from './tsconfig';
 import vscode, { tpl_vscode_setting } from './vsc';
@@ -44,9 +52,17 @@ export { default as prettier, tpl_prettier } from './prettier';
 export { default as readme, tpl_readme } from './readme';
 export { default as source_index_react, tpl_src_index } from './source/index_react';
 export { default as source_html, tpl_src_html } from './source/html';
-export { default as source_d, tpl_src_declaration } from './source/declaration';
+export { default as source_d_i, tpl_src_declaration_index } from './source/declaration_index';
+export { default as source_d_g, tpl_src_declaration_global } from './source/declaration_global';
 export { default as source_index_style, tpl_src_style } from './source/style';
 export { default as source_index_reset, tpl_src_reset } from './source/reset';
+export { default as source_page_index, tpl_src_page_index } from './source/page/index';
+export { default as source_page_page, tpl_src_page_page } from './source/page/page';
+export { default as source_page_page_nest, tpl_src_page_page_nest } from './source/page/page_nest';
+export { default as source_page_style, tpl_src_page_style } from './source/page/style';
+export { default as source_component_index, tpl_src_component_index } from './source/component';
+export { default as source_component_cp, tpl_src_component_cp } from './source/component/component';
+export { default as source_component_style, tpl_src_component_style } from './source/component/style';
 export { default as stylelint, tpl_stylelint } from './stylelint';
 export { default as tsconfig, tpl_tsconfig } from './tsconfig';
 export { default as vscode, tpl_vscode_setting } from './vsc';
@@ -80,9 +96,17 @@ export const tpls_init = {
   vscode,
   source_index_react,
   source_html,
-  source_d,
+  source_d_i,
+  source_d_g,
   source_index_style,
   source_index_reset,
+  source_page_index,
+  source_page_page,
+  source_page_page_nest,
+  source_page_style,
+  source_component_index,
+  source_component_cp,
+  source_component_style,
   webpack_config_common,
   webpack_config_dev,
   webpack_config_prod
@@ -107,9 +131,17 @@ export const tpls_origin_init = {
   tpl_vscode_setting,
   tpl_src_index,
   tpl_src_html,
-  tpl_src_declaration,
+  tpl_src_declaration_index,
+  tpl_src_declaration_global,
   tpl_src_style,
   tpl_src_reset,
+  tpl_src_page_index,
+  tpl_src_page_page,
+  tpl_src_page_page_nest,
+  tpl_src_page_style,
+  tpl_src_component_index,
+  tpl_src_component_cp,
+  tpl_src_component_style,
   tpl_webpack_common,
   tpl_webpack_dev,
   tpl_webpack_prod

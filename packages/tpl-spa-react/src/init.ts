@@ -126,9 +126,22 @@ export async function $init ({
     '.gitignore': tpl.gitignore(params),
     [`src/index.${ts ? 'tsx' : 'jsx'}`]: tpl.source_index_react(params),
     'src/index.html': tpl.source_html(params),
-    'src/@types/global.d.ts': ts && tpl.source_d(params), // d.ts files
+    // d.ts files
+    'src/@types/index.d.ts': ts && tpl.source_d_i(params),
+    'src/@types/global.d.ts': ts && tpl.source_d_g(params),
     [`src/index.${suffix_stylesheet}`]: suffix_stylesheet && tpl.source_index_style(params),
     [`src/reset.${suffix_stylesheet}`]: suffix_stylesheet && tpl.source_index_reset(params),
+    // pages
+    [`src/pages/home/index.${ts ? 'ts' : 'js'}`]: tpl.source_page_index({ ...params, pageName: 'home' }),
+    [`src/pages/home/home.${ts ? 'tsx' : 'jsx'}`]: tpl.source_page_page({ ...params, pageName: 'home', content: 'Home Page' }),
+    [`src/pages/home/style/home.${suffix_stylesheet}`]: tpl.source_page_style({ ...params, pageName: 'home' }),
+    [`src/pages/detail/index.${ts ? 'ts' : 'js'}`]: tpl.source_page_index({ ...params, pageName: 'detail' }),
+    [`src/pages/detail/detail.${ts ? 'tsx' : 'jsx'}`]: tpl.source_page_page_nest({ ...params, pageName: 'detail', content: 'Detail Page' }),
+    [`src/pages/detail/style/detail.${suffix_stylesheet}`]: tpl.source_page_style({ ...params, pageName: 'detail' }),
+    // components
+    [`src/components/Detail/index.${ts ? 'ts' : 'js'}`]: tpl.source_component_index({ ...params, componentName: 'Detail' }),
+    [`src/components/Detail/Detail.${ts ? 'tsx' : 'jsx'}`]: tpl.source_component_cp({ ...params, componentName: 'Detail' }),
+    [`src/components/Detail/style/Detail.${suffix_stylesheet}`]: tpl.source_component_style({ ...params, componentName: 'Detail' }),
     // webpack config files
     'configs/webpack.config.common.js': tpl.webpack_config_common(params),
     'configs/webpack.config.dev.js': tpl.webpack_config_dev(params),

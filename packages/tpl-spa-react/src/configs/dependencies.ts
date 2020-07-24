@@ -16,6 +16,7 @@ export function dependencies (strategy: STRATEGY) {
   const deps = [
     dependency('react'),
     dependency('react-dom'),
+    dependency('react-router-dom'),
     dependency('core-js'),
     dependency('regenerator-runtime')
   ];

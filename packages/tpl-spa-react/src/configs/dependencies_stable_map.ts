@@ -2,6 +2,7 @@ export const dependencies = {
   'core-js': '^3.6.4',
   'react': '^16.13.0',
   'react-dom': '^16.13.0',
+  'react-router-dom': '^5.2.0',
   'regenerator-runtime': '^0.13.5'
 };
 

@@ -1,30 +1,49 @@
 import { tpl_engine_init } from '@omni-door/utils';
 
 const tpl = 
-`\`.main{
+`\`.main {
   position: relative;
   height: 100vh;
-  padding-top: 40vh;
+  padding-top: 10vh;
   color: white;
   font-weight: 600;
-  font-size: 60px;
+  font-size: 16px;
   font-family: sans-serif;
   text-align: center;
   background-color: rgba(170, 30, 38, 1);
 }
 
-.main-subtitle{
-  display: block;
-  margin-left: 20px;
-  padding-left: 50vw;
-  font-size: 20px;
+.main-btn {
+  position: absolute;
+  left: 50%;
+  width: 100px;
+  height: 25px;
+  line-height: 25px;
+  background: gray;
+  border-radius: 10px;
+  transform: translate(-50%, 0);
 }
 
-.main-footer{
+.main-btn-home {
+  top: 50%;
+}
+
+.main-btn-detail {
+  top: 60%;
+}
+
+.main-btn-detail-1 {
+  top: 70%;
+}
+
+.main-btn-detail-2 {
+  top: 80%;
+}
+
+.main-footer {
   position: absolute;
-  bottom: 0;
+  bottom: 2vh;
   left: 50%;
-  font-size: 16px;
   transform: translate(-50%, 0);
 }
 \``;
