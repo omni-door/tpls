@@ -125,6 +125,7 @@ export async function $init ({
     'package.json': install && tpl.pkj(devDependencyMap['@types/react'])({ ...params, install, dependencies: '', devDependencies: '' }),
     '.gitignore': tpl.gitignore(params),
     [`src/index.${ts ? 'tsx' : 'jsx'}`]: tpl.source_index_react(params),
+    [`src/routes.${ts ? 'tsx' : 'jsx'}`]: tpl.source_routes(params),
     'src/index.html': tpl.source_html(params),
     // d.ts files
     'src/@types/index.d.ts': ts && tpl.source_d_i(params),

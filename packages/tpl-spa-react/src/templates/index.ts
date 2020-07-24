@@ -13,6 +13,7 @@ import prettier, { tpl_prettier } from './prettier';
 import readme, { tpl_readme } from './readme';
 import source_index_react, { tpl_src_index } from './source/index_react';
 import source_html, { tpl_src_html } from './source/html';
+import source_routes, { tpl_src_routes } from './source/routes';
 import source_d_i, { tpl_src_declaration_index } from './source/declaration_index';
 import source_d_g, { tpl_src_declaration_global } from './source/declaration_global';
 import source_index_style, { tpl_src_style } from './source/style';
@@ -52,6 +53,7 @@ export { default as prettier, tpl_prettier } from './prettier';
 export { default as readme, tpl_readme } from './readme';
 export { default as source_index_react, tpl_src_index } from './source/index_react';
 export { default as source_html, tpl_src_html } from './source/html';
+export { default as source_routes, tpl_src_routes } from './source/routes';
 export { default as source_d_i, tpl_src_declaration_index } from './source/declaration_index';
 export { default as source_d_g, tpl_src_declaration_global } from './source/declaration_global';
 export { default as source_index_style, tpl_src_style } from './source/style';
@@ -95,6 +97,7 @@ export const tpls_init = {
   tsconfig,
   vscode,
   source_index_react,
+  source_routes,
   source_html,
   source_d_i,
   source_d_g,
@@ -131,6 +134,7 @@ export const tpls_origin_init = {
   tpl_vscode_setting,
   tpl_src_index,
   tpl_src_html,
+  tpl_src_routes,
   tpl_src_declaration_index,
   tpl_src_declaration_global,
   tpl_src_style,
