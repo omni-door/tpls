@@ -20,7 +20,7 @@ export class \${componentName} extends PureComponent\${ts ? \`<\${componentName}
       <div
         className='\${componentName}'
       >
-        { \\\`页面参数为：\\\${params?.id}\\\` }
+        { \\\`The params is：\\\${params?.id}\\\` }
       </div>
     );
   }

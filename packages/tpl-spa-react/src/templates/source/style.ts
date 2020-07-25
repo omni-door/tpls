@@ -16,28 +16,29 @@ const tpl =
 .main-btn {
   position: absolute;
   left: 50%;
-  width: 100px;
-  height: 25px;
-  line-height: 25px;
-  background: gray;
+  width: 200px;
+  height: 50px;
+  font-size: 20px;
+  line-height: 50px;
+  background: #000000;
   border-radius: 10px;
   transform: translate(-50%, 0);
 }
 
 .main-btn-home {
-  top: 50%;
+  top: 40%;
 }
 
 .main-btn-detail {
-  top: 60%;
+  top: 50%;
 }
 
 .main-btn-detail-1 {
-  top: 70%;
+  top: 60%;
 }
 
 .main-btn-detail-2 {
-  top: 80%;
+  top: 70%;
 }
 
 .main-footer {

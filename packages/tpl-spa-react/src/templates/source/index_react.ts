@@ -20,12 +20,12 @@ const App = () => (
     </Switch>
     <span className={\${style ? "[styles['main-btn'], styles['main-btn-home']].join(' ')" : "'main-btn main-btn-home'"}}>
       <Link to='/'>
-        Home
+        Go Home
       </Link>
     </span>
     <span className={\${style ? "[styles['main-btn'], styles['main-btn-detail']].join(' ')" : "'main-btn main-btn-detail'"}}>
       <Link to='/detail'>
-        Detail
+        Go Detail
       </Link>
     </span>
     <span className={\${style ? "[styles['main-btn'], styles['main-btn-detail-1']].join(' ')" : "'main-btn main-btn-detail-1'"}}>
@@ -44,7 +44,12 @@ const App = () => (
   </div>
 );
 
-render(<App />, document.getElementById('root'));
+render(
+  <Router>
+    <App />
+  </Router>,
+  document.getElementById('root')
+);
 
 \${ !ts ? '/* eslint-disable no-undef */' : '' }
 if (module.hot) {

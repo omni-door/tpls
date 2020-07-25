@@ -3,6 +3,8 @@ import { tpl_engine_init } from '@omni-door/utils';
 const tpl = 
 `\`.\${componentName} {
   display: block;
+  color: yellowgreen;
+  font-size: 30px;
 }
 \``;
 

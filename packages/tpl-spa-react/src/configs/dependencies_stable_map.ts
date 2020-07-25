@@ -17,6 +17,7 @@ export const devDependencies = {
   '@types/jest': '25.1.2',
   '@types/react': '^16.9.25',
   '@types/react-dom': '^16.9.5',
+  '@types/react-router-dom': '^5.1.5',
   '@types/webpack-env': '1.15.1',
   '@types/vfile-message': '1.0.1',
   '@typescript-eslint/eslint-plugin': '2.19.2',

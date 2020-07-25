@@ -98,6 +98,7 @@ export function devDependencies (strategy: STRATEGY, config: Config) {
   const tsDependencies = ts ? [
     dependency('@types/react'),
     dependency('@types/react-dom'),
+    dependency('@types/react-router-dom'),
     dependency('typescript'),
     dependency('ts-node'),
     dependency('@types/webpack-env'),
