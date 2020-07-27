@@ -33,7 +33,7 @@ const { exec } = require('child_process');
   }]);
 
   if (!packages || packages.length < 1) {
-    console.warn('未选择任何模板项目！');
+    console.warn('取消发布，因为未选择任何模板项目！');
     process.exit(0);
   }
 
