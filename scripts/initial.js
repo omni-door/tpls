@@ -30,7 +30,7 @@ const { exec } = require('child_process');
   const spinner = ora(`脚手架模板 ${name} 初始化进行中...\n`).start();
   spinner.spinner = 'triangle';
   spinner.color = 'magenta';
-  exec(`./build/initial.sh ${name}`, function (err, stdout, stderr) {
+  exec(`./scripts/initial.sh ${name}`, function (err, stdout, stderr) {
     if (err) {
       console.error(err);
       spinner.fail(`模板初始化失败！`);

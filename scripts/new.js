@@ -46,7 +46,7 @@ const { exec } = require('child_process');
   const spinner = ora(`新建 ${name} 模板中...\n`).start();
   spinner.spinner = 'toggle3';
   spinner.color = 'magenta';
-  exec(`./build/new.sh ${dir} ${name} ${realType}`, function (err, stdout, stderr) {
+  exec(`./scripts/new.sh ${dir} ${name} ${realType}`, function (err, stdout, stderr) {
     if (err) {
       console.error(err);
       spinner.fail(`新建模板失败！`);

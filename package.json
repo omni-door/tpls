@@ -7,15 +7,15 @@
     "ora": "^4.0.4"
   },
   "scripts": {
-    "initial": "node ./build/initial.js",
-    "new": "node ./build/new.js",
+    "initial": "node ./scripts/initial.js",
+    "new": "node ./scripts/new.js",
     "bootstrap": "yarn && lerna bootstrap",
     "test": "lerna run test",
     "lint": "lerna run lint",
     "lint:fix": "lerna run lint:fix",
     "build": "lerna run build",
     "upgrade:utils": "lerna run upgrade:utils",
-    "release": "node ./build/release.js"
+    "release": "node ./scripts/release.js"
   },
   "license": "MIT"
 }

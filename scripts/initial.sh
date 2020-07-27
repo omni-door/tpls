@@ -1033,8 +1033,8 @@ echo "{
     \"build\": \"npm run build:rm && npm run build:tsc\",
     \"build:rm\": \"rm -rf lib/*\",
     \"build:tsc\": \"tsc --build\",
-    \"build:branch\": \"../../build/branch.sh\",
-    \"build:version\": \"../../build/version.sh\",
+    \"build:branch\": \"../../scripts/branch.sh\",
+    \"build:version\": \"../../scripts/version.sh\",
     \"release\": \"npm run build:branch master TPL-${upperName} && npm run build && npm run build:version TPL-${upperName}\",
     \"upgrade:utils\": \"yarn upgrade @omni-door/utils@latest\"
   },

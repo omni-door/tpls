@@ -45,4 +45,4 @@ updateVersion () {
 
 updateVersion
 
-exec ../../build/publish.sh "${pkgName}"
+exec ../../scripts/publish.sh "${pkgName}"
