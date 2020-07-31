@@ -1,0 +1,61 @@
+{
+  "name": "@omni-door/tpl-ssr-next",
+  "version": "0.0.1",
+  "description": "",
+  "bin": {
+    "omni-ssr-next": "./bin/omni-door-spa-react.js"
+  },
+  "keywords": [
+    "template",
+    "omni",
+    "omni-door"
+  ],
+  "author": "bobby.li <bobby.lhan@gmail.com>",
+  "homepage": "https://github.com/omni-door/tpls/tree/master/packages/tpl-ssr-next#readme",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "src/**/__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omni-door/tpls.git"
+  },
+  "scripts": {
+    "test": "nyc mocha --opts mocha.opts",
+    "lint": "eslint src/ --ext .ts --ext .tsx",
+    "lint:fix": "eslint src/ --ext .ts --ext .tsx --fix",
+    "build": "npm run build:rm && npm run build:tsc",
+    "build:rm": "rm -rf lib/*",
+    "build:tsc": "tsc --build",
+    "build:branch": "../../scripts/branch.sh",
+    "build:version": "../../scripts/version.sh",
+    "release": "npm run build:branch master TPL-SSR-NEXT && npm run build && npm run build:version TPL-SSR-NEXT",
+    "upgrade:utils": "yarn upgrade @omni-door/utils@latest"
+  },
+  "bugs": {
+    "url": "https://github.com/omni-door/tpls/issues"
+  },
+  "dependencies": {
+    "@omni-door/utils": "^0.1.18"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.12",
+    "@types/mocha": "^8.0.0",
+    "@typescript-eslint/eslint-plugin": "^3.7.1",
+    "@typescript-eslint/parser": "^3.7.1",
+    "chai": "^4.2.0",
+    "eslint": "^7.5.0",
+    "mocha": "^8.1.0",
+    "nyc": "^15.1.0",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.7"
+  }
+}
