@@ -964,7 +964,7 @@ cache:
   directories:
     - node_modules
 after_success:
-  - export CODECOV_TOKEN=""
+  - export CODECOV_TOKEN="89b2f8a0-3572-4660-afa9-e899c57e21d1"
   - bash <(curl -s https://codecov.io/bash) -s coverage/' > ${dirName}/.travis.yml
 
 
