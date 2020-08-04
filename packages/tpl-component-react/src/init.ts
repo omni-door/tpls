@@ -118,7 +118,7 @@ export async function $init ({
     logWarn('生成自定义模板出错，将全部使用默认模板进行初始化！(The custom template generating occured error, all will be initializated with the default template!)');
   }
   const tpl = { ...tpls_init, ...custom_tpl_list };
-  const project_type = 'component-library-react' as 'component-library-react';
+  const project_type = 'component-react' as 'component-react';
   logTime('模板解析', true);
 
   // 生成项目文件

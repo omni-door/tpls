@@ -13,7 +13,7 @@
 | --- | --- |
 | [@omni-door/tpl-spa-react](https://github.com/omni-door/tpls/tree/master/packages/tpl-spa-react#readme) | React单页应用模板 |
 | [@omni-door/tpl-toolkit](https://github.com/omni-door/tpls/tree/master/packages/tpl-toolkit#readme) | 工具集模板 |
-| [@omni-door/tpl-component-library-react](https://github.com/omni-door/tpls/tree/master/packages/tpl-component-library-react#readme) | React组件库模板 |
+| [@omni-door/tpl-component-react](https://github.com/omni-door/tpls/tree/master/packages/tpl-component-react#readme) | React组件库模板 |
 
 ## 开发说明
 - 初始化一个脚手架模板

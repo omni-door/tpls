@@ -46,7 +46,7 @@
     "url": "https://github.com/omni-door/tpls/issues"
   },
   "dependencies": {
-    "@omni-door/utils": "^0.1.18"
+    "@omni-door/utils": "^1.0.0"
   },
   "devDependencies": {
     "@types/chai": "^4.2.11",

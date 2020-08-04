@@ -1,18 +1,18 @@
 {
-  "name": "@omni-door/tpl-component-library-react",
-  "version": "0.5.4",
-  "description": "The React component-library-react project template",
+  "name": "@omni-door/tpl-component-react",
+  "version": "1.0.0",
+  "description": "The React component-react project template",
   "bin": {
-    "omni-component-library-react": "./bin/omni-door-component-library-react.js"
+    "omni-component-react": "./bin/omni-door-component-react.js"
   },
   "keywords": [
     "template",
-    "component-library-react",
+    "component-react",
     "omni",
     "omni-door"
   ],
   "author": "bobby.li <bobby.lhan@gmail.com>",
-  "homepage": "https://github.com/omni-door/tpls/tree/master/packages/tpl-component-library-react#readme",
+  "homepage": "https://github.com/omni-door/tpls/tree/master/packages/tpl-component-react#readme",
   "license": "MIT",
   "main": "lib/index.js",
   "directories": {
@@ -38,14 +38,14 @@
     "build:tsc": "tsc --build",
     "build:branch": "../../scripts/branch.sh",
     "build:version": "../../scripts/version.sh",
-    "release": "npm run build:branch master TPL-COMPONENT-LIBRARY-REACT && npm run build && npm run build:version TPL-COMPONENT-LIBRARY-REACT",
+    "release": "npm run build:branch master TPL-COMPONENT-REACT && npm run build && npm run build:version TPL-COMPONENT-REACT",
     "upgrade:utils": "yarn upgrade @omni-door/utils@latest"
   },
   "bugs": {
     "url": "https://github.com/omni-door/tpls/issues"
   },
   "dependencies": {
-    "@omni-door/utils": "^0.1.18"
+    "@omni-door/utils": "^1.0.0"
   },
   "devDependencies": {
     "@types/chai": "^4.2.11",
