@@ -634,9 +634,15 @@ module.exports = {
     // 生成模板的根路径 (the root directory for generate template)
     // 务必使用绝对路径 (must be a absolute path)
     root: path.resolve(__dirname, '../src'),
-    typescript: \\\${!!ts}, // 是否创建ts文件 (whether or not generate typescript)
-    test: \\\${!!test}, // 是否创建单元测试文件 (whether or not generate unit test frame)
-    stylesheet: '\\\${style === 'all' ? 'scss' : style}' // 样式文件类型 (stylesheet type)
+
+    // 是否创建ts文件 (whether or not generate typescript)
+    typescript: \\\${!!ts},
+
+    // 是否创建单元测试文件 (whether or not generate unit test frame)
+    test: \\\${!!test},
+
+    // 样式文件类型 (stylesheet type)
+    stylesheet: '\\\${style === 'all' ? 'scss' : style}'
   },
 
   plugins: []
