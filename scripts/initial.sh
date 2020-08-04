@@ -964,7 +964,7 @@ cache:
   directories:
     - node_modules
 after_success:
-  - export CODECOV_TOKEN="f9d5d9bb-6695-49b8-9ae0-67e5f22e72a6"
+  - export CODECOV_TOKEN=""
   - bash <(curl -s https://codecov.io/bash) -s coverage/' > ${dirName}/.travis.yml
 
 
@@ -1152,4 +1152,4 @@ echo '{
 
 yarn add @omni-door/utils --cwd ${dirName} --registry="https://registry.npmjs.org/"
 
-yarn add -D @types/chai @types/mocha @typescript-eslint/eslint-plugin @typescript-eslint/parser chai eslint mocha nyc ts-node typescript --cwd ${dirName} --registry="https://registry.npmjs.org/"
+yarn add -D @types/chai @types/mocha @typescript-eslint/eslint-plugin @typescript-eslint/parser chai@~4.2.0 eslint@~6.8.0 mocha@~7.2.0 nyc@~15.0.1 ts-node@~8.9.1 typescript@~3.8.3 --cwd ${dirName} --registry="https://registry.npmjs.org/"
