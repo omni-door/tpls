@@ -9,7 +9,7 @@ The React single-page-application project template
 ## Install
 * Clone the repo: `git@github.com:omni-door/tpls.git`
 
-* Install with [npm](https://www.npmjs.com/package/@omni-door/tpl-spa-react): `npm install @omni-door/tpl-spa-react`
+* Install with [Npm](https://www.npmjs.com/package/@omni-door/tpl-spa-react): `npm install @omni-door/tpl-spa-react`
 
 * Install with [Yarn](https://yarnpkg.com/en/package/@omni-door/tpl-spa-react): `yarn add @omni-door/tpl-spa-react`
 

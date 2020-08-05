@@ -519,14 +519,14 @@ echo "import { expect } from 'chai';
 import { dependencies as dependencies_stable, devDependencies as devDependencies_stable } from '../dependencies_stable_map';
 import { dependencies, devDependencies } from '../dependencies';
 
-describe('dependencies_stable_map test', function () {
+describe('[tpl-${projectName}]: dependencies_stable_map test', function () {
   it('type checking', function () {
     expect(dependencies_stable).to.be.an('object');
     expect(devDependencies_stable).to.be.an('object');
   });
 });
 
-describe('dependencies test', function () {
+describe('[tpl-${projectName}]: dependencies test', function () {
   it('type checking', function () {
     expect(dependencies).to.be.a('function');
     expect(devDependencies).to.be.a('function');
@@ -751,31 +751,31 @@ import tpl_package from '../package';
 import tpl_readme from '../readme';
 import component_readme from '../new/readme';
 
-describe('tpl_index template test', function () {
+describe('[tpl-${projectName}]: tpl_index template test', function () {
   it('type checking', function () {
     expect(tpl_index).to.be.a('object');
   });
 });
 
-describe('tpl_omni template test', function () {
+describe('[tpl-${projectName}]: tpl_omni template test', function () {
   it('type checking', function () {
     expect(tpl_omni).to.be.a('function');
   });
 });
 
-describe('tpl_package template test', function () {
+describe('[tpl-${projectName}]: tpl_package template test', function () {
   it('type checking', function () {
     expect(tpl_package).to.be.a('function');
   });
 });
 
-describe('tpl_readme template test', function () {
+describe('[tpl-${projectName}]: tpl_readme template test', function () {
   it('type checking', function () {
     expect(tpl_readme).to.be.a('function');
   });
 });
 
-describe('component_readme template test', function () {
+describe('[tpl-${projectName}]: component_readme template test', function () {
   it('type checking', function () {
     expect(component_readme).to.be.a('function');
   });
@@ -958,7 +958,7 @@ The ${projectName} project template
 ## Install
 * Clone the repo: \`git@github.com:omni-door/tpls.git\`
 
-* Install with [npm](https://www.npmjs.com/package/@omni-door/tpl-${projectName}): \`npm install @omni-door/tpl-${projectName}\`
+* Install with [Npm](https://www.npmjs.com/package/@omni-door/tpl-${projectName}): \`npm install @omni-door/tpl-${projectName}\`
 
 * Install with [Yarn](https://yarnpkg.com/en/package/@omni-door/tpl-${projectName}): \`yarn add @omni-door/tpl-${projectName}\`
 

@@ -9,7 +9,7 @@ The ssr-react project template
 ## Install
 * Clone the repo: `git@github.com:omni-door/tpls.git`
 
-* Install with [npm](https://www.npmjs.com/package/@omni-door/tpl-ssr-react): `npm install @omni-door/tpl-ssr-react`
+* Install with [Npm](https://www.npmjs.com/package/@omni-door/tpl-ssr-react): `npm install @omni-door/tpl-ssr-react`
 
 * Install with [Yarn](https://yarnpkg.com/en/package/@omni-door/tpl-ssr-react): `yarn add @omni-door/tpl-ssr-react`
 

@@ -43,7 +43,7 @@ const { exec } = require('child_process');
   }
 
   const CWD = process.cwd();
-  let msg = '';
+  let msg = 'Upgrade templates:';
   await new Promise(async (res, rej) => {
     for (let i = 0; i < packages.length; i++) {
       const package = packages[i];

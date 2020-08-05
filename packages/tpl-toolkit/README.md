@@ -9,7 +9,7 @@ The JS-SDK project template for @omni-door
 ## Install
 * Clone the repo: `git@github.com:omni-door/tpls.git`
 
-* Install with [npm](https://www.npmjs.com/package/@omni-door/tpl-toolkit): `npm install @omni-door/tpl-toolkit`
+* Install with [Npm](https://www.npmjs.com/package/@omni-door/tpl-toolkit): `npm install @omni-door/tpl-toolkit`
 
 * Install with [Yarn](https://yarnpkg.com/en/package/@omni-door/tpl-toolkit): `yarn add @omni-door/tpl-toolkit`
 
