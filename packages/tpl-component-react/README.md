@@ -3,10 +3,8 @@ The React component-react project template
 
 [![NPM downloads](http://img.shields.io/npm/dm/%40omni-door%2Ftpl-component-react.svg?style=flat-square)](https://www.npmjs.com/package/@omni-door/tpl-component-react)
 [![npm version](https://badge.fury.io/js/%40omni-door%2Ftpl-component-react.svg)](https://badge.fury.io/js/%40omni-door%2Ftpl-component-react)
-[![Build Status](https://travis-ci.com/omni-door/tpl-component-react.svg?branch=master)](https://travis-ci.com/omni-door/tpl-component-react)
-[![codecov](https://codecov.io/gh/omni-door/tpl-component-react/branch/master/graph/badge.svg)](https://codecov.io/gh/omni-door/tpl-component-react)
 [![install size](https://packagephobia.now.sh/badge?p=%40omni-door%2Ftpl-component-react)](https://packagephobia.now.sh/result?p=%40omni-door%2Ftpl-component-react)
-[![license](http://img.shields.io/npm/l/%40omni-door%2Ftpl-component-react.svg)](https://github.com/omni-door/tpl-component-react/blob/master/LICENSE)
+[![license](http://img.shields.io/npm/l/%40omni-door%2Ftpl-component-react.svg)](https://github.com/omni-door/tpls/blob/master/packages/tpl-component-react/LICENSE)
 
 ## Install
 * Clone the repo: `git@github.com:omni-door/tpls.git`

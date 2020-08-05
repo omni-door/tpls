@@ -3,10 +3,8 @@ The JS-SDK project template for @omni-door
 
 [![NPM downloads](http://img.shields.io/npm/dm/%40omni-door%2Ftpl-toolkit.svg?style=flat-square)](https://www.npmjs.com/package/@omni-door/tpl-toolkit)
 [![npm version](https://badge.fury.io/js/%40omni-door%2Ftpl-toolkit.svg)](https://badge.fury.io/js/%40omni-door%2Ftpl-toolkit)
-[![Build Status](https://travis-ci.com/omni-door/tpl-toolkit.svg?branch=master)](https://travis-ci.com/omni-door/tpl-toolkit)
-[![codecov](https://codecov.io/gh/omni-door/tpl-toolkit/branch/master/graph/badge.svg)](https://codecov.io/gh/omni-door/tpl-toolkit)
 [![install size](https://packagephobia.now.sh/badge?p=%40omni-door%2Ftpl-toolkit)](https://packagephobia.now.sh/result?p=%40omni-door%2Ftpl-toolkit)
-[![license](http://img.shields.io/npm/l/%40omni-door%2Ftpl-toolkit.svg)](https://github.com/omni-door/tpl-toolkit/blob/master/LICENSE)
+[![license](http://img.shields.io/npm/l/%40omni-door%2Ftpl-toolkit.svg)](https://github.com/omni-door/tpls/blob/master/packages/tpl-toolkit/LICENSE)
 
 ## Install
 * Clone the repo: `git@github.com:omni-door/tpls.git`

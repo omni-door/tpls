@@ -515,8 +515,7 @@ export function devDependencies (strategy: STRATEGY, config: Config) {
 
 
 # src - config - __test__
-echo "import { describe, it } from 'mocha';
-import { expect } from 'chai';
+echo "import { expect } from 'chai';
 import { dependencies as dependencies_stable, devDependencies as devDependencies_stable } from '../dependencies_stable_map';
 import { dependencies, devDependencies } from '../dependencies';
 
@@ -745,8 +744,7 @@ export const tpl_new_readme = {
 export default tpl_engine_new(tpl_new_readme, 'tpl');" > ${dirName}/src/templates/new/readme.ts
 
 # src - templates - __test__
-echo "import { describe, it } from 'mocha';
-import { expect } from 'chai';
+echo "import { expect } from 'chai';
 import tpl_index from '../index';
 import tpl_omni from '../omni';
 import tpl_package from '../package';
@@ -844,55 +842,6 @@ export type TPLS_NEW_RETURE = Partial<TPLS_NEW>;
 export default { ...tpls_init, ...tpls_new };" > ${dirName}/src/templates/index.ts
 
 
-# .eslintignore
-echo "lib/
-node_modules/" > ${dirName}/.eslintignore
-
-
-# .eslintrc.js
-echo 'module.exports = {
-	"env": {
-		"es6": true,
-		"node": true
-	},
-	"extends": [
-		"eslint:recommended",
-		"plugin:@typescript-eslint/eslint-recommended"
-	],
-	"globals": {
-		"Atomics": "readonly",
-		"SharedArrayBuffer": "readonly"
-	},
-	"parser": "@typescript-eslint/parser",
-	"parserOptions": {
-		"ecmaVersion": 2018,
-		"sourceType": "module"
-	},
-	"plugins": [
-		"@typescript-eslint"
-	],
-	"rules": {
-		"no-unused-vars": 0,
-		"no-useless-escape": 0,
-    "prefer-const": 0,
-		"semi": ["error", "always"]
-	}
-};' > ${dirName}/.eslintrc.js
-
-
-# .gitignore
-echo '.DS_Store
-node_modules
-.nyc_output
-.omni_cache
-coverage
-lib
-
-omni.config.js
-package-lock.json
-*.log' > ${dirName}/.gitignore
-
-
 # .npmignore
 echo '.DS_Store
 .build
@@ -921,53 +870,6 @@ package-lock.json
 *.log' > ${dirName}/.npmignore
 
 
-# .nycrc
-echo '{
-  "extension": [
-    ".ts",
-    ".tsx"
-  ],
-  "include": [
-    "src/**/*.ts"
-  ],
-  "exclude": [
-    "**/*.d.ts",
-    "src/**/*.test.ts",
-    "src/index.ts",
-    "lib/*"
-  ],
-  "reporter": [
-    "lcovonly"
-  ],
-  "all": true
-}' > ${dirName}/.nycrc
-
-
-# .travis.yml
-echo 'language: node_js
-node_js:
-  - "10"
-dist: trusty
-sudo: required
-addons:
-  - chrome: stable
-before_install: 
-  - npm i -g codecov
-install:
-  - yarn
-script:
-  - npm run lint
-  - npm run test
-  - codecov
-cache:
-  yarn: true
-  directories:
-    - node_modules
-after_success:
-  - export CODECOV_TOKEN="89b2f8a0-3572-4660-afa9-e899c57e21d1"
-  - bash <(curl -s https://codecov.io/bash) -s coverage/' > ${dirName}/.travis.yml
-
-
 # LICENSE
 echo 'MIT License
 
@@ -991,13 +893,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ' > ${dirName}/LICENSE
-
-
-# mocha.opts
-echo '# mocha.opts
-  --require ts-node/register src/**/__test__/*.ts
-  --reporter spec
-' > ${dirName}/mocha.opts
 
 
 # package.json
@@ -1057,10 +952,8 @@ The ${projectName} project template
 
 [![NPM downloads](http://img.shields.io/npm/dm/%40omni-door%2Ftpl-${projectName}.svg?style=flat-square)](https://www.npmjs.com/package/@omni-door/tpl-${projectName})
 [![npm version](https://badge.fury.io/js/%40omni-door%2Ftpl-${projectName}.svg)](https://badge.fury.io/js/%40omni-door%2Ftpl-${projectName})
-[![Build Status](https://travis-ci.com/omni-door/tpl-${projectName}.svg?branch=master)](https://travis-ci.com/omni-door/tpl-${projectName})
-[![codecov](https://codecov.io/gh/omni-door/tpl-${projectName}/branch/master/graph/badge.svg)](https://codecov.io/gh/omni-door/tpl-${projectName})
 [![install size](https://packagephobia.now.sh/badge?p=%40omni-door%2Ftpl-${projectName})](https://packagephobia.now.sh/result?p=%40omni-door%2Ftpl-${projectName})
-[![license](http://img.shields.io/npm/l/%40omni-door%2Ftpl-${projectName}.svg)](https://github.com/omni-door/tpl-${projectName}/blob/master/LICENSE)
+[![license](http://img.shields.io/npm/l/%40omni-door%2Ftpl-${projectName}.svg)](https://github.com/omni-door/tpls/blob/master/packages/tpl-${projectName}/LICENSE)
 
 ## Install
 * Clone the repo: \`git@github.com:omni-door/tpls.git\`
