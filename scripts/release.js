@@ -68,11 +68,7 @@ const { exec } = require('child_process');
             spinner.color = 'green';
             spinner.succeed(`模板 ${package} 发布成功！`);
             const v = require(path.resolve(workPath, 'package.json')).version || versionTactic;
-            if (!msg) {
-              msg = `${i + 1}. publish ${package} to ${v};`
-            } else {
-              msg += `\n${i + 1}. publish ${package} to ${v};`
-            }
+            msg += `\n${i + 1}. publish ${package} to ${v};`
             resolve();
           });
         });
