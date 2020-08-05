@@ -8,7 +8,6 @@
   ],
   "exclude": [
     "**/*.d.ts",
-    "packages/**/src/*.ts",
     "node_modules/*",
     "**/node_modules/*",
     "**/lib/*"
