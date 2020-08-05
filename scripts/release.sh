@@ -5,7 +5,7 @@ name="🐸  [OMNI-DOOR/TPLS]"
 if [ $? -eq 0 ]
 then
   git add -A
-  git commit -m "${name}: ${msg}"
+  git commit -m "${name}: \n${msg}"
   git push
   echo -e "\033[32m \n${name}: The git-repo push success\n \033[0m"
 else

@@ -94,5 +94,6 @@ const { exec } = require('child_process');
       console.error(err);
       return;
     }
+    console.info(stdout || stderr);
   });
 })();
