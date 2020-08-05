@@ -1,0 +1,21 @@
+{
+  "extension": [
+    ".ts",
+    ".tsx"
+  ],
+  "include": [
+    "packages/**/src/**/__test__/*.ts"
+  ],
+  "exclude": [
+    "**/*.d.ts",
+    "packages/**/src/**/*.test.ts",
+    "packages/**/src/*.ts",
+    "node_modules/*",
+    "**/node_modules/*",
+    "**/lib/*"
+  ],
+  "reporter": [
+    "lcovonly"
+  ],
+  "all": true
+}

@@ -31,14 +31,11 @@
   },
   "scripts": {
     "test": "nyc mocha --opts mocha.opts",
-    "lint": "eslint src/ --ext .ts --ext .tsx",
-    "lint:fix": "eslint src/ --ext .ts --ext .tsx --fix",
     "build": "npm run build:rm && npm run build:tsc",
     "build:rm": "rm -rf lib/*",
     "build:tsc": "tsc --build",
-    "build:branch": "../../scripts/branch.sh",
     "build:version": "../../scripts/version.sh",
-    "release": "npm run build:branch master TPL-SPA-REACT && npm run build && npm run build:version TPL-SPA-REACT",
+    "release": "npm run build && npm run build:version TPL-SPA-REACT",
     "upgrade:utils": "yarn upgrade @omni-door/utils@latest"
   },
   "bugs": {
@@ -48,16 +45,6 @@
     "@omni-door/utils": "^1.0.0"
   },
   "devDependencies": {
-    "@types/chai": "^4.2.11",
-    "@types/mocha": "^7.0.2",
-    "@types/node": "^13.13.2",
-    "@typescript-eslint/eslint-plugin": "^2.29.0",
-    "@typescript-eslint/parser": "^2.29.0",
-    "chai": "^4.2.0",
-    "eslint": "^6.8.0",
-    "mocha": "^7.1.1",
-    "nyc": "^15.0.1",
-    "ts-node": "^8.9.1",
-    "typescript": "^3.8.3"
+    "typescript": "^3.9.7"
   }
 }

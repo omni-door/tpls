@@ -1,0 +1,3 @@
+# mocha.opts
+  --require ts-node/register packages/**/src/**/__test__/*.ts
+  --reporter spec

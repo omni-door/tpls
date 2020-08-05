@@ -22,6 +22,7 @@ module.exports = {
 	"rules": {
 		"no-unused-vars": 0,
 		"no-useless-escape": 0,
+		"prefer-const": 0,
 		"semi": ["error", "always"]
 	}
 };

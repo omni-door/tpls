@@ -1152,4 +1152,4 @@ echo '{
 
 yarn add @omni-door/utils --cwd ${dirName} --registry="https://registry.npmjs.org/"
 
-yarn add -D @types/chai @types/mocha @typescript-eslint/eslint-plugin @typescript-eslint/parser chai@~4.2.0 eslint@~6.8.0 mocha@~7.2.0 nyc@~15.0.1 ts-node@~8.9.1 typescript@~3.8.3 --cwd ${dirName} --registry="https://registry.npmjs.org/"
+yarn add -D typescript@~3.9.7 --cwd ${dirName} --registry="https://registry.npmjs.org/"
