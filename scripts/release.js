@@ -68,7 +68,11 @@ const { exec } = require('child_process');
             spinner.color = 'green';
             spinner.succeed(`模板 ${package} 发布成功！`);
             const v = require(path.resolve(workPath, 'package.json')).version || versionTactic;
-            msg += `${i + 1}. publish ${package} to ${v};`
+            if (!msg) {
+              msg = `${i + 1}. publish ${package} to ${v};`
+            } else {
+              msg += `\n${i + 1}. publish ${package} to ${v};`
+            }
             resolve();
           });
         });
@@ -85,7 +89,7 @@ const { exec } = require('child_process');
     }
   })
   
-  exec(`cd ${CWD} && yarn release:push ${msg}`, function (err, stdout, stderr) {
+  exec(`cd ${CWD} && yarn release:push '${msg}'`, function (err, stdout, stderr) {
     if (err) {
       console.error(err);
       return;
