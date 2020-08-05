@@ -16,7 +16,7 @@ const { exec } = require('child_process');
     name: 'tactic',
     type: 'list',
     when: function (answer) {
-      if(answer.packages.length > 0 && !~answer.packages.indexOf('全部发布')) return true;
+      if(answer.packages.length > 0) return true;
       return false;
     },
     choices: [ '自动迭代', '手动迭代', '忽略迭代' ],
@@ -39,19 +39,12 @@ const { exec } = require('child_process');
 
   if (!!~packages.indexOf('全部发布')) {
     // 全部发布
-    const spinner = ora(`全部模板项目发布中，请稍后……\n`).start();
-    spinner.spinner = 'earth';
-    spinner.color = 'magenta';
-    exec('lerna run release', function (err, stdout, stderr) {
-      if (err) {
-        console.error(err);
-        spinner.fail(`发布过程遇到错误，终止发布！`);
-        process.exit(1);
-      }
-      console.info(stdout || stderr);
-      spinner.succeed(`所有模板发布成功！`);
-    });
-  } else {
+    packages.splice(0, packages.length, ...list_packages)
+  }
+
+  const CWD = process.cwd();
+  let msg = '';
+  await new Promise(async (res, rej) => {
     for (let i = 0; i < packages.length; i++) {
       const package = packages[i];
       const spinner = ora(`模板 ${package} 发布中，请稍后……\n`).start();
@@ -59,7 +52,7 @@ const { exec } = require('child_process');
       spinner.color = 'magenta';
       try {
         await new Promise((resolve, reject) => {
-          const workPath = `${path.resolve(process.cwd(), 'packages', package)}`;
+          const workPath = `${path.resolve(CWD, 'packages', package)}`;
           const versionTactic =
             tactic === '忽略迭代'
               ? 'i'
@@ -74,6 +67,8 @@ const { exec } = require('child_process');
             console.info(stdout || stderr);
             spinner.color = 'green';
             spinner.succeed(`模板 ${package} 发布成功！`);
+            const v = require(path.resolve(workPath, 'package.json')).version || versionTactic;
+            msg += `${i + 1}. publish ${package} to ${v};`
             resolve();
           });
         });
@@ -82,6 +77,18 @@ const { exec } = require('child_process');
         spinner.color = 'red';
         spinner.fail(`${package} 的发布过程遇到错误，终止该包的发布！`);
       }
+
+      if (i + 1 === packages.length) {
+        // last one
+        res();
+      }
     }
-  }
+  })
+  
+  exec(`cd ${CWD} && yarn release:push ${msg}`, function (err, stdout, stderr) {
+    if (err) {
+      console.error(err);
+      return;
+    }
+  });
 })();
