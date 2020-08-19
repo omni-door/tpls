@@ -3,7 +3,7 @@ import { tpl_engine_new } from '@omni-door/utils';
 const tpl = 
 `\`import React, { PureComponent } from 'react';
 import propTypes from 'prop-types';
-\${ts ? \`import { \${componentName}Props, \${componentName}States } from './interface';\` : ''}
+\${ts ? \`import type { \${componentName}Props, \${componentName}States } from './interface';\` : ''}
 
 export class \${componentName} extends PureComponent\${ts ? \`<\${componentName}Props, \${componentName}States>\` : ''} {
   /**

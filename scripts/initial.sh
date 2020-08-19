@@ -29,17 +29,18 @@ echo "import \$init from './init';
 
 export { \$init } from './init';
 export { \$new } from './new';
-export { TPLS_ORIGIN_INITIAL, TPLS_INITIAL_FN, TPLS_INITIAL_RETURE, TPLS_ORIGIN_NEW, TPLS_NEW_FN, TPLS_NEW_RETURE } from './templates';
 export { setBrand, setLogo } from '@omni-door/utils';
+export type { TPLS_ORIGIN_INITIAL, TPLS_INITIAL_FN, TPLS_INITIAL_RETURE, TPLS_ORIGIN_NEW, TPLS_NEW_FN, TPLS_NEW_RETURE } from './templates';
 
 export default \$init;" > ${dirName}/src/index.ts
 
 
 # src - cli
-echo "import { STRATEGY, STYLE, PKJTOOL, logErr } from '@omni-door/utils';
+echo "import { logErr } from '@omni-door/utils';
 import { parse } from 'path';
 import \$init from './init';
 import \$new from './new';
+import type { STRATEGY, STYLE, PKJTOOL } from '@omni-door/utils';
 const args = process.argv.slice(2);
 
 type Option = {
@@ -111,9 +112,6 @@ echo "import path from 'path';
 import {
   arr2str,
   intersection,
-  PKJTOOL,
-  STYLE,
-  STRATEGY,
   logWarn,
   logErr,
   logSuc,
@@ -122,15 +120,23 @@ import {
   output_file,
 } from '@omni-door/utils';
 import {
-  TPLS_INITIAL,
-  TPLS_ORIGIN_INITIAL,
-  TPLS_INITIAL_FN,
-  TPLS_INITIAL_RETURE,
   tpls_init,
   tpls_origin_init
 } from './templates';
 import { dependencies, devDependencies } from './configs/dependencies';
 import { devDependencies as devDependencyMap } from './configs/dependencies_stable_map';
+/* import types */
+import type {
+  PKJTOOL,
+  STYLE,
+  STRATEGY
+} from '@omni-door/utils';
+import type {
+  TPLS_INITIAL,
+  TPLS_ORIGIN_INITIAL,
+  TPLS_INITIAL_FN,
+  TPLS_INITIAL_RETURE
+} from './templates';
 
 export type ResultOfDependencies = string[] | { add?: string[]; remove?: string[]; };
 export type InitOptions = {
@@ -358,19 +364,21 @@ export default \$init;" > ${dirName}/src/init.ts
 # src - new
 echo "import path from 'path';
 import {
-  STYLE,
-  MARKDOWN,
   logInfo,
   logWarn,
   logTime,
   output_file,
 } from '@omni-door/utils';
 import {
-  TPLS_ORIGIN_NEW,
-  TPLS_NEW_FN,
-  TPLS_NEW_RETURE,
   tpls_new,
   tpls_origin_new
+} from './templates';
+/* import types */
+import type { STYLE, MARKDOWN } from '@omni-door/utils';
+import type {
+  TPLS_ORIGIN_NEW,
+  TPLS_NEW_FN,
+  TPLS_NEW_RETURE
 } from './templates';
 
 export function \$new ({
@@ -464,8 +472,9 @@ export const devDependencies = {
 
 
 # src - config - dependencies
-echo "import { getDependency, arr2str, STYLE, STRATEGY } from '@omni-door/utils';
+echo "import { getDependency, arr2str } from '@omni-door/utils';
 import { dependencies as dependenciesMap, devDependencies as devDependenciesMap } from './dependencies_stable_map';
+import type { STYLE, STRATEGY } from '@omni-door/utils';
 
 interface Config {
   ts: boolean;
