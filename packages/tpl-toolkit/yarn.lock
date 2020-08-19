@@ -2,17 +2,17 @@
 # yarn lockfile v1
 
 
-"@omni-door/utils@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.npmjs.org/@omni-door/utils/-/utils-1.0.2.tgz#6ba17ba1fe731a956c58c8a480f7ae66a5881f42"
-  integrity sha512-gMpGIoJitUn3kroPgctIbn1sU5N2z3hO86yBU7N0RAv4zNNJ8OH73q6XJd8dImw1Zyi3Aom9+jkOWG8qAoZNXA==
+"@omni-door/utils@^1.0.6":
+  version "1.0.6"
+  resolved "https://registry.npmjs.org/@omni-door/utils/-/utils-1.0.6.tgz#33913350ca73697ac9eddbcbe0b11dc997b3b09d"
+  integrity sha512-e8ttJaWKvAvZ/49jHoTVMhthPmjn5wQiaFLXcdze2K1nMhzsg9c468x+9KG8KPEaZvL4DarRYKy3gyNbj6BDlw==
   dependencies:
-    "@types/signale" "^1.2.1"
-    chalk "^3.0.0"
-    fs-extra "^8.1.0"
-    ora "^4.0.3"
-    shelljs "^0.8.3"
-    signale "^1.4.0"
+    "@types/signale" "1.4.0"
+    chalk "3.0.0"
+    fs-extra "8.1.0"
+    ora "4.0.3"
+    shelljs "0.8.3"
+    signale "1.4.0"
 
 "@types/color-name@^1.1.1":
   version "1.1.1"
@@ -20,14 +20,14 @@
   integrity sha512-rr+OQyAjxze7GgWrSaJwydHStIhHq2lvY3BOC2Mj7KnzI7XK0Uw1TOOdI9lDoajEbSWLiYgoo4f1R51erQfhPQ==
 
 "@types/node@*":
-  version "13.7.6"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-13.7.6.tgz#cb734a7c191472ae6a2b3a502b4dfffcea974113"
-  integrity sha512-eyK7MWD0R1HqVTp+PtwRgFeIsemzuj4gBFSQxfPHY5iMjS7474e5wq+VFgTcdpyHeNxyKSaetYAjdMLJlKoWqA==
+  version "14.6.0"
+  resolved "https://registry.npmjs.org/@types/node/-/node-14.6.0.tgz#7d4411bf5157339337d7cff864d9ff45f177b499"
+  integrity sha512-mikldZQitV94akrc4sCcSjtJfsTKt4p+e/s0AGscVA6XArQ9kFclP+ZiYUMnq987rc6QlYxXv/EivqlfSLxpKA==
 
-"@types/signale@^1.2.1":
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/@types/signale/-/signale-1.2.1.tgz#7ff3d477e8d5983b7ecef544f5830c3cb271d1a8"
-  integrity sha512-mV6s2VgcBC16Jb+1EwulgRrrZBT93V4JCILkNPg31rvvSK6LRQQGU8R/SUivgHjDZ5LJZu/yL2kMF8j85YQTnA==
+"@types/signale@1.4.0":
+  version "1.4.0"
+  resolved "https://registry.npmjs.org/@types/signale/-/signale-1.4.0.tgz#2d461d51a91eee0fc9de8398f0f2cda7cd1333bb"
+  integrity sha512-9CA+KU3yjiBbmZRnQ3zcmvYzat3Ph+RzqeHBdZJ/NAZkmByrcIboJ8Aq1Bzq7btNTaaiDx6g0jAPM9Jzz/yQZQ==
   dependencies:
     "@types/node" "*"
 
@@ -64,6 +64,14 @@ brace-expansion@^1.1.7:
     balanced-match "^1.0.0"
     concat-map "0.0.1"
 
+chalk@3.0.0, chalk@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.npmjs.org/chalk/-/chalk-3.0.0.tgz#3f73c2bf526591f574cc492c51e2456349f844e4"
+  integrity sha512-4D3B6Wf41KOYRFdszmDqMCGq5VV/uMAB273JILmO+3jAlh8X4qDtdtgCR3fxtbLEMzSx22QdhnDcJvu2u1fVwg==
+  dependencies:
+    ansi-styles "^4.1.0"
+    supports-color "^7.1.0"
+
 chalk@^2.3.2, chalk@^2.4.2:
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-2.4.2.tgz#cd42541677a54333cf541a49108c1432b44c9424"
@@ -72,14 +80,6 @@ chalk@^2.3.2, chalk@^2.4.2:
     ansi-styles "^3.2.1"
     escape-string-regexp "^1.0.5"
     supports-color "^5.3.0"
-
-chalk@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/chalk/-/chalk-3.0.0.tgz#3f73c2bf526591f574cc492c51e2456349f844e4"
-  integrity sha512-4D3B6Wf41KOYRFdszmDqMCGq5VV/uMAB273JILmO+3jAlh8X4qDtdtgCR3fxtbLEMzSx22QdhnDcJvu2u1fVwg==
-  dependencies:
-    ansi-styles "^4.1.0"
-    supports-color "^7.1.0"
 
 cli-cursor@^3.1.0:
   version "3.1.0"
@@ -160,9 +160,9 @@ find-up@^2.0.0:
   dependencies:
     locate-path "^2.0.0"
 
-fs-extra@^8.1.0:
+fs-extra@8.1.0:
   version "8.1.0"
-  resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-8.1.0.tgz#49d43c45a88cd9677668cb7be1b46efdb8d2e1c0"
+  resolved "https://registry.npmjs.org/fs-extra/-/fs-extra-8.1.0.tgz#49d43c45a88cd9677668cb7be1b46efdb8d2e1c0"
   integrity sha512-yhlQgA6mnOJUKOsRUFsgJdQCvkKhcz8tlZG5HBQfReYZy46OwLcY+Zia0mtdHsOo9y/hP+CxMN0TU9QxoOtG4g==
   dependencies:
     graceful-fs "^4.2.0"
@@ -297,9 +297,9 @@ onetime@^5.1.0:
   dependencies:
     mimic-fn "^2.1.0"
 
-ora@^4.0.3:
+ora@4.0.3:
   version "4.0.3"
-  resolved "https://registry.yarnpkg.com/ora/-/ora-4.0.3.tgz#752a1b7b4be4825546a7a3d59256fa523b6b6d05"
+  resolved "https://registry.npmjs.org/ora/-/ora-4.0.3.tgz#752a1b7b4be4825546a7a3d59256fa523b6b6d05"
   integrity sha512-fnDebVFyz309A73cqCipVL1fBZewq4vwgSHfxh43vVy31mbyoQ8sCH3Oeaog/owYOs/lLlGVPCISQonTneg6Pg==
   dependencies:
     chalk "^3.0.0"
@@ -388,9 +388,9 @@ restore-cursor@^3.1.0:
     onetime "^5.1.0"
     signal-exit "^3.0.2"
 
-shelljs@^0.8.3:
+shelljs@0.8.3:
   version "0.8.3"
-  resolved "https://registry.yarnpkg.com/shelljs/-/shelljs-0.8.3.tgz#a7f3319520ebf09ee81275b2368adb286659b097"
+  resolved "https://registry.npmjs.org/shelljs/-/shelljs-0.8.3.tgz#a7f3319520ebf09ee81275b2368adb286659b097"
   integrity sha512-fc0BKlAWiLpwZljmOvAOTE/gXawtCoNrP5oaY7KIaQbbyHeQVg01pSEuEGvGh3HEdBU4baCD7wQBwADmM/7f7A==
   dependencies:
     glob "^7.0.0"
@@ -402,9 +402,9 @@ signal-exit@^3.0.2:
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
   integrity sha1-tf3AjxKH6hF4Yo5BXiUTK3NkbG0=
 
-signale@^1.4.0:
+signale@1.4.0:
   version "1.4.0"
-  resolved "https://registry.yarnpkg.com/signale/-/signale-1.4.0.tgz#c4be58302fb0262ac00fc3d886a7c113759042f1"
+  resolved "https://registry.npmjs.org/signale/-/signale-1.4.0.tgz#c4be58302fb0262ac00fc3d886a7c113759042f1"
   integrity sha512-iuh+gPf28RkltuJC7W5MRi6XAjTDCAPC/prJUpQoG4vIP3MJZ+GTydVnodXA7pwvTKb2cA0m9OFZW/cdWy/I/w==
   dependencies:
     chalk "^2.3.2"

@@ -1,6 +1,6 @@
 {
   "name": "@omni-door/tpl-ssr-react",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "",
   "bin": {
     "omni-ssr-react": "./bin/omni-door-spa-react.js"
@@ -41,7 +41,7 @@
     "url": "https://github.com/omni-door/tpls/issues"
   },
   "dependencies": {
-    "@omni-door/utils": "^1.0.2"
+    "@omni-door/utils": "^1.0.6"
   },
   "devDependencies": {
     "typescript": "^3.9.7"
