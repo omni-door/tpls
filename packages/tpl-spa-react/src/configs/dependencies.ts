@@ -1,5 +1,6 @@
-import { getDependency, arr2str, STYLE, STRATEGY } from '@omni-door/utils';
+import { getDependency, arr2str } from '@omni-door/utils';
 import { dependencies as dependenciesMap, devDependencies as devDependenciesMap } from './dependencies_stable_map';
+import type { STYLE, STRATEGY } from '@omni-door/utils';
 
 interface Config {
   ts: boolean;

@@ -7,22 +7,27 @@ import {
   logErr,
   logWarn,
   logSuc,
-  logTime,
-  PKJTOOL,
-  STYLE,
-  STRATEGY,
-  DEVSERVER
+  logTime
 } from '@omni-door/utils';
 import {
-  TPLS_INITIAL,
-  TPLS_ORIGIN_INITIAL,
-  TPLS_INITIAL_FN,
-  TPLS_INITIAL_RETURE,
   tpls_init,
   tpls_origin_init
 } from './templates';
 import { dependencies, devDependencies } from './configs/dependencies';
 import { devDependencies as devDependencyMap } from './configs/dependencies_stable_map';
+/* import types */
+import type {
+  PKJTOOL,
+  STYLE,
+  STRATEGY,
+  DEVSERVER
+} from '@omni-door/utils';
+import type {
+  TPLS_INITIAL,
+  TPLS_ORIGIN_INITIAL,
+  TPLS_INITIAL_FN,
+  TPLS_INITIAL_RETURE
+} from './templates';
 
 export type ResultOfDependencies = string[] | { add?: string[]; remove?: string[]; };
 export type InitOptions = {

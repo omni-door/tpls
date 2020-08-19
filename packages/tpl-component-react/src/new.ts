@@ -3,16 +3,18 @@ import {
   output_file,
   logInfo,
   logWarn,
-  logTime,
-  STYLE,
-  MARKDOWN
+  logTime
 } from '@omni-door/utils';
 import {
-  TPLS_ORIGIN_NEW,
-  TPLS_NEW_FN,
-  TPLS_NEW_RETURE,
   tpls_new,
   tpls_origin_new
+} from './templates';
+/* import types */
+import type { STYLE, MARKDOWN } from '@omni-door/utils';
+import type {
+  TPLS_ORIGIN_NEW,
+  TPLS_NEW_FN,
+  TPLS_NEW_RETURE
 } from './templates';
 
 export function $new ({
