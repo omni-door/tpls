@@ -2,23 +2,27 @@ import omni, { tpl_omni } from './omni';
 import pkj, { tpl_package } from './package';
 import readme, { tpl_readme } from './readme';
 import component_readme, { tpl_new_readme } from './new/readme';
+import vscode, { tpl_vscode_setting } from './vsc';
 
 export { default as omni, tpl_omni } from './omni';
 export { default as pkj, tpl_package } from './package';
 export { default as readme, tpl_readme } from './readme';
 export { default as component_readme, tpl_new_readme } from './new/readme';
+export { default as vscode, tpl_vscode_setting } from './vsc';
 
 /* -- templates - init --  */
 export const tpls_init = {
   omni,
   pkj,
-  readme
+  readme,
+  vscode
 };
 
 export const tpls_origin_init = {
   tpl_omni,
   tpl_package,
-  tpl_readme
+  tpl_readme,
+  tpl_vscode_setting
 };
 
 export type TPLS_INITIAL = {

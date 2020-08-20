@@ -1,6 +1,6 @@
 {
   "name": "@omni-door/tpl-ssr-react",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "",
   "bin": {
     "omni-ssr-react": "./bin/omni-door-spa-react.js"

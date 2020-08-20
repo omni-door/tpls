@@ -21,6 +21,10 @@ const tpl =
     "editor.formatOnSave": true,
     "editor.formatOnPaste": true
   },
+  "[javascript]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true
+  },
   "[typescript]": {
     "editor.formatOnSave": true,
     "editor.formatOnPaste": true

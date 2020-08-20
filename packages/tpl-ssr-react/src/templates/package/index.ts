@@ -27,4 +27,4 @@ export const tpl_package = {
   tpl
 };
 
-export default tpl_engine_init(tpl_package, tpl);
+export default tpl_engine_init(tpl_package, 'tpl');

@@ -14,6 +14,7 @@ mkdir ${dirName}/src/templates/__test__
 mkdir ${dirName}/src/templates/readme
 mkdir ${dirName}/src/templates/omni
 mkdir ${dirName}/src/templates/package
+mkdir ${dirName}/src/templates/vsc
 mkdir ${dirName}/src/templates/new
 
 # generate files
@@ -238,7 +239,9 @@ export async function \$init ({
     // package.json
     'package.json': install && tpl.pkj({ ...params, install, dependencies: '', devDependencies: '' }),
     // ReadMe
-    'README.md': tpl.readme(params)
+    'README.md': tpl.readme(params),
+    // lint files
+    '.vscode/settings.json': tpl.vscode(params)
   };
   const file_path = (p: string) => path.resolve(initPath, p);
   for (const p in pathToFileContentMap) {
@@ -336,13 +339,13 @@ export async function \$init ({
         const name = lastInd === 0 ? item : item.substr(0, lastInd);
         const version = lastInd === 0 ? 'latest' : item.substr(lastInd + 1);
         if (i + 1 === arr.length) {
-          result += \`    "\${name}": "\${version}"\`;
+          result += \`    \"\${name}\": \"\${version}\"\`;
         } else {
-          result += \`    "\${name}": "\${version}",\n\`;
+          result += \`    \"\${name}\": \"\${version}\",\n\`;
         }
       }
 
-      return \`"\${prefix}": {\n\${result}\n  },\`;
+      return \`\"\${prefix}\": {\n\${result}\n  },\`;
     };
     output_file({
       file_path: path.resolve(initPath, 'package.json'),
@@ -573,7 +576,7 @@ export const tpl_package = {
   tpl
 };
 
-export default tpl_engine_init(tpl_package, 'tpl');' > ${dirName}/src/templates/package/index.ts
+export default tpl_engine_init(tpl_package, "tpl");' > ${dirName}/src/templates/package/index.ts
 
 
 # src - templates - omni
@@ -731,6 +734,61 @@ export const tpl_readme = {
 
 export default tpl_engine_init(tpl_readme, 'tpl');" > ${dirName}/src/templates/readme/index.ts
 
+# src - templates - vsc
+echo 'import { tpl_engine_init } from "@omni-door/utils";
+
+const tpl = 
+`\`{
+  "editor.tabSize": 2,
+  "editor.formatOnSave": \${eslint ? false : true},
+  "javascript.format.enable": \${eslint ? false : true},
+  "[css]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true
+  },
+  "[less]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true
+  },
+  "[scss]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true
+  },
+  "[sass]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true
+  },
+  "[javascript]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true
+  },
+  "[typescript]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": \${eslint ? true : false}
+  },
+  "files.exclude": {
+    "**/.vscode": true,
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/.editorconfig": true,
+    "**/.eslintignore": true,
+    "**/.prettierignore": true
+  }
+}
+\``;
+
+export const tpl_vscode_setting = {
+  tpl
+};
+
+export default tpl_engine_init(tpl_vscode_setting, "tpl");' > ${dirName}/src/templates/vsc/index.ts
+
 # src - templates - new - readme
 echo "import { tpl_engine_new } from '@omni-door/utils';
 
@@ -758,6 +816,7 @@ import tpl_index from '../index';
 import tpl_omni from '../omni';
 import tpl_package from '../package';
 import tpl_readme from '../readme';
+import tpl_vscode from '../vsc';
 import component_readme from '../new/readme';
 
 describe('[tpl-${projectName}]: tpl_index template test', function () {
@@ -784,6 +843,12 @@ describe('[tpl-${projectName}]: tpl_readme template test', function () {
   });
 });
 
+describe('[tpl-${projectName}]: tpl_vscode template test', function () {
+  it('type checking', function () {
+    expect(tpl_vscode).to.be.a('function');
+  });
+});
+
 describe('[tpl-${projectName}]: component_readme template test', function () {
   it('type checking', function () {
     expect(component_readme).to.be.a('function');
@@ -795,6 +860,7 @@ describe('[tpl-${projectName}]: component_readme template test', function () {
 echo "import omni, { tpl_omni } from './omni';
 import pkj, { tpl_package } from './package';
 import readme, { tpl_readme } from './readme';
+import vscode, { tpl_vscode_setting } from './vsc';
 import component_readme, { tpl_new_readme } from './new/readme';
 
 export { default as omni, tpl_omni } from './omni';
@@ -806,13 +872,15 @@ export { default as component_readme, tpl_new_readme } from './new/readme';
 export const tpls_init = {
   omni,
   pkj,
-  readme
+  readme,
+  vscode
 };
 
 export const tpls_origin_init = {
   tpl_omni,
   tpl_package,
-  tpl_readme
+  tpl_readme,
+  tpl_vscode_setting
 };
 
 export type TPLS_INITIAL = {

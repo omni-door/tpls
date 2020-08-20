@@ -128,7 +128,9 @@ export async function $init ({
     // package.json
     'package.json': install && tpl.pkj({ ...params, install, dependencies: '', devDependencies: '' }),
     // ReadMe
-    'README.md': tpl.readme(params)
+    'README.md': tpl.readme(params),
+    // lint files
+    '.vscode/settings.json': tpl.vscode(params)
   };
   const file_path = (p: string) => path.resolve(initPath, p);
   for (const p in pathToFileContentMap) {
@@ -226,13 +228,13 @@ export async function $init ({
         const name = lastInd === 0 ? item : item.substr(0, lastInd);
         const version = lastInd === 0 ? 'latest' : item.substr(lastInd + 1);
         if (i + 1 === arr.length) {
-          result += `    ${name}: ${version}`;
+          result += `    "${name}": "${version}"`;
         } else {
-          result += `    ${name}: ${version},\n`;
+          result += `    "${name}": "${version}",\n`;
         }
       }
 
-      return `${prefix}: {\n${result}\n  },`;
+      return `"${prefix}": {\n${result}\n  },`;
     };
     output_file({
       file_path: path.resolve(initPath, 'package.json'),
