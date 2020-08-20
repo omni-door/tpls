@@ -1,7 +1,5 @@
 const tpl = 
 `\`,
-    'plugin:prettier/recommended',
-    'prettier',
-    'prettier/@typescript-eslint'\``;
+    'plugin:prettier/recommended'\``;
 
 export default tpl;
