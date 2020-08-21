@@ -10,8 +10,8 @@ import type {
   LazyExoticComponent,
   ComponentType,
   NamedExoticComponent
-} from 'react';\` : ''}
-
+} from 'react';
+\` : ''}
 export const RouteWithSubRoutes = (route\${ts ? ': IRoute' : ''}) => {
   const _Route = () => <Route
     path={route.path}
@@ -30,8 +30,8 @@ export const RouteWithSubRoutes = (route\${ts ? ': IRoute' : ''}) => {
       : <_Route />
   );
 };
-
-\${ts ? \`export interface IRoute {
+\${ts ? \`
+export interface IRoute {
   // 路由路径 (The path for route)
   path: string | string[];
   // 路由对应的组件 (The render component for route)
@@ -44,8 +44,8 @@ export const RouteWithSubRoutes = (route\${ts ? ': IRoute' : ''}) => {
   routes?: IRoute[];
   // 重定向路径 (redirect path)
   redirect?: string;
-}\` : ''}
-
+}
+\` : ''}
 const routes\${ts ? ': IRoute[]' : ''} = [
   {
     path: '/',

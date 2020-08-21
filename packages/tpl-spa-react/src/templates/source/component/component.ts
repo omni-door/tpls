@@ -4,15 +4,15 @@ const tpl =
 `\`import React, { PureComponent } from 'react';
 \${style ? \`import './style/\${componentName}.\${style === 'all' ? 'scss' : style}';\` : ''}
 \${ts ? \`/* import types */
-import { RouteComponentProps } from 'react-router-dom';
-import { PageProps } from '@/@types';\` : '' }
+import type { RouteComponentProps } from 'react-router-dom';
+import type { PageProps } from '@/@types';
 
-\${ts ? \`export interface \${componentName}Props extends PageProps, RouteComponentProps<{
+export interface \${componentName}Props extends PageProps, RouteComponentProps<{
   id?: string;
 }> {}
 
-export interface \${componentName}States {}\` : ''}
-
+export interface \${componentName}States {}
+\` : '' }
 export class \${componentName} extends PureComponent\${ts ? \`<\${componentName}Props, \${componentName}States>\` : ''} {
   \${ts ? 'public ' : ''}render() {
     const { match: { params } } = this.props;

@@ -7,10 +7,10 @@ import { RouteWithSubRoutes } from '@/routes';
 \${style ? \`import './style/\${pageName}.\${style === 'all' ? 'scss' : style}';\` : ''}
 \${ts ? \`/* import types */
 import type { FC } from 'react';
-import type { PageProps } from '@/@types';\` : ''}
+import type { PageProps } from '@/@types';
 
-\${ts ? \`export interface \${pageName}Props extends PageProps {}\` : ''}
-
+export interface \${pageName}Props extends PageProps {}
+\` : ''}
 export const \${pageName}\${ts ? \`: FC<\${pageName}Props>\` : ''} = props => {
   return (
     <div
