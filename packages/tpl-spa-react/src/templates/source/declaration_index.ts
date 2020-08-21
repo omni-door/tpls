@@ -1,7 +1,7 @@
 import { tpl_engine_init } from '@omni-door/utils';
 
 const tpl = 
-`\`import { IRoute } from '@/routes';
+`\`import type { IRoute } from '@/routes';
 
 export interface PageProps {
   routes?: IRoute[];

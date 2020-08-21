@@ -1,9 +1,11 @@
 import { tpl_engine_init } from '@omni-door/utils';
 
 const tpl = 
-`\`import React, { memo\${ts ? ', FC ' : ''}} from 'react';
-\${ts ? "import { PageProps } from '@/@types';" : '' }
+`\`import React, { memo } from 'react';
 \${style ? \`import './style/\${pageName}.\${style === 'all' ? 'scss' : style}';\` : ''}
+\${ts ? \`/* import types */
+import type { FC } from 'react';
+import type { PageProps } from '@/@types';\` : ''}
 
 \${ts ? \`export interface \${pageName}Props extends PageProps {}\` : ''}
 

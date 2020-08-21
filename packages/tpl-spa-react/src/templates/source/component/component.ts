@@ -2,9 +2,10 @@ import { tpl_engine_init } from '@omni-door/utils';
 
 const tpl = 
 `\`import React, { PureComponent } from 'react';
-\${ts ? \`import { RouteComponentProps } from 'react-router-dom';
-import { PageProps } from '@/@types';\` : '' }
 \${style ? \`import './style/\${componentName}.\${style === 'all' ? 'scss' : style}';\` : ''}
+\${ts ? \`/* import types */
+import { RouteComponentProps } from 'react-router-dom';
+import { PageProps } from '@/@types';\` : '' }
 
 \${ts ? \`export interface \${componentName}Props extends PageProps, RouteComponentProps<{
   id?: string;

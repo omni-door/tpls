@@ -1,11 +1,13 @@
 import { tpl_engine_init } from '@omni-door/utils';
 
 const tpl = 
-`\`import React, { memo\${ts ? ', FC ' : ''}} from 'react';
+`\`import React, { memo } from 'react';
 import { Switch } from 'react-router-dom';
 import { RouteWithSubRoutes } from '@/routes';
-\${ts ? "import { PageProps } from '@/@types';" : '' }
 \${style ? \`import './style/\${pageName}.\${style === 'all' ? 'scss' : style}';\` : ''}
+\${ts ? \`/* import types */
+import type { FC } from 'react';
+import type { PageProps } from '@/@types';\` : ''}
 
 \${ts ? \`export interface \${pageName}Props extends PageProps {}\` : ''}
 

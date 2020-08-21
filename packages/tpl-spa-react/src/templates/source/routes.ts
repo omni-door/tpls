@@ -1,19 +1,16 @@
 import { tpl_engine_init } from '@omni-door/utils';
 
 const tpl = 
-`\`import React, {
-  \${ts
-  ? \`lazy,
-  Suspense,
+`\`import React, { lazy, Suspense } from 'react';
+import { Route, Redirect } from 'react-router-dom';
+import Home from './pages/home';
+\${ts ? \`/* import types */
+import type {
   ReactNode,
   LazyExoticComponent,
   ComponentType,
-  NamedExoticComponent\`
-  : \`lazy,
-  Suspense\`}
-} from 'react';
-import { Route, Redirect } from 'react-router-dom';
-import Home from './pages/home';
+  NamedExoticComponent
+} from 'react';\` : ''}
 
 export const RouteWithSubRoutes = (route\${ts ? ': IRoute' : ''}) => {
   const _Route = () => <Route

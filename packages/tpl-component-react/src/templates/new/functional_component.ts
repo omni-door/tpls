@@ -1,10 +1,12 @@
 import { tpl_engine_new } from '@omni-door/utils';
 
 const tpl = 
-`\`import React, { memo\${ts ? ', FC ' : ''}} from 'react';
+`\`import React, { memo } from 'react';
 import propTypes from 'prop-types';
-\${ts ? \`import type { \${componentName}Props } from './interface';\` : ''}
-
+\${ts ? \`/* import types */
+import type { FC } from 'react';
+import type { \${componentName}Props } from './interface';
+\` : ''}
 export const \${componentName}\${ts ? \`: FC<\${componentName}Props>\` : ''} = props => {
   const { children } = props;
 
