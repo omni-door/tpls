@@ -63,7 +63,7 @@ export const devDependencies = {
   'terser-webpack-plugin': '2.3.4',
   'ts-jest': '25.2.0',
   'ts-node': '~8.6.2',
-  'typescript': '~3.7.5',
+  'typescript': '~3.9.7',
   'url-loader': '~3.0.0',
   'webpack': '~4.41.6',
   'webpack-bundle-analyzer': '3.6.0',

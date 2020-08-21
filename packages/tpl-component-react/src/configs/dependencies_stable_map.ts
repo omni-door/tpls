@@ -63,7 +63,7 @@ export const devDependencies = {
   'stylelint-scss': '3.14.2',
   'ts-jest': '25.2.0',
   'ts-node': '8.6.2',
-  'typescript': '3.7.5',
+  'typescript': '~3.9.7',
   'url-loader': '~3.0.0',
   // docz 依赖
   'docz': '2.2.0',

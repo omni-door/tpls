@@ -16,7 +16,7 @@ export const devDependencies = {
   'lint-staged': '10.0.7',
   'ts-loader': '6.2.1',
   'ts-node': '8.6.2',
-  'typescript': '3.7.5',
+  'typescript': '~3.9.7',
   '@omni-door/cli': 'latest',
   '@types/chai': '4.2.9',
   '@types/mocha': '7.0.1',
