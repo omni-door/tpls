@@ -979,7 +979,7 @@ echo "{
   \"version\": \"0.0.1\",
   \"description\": \"\",
   \"bin\": {
-    \"omni-${projectName}\": \"./bin/${prefix}-spa-react.js\"
+    \"omni-${projectName}\": \"./bin/${prefix}-${projectName}.js\"
   },
   \"keywords\": [
     \"template\",
