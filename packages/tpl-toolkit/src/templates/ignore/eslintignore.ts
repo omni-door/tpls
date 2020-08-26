@@ -16,7 +16,6 @@ node_modules/
 **/__stories__/
 src/.umi
 
-doczrc.js
 .eslintrc.js
 *.config.js
 *.conf.js

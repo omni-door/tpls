@@ -1,4 +1,4 @@
-import { tpl_engine_init, DEVSERVER } from '@omni-door/utils';
+import { tpl_engine_init, COMPONENTSERVER } from '@omni-door/utils';
 import script_test from './script_test';
 import script_commitlint from './script_commitlint';
 import script_lint from './script_lint';
@@ -73,7 +73,7 @@ export default ({
 }: {
   type_react: string;
   project_name: string;
-  devServer: DEVSERVER;
+  devServer: COMPONENTSERVER;
 }) => {
   let devScript = '';
   let demoScript = '';

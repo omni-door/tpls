@@ -2,7 +2,7 @@ import { logErr } from '@omni-door/utils';
 import { parse } from 'path';
 import $init from './init';
 import $new from './new';
-import type { DEVSERVER, STRATEGY, STYLE, PKJTOOL } from '@omni-door/utils';
+import type { COMPONENTSERVER, STRATEGY, STYLE, PKJTOOL } from '@omni-door/utils';
 const args = process.argv.slice(2);
 
 type Option = {
@@ -42,7 +42,7 @@ if (args.length > 0) {
       strategy: 'stable' as STRATEGY,
       projectName: parse(process.cwd()).name,
       initPath: process.cwd(),
-      devServer: 'docz' as DEVSERVER,
+      devServer: 'docz' as COMPONENTSERVER,
       ts: true,
       test: false,
       eslint: true,

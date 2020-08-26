@@ -20,7 +20,7 @@ import type {
   PKJTOOL,
   STYLE,
   STRATEGY,
-  DEVSERVER
+  COMPONENTSERVER
 } from '@omni-door/utils';
 import type {
   TPLS_INITIAL,
@@ -37,7 +37,7 @@ export type InitOptions = {
   configFileName?: string;
   git?: string;
   npm?: string;
-  devServer: DEVSERVER;
+  devServer: COMPONENTSERVER;
   ts: boolean;
   test: boolean;
   eslint: boolean;

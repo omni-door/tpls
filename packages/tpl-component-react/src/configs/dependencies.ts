@@ -1,6 +1,6 @@
 import { getDependency, arr2str } from '@omni-door/utils';
 import { dependencies as dependenciesMap, devDependencies as devDependenciesMap } from './dependencies_stable_map';
-import type { STYLE, DEVSERVER, STRATEGY } from '@omni-door/utils';
+import type { STYLE, COMPONENTSERVER, STRATEGY } from '@omni-door/utils';
 
 interface Config {
   ts: boolean;
@@ -10,7 +10,7 @@ interface Config {
   commitlint: boolean;
   style: STYLE;
   stylelint: boolean;
-  devServer: DEVSERVER;
+  devServer: COMPONENTSERVER;
 }
 
 export function dependencies (strategy: STRATEGY) {
