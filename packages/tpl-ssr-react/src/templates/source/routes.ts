@@ -14,7 +14,7 @@ class NextUrlRouter extends UrlPrettifier {
     this.forEachPattern = this.forEachPattern.bind(this);
   }
 
-  linkPage (pageName, params) {
+  linkPage (pageName, params  = {}) {
     const route = this.routes.find(currentRoute => currentRoute.page === pageName);
     const obj = {
       as: '',
@@ -42,7 +42,7 @@ class NextUrlRouter extends UrlPrettifier {
 
 const routes = [
   {
-    page: 'home',
+    page: 'index',
     prettyUrl: '/home',
     prettyUrlPatterns: [
       { pattern: '/' },
@@ -51,7 +51,7 @@ const routes = [
   },
   {
     page: 'start',
-    prettyUrl: ({ step = '' }) =>
+    prettyUrl: ({ step = '' } = {}) =>
     \\\`/start/\\\${step}\\\`,
     prettyUrlPatterns: [
       { pattern: '/start' },
@@ -60,7 +60,7 @@ const routes = [
   },
   {
     page: 'docs',
-    prettyUrl: ({ article = '' }) =>
+    prettyUrl: ({ article = '' } = {}) =>
     \\\`/docs/\\\${article}\\\`,
     prettyUrlPatterns: [
       { pattern: '/docs' },

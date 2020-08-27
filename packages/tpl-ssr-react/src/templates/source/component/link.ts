@@ -15,7 +15,7 @@ export interface LinkProps {
 }
 \` : '' }
 export const Link\${ts ? ': FC<LinkProps>' : ''} = props => {
-  const { href, page, params = null, children } = props;
+  const { href, page, params = {}, children } = props;
 
   return (
     <NextLink
