@@ -7,17 +7,15 @@ import MDSource from './\${componentName}.md';
 \${ts ? \`/* import types */
 import type { FC } from 'react';
 
-export interface DocsProps {
-  lang: string;
-}
+export interface \${componentName}Props {}
 \` : '' }
-export const \${componentName}\${ts ? ': FC<\${componentName}Props>' : ''} = props => {
+export const \${componentName}\${ts ? \`: FC<\${componentName}Props>\` : ''} = props => {
 
   return (
     <div
-      className={\${style ? 'styles.docs' : "'docs'"}}
+      className={\${style ? \`styles.\${componentName}\` : \`'\${componentName}'\`}}
     >
-      <Source />
+      <MDSource />
     </div>
   );
 };

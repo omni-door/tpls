@@ -135,10 +135,10 @@ export async function $init ({
     [`src/routes.js`]: ssrServer === 'koa-next' && tpl.source_routes(params),
     [`src/styles/reset.${suffix_stylesheet}`]: suffix_stylesheet && tpl.source_index_reset(params),
     // pages
-    [`pages/home.${ts ? 'ts' : 'js'}`]: tpl.source_page_index({ ...params, pageName: 'Home' }),
+    [`pages/home.${ts ? 'tsx' : 'jsx'}`]: tpl.source_page_index({ ...params, pageName: 'Home' }),
     [`pages/start.${ts ? 'tsx' : 'jsx'}`]: tpl.source_page_index({ ...params, pageName: 'Start' }),
     [`pages/docs.${ts ? 'tsx' : 'jsx'}`]: tpl.source_page_index({ ...params, pageName: 'Docs' }),
-    [`pages/_app.${ts ? 'ts' : 'js'}`]: tpl.source_page_app(params),
+    [`pages/_app.${ts ? 'tsx' : 'jsx'}`]: tpl.source_page_app(params),
     // components - Home
     [`src/components/Home/index.${ts ? 'ts' : 'js'}`]: tpl.source_component_index({ ...params, componentName: 'Home' }),
     [`src/components/Home/Home.${ts ? 'tsx' : 'jsx'}`]: tpl.source_component_cp({ ...params, componentName: 'Home' }),
@@ -160,7 +160,7 @@ export async function $init ({
     [`src/components/Layout/style/Layout.module.${suffix_stylesheet}`]: tpl.source_component_layout_style({ ...params, componentName: 'Layout' }),
     // components - Link
     [`src/components/Link/index.${ts ? 'ts' : 'js'}`]: tpl.source_component_index({ ...params, componentName: 'Link' }),
-    [`src/components/Link/Link.${ts ? 'tsx' : 'jsx'}`]: tpl.source_component_layout({ ...params, componentName: 'Link' }),
+    [`src/components/Link/Link.${ts ? 'tsx' : 'jsx'}`]: tpl.source_component_link({ ...params, componentName: 'Link' }),
     // utils
     [`src/utils/mapCtxToProps.${ts ? 'ts' : 'js'}`]: tpl.source_utils_mapctx(params),
     [`src/utils/paramsToQueryString.${ts ? 'ts' : 'js'}`]: tpl.source_utils_params(params),

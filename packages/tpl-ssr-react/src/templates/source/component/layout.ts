@@ -3,23 +3,23 @@ import { tpl_engine_init } from '@omni-door/utils';
 const tpl = 
 `\`import React, { memo } from 'react';
 import Head from 'next/head';
-import Link from '@components/Link';
+import Link from '\${serverType === 'koa-next' ? '@components/Link' : 'next/link'}';
 \${style ? \`import styles from './style/Layout.module.\${style === 'all' ? 'scss' : style}';\` : ''}
 \${ts ? \`/* import types */
 import type { FC } from 'react';
 
-export interface BasicLayoutProps {
+export interface LayoutProps {
   title?: string;
   className?: string;
   page?: string;
   children?: any
 }
 \` : '' }
-export const BasicLayout\${ts ? ': FC<BasicLayoutProps>' : ''} = props => {
+export const Layout\${ts ? ': FC<LayoutProps>' : ''} = props => {
   const { title = 'OMNI-DOOR', className = '', page = 'home', children } = props;
 
   return (
-    <Layout
+    <main
       className={\${style ? "[styles['layout'], className].join(' ')" : "'layout'"}}
     >
       <Head>
@@ -36,17 +36,17 @@ export const BasicLayout\${ts ? ': FC<BasicLayoutProps>' : ''} = props => {
           </Link>
         </nav>
       </header>
-      <main className={\${style ? "styles['layout-content']" : "'layout-content'"}}>
+      <div className={\${style ? "styles['layout-content']" : "'layout-content'"}}>
         { children }
-      </main>
+      </div>
       <footer className={\${style ? "styles['layout-footer']" : "'layout-footer'"}}>
         Copyright © 2020 @omni-door
       </footer>
-    </Layout>
+    </main>
   );
 };
 
-export default memo(BasicLayout);
+export default memo(Layout);
 \``;
 
 export const tpl_src_component_layout = {

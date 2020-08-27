@@ -4,9 +4,9 @@ const tpl =
 `\`\${use_strict}
 
 const path = require('path');
-\${project_type === 'koa-next' ? "const { nextRouter } = require('../src/routes');" : ''}
+\${serverType === 'koa-next' ? "const { nextRouter } = require('../src/routes');" : ''}
 const serverOptions = {
-  \${project_type === 'koa-next' ? \`
+  \${serverType === 'koa-next' ? \`
   port: 6600, // 服务端口号 (server port)
   nextRouter,
   \` : 'port: 6600, // 服务端口号 (server port)'}

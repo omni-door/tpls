@@ -27,7 +27,7 @@ declare module '*.md' {
   export default content;
 }
 
-declare module 'next-url-prettifier';
+\${serverType === 'koa-next' ? "declare module 'next-url-prettifier';" : ''}
 \``;
 
 export const tpl_next_d = {
