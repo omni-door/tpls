@@ -20,14 +20,14 @@ export const BasicLayout\${ts ? ': FC<BasicLayoutProps>' : ''} = props => {
 
   return (
     <Layout
-      className={[styles['layout'], className].join(' ')}
+      className={\${style ? "[styles['layout'], className].join(' ')" : "'layout'"}}
     >
       <Head>
         <title> { title } </title>
         <link rel='icon' type='image/x-icon' href='/favicon.ico' />
       </Head>
-      <header className={styles['layout-header']}>
-        <nav className={styles['layout-header-nav']}>
+      <header className={\${style ? "styles['layout-header']" : "'layout-header'"}}>
+        <nav className={\${style ? "styles['layout-header-nav']" : "'layout-header-nav'"}}>
           <Link page='start'>
             <a>Start</a>
           </Link>
@@ -36,10 +36,10 @@ export const BasicLayout\${ts ? ': FC<BasicLayoutProps>' : ''} = props => {
           </Link>
         </nav>
       </header>
-      <main className={styles['layout-content']}>
+      <main className={\${style ? "styles['layout-content']" : "'layout-content'"}}>
         { children }
       </main>
-      <footer className={styles['layout-footer']}>
+      <footer className={\${style ? "styles['layout-footer']" : "'layout-footer'"}}>
         Copyright © 2020 @omni-door
       </footer>
     </Layout>

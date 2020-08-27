@@ -15,7 +15,7 @@ export const \${componentName}\${ts ? ': FC<\${componentName}Props>' : ''} = pro
 
   return (
     <div
-      className={\${style ? styles.docs : 'docs'}}
+      className={\${style ? 'styles.docs' : "'docs'"}}
     >
       <Source />
     </div>
