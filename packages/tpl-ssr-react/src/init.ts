@@ -156,8 +156,8 @@ export async function $init ({
     [`src/components/Layout/Layout.${ts ? 'tsx' : 'jsx'}`]: tpl.source_component_layout({ ...params, componentName: 'Layout' }),
     [`src/components/Layout/style/Layout.module.${suffix_stylesheet}`]: tpl.source_component_layout_style({ ...params, componentName: 'Layout' }),
     // components - Link
-    [`src/components/Link/index.${ts ? 'ts' : 'js'}`]: tpl.source_component_index({ ...params, componentName: 'Link' }),
-    [`src/components/Link/Link.${ts ? 'tsx' : 'jsx'}`]: tpl.source_component_link({ ...params, componentName: 'Link' }),
+    [`src/components/Link/index.${ts ? 'ts' : 'js'}`]: ssrServer === 'koa-next' && tpl.source_component_index({ ...params, componentName: 'Link' }),
+    [`src/components/Link/Link.${ts ? 'tsx' : 'jsx'}`]: ssrServer === 'koa-next' && tpl.source_component_link({ ...params, componentName: 'Link' }),
     // utils
     [`src/utils/mapCtxToProps.${ts ? 'ts' : 'js'}`]: tpl.source_utils_mapctx(params),
     [`src/utils/paramsToQueryString.${ts ? 'ts' : 'js'}`]: tpl.source_utils_params(params),
