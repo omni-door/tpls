@@ -78,7 +78,7 @@ export async function $init ({
   success = () => logSuc('单页应用项目安装完成！(The single-page-application project installation has been completed!)')
 }: InitOptions) {
   // 模板解析
-  logTime('模板解析');
+  logTime('模板解析(template parsing)');
   let custom_tpl_list: ReturnType<Exclude<typeof tpls, undefined>> = {};
   try {
     custom_tpl_list = typeof tpls === 'function'
@@ -118,10 +118,10 @@ export async function $init ({
   }
   const tpl = { ...tpls_init, ...custom_tpl_list };
   const project_type = 'spa-react' as 'spa-react';
-  logTime('模板解析', true);
+  logTime('模板解析(template parsing)', true);
 
   // 生成项目文件
-  logTime('生成文件');
+  logTime('生成文件(create files)');
   const params = { project_type, project_name, ts, test, eslint, prettier, commitlint, style, stylelint, strategy, configFileName };
   const suffix_stylesheet = style && style === 'all' ? 'scss' : style;
   const pathToFileContentMap = {
@@ -173,10 +173,10 @@ export async function $init ({
       file_content: pathToFileContentMap[p]
     });
   }
-  logTime('生成文件', true);
+  logTime('生成文件(create files)', true);
 
   // 项目依赖解析
-  logTime('依赖解析');
+  logTime('依赖解析(dependency resolution)');
   let installCliPrefix = pkgtool === 'yarn' ? `${pkgtool} add --cwd ${initPath}` : `${pkgtool} install --save --save-exact --prefix ${initPath}`;
   let installDevCliPrefix = pkgtool === 'yarn' ? `${pkgtool} add -D --cwd ${initPath}` : `${pkgtool} install --save-dev --save-exact --prefix ${initPath}`;
   if (pkgtool === 'cnpm' && initPath !== process.cwd()) {
@@ -276,11 +276,11 @@ export async function $init ({
   const installStylelintDevCli = stylelintDepStr ? `${installDevCliPrefix} ${stylelintDepStr}` : '';
   const installServerDevCli = devServerDepStr ? `${installDevCliPrefix} ${devServerDepStr}` : '';
   const installCustomDevCli = customDepStr ? `${installDevCliPrefix} ${customDepStr}` : '';
-  logTime('依赖解析', true);
+  logTime('依赖解析(dependency resolution)', true);
 
   // 项目依赖安装
   if (install) {
-    logTime('安装依赖');
+    logTime('安装依赖(install dependency)');
     exec([
       installCli,
       installDevCli,
@@ -294,11 +294,11 @@ export async function $init ({
       installServerDevCli,
       installCustomDevCli
     ], res => {
-      logTime('安装依赖', true);
+      logTime('安装依赖(install dependency)', true);
       success(res);
     }, error, isSlient);
   } else {
-    logTime('生成静态依赖文件');
+    logTime('生成静态依赖文件(generate static dependency)');
     const processDepStr = (str: string, prefix: string) => {
       if (!str) return '';
       let result = '';
@@ -328,7 +328,7 @@ export async function $init ({
         devDependencies: processDepStr(`${defaultDepStr || ''} ${buildDepStr || ''} ${tsDepStr || ''} ${testDepStr || ''} ${eslintDepStr || ''} ${prettierDepStr || ''} ${commitlintDepStr || ''} ${stylelintDepStr || ''} ${devServerDepStr || ''} ${customDepStr || ''}`, 'devDependencies')
       })
     });
-    logTime('生成静态依赖文件', true);
+    logTime('生成静态依赖文件(generate static dependency)', true);
     success([]);
   }
 }

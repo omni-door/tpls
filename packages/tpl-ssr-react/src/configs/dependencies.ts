@@ -21,8 +21,8 @@ export function dependencies (strategy: STRATEGY, config: Config) {
     dependency('react'),
     dependency('react-dom'),
     dependency('next'),
-    dependency('next-url-prettifier'),
     dependency('webpack-merge'),
+    isKoa ? dependency('next-url-prettifier') : '',
     isKoa ? dependency('koa') : '',
     isKoa ? dependency('koa-bodyparser') : '',
     isKoa ? dependency('koa-router') : '',
@@ -45,10 +45,19 @@ export function devDependencies (strategy: STRATEGY, config: Config) {
     prettier,
     commitlint,
     style,
-    stylelint
+    stylelint,
+    ssrServer
   } = config;
+  const isKoa = ssrServer === 'koa-next' || ssrServer === 'koa-nuxt';
+
+  const babelDependencies = [
+    dependency('@babel/plugin-proposal-decorators')
+  ];
 
   const nextDependencies = [
+    ...babelDependencies,
+    dependency('next-compose-plugins'),
+    dependency('next-transpile-modules'),
     dependency('@next/bundle-analyzer'),
     style ? dependency('postcss-px-to-viewport') : '',
     style ? dependency('@zeit/next-css') : '',
@@ -56,10 +65,6 @@ export function devDependencies (strategy: STRATEGY, config: Config) {
     (style === 'all' || style === 'less') ? dependency('@zeit/next-less') : '',
     (style === 'all' || style === 'scss') ? dependency('sass') : '',
     (style === 'all' || style === 'scss') ? dependency('@zeit/next-sass') : ''
-  ];
-
-  const babelDependencies = [
-    dependency('@babel/plugin-proposal-decorators')
   ];
 
   const testDependencies = test ? [
@@ -130,9 +135,33 @@ export function devDependencies (strategy: STRATEGY, config: Config) {
 
   return {
     devDepArr: [
-      ...defaultDep
+      ...defaultDep,
+      ...nextDependencies,
+      ...tsDependencies,
+      ...testDependencies,
+      ...eslintDependencies,
+      ...prettierDependencies,
+      ...commitlintDependencies,
+      ...stylelintDependencies,
+      ...serverDependencies
     ],
     defaultDepArr: defaultDep,
-    defaultDepStr: arr2str(defaultDep)
+    defaultDepStr: arr2str(defaultDep),
+    nextDepArr: nextDependencies,
+    nextDepStr: arr2str(nextDependencies),
+    tsDepArr: tsDependencies,
+    tsDepStr: arr2str(tsDependencies),
+    testDepArr: testDependencies,
+    testDepStr: arr2str(testDependencies),
+    eslintDepArr: eslintDependencies,
+    eslintDepStr: arr2str(eslintDependencies),
+    prettierDepArr: prettierDependencies,
+    prettierDepStr: arr2str(prettierDependencies),
+    commitlintDepArr: commitlintDependencies,
+    commitlintDepStr: arr2str(commitlintDependencies),
+    stylelintDepArr: stylelintDependencies,
+    stylelintDepStr: arr2str(stylelintDependencies),
+    serverDepArr: serverDependencies,
+    serverDepStr: arr2str(serverDependencies)
   };
 }

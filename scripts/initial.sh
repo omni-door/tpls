@@ -189,7 +189,7 @@ export async function \$init ({
   success = () => logSuc('项目安装完成！(The project installation has been completed!)')
 }: InitOptions) {
   // 模板解析
-  logTime('模板解析');
+  logTime('模板解析(template parsing)');
   let custom_tpl_list: ReturnType<Exclude<typeof tpls, undefined>> = {};
   try {
     custom_tpl_list = typeof tpls === 'function'
@@ -229,10 +229,10 @@ export async function \$init ({
   }
   const tpl = { ...tpls_init, ...custom_tpl_list };
   const project_type = 'spa-react' as 'spa-react';
-  logTime('模板解析', true);
+  logTime('模板解析(template parsing)', true);
 
   // 生成项目文件
-  logTime('生成文件');
+  logTime('生成文件(create files)');
   const params = { project_type, project_name, ts, test, eslint, prettier, commitlint, style, stylelint, strategy, configFileName };
   const suffix_stylesheet = style && style === 'all' ? 'scss' : style;
   const pathToFileContentMap = {
@@ -250,10 +250,10 @@ export async function \$init ({
       file_content: pathToFileContentMap[p as keyof typeof pathToFileContentMap]
     });
   }
-  logTime('生成文件', true);
+  logTime('生成文件(create files)', true);
 
   // 项目依赖解析
-  logTime('依赖解析');
+  logTime('依赖解析(dependency resolution)');
   let installCliPrefix = pkgtool === 'yarn' ? \`\${pkgtool} add --cwd \${initPath}\` : \`\${pkgtool} install --save --save-exact --prefix \${initPath}\`;
   let installDevCliPrefix = pkgtool === 'yarn' ? \`\${pkgtool} add -D --cwd \${initPath}\` : \`\${pkgtool} install --save-dev --save-exact --prefix \${initPath}\`;
   if (pkgtool === 'cnpm' && initPath !== process.cwd()) {
@@ -307,26 +307,27 @@ export async function \$init ({
         defaultDepArr = [ ...intersection(defaultDepArr, defaultDepArr.filter(v => v !== item_rm)) ];
       }
       defaultDepStr = arr2str(defaultDepArr);
+      customDepStr = arr2str(add);
     }
   }
 
   const installDevCli = defaultDepStr ? \`\${installDevCliPrefix} \${defaultDepStr}\` : '';
   const installCustomDevCli = customDepStr ? \`\${installDevCliPrefix} \${customDepStr}\` : '';
-  logTime('依赖解析', true);
+  logTime('依赖解析(dependency resolution)', true);
 
   // 项目依赖安装
   if (install) {
-    logTime('安装依赖');
+    logTime('安装依赖(install dependency)');
     exec([
       installCli,
       installDevCli,
       installCustomDevCli
     ], res => {
-      logTime('安装依赖', true);
+      logTime('安装依赖(install dependency)', true);
       success(res);
     }, error, isSlient);
   } else {
-    logTime('生成静态依赖文件');
+    logTime('生成静态依赖文件(generate static dependency)');
     const processDepStr = (str: string, prefix: string) => {
       if (!str) return '';
       let result = '';
@@ -356,7 +357,7 @@ export async function \$init ({
         devDependencies: processDepStr(\`\${defaultDepStr || ''} \${customDepStr || ''}\`, 'devDependencies')
       })
     });
-    logTime('生成静态依赖文件', true);
+    logTime('生成静态依赖文件(generate static dependency)', true);
     success([]);
   }
 }
@@ -403,7 +404,7 @@ export function \$new ({
   type: 'fc' | 'cc';
   tpls?: (tpls: TPLS_ORIGIN_NEW) => TPLS_NEW_RETURE;
 }) {
-  logTime('创建组件');
+  logTime('创建组件(create component)');
   logInfo(\`开始创建 \${componentName} \${type === 'cc' ? '类' : '函数'}组件 \(Start create \${componentName} \${type === 'cc' ? 'class' : 'functional'} component\)\`);
   let custom_tpl_new_list = {};
   try {
@@ -459,7 +460,7 @@ export function \$new ({
       file_content: pathToFileContentMap[p as keyof typeof pathToFileContentMap]
     });
   }
-  logTime('创建组件', true);
+  logTime('创建组件(create component)', true);
 }
 
 export default \$new;" > ${dirName}/src/new.ts

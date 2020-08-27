@@ -19,7 +19,8 @@ import { devDependencies as devDependencyMap } from './configs/dependencies_stab
 import type {
   PKJTOOL,
   STYLE,
-  STRATEGY
+  STRATEGY,
+  SSRSERVER
 } from '@omni-door/utils';
 import type {
   TPLS_INITIAL,
@@ -45,6 +46,7 @@ export type InitOptions = {
   install: boolean;
   pkgtool?: PKJTOOL;
   isSlient?: boolean;
+  ssrServer?: SSRSERVER;
   tpls?: (tpls: TPLS_ORIGIN_INITIAL) => TPLS_INITIAL_RETURE;
   dependencies?: (dependecies_default: string[]) => ResultOfDependencies;
   devDependencies?: (devDependecies_default: string[]) => ResultOfDependencies;
@@ -69,6 +71,7 @@ export async function $init ({
   tpls,
   pkgtool = 'yarn',
   isSlient,
+  ssrServer = 'next',
   dependencies: dependencies_custom,
   devDependencies: devDependencies_custom,
   error = () => {
@@ -78,7 +81,7 @@ export async function $init ({
   success = () => logSuc('项目安装完成！(The project installation has been completed!)')
 }: InitOptions) {
   // 模板解析
-  logTime('模板解析');
+  logTime('模板解析(template parsing)');
   let custom_tpl_list: ReturnType<Exclude<typeof tpls, undefined>> = {};
   try {
     custom_tpl_list = typeof tpls === 'function'
@@ -118,10 +121,10 @@ export async function $init ({
   }
   const tpl = { ...tpls_init, ...custom_tpl_list };
   const project_type = 'spa-react' as 'spa-react';
-  logTime('模板解析', true);
+  logTime('模板解析(template parsing)', true);
 
   // 生成项目文件
-  logTime('生成文件');
+  logTime('生成文件(create files)');
   const params = { project_type, project_name, ts, test, eslint, prettier, commitlint, style, stylelint, strategy, configFileName };
   const suffix_stylesheet = style && style === 'all' ? 'scss' : style;
   const pathToFileContentMap = {
@@ -190,10 +193,10 @@ export async function $init ({
       file_content: pathToFileContentMap[p as keyof typeof pathToFileContentMap]
     });
   }
-  logTime('生成文件', true);
+  logTime('生成文件(create files)', true);
 
   // 项目依赖解析
-  logTime('依赖解析');
+  logTime('依赖解析(dependency resolution)');
   let installCliPrefix = pkgtool === 'yarn' ? `${pkgtool} add --cwd ${initPath}` : `${pkgtool} install --save --save-exact --prefix ${initPath}`;
   let installDevCliPrefix = pkgtool === 'yarn' ? `${pkgtool} add -D --cwd ${initPath}` : `${pkgtool} install --save-dev --save-exact --prefix ${initPath}`;
   if (pkgtool === 'cnpm' && initPath !== process.cwd()) {
@@ -201,10 +204,21 @@ export async function $init ({
     installDevCliPrefix = `cd ${initPath} && ${installDevCliPrefix}`;
   }
 
+  const dependenciesOptions = {
+    ts,
+    eslint,
+    prettier,
+    commitlint,
+    style,
+    stylelint,
+    test,
+    ssrServer
+  };
+
   let {
     depArr,
     depStr
-  } = dependencies(strategy);
+  } = dependencies(strategy, dependenciesOptions);
   let dependencies_str = depStr;
   if (typeof dependencies_custom === 'function') {
     const result = dependencies_custom(depArr);
@@ -224,16 +238,24 @@ export async function $init ({
   let {
     defaultDepArr,
     defaultDepStr,
+    nextDepArr,
+    nextDepStr,
+    tsDepArr,
+    tsDepStr,
+    testDepStr,
+    testDepArr,
+    eslintDepArr,
+    eslintDepStr,
+    prettierDepArr,
+    prettierDepStr,
+    commitlintDepArr,
+    commitlintDepStr,
+    stylelintDepArr,
+    stylelintDepStr,
+    serverDepArr,
+    serverDepStr,
     devDepArr
-  } = devDependencies(strategy, {
-    ts,
-    eslint,
-    prettier,
-    commitlint,
-    style,
-    stylelint,
-    test
-  });
+  } = devDependencies(strategy, dependenciesOptions);
 
   let customDepStr;
   if (typeof devDependencies_custom === 'function') {
@@ -245,28 +267,61 @@ export async function $init ({
       for (let i = 0; i < remove.length; i++) {
         const item_rm = remove[i];
         defaultDepArr = [ ...intersection(defaultDepArr, defaultDepArr.filter(v => v !== item_rm)) ];
+        nextDepArr = [ ...intersection(nextDepArr, nextDepArr.filter(v => v !== item_rm)) ];
+        tsDepArr = [ ...intersection(tsDepArr, tsDepArr.filter(v => v !== item_rm)) ];
+        testDepArr = [ ...intersection(testDepArr, testDepArr.filter(v => v !== item_rm)) ];
+        eslintDepArr = [ ...intersection(eslintDepArr, eslintDepArr.filter(v => v !== item_rm)) ];
+        prettierDepArr = [ ...intersection(prettierDepArr, prettierDepArr.filter(v => v !== item_rm)) ];
+        commitlintDepArr = [ ...intersection(commitlintDepArr, commitlintDepArr.filter(v => v !== item_rm)) ];
+        stylelintDepArr = [ ...intersection(stylelintDepArr, stylelintDepArr.filter(v => v !== item_rm)) ];
+        serverDepArr = [ ...intersection(serverDepArr, serverDepArr.filter(v => v !== item_rm)) ];
       }
       defaultDepStr = arr2str(defaultDepArr);
+      nextDepStr = arr2str(nextDepArr);
+      tsDepStr = arr2str(tsDepArr);
+      testDepStr = arr2str(testDepArr);
+      eslintDepStr = arr2str(eslintDepArr);
+      prettierDepStr = arr2str(prettierDepArr);
+      commitlintDepStr = arr2str(commitlintDepArr);
+      stylelintDepStr = arr2str(stylelintDepArr);
+      serverDepStr = arr2str(serverDepArr);
+      customDepStr = arr2str(add);
     }
   }
 
   const installDevCli = defaultDepStr ? `${installDevCliPrefix} ${defaultDepStr}` : '';
+  const installNextDevCli = nextDepStr ? `${installDevCliPrefix} ${nextDepStr}` : '';
+  const installTsDevCli = tsDepStr ? `${installDevCliPrefix} ${tsDepStr}` : '';
+  const installTestDevCli = testDepStr ? `${installDevCliPrefix} ${testDepStr}` : '';
+  const installEslintDevCli = eslintDepStr ? `${installDevCliPrefix} ${eslintDepStr}` : '';
+  const installPrettierDevCli = prettierDepStr ? `${installDevCliPrefix} ${prettierDepStr}` : '';
+  const installCommitlintDevCli = commitlintDepStr ? `${installDevCliPrefix} ${commitlintDepStr}` : '';
+  const installStylelintDevCli = stylelintDepStr ? `${installDevCliPrefix} ${stylelintDepStr}` : '';
+  const installServerDevCli = serverDepStr ? `${installDevCliPrefix} ${serverDepStr}` : '';
   const installCustomDevCli = customDepStr ? `${installDevCliPrefix} ${customDepStr}` : '';
-  logTime('依赖解析', true);
+  logTime('依赖解析(dependency resolution)', true);
 
   // 项目依赖安装
   if (install) {
-    logTime('安装依赖');
+    logTime('安装依赖(install dependency)');
     exec([
       installCli,
       installDevCli,
+      installNextDevCli,
+      installTsDevCli,
+      installTestDevCli,
+      installEslintDevCli,
+      installPrettierDevCli,
+      installCommitlintDevCli,
+      installStylelintDevCli,
+      installServerDevCli,
       installCustomDevCli
     ], res => {
-      logTime('安装依赖', true);
+      logTime('安装依赖(install dependency)', true);
       success(res);
     }, error, isSlient);
   } else {
-    logTime('生成静态依赖文件');
+    logTime('生成静态依赖文件(generate static dependency)');
     const processDepStr = (str: string, prefix: string) => {
       if (!str) return '';
       let result = '';
@@ -289,14 +344,14 @@ export async function $init ({
     };
     output_file({
       file_path: path.resolve(initPath, 'package.json'),
-      file_content: tpl.pkj({
+      file_content: tpl.pkj(devDependencyMap['@types/react'])({
         ...params,
         install,
         dependencies: processDepStr(dependencies_str, 'dependencies'),
         devDependencies: processDepStr(`${defaultDepStr || ''} ${customDepStr || ''}`, 'devDependencies')
       })
     });
-    logTime('生成静态依赖文件', true);
+    logTime('生成静态依赖文件(generate static dependency)', true);
     success([]);
   }
 }

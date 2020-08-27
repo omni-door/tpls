@@ -32,8 +32,8 @@ export function $new ({
   md?: MARKDOWN;
   tpls?: (tpls: TPLS_ORIGIN_NEW) => TPLS_NEW_RETURE;
 }) {
-  logTime('创建组件');
-  logInfo(`开始创建 ${componentName} 组件 (Start create ${componentName} component)`);
+  logTime('创建模块(create module)');
+  logInfo(`开始创建 ${componentName} 模块 (Start create ${componentName} module)`);
   let custom_tpl_new_list = {};
   try {
     custom_tpl_new_list = typeof tpls === 'function'
@@ -49,7 +49,7 @@ export function $new ({
           return tpl && tpl(config);
         } catch (err) {
           logWarn(err);
-          logWarn(`自定义模板 [${name}] 解析出错，将使用默认模板进行创建组件！(The custom template [${name}] parsing occured error, the default template will be used for initialization!)`);    
+          logWarn(`自定义模板 [${name}] 解析出错，将使用默认模板进行创建模块！(The custom template [${name}] parsing occured error, the default template will be used for initialization!)`);    
         }
 
         return tpls_new[name](config);
@@ -59,7 +59,7 @@ export function $new ({
     }
   } catch (err_tpls) {
     logWarn(err_tpls);
-    logWarn('生成自定义模板出错，将全部使用默认模板进行创建组件！(The custom template generating occured error, all will be initializated with the default template!)');
+    logWarn('生成自定义模板出错，将全部使用默认模板进行创建模块！(The custom template generating occured error, all will be initializated with the default template!)');
   }
   const tpl = { ...tpls_new, ...custom_tpl_new_list };
   const params = {
@@ -95,7 +95,7 @@ export function $new ({
       file_content: pathToFileContentMap[p]
     });
   }
-  logTime('创建组件', true);
+  logTime('创建模块(create module)', true);
 }
 
 export default $new;

@@ -36,7 +36,7 @@ export function $new ({
   type: 'fc' | 'cc';
   tpls?: (tpls: TPLS_ORIGIN_NEW) => TPLS_NEW_RETURE;
 }) {
-  logTime('创建组件');
+  logTime('创建组件(create component)');
   logInfo(`开始创建 ${componentName} ${type === 'cc' ? '类' : '函数'}组件 \(Start create ${componentName} ${type === 'cc' ? 'class' : 'functional'} component\)`);
   let custom_tpl_new_list = {};
   try {
@@ -105,7 +105,7 @@ export function $new ({
       file_content: pathToFileContentMap[p as keyof typeof pathToFileContentMap]
     });
   }
-  logTime('创建组件', true);
+  logTime('创建组件(create component)', true);
 }
 
 export default $new;
