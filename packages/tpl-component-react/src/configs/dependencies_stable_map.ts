@@ -49,7 +49,7 @@ export const devDependencies = {
   'less': '3.11.1',
   'less-loader': '~5.0.0',
   'lint-staged': '10.0.7',
-  'node-sass': '4.13.1',
+  'node-sass': '~4.13.1',
   'prettier': '2.0.2',
   'sass-loader': '~8.0.2',
   'style-loader': '~1.1.3',

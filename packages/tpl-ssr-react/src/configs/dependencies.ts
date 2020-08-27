@@ -63,7 +63,7 @@ export function devDependencies (strategy: STRATEGY, config: Config) {
     style ? dependency('@zeit/next-css') : '',
     (style === 'all' || style === 'less') ? dependency('less') : '',
     (style === 'all' || style === 'less') ? dependency('@zeit/next-less') : '',
-    (style === 'all' || style === 'scss') ? dependency('sass') : '',
+    (style === 'all' || style === 'scss') ? dependency('node-sass') : '',
     (style === 'all' || style === 'scss') ? dependency('@zeit/next-sass') : ''
   ];
 

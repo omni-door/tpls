@@ -28,6 +28,9 @@ export const Layout\${ts ? ': FC<LayoutProps>' : ''} = props => {
       </Head>
       <header className={\${style ? "styles['layout-header']" : "'layout-header'"}}>
         <nav className={\${style ? "styles['layout-header-nav']" : "'layout-header-nav'"}}>
+          <Link \${serverType === 'koa-next' ? "page='home'" : "href='/' as='/'"}>
+            <a>Home</a>
+          </Link>
           <Link \${serverType === 'koa-next' ? "page='start'" : "href='/start' as='/start'"}>
             <a>Start</a>
           </Link>

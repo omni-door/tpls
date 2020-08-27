@@ -25,6 +25,11 @@ const tpl =
   font-size: 12px;
 }
 
+.layout-content {
+  padding-top: 30vh;
+  min-height: 88vh;
+}
+
 .layout-footer {
   width: 100vw;
   height: 15px;
