@@ -14,9 +14,10 @@ const tpl =
   border-bottom: 1px solid #f0f0f0;
 }
 
-.layout-header-nav{
+.layout-header-nav {
   width: 100%;
   height: 100%;
+  line-height: 15px;
   text-align: center;
 }
 
@@ -27,7 +28,7 @@ const tpl =
 
 .layout-content {
   padding-top: 30vh;
-  min-height: 88vh;
+  min-height: calc(100vh - 30px)
 }
 
 .layout-footer {
@@ -46,11 +47,19 @@ const tpl =
     height: 50px;
     padding: 0 2vw;
   }
-  
+
+  .layout-header-nav {
+    line-height: 50px;
+  }
+
   .layout-header-nav a {
     font-size: 16px;
   }
-  
+
+  .layout-content {
+    min-height: calc(100vh - 80px)
+  }
+
   .layout-footer {
     height: 30px;
     font-size: 10px;

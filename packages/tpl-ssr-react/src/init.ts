@@ -135,7 +135,7 @@ export async function $init ({
     [`src/routes.js`]: ssrServer === 'koa-next' && tpl.source_routes(params),
     [`src/styles/reset.${suffix_stylesheet}`]: suffix_stylesheet && tpl.source_index_reset(params),
     // pages
-    [`pages/index.${ts ? 'tsx' : 'jsx'}`]: tpl.source_page_index({ ...params, pageName: 'Home' }),
+    [`pages/${ssrServer === 'koa-next' ? 'home' : 'index'}.${ts ? 'tsx' : 'jsx'}`]: tpl.source_page_index({ ...params, pageName: 'Home' }),
     [`pages/start.${ts ? 'tsx' : 'jsx'}`]: tpl.source_page_index({ ...params, pageName: 'Start' }),
     [`pages/docs.${ts ? 'tsx' : 'jsx'}`]: tpl.source_page_index({ ...params, pageName: 'Docs' }),
     [`pages/_app.${ts ? 'tsx' : 'jsx'}`]: tpl.source_page_app(params),
