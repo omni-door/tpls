@@ -120,7 +120,7 @@ export async function $init ({
     logWarn('生成自定义模板出错，将全部使用默认模板进行初始化！(The custom template generating occured error, all will be initializated with the default template!)');
   }
   const tpl = { ...tpls_init, ...custom_tpl_list };
-  const project_type = 'spa-react' as 'spa-react';
+  const project_type = 'ssr-react' as 'ssr-react';
   logTime('模板解析(template parsing)', true);
 
   // 生成项目文件
@@ -132,7 +132,7 @@ export async function $init ({
     [`configs/${configFileName}`]: tpl.omni({ ...params, git }),
     'package.json': install && tpl.pkj(devDependencyMap['@types/react'])({ ...params, install, dependencies: '', devDependencies: '' }),
     '.gitignore': tpl.gitignore(params),
-    [`src/routes.js`]: tpl.source_routes(params),
+    [`src/routes.js`]: ssrServer === 'koa-next' && tpl.source_routes(params),
     [`src/styles/reset.${suffix_stylesheet}`]: suffix_stylesheet && tpl.source_index_reset(params),
     // pages
     [`pages/home.${ts ? 'ts' : 'js'}`]: tpl.source_page_index({ ...params, pageName: 'Home' }),

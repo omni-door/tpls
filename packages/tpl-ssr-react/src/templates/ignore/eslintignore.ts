@@ -15,6 +15,7 @@ node_modules/
 **/__test__/
 **/__stories__/
 
+src/routes.js
 .eslintrc.js
 *.config.js
 *.conf.js

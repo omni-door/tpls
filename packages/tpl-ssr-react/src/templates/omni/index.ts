@@ -4,10 +4,12 @@ const tpl =
 `\`\${use_strict}
 
 const path = require('path');
-const { nextRouter } = require('../src/routes');
-
+\${project_type === 'koa-next' ? "const { nextRouter } = require('../src/routes');" : ''}
 const serverOptions = {
+  \${project_type === 'koa-next' ? \`
   port: 6600, // 服务端口号 (server port)
+  nextRouter,
+  \` : 'port: 6600, // 服务端口号 (server port)'}
   proxy:  [
     // {
     //   route: '/api',
@@ -18,8 +20,7 @@ const serverOptions = {
     // }
   ],
   // host: 'dev.domain.com', // 服务端host (server host)
-  // https: true, // 以https协议启动服务 (start server with https)
-  nextRouter
+  // https: true // 以https协议启动服务 (start server with https)
 };
 
 module.exports = {
@@ -28,11 +29,11 @@ module.exports = {
   dev: {
     ...serverOptions,
     port: 6200, // 自定义开发服务端口号 (custom dev-server port)
-    serverType: \${serverType},
+    serverType: '\${serverType}',
   },
 
   server: {
-    serverType: \${serverType},
+    serverType: '\${serverType}',
     ...serverOptions
   },
 
