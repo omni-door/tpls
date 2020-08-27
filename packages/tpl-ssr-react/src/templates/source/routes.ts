@@ -42,7 +42,7 @@ class NextUrlRouter extends UrlPrettifier {
 
 const routes = [
   {
-    page: 'index',
+    page: 'home',
     prettyUrl: '/home',
     prettyUrlPatterns: [
       { pattern: '/' },

@@ -52,7 +52,7 @@ describe('[tpl-ssr-react]: tpl_vscode template test', function () {
 
 describe('[tpl-ssr-react]: tpl_babel template test', function () {
   it('type checking', function () {
-    expect(tpl_babel).to.be.a('object');
+    expect(tpl_babel).to.be.a('function');
   });
 });
 
