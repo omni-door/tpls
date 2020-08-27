@@ -1,5 +1,5 @@
 const tpl = 
 `\`withLess,
-withCss,\``;
+  withCss,\``;
 
 export default tpl;

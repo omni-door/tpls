@@ -17,17 +17,17 @@ const paramsToStringList = (entries\${ts ? ': [string, any][]' : ''})\${ts ? ': 
   );
 
 export default function paramsToQueryString(params\${ts ? ': any' : ''})\${ts ? ': string' : ''} {
-const paramsString\${ts ? ': string | number' : ''} = isObject(params)
-  ? paramsToStringList(
-    Object.keys(params)
-      .sort()
-      .map((key\${ts ? ': string | number' : ''})\${ts ? ': [string, any]' : ''} => [String(key), params[key]])
-  )
-    .filter((chunk\${ts ? ': string' : ''})\${ts ? ': boolean' : ''} => chunk.length > 0)
-    .join('&')
-  : ''
-  ;
-return paramsString.length > 0 ? \\\`?\\\${paramsString}\\\` : '';
+  const paramsString\${ts ? ': string | number' : ''} = isObject(params)
+    ? paramsToStringList(
+      Object.keys(params)
+        .sort()
+        .map((key\${ts ? ': string | number' : ''})\${ts ? ': [string, any]' : ''} => [String(key), params[key]])
+    )
+      .filter((chunk\${ts ? ': string' : ''})\${ts ? ': boolean' : ''} => chunk.length > 0)
+      .join('&')
+    : ''
+    ;
+  return paramsString.length > 0 ? \\\`?\\\${paramsString}\\\` : '';
 }
 \``;
 
