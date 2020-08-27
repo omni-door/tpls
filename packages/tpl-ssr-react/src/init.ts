@@ -135,7 +135,7 @@ export async function $init ({
     [`src/routes.js`]: ssrServer === 'koa-next' && tpl.source_routes(params),
     [`src/styles/reset.${suffix_stylesheet}`]: suffix_stylesheet && tpl.source_index_reset(params),
     // pages
-    [`pages/home.${ts ? 'tsx' : 'jsx'}`]: tpl.source_page_index({ ...params, pageName: 'Home' }),
+    [`pages/index.${ts ? 'tsx' : 'jsx'}`]: tpl.source_page_index({ ...params, pageName: 'Home' }),
     [`pages/start.${ts ? 'tsx' : 'jsx'}`]: tpl.source_page_index({ ...params, pageName: 'Start' }),
     [`pages/docs.${ts ? 'tsx' : 'jsx'}`]: tpl.source_page_index({ ...params, pageName: 'Docs' }),
     [`pages/_app.${ts ? 'tsx' : 'jsx'}`]: tpl.source_page_app(params),
@@ -143,17 +143,14 @@ export async function $init ({
     [`src/components/Home/index.${ts ? 'ts' : 'js'}`]: tpl.source_component_index({ ...params, componentName: 'Home' }),
     [`src/components/Home/Home.${ts ? 'tsx' : 'jsx'}`]: tpl.source_component_cp({ ...params, componentName: 'Home' }),
     [`src/components/Home/style/Home.module.${suffix_stylesheet}`]: tpl.source_component_style({ ...params, componentName: 'Home' }),
-    [`src/components/Home/Home.md`]: tpl.source_component_md({ ...params, componentName: 'Home' }),
     // components - Start
     [`src/components/Start/index.${ts ? 'ts' : 'js'}`]: tpl.source_component_index({ ...params, componentName: 'Start' }),
     [`src/components/Start/Start.${ts ? 'tsx' : 'jsx'}`]: tpl.source_component_cp({ ...params, componentName: 'Start' }),
     [`src/components/Start/style/Start.module.${suffix_stylesheet}`]: tpl.source_component_style({ ...params, componentName: 'Start' }),
-    [`src/components/Start/Start.md`]: tpl.source_component_md({ ...params, componentName: 'Start' }),
     // components - Docs
     [`src/components/Docs/index.${ts ? 'ts' : 'js'}`]: tpl.source_component_index({ ...params, componentName: 'Docs' }),
     [`src/components/Docs/Docs.${ts ? 'tsx' : 'jsx'}`]: tpl.source_component_cp({ ...params, componentName: 'Docs' }),
     [`src/components/Docs/style/Docs.module.${suffix_stylesheet}`]: tpl.source_component_style({ ...params, componentName: 'Docs' }),
-    [`src/components/Docs/Docs.md`]: tpl.source_component_md({ ...params, componentName: 'Docs' }),
     // components - Layout
     [`src/components/Layout/index.${ts ? 'ts' : 'js'}`]: tpl.source_component_index({ ...params, componentName: 'Layout' }),
     [`src/components/Layout/Layout.${ts ? 'tsx' : 'jsx'}`]: tpl.source_component_layout({ ...params, componentName: 'Layout' }),

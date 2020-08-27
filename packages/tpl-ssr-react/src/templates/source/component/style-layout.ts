@@ -17,6 +17,12 @@ const tpl =
 .layout-header-nav{
   width: 100%;
   height: 100%;
+  text-align: center;
+}
+
+.layout-header-nav a {
+  margin-left: 10px;
+  font-size: 12px;
 }
 
 .layout-footer {
@@ -36,9 +42,8 @@ const tpl =
     padding: 0 2vw;
   }
   
-  .layout-header-nav{
-    width: 100%;
-    height: 100%;
+  .layout-header-nav a {
+    font-size: 16px;
   }
   
   .layout-footer {

@@ -28,7 +28,6 @@ import source_component_style, { tpl_src_component_style } from './source/compon
 import source_component_layout, { tpl_src_component_layout } from './source/component/layout';
 import source_component_layout_style, { tpl_src_component_layout_style } from './source/component/style-layout';
 import source_component_link, { tpl_src_component_link } from './source/component/link';
-import source_component_md, { tpl_src_component_md } from './source/component/md';
 import source_utils_mapctx, { tpl_src_utils_mapctx } from './source/utils/mapCtxToProps';
 import source_utils_params, { tpl_src_utils_params } from './source/utils/paramsToQueryString';
 
@@ -68,7 +67,6 @@ export { default as source_component_style, tpl_src_component_style } from './so
 export { default as source_component_layout, tpl_src_component_layout } from './source/component/layout';
 export { default as source_component_layout_style, tpl_src_component_layout_style } from './source/component/style-layout';
 export { default as source_component_link, tpl_src_component_link } from './source/component/link';
-export { default as source_component_md, tpl_src_component_md } from './source/component/md';
 export { default as source_utils_mapctx, tpl_src_utils_mapctx } from './source/utils/mapCtxToProps';
 export { default as source_utils_params, tpl_src_utils_params } from './source/utils/paramsToQueryString';
 
@@ -109,7 +107,6 @@ export const tpls_init = {
   source_component_layout,
   source_component_layout_style,
   source_component_link,
-  source_component_md,
   source_utils_mapctx,
   source_utils_params
 };
@@ -144,7 +141,6 @@ export const tpls_origin_init = {
   tpl_src_component_layout,
   tpl_src_component_layout_style,
   tpl_src_component_link,
-  tpl_src_component_md,
   tpl_src_utils_mapctx,
   tpl_src_utils_params
 };

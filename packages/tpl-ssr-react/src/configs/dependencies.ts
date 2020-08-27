@@ -59,8 +59,6 @@ export function devDependencies (strategy: STRATEGY, config: Config) {
     dependency('next-compose-plugins'),
     dependency('next-transpile-modules'),
     dependency('@next/bundle-analyzer'),
-    dependency('@next/mdx'),
-    dependency('@mdx-js/loader'),
     style ? dependency('postcss-px-to-viewport') : '',
     style ? dependency('@zeit/next-css') : '',
     (style === 'all' || style === 'less') ? dependency('less') : '',

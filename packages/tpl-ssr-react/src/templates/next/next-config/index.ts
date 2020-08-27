@@ -20,10 +20,6 @@ const path = require('path');
 })}
 const withTM = require('next-transpile-modules');
 const withPlugin = require('next-compose-plugins');
-const withMDX = require('@next/mdx')({
-  extension: /\.(mdx|md)?$/,
-  pageExtensions: ['js', 'jsx', 'md', 'mdx']
-});
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true'
 });
@@ -40,7 +36,6 @@ module.exports = withPlugin([
     all: 'style_plugin_all',
   })}
   withTM,
-  withMDX,
   withBundleAnalyzer
 ], {
   transpileModules: [],

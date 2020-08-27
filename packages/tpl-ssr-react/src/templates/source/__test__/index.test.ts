@@ -6,7 +6,6 @@ import source_page_app from '../page/_app';
 import source_component_index from '../component';
 import source_component_cp from '../component/component';
 import source_component_style from '../component/style';
-import source_component_md from '../component/md';
 import source_component_layout from '../component/layout';
 import source_component_layout_style from '../component/style-layout';
 import source_component_link from '../component/link';
@@ -52,12 +51,6 @@ describe('[tpl-ssr-react]: source_component_cp template test', function () {
 describe('[tpl-ssr-react]: source_component_style template test', function () {
   it('type checking', function () {
     expect(source_component_style).to.be.a('function');
-  });
-});
-
-describe('[tpl-ssr-react]: source_component_md template test', function () {
-  it('type checking', function () {
-    expect(source_component_md).to.be.a('function');
   });
 });
 

@@ -15,7 +15,7 @@ export const \${componentName}\${ts ? \`: FC<\${componentName}Props>\` : ''} = p
     <div
       className={\${style ? \`styles.\${componentName}\` : \`'\${componentName}'\`}}
     >
-      <MDSource />
+      \${componentName} Page
     </div>
   );
 };

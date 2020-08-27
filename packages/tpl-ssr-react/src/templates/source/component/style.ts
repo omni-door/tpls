@@ -5,6 +5,7 @@ const tpl =
   display: block;
   color: yellowgreen;
   font-size: 30px;
+  text-align: center;
 }
 \``;
 

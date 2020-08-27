@@ -35,8 +35,6 @@ export const devDependencies = {
   'http-proxy-middleware': '0.20.0',
   'next-compose-plugins': '~2.2.0',
   'next-transpile-modules': '~4.0.2',
-  '@mdx-js/loader': '1.6.16',
-  '@next/mdx': '9.5.2',
   'ip': '1.1.5',
   'jest': '25.1.0',
   'jest-transform-stub': '2.0.0',
