@@ -11,9 +11,10 @@ English | [简体中文](./README.zh-CN.md)
 ## templates list
 | name | description |
 | --- | --- |
+| [@omni-door/tpl-component-react](https://github.com/omni-door/tpls/tree/master/packages/tpl-component-react#readme) | React-Component-Library template |
 | [@omni-door/tpl-spa-react](https://github.com/omni-door/tpls/tree/master/packages/tpl-spa-react#readme) | React Single-Application-App template |
+| [@omni-door/tpl-ssr-react](https://github.com/omni-door/tpls/tree/master/packages/tpl-ssr-react#readme) | React Server-Side-Render-App template |
 | [@omni-door/tpl-toolkit](https://github.com/omni-door/tpls/tree/master/packages/tpl-toolkit#readme) | Toolkit template |
-| [@omni-door/tpl-component-react](https://github.com/omni-door/tpls/tree/master/packages/tpl-component-react#readme) | React Component template |
 
 ## develop
 - initial a cli-template

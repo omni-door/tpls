@@ -16,19 +16,19 @@ The React single-page-application project template
 ## Templates
 | folder | file |
 | --- | --- |
-| babel | babel.config.js |
-| commitlint | commitlint.config.js |
+| babel | configs/babel.config.js |
+| commitlint | configs/commitlint.config.js |
 | editor | .editorconfig |
-| eslint | .eslintrc.js |
+| eslint | configs/.eslintrc.js |
 | ignore | .eslintignore & .gitignore & .npmignore & .prettierignore |
-| jest | jest.config.js |
+| jest | configs/jest.config.js |
 | new | the standard templates for `omni new` command |
-| omni | omni.config.js |
+| omni | configs/omni.config.js |
 | package | package.json |
-| prettier | prettier.config.js |
+| prettier | configs/prettier.config.js |
 | readme | README.md |
 | source | the standard templates in `src` folder |
-| stylelint | stylelint.config.js |
+| stylelint | configs/stylelint.config.js |
 | tsconfig | tsconfig.json |
 | vsc | .vscode/settings.json |
-| webpack | contain `common`, `dev`, `prod` webpack-config-file |
+| webpack | contain `wepack.config.common.js`, `wepack.config.dev.js`, `wepack.config.prod.js` files |

@@ -16,7 +16,20 @@ The ssr-react project template
 ## Templates
 | folder | file |
 | --- | --- |
+| babel | babel.config.js |
+| commitlint | configs/commitlint.config.js |
+| editor | .editorconfig |
+| eslint | configs/.eslintrc.js |
+| ignore | .eslintignore & .gitignore & .npmignore & .prettierignore |
+| jest | configs/jest.config.js |
 | new | the standard templates for `omni new` command |
-| omni | omni.config.js |
+| next | next.config.js & next-env.d.ts |
+| omni | configs/omni.config.js |
 | package | package.json |
+| prettier | configs/prettier.config.js |
 | readme | README.md |
+| source | the standard templates in `src` folder |
+| stylelint | configs/stylelint.config.js |
+| tsconfig | tsconfig.json |
+| vsc | .vscode/settings.json |
+| webpack | configs/webpack.config.js |
