@@ -77,7 +77,7 @@ module.exports = {
   template: {
     // 生成模板的根路径 (the root directory for generate template)
     // 务必使用绝对路径 (must be a absolute path)
-    root: path.resolve(__dirname, '../src'),
+    root: path.resolve(__dirname, '../src/components'),
 
     // 是否创建ts文件 (whether or not generate typescript)
     typescript: \${!!ts},
