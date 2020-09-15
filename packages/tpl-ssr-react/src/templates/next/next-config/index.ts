@@ -25,7 +25,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 });
 const merge = require('webpack-merge');
 const webpackConfig = require('./configs/webpack.config.js');
-const omniConfig = require('./configs/omni.config');
+const configs = require('./configs/omni.config');
 const isProd = process.env.NODE_ENV === 'production';
 
 module.exports = withPlugin([
@@ -44,7 +44,7 @@ module.exports = withPlugin([
   compress: true,
   poweredByHeader: false,
   generateEtags: true,
-  distDir: path.relative(__dirname, omniConfig.build.outDir) || 'dist',
+  distDir: path.relative(__dirname, configs.build.outDir) || 'dist',
   reactStrictMode: true,
   webpack: config => merge(config, webpackConfig)
 });
