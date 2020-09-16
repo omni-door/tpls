@@ -10,6 +10,7 @@ const serverOptions = {
   port: 6600, // 服务端口号 (server port)
   nextRouter,
   \` : 'port: 6600, // 服务端口号 (server port)'}
+  serverType: '\${serverType}', // 服务类型，koa-next 和 
   proxy:  [
     // {
     //   route: '/api',
@@ -28,12 +29,10 @@ module.exports = {
 
   dev: {
     ...serverOptions,
-    port: 6200, // 自定义开发服务端口号 (custom dev-server port)
-    serverType: '\${serverType}',
+    port: 6200 // 自定义开发服务端口号 (custom dev-server port)
   },
 
   server: {
-    serverType: '\${serverType}',
     ...serverOptions
   },
 
