@@ -105,8 +105,8 @@ module.exports = merge(commonConfig, {
         collapseWhitespace: true
       },
       // filename: hash ? 'index.[hash:8].html' : 'index.html',
-      filename: 'index.html',
-      hash: !!hash
+      // hash: !!hash,
+      filename: 'index.html'
     })
   ],
   mode: 'production'
