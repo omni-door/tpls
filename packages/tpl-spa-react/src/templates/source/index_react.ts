@@ -39,7 +39,7 @@ const App = () => (
       </Link>
     </span>
     <footer className={\${style ? "styles['main-footer']" : "'main-footer'"}}>
-      OMNI-DOOR TEAM @omni-door
+      OMNI-DOOR TEAM ©omni-door
     </footer>
   </div>
 );
