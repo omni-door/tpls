@@ -66,7 +66,6 @@ export function $new ({
     ts,
     test,
     componentName,
-    style: '' as any,
     md
   };
   if (md === 'mdx') logInfo('暂不支持 mdx 文档格式，使用 md 代替！(Not support mdx format replace to md format!)');

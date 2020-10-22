@@ -1,7 +1,7 @@
 import { parse } from 'path';
 import $init from './init';
 import $new from './new';
-import type { BUILD, STRATEGY, STYLE, PKJTOOL } from '@omni-door/utils';
+import type { BUILD, STRATEGY, PKJTOOL } from '@omni-door/utils';
 const args = process.argv.slice(2);
 
 type Option = {
