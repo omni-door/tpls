@@ -17,7 +17,6 @@ import { devDependencies } from './configs/dependencies';
 /* import types */
 import type {
   PKJTOOL,
-  STYLE,
   STRATEGY,
   BUILD
 } from '@omni-door/utils';
@@ -42,8 +41,6 @@ export type InitOptions = {
   eslint: boolean;
   prettier: boolean;
   commitlint: boolean;
-  style: STYLE;
-  stylelint: boolean;
   install: boolean;
   pkgtool?: PKJTOOL;
   isSlient?: boolean;
@@ -125,7 +122,7 @@ export async function $init ({
 
   // 生成项目文件
   logTime('生成文件(create files)');
-  const params = { project_type, project_name, ts, test, eslint, prettier, commitlint, style: ('' as any), stylelint: false, strategy, configFileName };
+  const params = { project_type, project_name, ts, test, eslint, prettier, commitlint, strategy, configFileName };
   const pathToFileContentMap = {
     // default files
     [`${configFileName}`]: tpl.omni(build)({ ...params, git, npm }),

@@ -34,12 +34,10 @@ if (args.length > 0) {
       projectName: parse(process.cwd()).name,
       initPath: process.cwd(),
       ts: true,
-      test: false,
+      test: true,
       eslint: true,
       prettier: true,
       commitlint: false,
-      style: 'scss' as STYLE,
-      stylelint: true,
       install: true,
       pkgtool: 'yarn' as PKJTOOL
     };
