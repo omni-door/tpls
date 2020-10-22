@@ -4,9 +4,9 @@ const tpl =
   "hooks": {
     "pre-commit": "lint-staged",
     "pre-push": "\${
-      (eslint || stylelint || prettier) && test
+      (eslint || prettier) && test
         ? 'npm run lint && npm run test:headless'
-        : (eslint || stylelint || prettier)
+        : (eslint || prettier)
             ? 'npm run lint'
             : test
               ? 'npm run test'
@@ -18,10 +18,9 @@ const tpl =
   \${eslint || prettier ? \`"src/**/*.{js,jsx,ts,tsx}": [
     \${eslint ? \`"\${script_eslint_fix}"\${prettier ? ',' : ''}\` : ''}
     \${prettier ? \`"\${script_prettier_fix}"\` : ''}
-  ]\${stylelint || prettier ? ',' : ''}\` : ''}
-  \${stylelint || prettier ? \`"src/**/*.{css,scss,sass,less}": [
-    \${stylelint ? \`"\${script_stylelint_fix}"\${prettier ? ',' : ''}\` : ''}
-    \${prettier ? \`"\${script_prettier_fix}"\` : ''}
+  ]\${prettier ? ',' : ''}\` : ''}
+  \${prettier ? \`"src/**/*.{css,scss,sass,less}": [
+    "\${script_prettier_fix}"
   ]\` : ''}
 },
 \``;
