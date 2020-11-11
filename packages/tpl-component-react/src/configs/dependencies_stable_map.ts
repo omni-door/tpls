@@ -1,11 +1,11 @@
 export const dependencies = {
-  'react': '^16.13.0',
-  'react-dom': '^16.13.0'
+  'react': '^17.0.1',
+  'react-dom': '^17.0.1'
 };
 
 export const devDependencies = {
-  'react': '^16.13.0',
-  'react-dom': '^16.13.0',
+  'react': '^17.0.1',
+  'react-dom': '^17.0.1',
   'prop-types': '^15.7.2',
   '@babel/core': '~7.10.0',
   '@babel/preset-env': '~7.10.0',
@@ -17,21 +17,21 @@ export const devDependencies = {
   '@types/enzyme': '3.10.5',
   '@types/enzyme-adapter-react-16': '1.0.6',
   '@types/jest': '25.1.2',
-  '@types/react': '^16.9.25',
-  '@types/react-dom': '^16.9.5',
+  '@types/react': '~16.9.56',
+  '@types/react-dom': '~16.9.9',
   '@types/vfile-message': '1.0.1', // 和 docz、bisheng 版本强相关，一定要确保一致性，否则打包时易出错
-  '@typescript-eslint/eslint-plugin': '2.19.2',
-  '@typescript-eslint/parser': '2.19.2',
+  '@typescript-eslint/eslint-plugin': '~3.8.0',
+  '@typescript-eslint/parser': '~3.8.0',
   'babel-loader': '~8.1.0',
   'css-loader': '~3.4.2',
   'del': '5.1.0',
   'detect-port': '1.3.0',
   'enzyme': '3.11.0',
   'enzyme-adapter-react-16': '1.15.2',
-  'eslint': '6.8.0',
-  'eslint-config-prettier': '6.10.1',
-  'eslint-plugin-prettier': '3.1.2',
-  'eslint-plugin-react': '7.18.3',
+  'eslint': '7.6.0',
+  'eslint-config-prettier': '6.11.0',
+  'eslint-plugin-prettier': '3.1.4',
+  'eslint-plugin-react': '7.20.5',
   'file-loader': '~5.0.2',
   'gulp': '4.0.2',
   'gulp-autoprefixer': '7.0.1',
@@ -95,5 +95,5 @@ export const devDependencies = {
   'react-docgen': '5.3.0',
   'react-docgen-typescript': '1.16.3',
   'react-styleguidist': '11.0.4',
-  'webpack': '~4.42.1'
+  'webpack': '~4.44.2'
 };

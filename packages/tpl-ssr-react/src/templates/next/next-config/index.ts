@@ -35,10 +35,9 @@ module.exports = withPlugin([
     scss: 'style_plugin_scss',
     all: 'style_plugin_all',
   })}
-  withTM,
+  withTM([]),
   withBundleAnalyzer
 ], {
-  transpileModules: [],
   // assetPrefix: isProd ? 'https://cdn.domain.com' : '',
   target: 'server',
   compress: true,
