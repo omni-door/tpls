@@ -116,7 +116,8 @@ export function devDependencies (strategy: STRATEGY, config: Config) {
   const prettierDependencies = prettier ? [
     dependency('prettier'),
     eslint ? dependency('eslint-config-prettier') : '',
-    eslint ? dependency('eslint-plugin-prettier') : ''
+    eslint ? dependency('eslint-plugin-prettier') : '',
+    stylelint ? dependency('stylelint-config-prettier') : ''
   ] : [];
 
   const commitlintDependencies = commitlint ? [
@@ -130,7 +131,6 @@ export function devDependencies (strategy: STRATEGY, config: Config) {
     dependency('stylelint-config-standard'),
     dependency('stylelint-config-css-modules'),
     dependency('stylelint-config-rational-order'),
-    dependency('stylelint-config-prettier'),
     dependency('stylelint-order'),
     dependency('stylelint-declaration-block-no-ignored-properties'),
     ts ? dependency('@types/vfile-message') : '', // stylelint -> postcss-markdown -> remark -> unified -> @types/vfile(3.0.0) -> @types/vfile-message(*)
