@@ -20,7 +20,7 @@ const tpl =
   height: 50px;
   font-size: 20px;
   line-height: 50px;
-  background: #000000;
+  background: #000;
   border-radius: 10px;
   transform: translate(-50%, 0);
 }
