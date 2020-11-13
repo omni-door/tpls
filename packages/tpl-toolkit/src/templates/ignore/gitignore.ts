@@ -13,6 +13,7 @@ node_modules
 lib
 es
 dist
+dist.zip
 src/.umi
 
 package-lock.json

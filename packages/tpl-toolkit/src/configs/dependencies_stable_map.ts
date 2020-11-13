@@ -7,7 +7,7 @@ export const devDependencies = {
   '@typescript-eslint/parser': '~3.8.0',
   'del': '5.1.0',
   'detect-port': '1.3.0',
-  "dumi": "~1.0.15",
+  "dumi": "~1.0.35",
   'eslint': '~7.6.0',
   'eslint-config-prettier': '~6.13.0',
   'eslint-plugin-prettier': '~3.1.4',
