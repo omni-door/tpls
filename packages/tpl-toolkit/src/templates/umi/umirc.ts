@@ -2,7 +2,10 @@ import { tpl_engine_init } from '@omni-door/utils';
 
 const tpl = 
 `\`export default {
-  mode: 'doc'
+  title: '\${project_name.toLowerCase()}',
+  mode: 'doc',
+  publicPath: './',
+  history: { type: 'hash' }
 };
 \``;
 
