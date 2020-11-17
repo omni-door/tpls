@@ -73,6 +73,8 @@ export const devDependencies = {
   'webpack-merge': '4.2.2',
   'webpackbar': '4.0.0',
   'hard-source-webpack-plugin': '0.13.1',
+  'html-inline-css-webpack-plugin': '1.9.1',
+  'html-webpack-externals-plugin': '3.8.0',
   'fork-ts-checker-webpack-plugin': '4.0.5',
   '@umijs/babel-plugin-auto-css-modules': '3.0.16',
   '@omni-door/cli': 'latest'

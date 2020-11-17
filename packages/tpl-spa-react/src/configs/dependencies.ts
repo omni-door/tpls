@@ -70,6 +70,8 @@ export function devDependencies (strategy: STRATEGY, config: Config) {
     dependency('webpackbar'),
     dependency('webpack-bundle-analyzer'),
     dependency('hard-source-webpack-plugin'),
+    dependency('html-inline-css-webpack-plugin'),
+    dependency('html-webpack-externals-plugin'),
     ts ? dependency('fork-ts-checker-webpack-plugin') : ''
   ];
 

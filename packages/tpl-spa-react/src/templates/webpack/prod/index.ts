@@ -13,6 +13,8 @@ const TerserPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin');
+const HTMLInlineCSSWebpackPlugin = require("html-inline-css-webpack-plugin").default;
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 const commonConfig = require(path.resolve(__dirname, 'webpack.config.common.js'));
@@ -24,6 +26,9 @@ const {
 } = build || {};
 
 module.exports = merge(commonConfig, {
+  // 需要 source-map 请开启
+  // Remove annotation when need source-map
+  // devtool: 'cheap-module-source-map',
   module: {
     rules: [
       \${alter_style({
@@ -91,12 +96,15 @@ module.exports = merge(commonConfig, {
     new MiniCssExtractPlugin({
       filename: hash ? \\\`[name].[\\\${typeof hash === 'string' ? hash : 'contenthash'}:8].css\\\` : '[name].css'
     }),
+
     // ! 需要分析打包时，请打开注释
+    // Remove annotation when need analyze package
     // new BundleAnalyzerPlugin({
     //   analyzerMode: 'static',
     //   defaultSizes: 'parsed',
     //   reportFilename: './bundle_analysis.html'
     // }),
+
     new HtmlWebpackPlugin({
       path: path.resolve(outDir),
       template: path.resolve(srcDir, 'index.html'),
@@ -107,6 +115,46 @@ module.exports = merge(commonConfig, {
       // filename: hash ? 'index.[hash:8].html' : 'index.html',
       // hash: !!hash,
       filename: 'index.html'
+    }),
+
+    // 走统一 CDN 的静态资源(The static resources of CDN)
+    //! 能一定程度上减少首屏时长和构建时长
+    // It can reduce some first-screen and construction time
+    new HtmlWebpackExternalsPlugin({
+      externals: [
+        {
+          module: 'react',
+          entry: 'https://cdnjs.cloudflare.com/ajax/libs/react/17.0.1/umd/react.production.min.js',
+          global: 'React'
+        },
+        {
+          module: 'react-dom',
+          entry: 'https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.1/umd/react-dom.production.min.js',
+          global: 'ReactDOM'
+        },
+        {
+          module: 'react-router',
+          entry: 'https://cdnjs.cloudflare.com/ajax/libs/react-router/5.2.0/react-router.min.js',
+          global: 'ReactRouter'
+        },
+        {
+          module: 'react-router-dom',
+          entry: 'https://cdnjs.cloudflare.com/ajax/libs/react-router-dom/5.2.0/react-router-dom.min.js',
+          global: 'ReactRouterDOM'
+        }
+      ]
+    }),
+
+    // 将同步的外链 link 注入到 html 中(inject the outer-links into html-style tag)
+    //! 能一定程度上减少首屏时长(it can reduce some first-screen time)
+    new HTMLInlineCSSWebpackPlugin({
+      filter(fileName) {
+        //! 注意，若是更改了 splitChunks异步加载 的配置
+        // Note that if you change the configuration of splitChunks
+        //! 需要过滤掉异步的css文件，否则会导致页面白屏！！！
+        // You need to filter out asynchronous CSS files, otherwise the page will be white!!!
+        return !fileName.includes('async');
+      }
     })
   ],
   mode: 'production'
