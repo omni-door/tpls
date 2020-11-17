@@ -117,7 +117,8 @@ module.exports = merge(commonConfig, {
       filename: 'index.html'
     }),
 
-    // 走统一 CDN 的静态资源(The static resources of CDN)
+    // 走统一 CDN 的静态资源
+    // The static resources of CDN
     //! 能一定程度上减少首屏时长和构建时长
     // It can reduce some first-screen and construction time
     new HtmlWebpackExternalsPlugin({
@@ -145,8 +146,10 @@ module.exports = merge(commonConfig, {
       ]
     }),
 
-    // 将同步的外链 link 注入到 html 中(inject the outer-links into html-style tag)
-    //! 能一定程度上减少首屏时长(it can reduce some first-screen time)
+    // 将同步的外链 link 注入到 html 中
+    // Inject the outer-links into html-style tag
+    //! 能一定程度上减少首屏时长
+    // It can reduce some first-screen time
     new HTMLInlineCSSWebpackPlugin({
       filter(fileName) {
         //! 注意，若是更改了 splitChunks异步加载 的配置
