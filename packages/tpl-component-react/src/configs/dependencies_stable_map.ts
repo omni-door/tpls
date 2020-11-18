@@ -41,6 +41,7 @@ export const devDependencies = {
   'gulp-less': '4.0.1',
   'gulp-minify-css': '1.2.4',
   'gulp-sass': '4.1.0',
+  'gulp-if': '3.0.0',
   'through2': '4.0.1',
   'husky': '4.2.3',
   'ip': '1.1.5',

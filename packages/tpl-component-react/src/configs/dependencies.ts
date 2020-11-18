@@ -180,9 +180,10 @@ export function devDependencies (strategy: STRATEGY, config: Config) {
     dependency('gulp-babel'),
     dependency('gulp-concat'),
     dependency('gulp-cssnano'),
-    dependency('gulp-less'),
     dependency('gulp-minify-css'),
-    dependency('gulp-sass'),
+    (style === 'all' || style === 'less') ? dependency('gulp-less') : '',
+    (style === 'all' || style === 'scss') ? dependency('gulp-sass') : '',
+    dependency('gulp-if'),
     dependency('through2'),
     ...babelDependencies
   ];
