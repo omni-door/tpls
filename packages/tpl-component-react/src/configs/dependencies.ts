@@ -77,7 +77,9 @@ export function devDependencies (strategy: STRATEGY, config: Config) {
   const tsDependencies = ts ? [
     dependency('@types/react'),
     dependency('@types/react-dom'),
+    dependency('ttypescript'),
     dependency('typescript'),
+    dependency('typescript-transform-paths'),
     dependency('ts-node'),
     ...testTypesDependencies
   ] : [];
@@ -184,6 +186,9 @@ export function devDependencies (strategy: STRATEGY, config: Config) {
     (style === 'all' || style === 'less') ? dependency('gulp-less') : '',
     (style === 'all' || style === 'scss') ? dependency('gulp-sass') : '',
     dependency('gulp-if'),
+    ts ? dependency('gulp-sourcemaps') : '',
+    ts ? dependency('gulp-ts-alias') : '',
+    ts ? dependency('gulp-typescript') : '',
     dependency('through2'),
     ...babelDependencies
   ];

@@ -59,7 +59,9 @@ export function devDependencies (strategy: STRATEGY, config: Config) {
   ] : [];
 
   const tsDependencies = ts ? [
+    dependency('ttypescript'),
     dependency('typescript'),
+    dependency('typescript-transform-paths'),
     dependency('ts-node'),
     dependency('ts-loader'),
     ...testTypesDependencies
