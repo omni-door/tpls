@@ -119,32 +119,32 @@ module.exports = merge(commonConfig, {
 
     // 走统一 CDN 的静态资源
     // The static resources of CDN
-    //! 能一定程度上减少首屏时长和构建时长
-    // It can reduce some first-screen and construction time
-    new HtmlWebpackExternalsPlugin({
-      externals: [
-        {
-          module: 'react',
-          entry: 'https://cdnjs.cloudflare.com/ajax/libs/react/17.0.1/umd/react.production.min.js',
-          global: 'React'
-        },
-        {
-          module: 'react-dom',
-          entry: 'https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.1/umd/react-dom.production.min.js',
-          global: 'ReactDOM'
-        },
-        {
-          module: 'react-router',
-          entry: 'https://cdnjs.cloudflare.com/ajax/libs/react-router/5.2.0/react-router.min.js',
-          global: 'ReactRouter'
-        },
-        {
-          module: 'react-router-dom',
-          entry: 'https://cdnjs.cloudflare.com/ajax/libs/react-router-dom/5.2.0/react-router-dom.min.js',
-          global: 'ReactRouterDOM'
-        }
-      ]
-    }),
+    // 能一定程度上减少资源加载时长和构建时长
+    // It can reduce some download source and construction time
+    // new HtmlWebpackExternalsPlugin({
+    //   externals: [
+    //     {
+    //       module: 'react',
+    //       entry: 'https://cdnjs.cloudflare.com/ajax/libs/react/17.0.1/umd/react.production.min.js',
+    //       global: 'React'
+    //     },
+    //     {
+    //       module: 'react-dom',
+    //       entry: 'https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.1/umd/react-dom.production.min.js',
+    //       global: 'ReactDOM'
+    //     },
+    //     {
+    //       module: 'react-router',
+    //       entry: 'https://cdnjs.cloudflare.com/ajax/libs/react-router/5.2.0/react-router.min.js',
+    //       global: 'ReactRouter'
+    //     },
+    //     {
+    //       module: 'react-router-dom',
+    //       entry: 'https://cdnjs.cloudflare.com/ajax/libs/react-router-dom/5.2.0/react-router-dom.min.js',
+    //       global: 'ReactRouterDOM'
+    //     }
+    //   ]
+    // }),
 
     // 将同步的外链 link 注入到 html 中
     // Inject the outer-links into html-style tag
