@@ -83,6 +83,7 @@ export const devDependencies = {
   '@storybook/addon-options': '5.3.19',
   '@storybook/addon-viewport': '5.3.19',
   '@storybook/addon-actions': '5.3.19',
+  '@storybook/addon-console': '1.2.2',
   '@storybook/addon-docs': '5.3.19',
   '@storybook/addon-info': '5.3.19',
   '@storybook/addon-knobs': '5.3.19',

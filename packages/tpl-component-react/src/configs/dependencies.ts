@@ -130,6 +130,7 @@ export function devDependencies (strategy: STRATEGY, config: Config) {
     dependency('@storybook/addon-options'),
     dependency('@storybook/addon-viewport'),
     dependency('@storybook/addon-actions'),
+    dependency('@storybook/addon-console'),
     dependency('@storybook/addon-docs'),
     dependency('@storybook/addon-info'),
     dependency('@storybook/addon-knobs'),
