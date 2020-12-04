@@ -23,18 +23,20 @@ export function devDependencies (strategy: STRATEGY, config: Config) {
 
   const babelDependencies = [
     dependency('@babel/core'),
+    dependency('@babel/plugin-transform-runtime'),
     dependency('@babel/preset-env'),
+    dependency('@babel/runtime-corejs3'),
     ts ? dependency('@babel/preset-typescript') : ''
   ];
 
   const buildDependencies = [
     dependency('rollup'),
-    dependency('rollup-plugin-node-resolve'),
-    dependency('rollup-plugin-babel'),
-    dependency('rollup-plugin-commonjs'),
+    dependency('@rollup/plugin-node-resolve'),
+    dependency('@rollup/plugin-babel'),
+    dependency('@rollup/plugin-commonjs'),
     ts ? dependency('rollup-plugin-typescript') : '',
     ts ? dependency('rollup-plugin-typescript2') : '',
-    dependency('rollup-plugin-json'),
+    dependency('@rollup/plugin-json'),
     ...babelDependencies
   ];
 
