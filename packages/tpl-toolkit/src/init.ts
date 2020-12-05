@@ -129,7 +129,7 @@ export async function $init ({
     'package.json': install && tpl.pkj({ ...params, install, dependencies: '', devDependencies: '' }),
     '.gitignore': tpl.gitignore(params),
     '.npmignore': tpl.npmignore(params),
-    [`src/toolkit/index.${ts ? 'ts' : 'js'}`]: tpl.indexTpl(params),
+    [`src/index.${ts ? 'ts' : 'js'}`]: tpl.indexTpl(params),
     // tsconfig
     'tsconfig.json': ts && tpl.tsconfig(params),
     // lint files

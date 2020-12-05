@@ -139,8 +139,8 @@ export async function $init ({
     })({ ...params, install, dependencies: '', devDependencies: '' }),
     '.gitignore': tpl.gitignore(params),
     '.npmignore': tpl.npmignore(params),
-    [`src/components/index.${ts ? 'ts' : 'js'}`]: tpl.source_index(params),
-    'src/@types/global.d.ts': ts && tpl.source_d(params), // d.ts files
+    [`src/index.${ts ? 'ts' : 'js'}`]: tpl.source_index(params),
+    '@types/global.d.ts': ts && tpl.source_d(params), // d.ts files
     'tsconfig.json': ts && tpl.tsconfig(params), // tsconfig
     'jest.config.js': test && tpl.jest(params), // test files
     // lint files
