@@ -16,6 +16,7 @@ import vscode, { tpl_vscode_setting } from './vsc';
 import stylelint, { tpl_stylelint } from './stylelint';
 import styleguidist, { tpl_styleguidist } from './styleguidist';
 import source_index, { tpl_src_index } from './source/index';
+import source_classnames, { tpl_src_classnames } from './source/classnames';
 import source_d, { tpl_src_declaration } from './source/declaration';
 import storybook_addons, { tpl_storybook_addons } from './storybook/addons';
 import storybook_config, { tpl_storybook_config } from './storybook/config';
@@ -55,6 +56,7 @@ export { default as vscode, tpl_vscode_setting } from './vsc';
 export { default as stylelint, tpl_stylelint } from './stylelint';
 export { default as styleguidist, tpl_styleguidist } from './styleguidist';
 export { default as source_index, tpl_src_index } from './source/index';
+export { default as source_classnames, tpl_src_classnames } from './source/classnames';
 export { default as source_d, tpl_src_declaration } from './source/declaration';
 export { default as storybook_addons, tpl_storybook_addons } from './storybook/addons';
 export { default as storybook_config, tpl_storybook_config } from './storybook/config';
@@ -96,6 +98,7 @@ export const tpls_init = {
   tsconfig,
   vscode,
   source_index,
+  source_classnames,
   source_d,
   storybook_addons,
   storybook_config,
@@ -128,6 +131,7 @@ export const tpls_origin_init = {
   tpl_prettier,
   tpl_readme,
   tpl_src_declaration,
+  tpl_src_classnames,
   tpl_src_index,
   tpl_storybook_addons,
   tpl_storybook_config,

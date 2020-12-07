@@ -16,8 +16,7 @@ interface Config {
 export function dependencies (strategy: STRATEGY) {
   const dependency = getDependency(strategy, dependenciesMap);
   const deps: string[] = [
-    // dependency('react'),
-    // dependency('react-dom')
+    dependency('classnames')
   ];
   return {
     depArr: [ ...deps ],

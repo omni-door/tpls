@@ -2,6 +2,7 @@ import { tpl_engine_init } from '@omni-door/utils';
 
 const tpl = 
 `\`\${use_strict}
+const path = require('path');
 
 module.exports = function(config) {
   config.set({
@@ -66,6 +67,9 @@ module.exports = function(config) {
         filename: '[chunkhash:8].js',
       },
       resolve: {
+        alias: {
+          '@utils': path.resolve(__dirname, 'src/utils')
+        },
         extensions: ['\${ts ? '.ts' : ''}', '.js', '.json']
       },
       \${ts ? \`module: {

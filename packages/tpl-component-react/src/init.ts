@@ -140,6 +140,7 @@ export async function $init ({
     '.gitignore': tpl.gitignore(params),
     '.npmignore': tpl.npmignore(params),
     [`src/index.${ts ? 'ts' : 'js'}`]: tpl.source_index(params),
+    [`src/utils/classnames.${ts ? 'ts' : 'js'}`]: tpl.source_classnames(params),
     '@types/global.d.ts': ts && tpl.source_d(params), // d.ts files
     'tsconfig.json': ts && tpl.tsconfig(params), // tsconfig
     'jest.config.js': test && tpl.jest(params), // test files

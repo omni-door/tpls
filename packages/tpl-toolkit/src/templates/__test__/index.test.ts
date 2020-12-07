@@ -6,6 +6,7 @@ import tpl_eslint from '../eslint';
 import tpl_eslintignore from '../ignore/eslintignore';
 import tpl_gitignore from '../ignore/gitignore';
 import tpl_index from '../source';
+import tpl_get_ts from '../source/get_ts';
 import tpl_karma from '../karma';
 import tpl_mocha from '../mocha';
 import tpl_npmignore from '../ignore/npmignore';
@@ -56,6 +57,12 @@ describe('[tpl-toolkit]: tpl_gitignore template test', function () {
 describe('[tpl-toolkit]: tpl_index template test', function () {
   it('type checking', function () {
     expect(tpl_index).to.be.a('function');
+  });
+});
+
+describe('[tpl-toolkit]: tpl_get_ts template test', function () {
+  it('type checking', function () {
+    expect(tpl_get_ts).to.be.a('function');
   });
 });
 

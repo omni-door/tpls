@@ -18,6 +18,7 @@ export const devDependencies = {
   'lint-staged': '10.0.7',
   'ts-loader': '6.2.1',
   'ts-node': '8.6.2',
+  'tsconfig-paths': '~3.9.0',
   'ttypescript': '~1.5.12',
   'typescript': '~3.9.7',
   'typescript-transform-paths': '~2.0.3',

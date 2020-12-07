@@ -1,6 +1,7 @@
 export const dependencies = {
   'react': '^17.0.1',
-  'react-dom': '^17.0.1'
+  'react-dom': '^17.0.1',
+  'classnames': '~2.2.6'
 };
 
 export const devDependencies = {

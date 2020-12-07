@@ -35,7 +35,8 @@ export function devDependencies (strategy: STRATEGY, config: Config) {
     dependency('@rollup/plugin-babel'),
     dependency('@rollup/plugin-commonjs'),
     dependency('@rollup/plugin-node-resolve'),
-    ts ? dependency('@rollup/plugin-typescript') : '',
+    // todo temporary delay use the @rollup/plugin-typescript because it has some bug
+    // ts ? dependency('@rollup/plugin-typescript') : '',
     ts ? dependency('rollup-plugin-typescript') : '',
     ts ? dependency('rollup-plugin-typescript2') : '',
     dependency('@rollup/plugin-json'),
@@ -63,6 +64,7 @@ export function devDependencies (strategy: STRATEGY, config: Config) {
   ] : [];
 
   const tsDependencies = ts ? [
+    dependency('tsconfig-paths'),
     dependency('ttypescript'),
     dependency('typescript'),
     dependency('typescript-transform-paths'),
