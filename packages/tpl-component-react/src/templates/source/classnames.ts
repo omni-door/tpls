@@ -9,10 +9,10 @@ export const classnames = ({ prefix, theme }: { prefix?: string; theme?: string 
 ) =>
   classNames(
     {
-      [\`\${prefix}\`]: !!prefix && !suffix,
-      [\`\${prefix}-\${theme}\`]: !!prefix && !suffix && !!theme,
-      [\`\${prefix}-\${suffix}\`]: !!prefix && !!suffix,
-      [\`\${prefix}-\${theme}-\${suffix}\`]: !!prefix && !!suffix && !!theme
+      [\\\`\\\${prefix}\\\`]: !!prefix && !suffix,
+      [\\\`\\\${prefix}-\\\${theme}\\\`]: !!prefix && !suffix && !!theme,
+      [\\\`\\\${prefix}-\\\${suffix}\\\`]: !!prefix && !!suffix,
+      [\\\`\\\${prefix}-\\\${theme}-\\\${suffix}\\\`]: !!prefix && !!suffix && !!theme
     },
     className
   );
