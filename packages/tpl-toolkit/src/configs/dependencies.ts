@@ -31,9 +31,11 @@ export function devDependencies (strategy: STRATEGY, config: Config) {
 
   const buildDependencies = [
     dependency('rollup'),
-    dependency('@rollup/plugin-node-resolve'),
+    dependency('@rollup/plugin-alias'),
     dependency('@rollup/plugin-babel'),
     dependency('@rollup/plugin-commonjs'),
+    dependency('@rollup/plugin-node-resolve'),
+    ts ? dependency('@rollup/plugin-typescript') : '',
     ts ? dependency('rollup-plugin-typescript') : '',
     ts ? dependency('rollup-plugin-typescript2') : '',
     dependency('@rollup/plugin-json'),

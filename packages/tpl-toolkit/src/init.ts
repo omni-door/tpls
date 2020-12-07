@@ -130,6 +130,8 @@ export async function $init ({
     '.gitignore': tpl.gitignore(params),
     '.npmignore': tpl.npmignore(params),
     [`src/index.${ts ? 'ts' : 'js'}`]: tpl.indexTpl(params),
+    [`src/utils/getTs.${ts ? 'ts' : 'js'}`]: tpl.getTsTpl(params),
+    'src/utils/.buildignore': '# This directory will be ignore when build the project',
     // tsconfig
     'tsconfig.json': ts && tpl.tsconfig(params),
     // lint files
@@ -142,6 +144,7 @@ export async function $init ({
     'commitlint.config.js': commitlint && tpl.commitlint(params),
     // build files
     'babel.config.js': tpl.babel(params),
+    'rollup.config.js': tpl.rollup(params),
     // ReadMe
     'README.md': tpl.readme(params),
     // dumi-config files

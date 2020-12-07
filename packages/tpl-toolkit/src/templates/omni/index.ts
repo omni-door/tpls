@@ -4,6 +4,7 @@ const tpl =
 `\`\${use_strict}
 
 const path = require('path');
+const rollup = require('./rollup.config');
 
 module.exports = {
   type: '\${project_type}', // 项目类型，请勿任意变动 (project type, please don't modify)
@@ -35,7 +36,7 @@ module.exports = {
 
     // 构建阶段的自定义配置回调 (The callback will be call in the build-process)
     // 返回自定义的配置 (You can return your custom build configuration)
-    configuration: config => config,
+    configuration: rollup,
 
     reserve: {
       assets: [] // 构建结果保留资源的路径 (reserve assets paths)

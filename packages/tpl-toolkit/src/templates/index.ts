@@ -10,8 +10,10 @@ import pkj, { tpl_package } from './package';
 import prettier, { tpl_prettier } from './prettier';
 import prettierignore, { tpl_ignore_prettier } from './ignore/prettierignore';
 import readme, { tpl_readme } from './readme';
+import rollup, { tpl_rollup } from './rollup';
 import tsconfig, { tpl_tsconfig } from './tsconfig';
 import indexTpl, { tpl_src_index } from './source';
+import getTsTpl, { tpl_src_get_ts } from './source/get_ts';
 import karma, { tpl_karma } from './karma';
 import mocha, { tpl_mocha } from './mocha';
 import component_index, { tpl_new_index } from './new/index';
@@ -33,8 +35,10 @@ export { default as pkj, tpl_package } from './package';
 export { default as prettier, tpl_prettier } from './prettier';
 export { default as prettierignore, tpl_ignore_prettier } from './ignore/prettierignore';
 export { default as readme, tpl_readme } from './readme';
+export { default as rollup, tpl_rollup } from './rollup';
 export { default as tsconfig, tpl_tsconfig } from './tsconfig';
 export { default as indexTpl, tpl_src_index } from './source';
+export { default as getTsTpl, tpl_src_get_ts } from './source/get_ts';
 export { default as karma, tpl_karma } from './karma';
 export { default as mocha, tpl_mocha } from './mocha';
 export { default as component_index, tpl_new_index } from './new/index';
@@ -58,8 +62,10 @@ export const tpls_init = {
   prettier,
   prettierignore,
   readme,
+  rollup,
   tsconfig,
   indexTpl,
+  getTsTpl,
   karma,
   mocha,
   umirc,
@@ -79,7 +85,9 @@ export const tpls_origin_init = {
   tpl_package,
   tpl_prettier,
   tpl_readme,
+  tpl_rollup,
   tpl_src_index,
+  tpl_src_get_ts,
   tpl_tsconfig,
   tpl_ignore_prettier,
   tpl_karma,
