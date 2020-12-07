@@ -13,18 +13,18 @@ interface Config {
   devServer: COMPONENTSERVER;
 }
 
-export function dependencies (strategy: STRATEGY) {
+export function dependencies(strategy: STRATEGY) {
   const dependency = getDependency(strategy, dependenciesMap);
   const deps: string[] = [
     dependency('classnames')
   ];
   return {
-    depArr: [ ...deps ],
+    depArr: [...deps],
     depStr: arr2str(deps)
   };
 }
 
-export function devDependencies (strategy: STRATEGY, config: Config) {
+export function devDependencies(strategy: STRATEGY, config: Config) {
   const dependency = getDependency(strategy, devDependenciesMap);
 
   const {
@@ -74,6 +74,7 @@ export function devDependencies (strategy: STRATEGY, config: Config) {
   ] : [];
 
   const tsDependencies = ts ? [
+    dependency('@types/classnames'),
     dependency('@types/react'),
     dependency('@types/react-dom'),
     dependency('ttypescript'),
@@ -113,7 +114,7 @@ export function devDependencies (strategy: STRATEGY, config: Config) {
     style === 'all' || style === 'scss' ? dependency('stylelint-scss') : ''
   ] : [];
 
-  const doczDependencies= [
+  const doczDependencies = [
     dependency('docz'),
     dependency('gatsby-theme-docz'),
     (style === 'all' || style === 'less') ? dependency('less') : '',
@@ -123,7 +124,7 @@ export function devDependencies (strategy: STRATEGY, config: Config) {
     dependency('react-hot-loader')
   ];
 
-  const storybookDependencies= [
+  const storybookDependencies = [
     dependency('@storybook/react'),
     dependency('@storybook/addons'),
     dependency('@storybook/addon-options'),
@@ -161,7 +162,7 @@ export function devDependencies (strategy: STRATEGY, config: Config) {
     dependency('ip'),
     dependency('detect-port')
   ];
-  switch(devServer) {
+  switch (devServer) {
     case 'docz':
       devServerDependencies.push(...doczDependencies);
       break;

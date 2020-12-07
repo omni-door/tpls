@@ -15,6 +15,7 @@ export const devDependencies = {
   '@babel/plugin-transform-runtime': '~7.10.0',
   '@babel/plugin-proposal-class-properties': '~7.10.0',
   '@commitlint/cli': '8.3.5',
+  "@types/classnames": "~2.2.11",
   '@types/enzyme': '3.10.5',
   '@types/enzyme-adapter-react-16': '1.0.6',
   '@types/jest': '25.1.2',
