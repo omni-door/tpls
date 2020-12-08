@@ -126,69 +126,74 @@ export async function $init ({
   // 生成项目文件
   logTime('生成文件(create files)');
   const params = { project_type, project_name, ts, test, eslint, prettier, commitlint, style, stylelint, strategy, configFileName, serverType: ssrServer };
-  const suffix_stylesheet = style && style === 'all' ? 'scss' : style;
-  const pathToFileContentMap = {
-    // default files
-    [`configs/${configFileName}`]: tpl.omni({ ...params, git }),
-    'package.json': install && tpl.pkj(devDependencyMap['@types/react'])({ ...params, install, dependencies: '', devDependencies: '' }),
-    '.gitignore': tpl.gitignore(params),
-    [`src/routes.js`]: ssrServer === 'koa-next' && tpl.source_routes(params),
-    [`src/styles/reset.${suffix_stylesheet}`]: suffix_stylesheet && tpl.source_index_reset(params),
-    // pages
-    [`pages/${ssrServer === 'koa-next' ? 'home' : 'index'}.${ts ? 'tsx' : 'jsx'}`]: tpl.source_page_index({ ...params, pageName: 'Home' }),
-    [`pages/start.${ts ? 'tsx' : 'jsx'}`]: tpl.source_page_index({ ...params, pageName: 'Start' }),
-    [`pages/docs.${ts ? 'tsx' : 'jsx'}`]: tpl.source_page_index({ ...params, pageName: 'Docs' }),
-    [`pages/_app.${ts ? 'tsx' : 'jsx'}`]: tpl.source_page_app(params),
-    // components - Home
-    [`src/components/Home/index.${ts ? 'ts' : 'js'}`]: tpl.source_component_index({ ...params, componentName: 'Home' }),
-    [`src/components/Home/Home.${ts ? 'tsx' : 'jsx'}`]: tpl.source_component_cp({ ...params, componentName: 'Home' }),
-    [`src/components/Home/style/Home.module.${suffix_stylesheet}`]: tpl.source_component_style({ ...params, componentName: 'Home' }),
-    // components - Start
-    [`src/components/Start/index.${ts ? 'ts' : 'js'}`]: tpl.source_component_index({ ...params, componentName: 'Start' }),
-    [`src/components/Start/Start.${ts ? 'tsx' : 'jsx'}`]: tpl.source_component_cp({ ...params, componentName: 'Start' }),
-    [`src/components/Start/style/Start.module.${suffix_stylesheet}`]: tpl.source_component_style({ ...params, componentName: 'Start' }),
-    // components - Docs
-    [`src/components/Docs/index.${ts ? 'ts' : 'js'}`]: tpl.source_component_index({ ...params, componentName: 'Docs' }),
-    [`src/components/Docs/Docs.${ts ? 'tsx' : 'jsx'}`]: tpl.source_component_cp({ ...params, componentName: 'Docs' }),
-    [`src/components/Docs/style/Docs.module.${suffix_stylesheet}`]: tpl.source_component_style({ ...params, componentName: 'Docs' }),
-    // components - Layout
-    [`src/components/Layout/index.${ts ? 'ts' : 'js'}`]: tpl.source_component_index({ ...params, componentName: 'Layout' }),
-    [`src/components/Layout/Layout.${ts ? 'tsx' : 'jsx'}`]: tpl.source_component_layout({ ...params, componentName: 'Layout' }),
-    [`src/components/Layout/style/Layout.module.${suffix_stylesheet}`]: tpl.source_component_layout_style({ ...params, componentName: 'Layout' }),
-    // components - Link
-    [`src/components/Link/index.${ts ? 'ts' : 'js'}`]: ssrServer === 'koa-next' && tpl.source_component_index({ ...params, componentName: 'Link' }),
-    [`src/components/Link/Link.${ts ? 'tsx' : 'jsx'}`]: ssrServer === 'koa-next' && tpl.source_component_link({ ...params, componentName: 'Link' }),
-    // utils
-    [`src/utils/mapCtxToProps.${ts ? 'ts' : 'js'}`]: tpl.source_utils_mapctx(params),
-    [`src/utils/paramsToQueryString.${ts ? 'ts' : 'js'}`]: tpl.source_utils_params(params),
-    // next configs
-    'next.config.js': tpl.nextConfig(params),
-    'next-env.d.ts': ts && tpl.nextDeclartion(params),
-    'postcss.config.js': suffix_stylesheet && tpl.postcss(params),
-    // webpack config files
-    'configs/webpack.config.js': tpl.webpack(params),
-    // tsconfig
-    'tsconfig.json': ts && tpl.tsconfig(params), // tsconfig
-    // jest config
-    'configs/jest.config.js': test && tpl.jest(params), // test files
-    // lint files
-    '.vscode/settings.json': tpl.vscode(params),
-    '.editorconfig': (eslint || prettier) && tpl.editor(params),
-    'configs/.eslintrc.js': eslint && tpl.eslint(params),
-    '.eslintignore': eslint && tpl.eslintignore(params),
-    'configs/prettier.config.js': prettier && tpl.prettier(params),
-    '.prettierignore': prettier && tpl.prettierignore(params),
-    'configs/stylelint.config.js': stylelint && tpl.stylelint(params),
-    'configs/commitlint.config.js': commitlint && tpl.commitlint(params),
-    'babel.config.js': tpl.babel(params), // build files
-    'README.md': tpl.readme(params) // ReadMe
-  };
-  const file_path = (p: string) => path.resolve(initPath, p);
-  for (const p in pathToFileContentMap) {
-    output_file({
-      file_path: file_path(p),
-      file_content: pathToFileContentMap[p as keyof typeof pathToFileContentMap]
-    });
+  try {
+    const suffix_stylesheet = style && style === 'all' ? 'scss' : style;
+    const pathToFileContentMap = {
+      // default files
+      [`configs/${configFileName}`]: tpl.omni({ ...params, git }),
+      'package.json': install && tpl.pkj(devDependencyMap['@types/react'])({ ...params, install, dependencies: '', devDependencies: '' }),
+      '.gitignore': tpl.gitignore(params),
+      [`src/routes.js`]: ssrServer === 'koa-next' && tpl.source_routes(params),
+      [`src/styles/reset.${suffix_stylesheet}`]: suffix_stylesheet && tpl.source_index_reset(params),
+      // pages
+      [`pages/${ssrServer === 'koa-next' ? 'home' : 'index'}.${ts ? 'tsx' : 'jsx'}`]: tpl.source_page_index({ ...params, pageName: 'Home' }),
+      [`pages/start.${ts ? 'tsx' : 'jsx'}`]: tpl.source_page_index({ ...params, pageName: 'Start' }),
+      [`pages/docs.${ts ? 'tsx' : 'jsx'}`]: tpl.source_page_index({ ...params, pageName: 'Docs' }),
+      [`pages/_app.${ts ? 'tsx' : 'jsx'}`]: tpl.source_page_app(params),
+      // components - Home
+      [`src/components/Home/index.${ts ? 'ts' : 'js'}`]: tpl.source_component_index({ ...params, componentName: 'Home' }),
+      [`src/components/Home/Home.${ts ? 'tsx' : 'jsx'}`]: tpl.source_component_cp({ ...params, componentName: 'Home' }),
+      [`src/components/Home/style/Home.module.${suffix_stylesheet}`]: tpl.source_component_style({ ...params, componentName: 'Home' }),
+      // components - Start
+      [`src/components/Start/index.${ts ? 'ts' : 'js'}`]: tpl.source_component_index({ ...params, componentName: 'Start' }),
+      [`src/components/Start/Start.${ts ? 'tsx' : 'jsx'}`]: tpl.source_component_cp({ ...params, componentName: 'Start' }),
+      [`src/components/Start/style/Start.module.${suffix_stylesheet}`]: tpl.source_component_style({ ...params, componentName: 'Start' }),
+      // components - Docs
+      [`src/components/Docs/index.${ts ? 'ts' : 'js'}`]: tpl.source_component_index({ ...params, componentName: 'Docs' }),
+      [`src/components/Docs/Docs.${ts ? 'tsx' : 'jsx'}`]: tpl.source_component_cp({ ...params, componentName: 'Docs' }),
+      [`src/components/Docs/style/Docs.module.${suffix_stylesheet}`]: tpl.source_component_style({ ...params, componentName: 'Docs' }),
+      // components - Layout
+      [`src/components/Layout/index.${ts ? 'ts' : 'js'}`]: tpl.source_component_index({ ...params, componentName: 'Layout' }),
+      [`src/components/Layout/Layout.${ts ? 'tsx' : 'jsx'}`]: tpl.source_component_layout({ ...params, componentName: 'Layout' }),
+      [`src/components/Layout/style/Layout.module.${suffix_stylesheet}`]: tpl.source_component_layout_style({ ...params, componentName: 'Layout' }),
+      // components - Link
+      [`src/components/Link/index.${ts ? 'ts' : 'js'}`]: ssrServer === 'koa-next' && tpl.source_component_index({ ...params, componentName: 'Link' }),
+      [`src/components/Link/Link.${ts ? 'tsx' : 'jsx'}`]: ssrServer === 'koa-next' && tpl.source_component_link({ ...params, componentName: 'Link' }),
+      // utils
+      [`src/utils/mapCtxToProps.${ts ? 'ts' : 'js'}`]: tpl.source_utils_mapctx(params),
+      [`src/utils/paramsToQueryString.${ts ? 'ts' : 'js'}`]: tpl.source_utils_params(params),
+      // next configs
+      'next.config.js': tpl.nextConfig(params),
+      'next-env.d.ts': ts && tpl.nextDeclartion(params),
+      'postcss.config.js': suffix_stylesheet && tpl.postcss(params),
+      // webpack config files
+      'configs/webpack.config.js': tpl.webpack(params),
+      // tsconfig
+      'tsconfig.json': ts && tpl.tsconfig(params), // tsconfig
+      // jest config
+      'configs/jest.config.js': test && tpl.jest(params), // test files
+      // lint files
+      '.vscode/settings.json': tpl.vscode(params),
+      '.editorconfig': (eslint || prettier) && tpl.editor(params),
+      'configs/.eslintrc.js': eslint && tpl.eslint(params),
+      '.eslintignore': eslint && tpl.eslintignore(params),
+      'configs/prettier.config.js': prettier && tpl.prettier(params),
+      '.prettierignore': prettier && tpl.prettierignore(params),
+      'configs/stylelint.config.js': stylelint && tpl.stylelint(params),
+      'configs/commitlint.config.js': commitlint && tpl.commitlint(params),
+      'babel.config.js': tpl.babel(params), // build files
+      'README.md': tpl.readme(params) // ReadMe
+    };
+    const file_path = (p: string) => path.resolve(initPath, p);
+    for (const p in pathToFileContentMap) {
+      output_file({
+        file_path: file_path(p),
+        file_content: pathToFileContentMap[p as keyof typeof pathToFileContentMap]
+      });
+    }
+  } catch (err) {
+    logErr(`${err.name}: ${err.message} at \n${err.stack}`);
+    error ? error(err) : process.exit(1);
   }
   logTime('生成文件(create files)', true);
 

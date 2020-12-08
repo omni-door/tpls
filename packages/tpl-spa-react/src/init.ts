@@ -123,55 +123,60 @@ export async function $init ({
   // 生成项目文件
   logTime('生成文件(create files)');
   const params = { project_type, project_name, ts, test, eslint, prettier, commitlint, style, stylelint, strategy, configFileName };
-  const suffix_stylesheet = style && style === 'all' ? 'scss' : style;
-  const pathToFileContentMap = {
-    // default files
-    [`configs/${configFileName}`]: tpl.omni({ ...params, git }),
-    'package.json': install && tpl.pkj(devDependencyMap['@types/react'])({ ...params, install, dependencies: '', devDependencies: '' }),
-    '.gitignore': tpl.gitignore(params),
-    [`src/index.${ts ? 'tsx' : 'jsx'}`]: tpl.source_index_react(params),
-    [`src/routes.${ts ? 'tsx' : 'jsx'}`]: tpl.source_routes(params),
-    'src/index.html': tpl.source_html(params),
-    // d.ts files
-    'src/@types/index.d.ts': ts && tpl.source_d_i(params),
-    'src/@types/global.d.ts': ts && tpl.source_d_g(params),
-    [`src/index.${suffix_stylesheet}`]: suffix_stylesheet && tpl.source_index_style(params),
-    [`src/reset.${suffix_stylesheet}`]: suffix_stylesheet && tpl.source_index_reset(params),
-    // pages
-    [`src/pages/home/index.${ts ? 'ts' : 'js'}`]: tpl.source_page_index({ ...params, pageName: 'home' }),
-    [`src/pages/home/home.${ts ? 'tsx' : 'jsx'}`]: tpl.source_page_page({ ...params, pageName: 'home', content: 'Home Page' }),
-    [`src/pages/home/style/home.${suffix_stylesheet}`]: tpl.source_page_style({ ...params, pageName: 'home' }),
-    [`src/pages/detail/index.${ts ? 'ts' : 'js'}`]: tpl.source_page_index({ ...params, pageName: 'detail' }),
-    [`src/pages/detail/detail.${ts ? 'tsx' : 'jsx'}`]: tpl.source_page_page_nest({ ...params, pageName: 'detail', content: 'Detail Page' }),
-    [`src/pages/detail/style/detail.${suffix_stylesheet}`]: tpl.source_page_style({ ...params, pageName: 'detail' }),
-    // components
-    [`src/components/Detail/index.${ts ? 'ts' : 'js'}`]: tpl.source_component_index({ ...params, componentName: 'Detail' }),
-    [`src/components/Detail/Detail.${ts ? 'tsx' : 'jsx'}`]: tpl.source_component_cp({ ...params, componentName: 'Detail' }),
-    [`src/components/Detail/style/Detail.${suffix_stylesheet}`]: tpl.source_component_style({ ...params, componentName: 'Detail' }),
-    // webpack config files
-    'configs/webpack.config.common.js': tpl.webpack_config_common(params),
-    'configs/webpack.config.dev.js': tpl.webpack_config_dev(params),
-    'configs/webpack.config.prod.js': tpl.webpack_config_prod(params),
-    'tsconfig.json': ts && tpl.tsconfig(params), // tsconfig
-    'configs/jest.config.js': test && tpl.jest(params), // test files
-    // lint files
-    '.vscode/settings.json': tpl.vscode(params),
-    '.editorconfig': (eslint || prettier) && tpl.editor(params),
-    'configs/.eslintrc.js': eslint && tpl.eslint(params),
-    '.eslintignore': eslint && tpl.eslintignore(params),
-    'configs/prettier.config.js': prettier && tpl.prettier(params),
-    '.prettierignore': prettier && tpl.prettierignore(params),
-    'configs/stylelint.config.js': stylelint && tpl.stylelint(params),
-    'configs/commitlint.config.js': commitlint && tpl.commitlint(params),
-    'configs/babel.config.js': tpl.babel(params), // build files
-    'README.md': tpl.readme(params) // ReadMe
-  };
-  const file_path = (p: string) => path.resolve(initPath, p);
-  for (const p in pathToFileContentMap) {
-    output_file({
-      file_path: file_path(p),
-      file_content: pathToFileContentMap[p]
-    });
+  try {
+    const suffix_stylesheet = style && style === 'all' ? 'scss' : style;
+    const pathToFileContentMap = {
+      // default files
+      [`configs/${configFileName}`]: tpl.omni({ ...params, git }),
+      'package.json': install && tpl.pkj(devDependencyMap['@types/react'])({ ...params, install, dependencies: '', devDependencies: '' }),
+      '.gitignore': tpl.gitignore(params),
+      [`src/index.${ts ? 'tsx' : 'jsx'}`]: tpl.source_index_react(params),
+      [`src/routes.${ts ? 'tsx' : 'jsx'}`]: tpl.source_routes(params),
+      'src/index.html': tpl.source_html(params),
+      // d.ts files
+      'src/@types/index.d.ts': ts && tpl.source_d_i(params),
+      'src/@types/global.d.ts': ts && tpl.source_d_g(params),
+      [`src/index.${suffix_stylesheet}`]: suffix_stylesheet && tpl.source_index_style(params),
+      [`src/reset.${suffix_stylesheet}`]: suffix_stylesheet && tpl.source_index_reset(params),
+      // pages
+      [`src/pages/home/index.${ts ? 'ts' : 'js'}`]: tpl.source_page_index({ ...params, pageName: 'home' }),
+      [`src/pages/home/home.${ts ? 'tsx' : 'jsx'}`]: tpl.source_page_page({ ...params, pageName: 'home', content: 'Home Page' }),
+      [`src/pages/home/style/home.${suffix_stylesheet}`]: tpl.source_page_style({ ...params, pageName: 'home' }),
+      [`src/pages/detail/index.${ts ? 'ts' : 'js'}`]: tpl.source_page_index({ ...params, pageName: 'detail' }),
+      [`src/pages/detail/detail.${ts ? 'tsx' : 'jsx'}`]: tpl.source_page_page_nest({ ...params, pageName: 'detail', content: 'Detail Page' }),
+      [`src/pages/detail/style/detail.${suffix_stylesheet}`]: tpl.source_page_style({ ...params, pageName: 'detail' }),
+      // components
+      [`src/components/Detail/index.${ts ? 'ts' : 'js'}`]: tpl.source_component_index({ ...params, componentName: 'Detail' }),
+      [`src/components/Detail/Detail.${ts ? 'tsx' : 'jsx'}`]: tpl.source_component_cp({ ...params, componentName: 'Detail' }),
+      [`src/components/Detail/style/Detail.${suffix_stylesheet}`]: tpl.source_component_style({ ...params, componentName: 'Detail' }),
+      // webpack config files
+      'configs/webpack.config.common.js': tpl.webpack_config_common(params),
+      'configs/webpack.config.dev.js': tpl.webpack_config_dev(params),
+      'configs/webpack.config.prod.js': tpl.webpack_config_prod(params),
+      'tsconfig.json': ts && tpl.tsconfig(params), // tsconfig
+      'configs/jest.config.js': test && tpl.jest(params), // test files
+      // lint files
+      '.vscode/settings.json': tpl.vscode(params),
+      '.editorconfig': (eslint || prettier) && tpl.editor(params),
+      'configs/.eslintrc.js': eslint && tpl.eslint(params),
+      '.eslintignore': eslint && tpl.eslintignore(params),
+      'configs/prettier.config.js': prettier && tpl.prettier(params),
+      '.prettierignore': prettier && tpl.prettierignore(params),
+      'configs/stylelint.config.js': stylelint && tpl.stylelint(params),
+      'configs/commitlint.config.js': commitlint && tpl.commitlint(params),
+      'configs/babel.config.js': tpl.babel(params), // build files
+      'README.md': tpl.readme(params) // ReadMe
+    };
+    const file_path = (p: string) => path.resolve(initPath, p);
+    for (const p in pathToFileContentMap) {
+      output_file({
+        file_path: file_path(p),
+        file_content: pathToFileContentMap[p]
+      });
+    }
+  } catch (err) {
+    logErr(`${err.name}: ${err.message} at \n${err.stack}`);
+    error ? error(err) : process.exit(1);
   }
   logTime('生成文件(create files)', true);
 

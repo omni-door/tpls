@@ -3,7 +3,8 @@ import {
   output_file,
   logInfo,
   logWarn,
-  logTime
+  logTime,
+  logErr
 } from '@omni-door/utils';
 import {
   tpls_new,
@@ -75,46 +76,52 @@ export function $new ({
     style: stylesheet,
     md
   };
-  // component tpl
-  const content_index = tpl.component_index(params);
-  const content_interface = ts && tpl.component_interface({ ...params, cc: type === 'cc' });
-  const content_cc = type === 'cc' && tpl.component_class(params);
-  const content_fc = type === 'fc' && tpl.component_functional(params);
-  const content_readme = md === 'md' && tpl.component_readme(params);
-  const content_mdx = md === 'mdx' && tpl.component_mdx(params);
-  const content_stories = hasStorybook && tpl.component_stories(params);
-  const content_style = stylesheet && tpl.component_style(params);
-  const content_stylesheet = stylesheet && tpl.component_stylesheet(params);
-  const content_test = test && tpl.component_test(params);
+  try {
+    // component tpl
+    const content_index = tpl.component_index(params);
+    const content_interface = ts && tpl.component_interface({ ...params, cc: type === 'cc' });
+    const content_cc = type === 'cc' && tpl.component_class(params);
+    const content_fc = type === 'fc' && tpl.component_functional(params);
+    const content_readme = md === 'md' && tpl.component_readme(params);
+    const content_mdx = md === 'mdx' && tpl.component_mdx(params);
+    const content_stories = hasStorybook && tpl.component_stories(params);
+    const content_style = stylesheet && tpl.component_style(params);
+    const content_stylesheet = stylesheet && tpl.component_stylesheet(params);
+    const content_test = test && tpl.component_test(params);
 
-  const pathToFileContentMap = {
-    [`index.${ts ? 'ts' : 'js'}`]: content_index,
-    [`${componentName}.${ts ? 'tsx' : 'jsx'}`]: content_fc || content_cc,
-    'interface.ts': content_interface,
-    [`style/index.${ts ? 'ts' : 'js'}`]: content_style,
-    [`style/${componentName}.${stylesheet}`]: content_stylesheet,
-    [`__test__/index.test.${
-      ts
-        ? 'tsx'
-        : 'jsx'
-    }`]: content_test,
-    [`__stories__/index.stories.${
-      ts
-        ? 'tsx'
-        : 'jsx'
-    }`]: content_stories,
-    'README.md': content_readme,
-    'README.mdx': content_mdx,
-  };
-  /**
-   * create files
-   */
-  const file_path = (p: string) => path.resolve(newPath, p);
-  for (const p in pathToFileContentMap) {
-    output_file({
-      file_path: file_path(p),
-      file_content: pathToFileContentMap[p]
-    });
+    const pathToFileContentMap = {
+      [`index.${ts ? 'ts' : 'js'}`]: content_index,
+      [`${componentName}.${ts ? 'tsx' : 'jsx'}`]: content_fc || content_cc,
+      'interface.ts': content_interface,
+      [`style/index.${ts ? 'ts' : 'js'}`]: content_style,
+      [`style/${componentName}.${stylesheet}`]: content_stylesheet,
+      [`__test__/index.test.${
+        ts
+          ? 'tsx'
+          : 'jsx'
+      }`]: content_test,
+      [`__stories__/index.stories.${
+        ts
+          ? 'tsx'
+          : 'jsx'
+      }`]: content_stories,
+      'README.md': content_readme,
+      'README.mdx': content_mdx,
+    };
+    /**
+     * create files
+     */
+    const file_path = (p: string) => path.resolve(newPath, p);
+    for (const p in pathToFileContentMap) {
+      output_file({
+        file_path: file_path(p),
+        file_content: pathToFileContentMap[p]
+      });
+    }
+  } catch (err) {
+    logErr(`${err.name}: ${err.message} at \n${err.stack}`);
+    logErr('创建组件失败！(The process of create component failed!)');
+    process.exit(1);
   }
   logTime('创建组件(create component)', true);
 }

@@ -129,53 +129,58 @@ export async function $init ({
   // 生成项目文件
   logTime('生成文件(create files)');
   const params = { project_type, project_name, ts, test, eslint, prettier, commitlint, style, stylelint, strategy, configFileName };
-  const pathToFileContentMap = {
-    // default files
-    [`${configFileName}`]: tpl.omni({ ...params, git, npm, devServer }),
-    'package.json': install && tpl.pkj({
-      type_react: devDependencyMap['@types/react'],
-      project_name,
-      devServer
-    })({ ...params, install, dependencies: '', devDependencies: '' }),
-    '.gitignore': tpl.gitignore(params),
-    '.npmignore': tpl.npmignore(params),
-    [`src/index.${ts ? 'ts' : 'js'}`]: tpl.source_index(params),
-    [`src/utils/classnames.${ts ? 'ts' : 'js'}`]: tpl.source_classnames(params),
-    '@types/global.d.ts': ts && tpl.source_d(params), // d.ts files
-    'tsconfig.json': ts && tpl.tsconfig(params), // tsconfig
-    'jest.config.js': test && tpl.jest(params), // test files
-    // lint files
-    '.vscode/settings.json': tpl.vscode(params),
-    '.editorconfig': (eslint || prettier) && tpl.editor(params),
-    '.eslintrc.js': eslint && tpl.eslint(params),
-    '.eslintignore': eslint && tpl.eslintignore(params),
-    'prettier.config.js': prettier && tpl.prettier(params),
-    '.prettierignore': prettier && tpl.prettierignore(params),
-    'stylelint.config.js': stylelint && tpl.stylelint(params),
-    'commitlint.config.js': commitlint && tpl.commitlint(params),
-    'babel.config.js': (devServer === 'storybook' || devServer === 'styleguidist') && tpl.babel(params), // build file
-    'README.md': tpl.readme(params), // ReadMe
-    // server files
-    'src/index.mdx': devServer === 'docz' && tpl.mdx(params),
-    'bisheng.config.js': devServer === 'bisheng' && tpl.bisheng(params),
-    'posts/README.md': devServer === 'bisheng' && tpl.posts_readme()(params),
-    '.storybook/addons.js': devServer === 'storybook' && tpl.storybook_addons(params),
-    '.storybook/config.js': devServer === 'storybook' && tpl.storybook_config(params),
-    '.storybook/manager-head.html': devServer === 'storybook' && tpl.storybook_mhead(params),
-    '.storybook/webpack.config.js': devServer === 'storybook' && tpl.storybook_webpack(params),
-    'doczrc.js': devServer === 'docz' && tpl.doczrc(params),
-    'gatsby-config.js': devServer === 'docz' && tpl.gatsby(params),
-    'styleguide.config.js': devServer === 'styleguidist' && tpl.styleguidist({ ...params, git })
-  };
-  /**
-   * create files
-   */
-  const file_path = (p: string) => path.resolve(initPath, p);
-  for (const p in pathToFileContentMap) {
-    output_file({
-      file_path: file_path(p),
-      file_content: pathToFileContentMap[p]
-    });
+  try {
+    const pathToFileContentMap = {
+      // default files
+      [`${configFileName}`]: tpl.omni({ ...params, git, npm, devServer }),
+      'package.json': install && tpl.pkj({
+        type_react: devDependencyMap['@types/react'],
+        project_name,
+        devServer
+      })({ ...params, install, dependencies: '', devDependencies: '' }),
+      '.gitignore': tpl.gitignore(params),
+      '.npmignore': tpl.npmignore(params),
+      [`src/index.${ts ? 'ts' : 'js'}`]: tpl.source_index(params),
+      [`src/utils/classnames.${ts ? 'ts' : 'js'}`]: tpl.source_classnames(params),
+      '@types/global.d.ts': ts && tpl.source_d(params), // d.ts files
+      'tsconfig.json': ts && tpl.tsconfig(params), // tsconfig
+      'jest.config.js': test && tpl.jest(params), // test files
+      // lint files
+      '.vscode/settings.json': tpl.vscode(params),
+      '.editorconfig': (eslint || prettier) && tpl.editor(params),
+      '.eslintrc.js': eslint && tpl.eslint(params),
+      '.eslintignore': eslint && tpl.eslintignore(params),
+      'prettier.config.js': prettier && tpl.prettier(params),
+      '.prettierignore': prettier && tpl.prettierignore(params),
+      'stylelint.config.js': stylelint && tpl.stylelint(params),
+      'commitlint.config.js': commitlint && tpl.commitlint(params),
+      'babel.config.js': (devServer === 'storybook' || devServer === 'styleguidist') && tpl.babel(params), // build file
+      'README.md': tpl.readme(params), // ReadMe
+      // server files
+      'src/index.mdx': devServer === 'docz' && tpl.mdx(params),
+      'bisheng.config.js': devServer === 'bisheng' && tpl.bisheng(params),
+      'posts/README.md': devServer === 'bisheng' && tpl.posts_readme()(params),
+      '.storybook/addons.js': devServer === 'storybook' && tpl.storybook_addons(params),
+      '.storybook/config.js': devServer === 'storybook' && tpl.storybook_config(params),
+      '.storybook/manager-head.html': devServer === 'storybook' && tpl.storybook_mhead(params),
+      '.storybook/webpack.config.js': devServer === 'storybook' && tpl.storybook_webpack(params),
+      'doczrc.js': devServer === 'docz' && tpl.doczrc(params),
+      'gatsby-config.js': devServer === 'docz' && tpl.gatsby(params),
+      'styleguide.config.js': devServer === 'styleguidist' && tpl.styleguidist({ ...params, git })
+    };
+    /**
+     * create files
+     */
+    const file_path = (p: string) => path.resolve(initPath, p);
+    for (const p in pathToFileContentMap) {
+      output_file({
+        file_path: file_path(p),
+        file_content: pathToFileContentMap[p]
+      });
+    }
+  } catch (err) {
+    logErr(`${err.name}: ${err.message} at \n${err.stack}`);
+    error ? error(err) : process.exit(1);
   }
   logTime('生成文件(create files)', true);
 

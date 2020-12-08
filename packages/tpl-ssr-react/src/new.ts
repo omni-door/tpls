@@ -3,6 +3,7 @@ import {
   logInfo,
   logWarn,
   logTime,
+  logErr,
   output_file,
 } from '@omni-door/utils';
 import {
@@ -75,35 +76,41 @@ export function $new ({
   };
   if (md === 'mdx') logInfo('暂不支持 mdx 文档格式，使用 md 代替！(Not support mdx format replace to md format!)');
 
-  // component tpl
-  const content_index = tpl.component_index(params);
-  const content_cc = type === 'cc' && tpl.component_class(params);
-  const content_fc = type === 'fc' && tpl.component_functional(params);
-  const content_readme = md && tpl.component_readme(params);
-  const content_style = stylesheet && tpl.component_stylesheet(params);
-  const content_test = test && tpl.component_test(params);
+  try {
+    // component tpl
+    const content_index = tpl.component_index(params);
+    const content_cc = type === 'cc' && tpl.component_class(params);
+    const content_fc = type === 'fc' && tpl.component_functional(params);
+    const content_readme = md && tpl.component_readme(params);
+    const content_style = stylesheet && tpl.component_stylesheet(params);
+    const content_test = test && tpl.component_test(params);
 
-  const pathToFileContentMap = {
-    [`${componentName}.${ts ? 'tsx' : 'jsx'}`]: content_fc || content_cc,
-    [`style/${componentName}.${stylesheet}`]: content_style,
-    [`__test__/index.test.${
-      ts
-        ? 'tsx'
-        : 'jsx'
-    }`]: content_test,
-    [`index.${ts ? 'ts' : 'js'}`]: content_index,
-    'README.md': content_readme
-  };
+    const pathToFileContentMap = {
+      [`${componentName}.${ts ? 'tsx' : 'jsx'}`]: content_fc || content_cc,
+      [`style/${componentName}.${stylesheet}`]: content_style,
+      [`__test__/index.test.${
+        ts
+          ? 'tsx'
+          : 'jsx'
+      }`]: content_test,
+      [`index.${ts ? 'ts' : 'js'}`]: content_index,
+      'README.md': content_readme
+    };
 
-  /**
-   * create files
-   */
-  const file_path = (p: string) => path.resolve(newPath, p);
-  for (const p in pathToFileContentMap) {
-    output_file({
-      file_path: file_path(p),
-      file_content: pathToFileContentMap[p as keyof typeof pathToFileContentMap]
-    });
+    /**
+     * create files
+     */
+    const file_path = (p: string) => path.resolve(newPath, p);
+    for (const p in pathToFileContentMap) {
+      output_file({
+        file_path: file_path(p),
+        file_content: pathToFileContentMap[p as keyof typeof pathToFileContentMap]
+      });
+    }
+  } catch (err) {
+    logErr(`${err.name}: ${err.message} at \n${err.stack}`);
+    logErr('创建组件失败！(The process of create component failed!)');
+    process.exit(1);
   }
   logTime('创建组件(create component)', true);
 }

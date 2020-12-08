@@ -3,7 +3,8 @@ import {
   output_file,
   logInfo,
   logWarn,
-  logTime
+  logTime,
+  logErr
 } from '@omni-door/utils';
 import {
   tpls_new,
@@ -70,30 +71,37 @@ export function $new ({
   };
   if (md === 'mdx') logInfo('暂不支持 mdx 文档格式，使用 md 代替！(Not support mdx format replace to md format!)');
 
-  // component tpl
-  const content_index = tpl.component_index(params);
-  const content_readme = md && tpl.component_readme(params);
-  const content_test = test && tpl.component_test(params);
+  try {
+    // component tpl
+    const content_index = tpl.component_index(params);
+    const content_readme = md && tpl.component_readme(params);
+    const content_test = test && tpl.component_test(params);
 
-  const pathToFileContentMap = {
-    [`index.${ts ? 'ts' : 'js'}`]: content_index,
-    [`__test__/index.test.${
-      ts
-        ? 'ts'
-        : 'js'
-    }`]: content_test,
-    'README.md': content_readme
-  };
-  /**
-   * create files
-   */
-  const file_path = (p: string) => path.resolve(newPath, p);
-  for (const p in pathToFileContentMap) {
-    output_file({
-      file_path: file_path(p),
-      file_content: pathToFileContentMap[p]
-    });
+    const pathToFileContentMap = {
+      [`index.${ts ? 'ts' : 'js'}`]: content_index,
+      [`__test__/index.test.${
+        ts
+          ? 'ts'
+          : 'js'
+      }`]: content_test,
+      'README.md': content_readme
+    };
+    /**
+     * create files
+     */
+    const file_path = (p: string) => path.resolve(newPath, p);
+    for (const p in pathToFileContentMap) {
+      output_file({
+        file_path: file_path(p),
+        file_content: pathToFileContentMap[p]
+      });
+    }
+  } catch (err) {
+    logErr(`${err.name}: ${err.message} at \n${err.stack}`);
+    logErr('创建模块失败！(The process of create module failed!)');
+    process.exit(1);
   }
+  
   logTime('创建模块(create module)', true);
 }
 

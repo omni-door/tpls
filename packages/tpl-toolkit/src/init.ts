@@ -123,46 +123,51 @@ export async function $init ({
   // 生成项目文件
   logTime('生成文件(create files)');
   const params = { project_type, project_name, ts, test, eslint, prettier, commitlint, strategy, configFileName };
-  const pathToFileContentMap = {
-    // default files
-    [`${configFileName}`]: tpl.omni(build)({ ...params, git, npm }),
-    'package.json': install && tpl.pkj({ ...params, install, dependencies: '', devDependencies: '' }),
-    '.gitignore': tpl.gitignore(params),
-    '.npmignore': tpl.npmignore(params),
-    [`src/index.${ts ? 'ts' : 'js'}`]: tpl.indexTpl(params),
-    [`src/utils/getTs.${ts ? 'ts' : 'js'}`]: tpl.getTsTpl(params),
-    'src/utils/.buildignore': '# This directory will be ignore when build the project',
-    // tsconfig
-    'tsconfig.json': ts && tpl.tsconfig(params),
-    // lint files
-    '.vscode/settings.json': tpl.vscode(params),
-    '.editorconfig': (eslint || prettier) && tpl.editor(params),
-    '.eslintrc.js': eslint && tpl.eslint(params),
-    '.eslintignore': eslint && tpl.eslintignore(params),
-    'prettier.config.js': prettier && tpl.prettier(params),
-    '.prettierignore': prettier && tpl.prettierignore(params),
-    'commitlint.config.js': commitlint && tpl.commitlint(params),
-    // build files
-    'babel.config.js': tpl.babel(params),
-    'rollup.config.js': tpl.rollup(params),
-    // ReadMe
-    'README.md': tpl.readme(params),
-    // dumi-config files
-    [`.umirc.${ts ? 'ts' : 'js'}`]: tpl.umirc(params),
-    // '.env': tpl.env(params),
-    // test files
-    'mocha.opts': test && tpl.mocha(params),
-    'karma.conf.js': test && tpl.karma(params),
-  };
-  /**
-   * create files
-   */
-  const file_path = (p: string) => path.resolve(initPath, p);
-  for (const p in pathToFileContentMap) {
-    output_file({
-      file_path: file_path(p),
-      file_content: pathToFileContentMap[p]
-    });
+  try {
+    const pathToFileContentMap = {
+      // default files
+      [`${configFileName}`]: tpl.omni(build)({ ...params, git, npm }),
+      'package.json': install && tpl.pkj({ ...params, install, dependencies: '', devDependencies: '' }),
+      '.gitignore': tpl.gitignore(params),
+      '.npmignore': tpl.npmignore(params),
+      [`src/index.${ts ? 'ts' : 'js'}`]: tpl.indexTpl(params),
+      [`src/utils/getTs.${ts ? 'ts' : 'js'}`]: tpl.getTsTpl(params),
+      'src/utils/.buildignore': '# This directory will be ignore when build the project',
+      // tsconfig
+      'tsconfig.json': ts && tpl.tsconfig(params),
+      // lint files
+      '.vscode/settings.json': tpl.vscode(params),
+      '.editorconfig': (eslint || prettier) && tpl.editor(params),
+      '.eslintrc.js': eslint && tpl.eslint(params),
+      '.eslintignore': eslint && tpl.eslintignore(params),
+      'prettier.config.js': prettier && tpl.prettier(params),
+      '.prettierignore': prettier && tpl.prettierignore(params),
+      'commitlint.config.js': commitlint && tpl.commitlint(params),
+      // build files
+      'babel.config.js': tpl.babel(params),
+      'rollup.config.js': tpl.rollup(params),
+      // ReadMe
+      'README.md': tpl.readme(params),
+      // dumi-config files
+      [`.umirc.${ts ? 'ts' : 'js'}`]: tpl.umirc(params),
+      // '.env': tpl.env(params),
+      // test files
+      'mocha.opts': test && tpl.mocha(params),
+      'karma.conf.js': test && tpl.karma(params),
+    };
+    /**
+     * create files
+     */
+    const file_path = (p: string) => path.resolve(initPath, p);
+    for (const p in pathToFileContentMap) {
+      output_file({
+        file_path: file_path(p),
+        file_content: pathToFileContentMap[p]
+      });
+    }
+  } catch (err) {
+    logErr(`${err.name}: ${err.message} at \n${err.stack}`);
+    error ? error(err) : process.exit(1); 
   }
   logTime('生成文件(create files)', true);
 
