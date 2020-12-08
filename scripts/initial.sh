@@ -235,20 +235,25 @@ export async function \$init ({
   logTime('生成文件(create files)');
   const params = { project_type, project_name, ts, test, eslint, prettier, commitlint, style, stylelint, strategy, configFileName };
   const suffix_stylesheet = style && style === 'all' ? 'scss' : style;
-  const pathToFileContentMap = {
-    // package.json
-    'package.json': install && tpl.pkj({ ...params, install, dependencies: '', devDependencies: '' }),
-    // ReadMe
-    'README.md': tpl.readme(params),
-    // lint files
-    '.vscode/settings.json': tpl.vscode(params)
-  };
-  const file_path = (p: string) => path.resolve(initPath, p);
-  for (const p in pathToFileContentMap) {
-    output_file({
-      file_path: file_path(p),
-      file_content: pathToFileContentMap[p as keyof typeof pathToFileContentMap]
-    });
+  try {
+    const pathToFileContentMap = {
+      // package.json
+      'package.json': install && tpl.pkj({ ...params, install, dependencies: '', devDependencies: '' }),
+      // ReadMe
+      'README.md': tpl.readme(params),
+      // lint files
+      '.vscode/settings.json': tpl.vscode(params)
+    };
+    const file_path = (p: string) => path.resolve(initPath, p);
+    for (const p in pathToFileContentMap) {
+      output_file({
+        file_path: file_path(p),
+        file_content: pathToFileContentMap[p as keyof typeof pathToFileContentMap]
+      });
+    }
+  } catch (err) {
+    logErr(\`\${err.name}: \${err.message} at \n\${err.stack}\`);
+    error ? error(err) : process.exit(1);
   }
   logTime('生成文件(create files)', true);
 
@@ -371,6 +376,7 @@ import {
   logInfo,
   logWarn,
   logTime,
+  logErr,
   output_file,
 } from '@omni-door/utils';
 import {
@@ -443,22 +449,28 @@ export function \$new ({
   };
   if (md === 'mdx') logInfo('暂不支持 mdx 文档格式，使用 md 代替！(Not support mdx format replace to md format!)');
 
-  // component tpl
-  const content_readme = md && tpl.component_readme(params);
+  try {
+    // component tpl
+    const content_readme = md && tpl.component_readme(params);
 
-  const pathToFileContentMap = {
-    'README.md': content_readme
-  };
+    const pathToFileContentMap = {
+      'README.md': content_readme
+    };
 
-  /**
-   * create files
-   */
-  const file_path = (p: string) => path.resolve(newPath, p);
-  for (const p in pathToFileContentMap) {
-    output_file({
-      file_path: file_path(p),
-      file_content: pathToFileContentMap[p as keyof typeof pathToFileContentMap]
-    });
+    /**
+    * create files
+    */
+    const file_path = (p: string) => path.resolve(newPath, p);
+    for (const p in pathToFileContentMap) {
+      output_file({
+        file_path: file_path(p),
+        file_content: pathToFileContentMap[p as keyof typeof pathToFileContentMap]
+      });
+    }
+  } catch (err) {
+    logErr(\`\${err.name}: \${err.message} at \n\${err.stack}\`);
+    logErr('创建组件失败！(The process of create component failed!)');
+    process.exit(1);
   }
   logTime('创建组件(create component)', true);
 }
