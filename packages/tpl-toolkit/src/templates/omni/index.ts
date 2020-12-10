@@ -51,9 +51,18 @@ module.exports = {
   },
 
   release: {
-    git: '\${git}', // 发布的git仓库地址 (project git repo url)
-    npm: '\${npm}', // 发布的npm仓库地址 (npm depository url)
-    autoTag: false, // 发布到npm仓库时，根据当前版本号自动设置 tag (auto set tag according to the current version)
+    // 发布之前是否自动构建项目 (auto build project before release process)
+    autoBuild: false,
+
+    // 发布到npm仓库时，根据当前版本号自动设置 tag (auto set tag according to the current version)
+    autoTag: false,
+
+    // 发布的git仓库地址 (project git repo url)
+    git: '\${git}',
+
+    // 发布的npm仓库地址 (npm depository url)
+    npm: '\${npm}', 
+
     preflight: {
       test: \${!!test}, // 发布前是否进行单元测试 (whether or not process unit-test)
       eslint: \${!!eslint}, // 发布前是否进行eslint检测 (whether or not process eslint checking)

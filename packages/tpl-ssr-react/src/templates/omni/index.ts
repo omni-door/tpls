@@ -62,7 +62,12 @@ module.exports = {
   },
 
   release: {
-    git: '\${git}', // 发布的git仓库地址 (project git repo url)
+    // 发布之前是否自动构建项目 (auto build project before release process)
+    autoBuild: false,
+
+    // 发布的git仓库地址 (project git repo url)
+    git: '\${git}',
+
     preflight: {
       test: \${!!test}, // 发布前是否进行单元测试 (whether or not process unit-test)
       eslint: \${!!eslint}, // 发布前是否进行eslint检测 (whether or not process eslint checking)
