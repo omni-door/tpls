@@ -261,10 +261,6 @@ export async function \$init ({
   logTime('依赖解析(dependency resolution)');
   let installCliPrefix = pkgtool === 'yarn' ? \`\${pkgtool} add --cwd \${initPath}\` : \`\${pkgtool} install --save --save-exact --prefix \${initPath}\`;
   let installDevCliPrefix = pkgtool === 'yarn' ? \`\${pkgtool} add -D --cwd \${initPath}\` : \`\${pkgtool} install --save-dev --save-exact --prefix \${initPath}\`;
-  if (pkgtool === 'cnpm' && initPath !== process.cwd()) {
-    installCliPrefix = \`cd \${initPath} && \${installCliPrefix}\`;
-    installDevCliPrefix = \`cd \${initPath} && \${installDevCliPrefix}\`;
-  }
 
   let {
     depArr,
