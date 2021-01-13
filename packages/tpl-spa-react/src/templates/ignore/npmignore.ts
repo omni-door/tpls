@@ -35,6 +35,7 @@ doczrc.js
 
 yarn.lock
 package-lock.json
+pnpm-lock.yaml
 
 # log files
 *.log

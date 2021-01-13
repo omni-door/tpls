@@ -31,8 +31,6 @@ const tpl =
 # vercel
 .vercel
 
-package-lock.json
-
 *.log
 \``;
 

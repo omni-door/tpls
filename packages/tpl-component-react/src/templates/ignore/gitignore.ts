@@ -14,8 +14,6 @@ lib
 es
 dist*
 
-package-lock.json
-
 *.log
 \``;
 
