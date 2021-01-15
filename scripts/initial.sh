@@ -595,7 +595,7 @@ const tpl =
 \`\\\`\\\${use_strict}
 
 const path = require('path');
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 
 module.exports = {
   type: '\\\${project_type}', // 项目类型，请勿任意变动 (project type, please don't modify)
