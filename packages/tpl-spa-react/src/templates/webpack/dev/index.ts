@@ -23,6 +23,9 @@ module.exports = merge(commonConfig, {
   optimization: {
     minimize: false,
   },
+  cache: {
+    type: 'filesystem'
+  },
   entry: [
     'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
     path.join(__dirname, '../src/index.\${ts ? 'tsx' : 'jsx'}')
@@ -50,22 +53,7 @@ module.exports = merge(commonConfig, {
       filename: 'index.html'
     }),
     new webpack.HotModuleReplacementPlugin(),
-    \${ts ? "new ForkTsCheckerWebpackPlugin()," : ''}
-    new HardSourceWebpackPlugin({
-      environmentHash: {
-        root: process.cwd(),
-        directories: ['configs'],
-        files: ['package.json', 'tsconfig.json', 'package-lock.json', 'yarn.lock']
-      },
-      info: {
-        mode: 'none',
-        level: 'slient'
-      },
-      cachePrune: {
-        maxAge: 1 * 24 * 60 * 60 * 1000, // 1 days
-        sizeThreshold: 100 * 1024 * 1024 // 100 MB
-      }
-    })
+    \${ts ? "new ForkTsCheckerWebpackPlugin()" : ''}
   ]
 });
 \``;

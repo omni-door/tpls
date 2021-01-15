@@ -42,7 +42,6 @@ export function devDependencies (strategy: STRATEGY, config: Config) {
 
   const loaderDependencies = [
     dependency('babel-loader'),
-    dependency('cache-loader'),
     style ? dependency('style-loader') : '',
     style ? dependency('css-loader') : '',
     (style === 'all' || style === 'less') ? dependency('less') : '',
@@ -69,7 +68,6 @@ export function devDependencies (strategy: STRATEGY, config: Config) {
     dependency('cssnano'),
     dependency('webpackbar'),
     dependency('webpack-bundle-analyzer'),
-    dependency('hard-source-webpack-plugin'),
     dependency('html-inline-css-webpack-plugin'),
     dependency('html-webpack-externals-plugin'),
     ts ? dependency('fork-ts-checker-webpack-plugin') : ''

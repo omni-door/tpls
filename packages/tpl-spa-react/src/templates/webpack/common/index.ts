@@ -11,14 +11,12 @@ const hash = cliConfig && cliConfig.build && cliConfig.build.hash;
 
 
 module.exports = {
+  stats: 'errors-warnings',
   module: {
     rules: [
       {
         test: \${ts ? /\\\.(js|jsx|ts|tsx)$/ : /\\\.(js|jsx)$/},
         use: [
-          // {
-          //   loader: 'cache-loader'
-          // },
           {
             loader: 'babel-loader',
             options: {

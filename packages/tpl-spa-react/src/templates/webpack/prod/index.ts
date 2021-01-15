@@ -29,6 +29,9 @@ module.exports = merge(commonConfig, {
   // 需要 source-map 请开启
   // Remove annotation when need source-map
   // devtool: 'cheap-module-source-map',
+  cache: {
+    type: 'memory'
+  },
   module: {
     rules: [
       \${alter_style({

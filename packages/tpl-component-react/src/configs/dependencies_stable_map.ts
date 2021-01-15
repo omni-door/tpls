@@ -19,8 +19,8 @@ export const devDependencies = {
   '@types/enzyme': '3.10.5',
   '@types/enzyme-adapter-react-16': '1.0.6',
   '@types/jest': '25.1.2',
-  '@types/react': '~16.9.56',
-  '@types/react-dom': '~16.9.9',
+  '@types/react': '~17.0.0',
+  '@types/react-dom': '~17.0.0',
   '@types/vfile-message': '1.0.1', // 和 docz、bisheng 版本强相关，一定要确保一致性，否则打包时易出错
   '@typescript-eslint/eslint-plugin': '~3.8.0',
   '@typescript-eslint/parser': '~3.8.0',

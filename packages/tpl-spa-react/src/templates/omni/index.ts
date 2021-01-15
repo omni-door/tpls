@@ -24,8 +24,7 @@ module.exports = {
     // host: 'dev.domain.com', // 开发服务端host (dev-server host)
     // https: true, // 以https协议启动开发服务 (start dev-server with https)
     devMiddlewareOptions: {
-      headers: { 'Access-Control-Allow-Origin': '*' },
-      logLevel: 'error' // 开发服务日志输出等级，可选 'debug'、'info'、'warn'、'error'、'silent' (The log-level which dev-server will apply)
+      headers: { 'Access-Control-Allow-Origin': '*' }
     }
   },
 
