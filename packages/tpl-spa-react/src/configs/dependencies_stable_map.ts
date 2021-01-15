@@ -50,6 +50,7 @@ export const devDependencies = {
   'optimize-css-assets-webpack-plugin': '5.0.4',
   'prettier': '~2.1.2',
   'sass-loader': '~8.0.2',
+  'serve-favicon': '~2.5.0',
   'style-loader': '~2.0.0',
   'stylelint': '13.2.0',
   'stylelint-config-css-modules': '2.2.0',
