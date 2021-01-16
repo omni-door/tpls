@@ -8,11 +8,11 @@ const tpl =
             use: [
               MiniCssExtractPlugin.loader,
               { loader: 'css-loader', options: { modules: { localIdentName: '[local]___[hash:base64:6]' } } },
-              { loader: 'less-loader', options: { javascriptEnabled: true } }
+              { loader: 'less-loader', options: { lessOptions: { javascriptEnabled: true } } }
             ]
           },
           {
-            use: [MiniCssExtractPlugin.loader, 'css-loader', { loader: 'less-loader', options: { javascriptEnabled: true } }]
+            use: [MiniCssExtractPlugin.loader, 'css-loader', { loader: 'less-loader', options: { lessOptions: { javascriptEnabled: true } } }]
           }
         ]
       },
