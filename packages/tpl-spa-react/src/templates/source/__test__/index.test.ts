@@ -13,6 +13,7 @@ import source_page_style from '../page/style';
 import source_component_index from '../component';
 import source_component_cp from '../component/component';
 import source_component_style from '../component/style';
+import source_component_test from '../component/test';
 
 describe('[tpl-spa-react]: source_declaration_index template test', function () {
   it('type checking', function () {
@@ -95,5 +96,11 @@ describe('[tpl-spa-react]: source_component_cp template test', function () {
 describe('[tpl-spa-react]: source_component_style template test', function () {
   it('type checking', function () {
     expect(source_component_style).to.be.a('function');
+  });
+});
+
+describe('[tpl-spa-react]: source_component_test template test', function () {
+  it('type checking', function () {
+    expect(source_component_test).to.be.a('function');
   });
 });

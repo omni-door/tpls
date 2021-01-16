@@ -25,6 +25,7 @@ import source_page_style, { tpl_src_page_style } from './source/page/style';
 import source_component_index, { tpl_src_component_index } from './source/component';
 import source_component_cp, { tpl_src_component_cp } from './source/component/component';
 import source_component_style, { tpl_src_component_style } from './source/component/style';
+import source_component_test, { tpl_src_component_test } from './source/component/test';
 import stylelint, { tpl_stylelint } from './stylelint';
 import tsconfig, { tpl_tsconfig } from './tsconfig';
 import vscode, { tpl_vscode_setting } from './vsc';
@@ -65,6 +66,7 @@ export { default as source_page_style, tpl_src_page_style } from './source/page/
 export { default as source_component_index, tpl_src_component_index } from './source/component';
 export { default as source_component_cp, tpl_src_component_cp } from './source/component/component';
 export { default as source_component_style, tpl_src_component_style } from './source/component/style';
+export { default as source_component_test, tpl_src_component_test } from './source/component/test';
 export { default as stylelint, tpl_stylelint } from './stylelint';
 export { default as tsconfig, tpl_tsconfig } from './tsconfig';
 export { default as vscode, tpl_vscode_setting } from './vsc';
@@ -110,6 +112,7 @@ export const tpls_init = {
   source_component_index,
   source_component_cp,
   source_component_style,
+  source_component_test,
   webpack_config_common,
   webpack_config_dev,
   webpack_config_prod
@@ -146,6 +149,7 @@ export const tpls_origin_init = {
   tpl_src_component_index,
   tpl_src_component_cp,
   tpl_src_component_style,
+  tpl_src_component_test,
   tpl_webpack_common,
   tpl_webpack_dev,
   tpl_webpack_prod

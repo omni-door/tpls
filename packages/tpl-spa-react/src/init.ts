@@ -149,6 +149,11 @@ export async function $init ({
       [`src/components/Detail/index.${ts ? 'ts' : 'js'}`]: tpl.source_component_index({ ...params, componentName: 'Detail' }),
       [`src/components/Detail/Detail.${ts ? 'tsx' : 'jsx'}`]: tpl.source_component_cp({ ...params, componentName: 'Detail' }),
       [`src/components/Detail/style/Detail.${suffix_stylesheet}`]: tpl.source_component_style({ ...params, componentName: 'Detail' }),
+      [`src/components/Detail/__test__/index.test.${
+        ts
+          ? 'tsx'
+          : 'jsx'
+      }`]: test && tpl.source_component_test(params),
       // webpack config files
       'configs/webpack.config.common.js': tpl.webpack_config_common(params),
       'configs/webpack.config.dev.js': tpl.webpack_config_dev(params),
