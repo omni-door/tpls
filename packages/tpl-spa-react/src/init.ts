@@ -156,7 +156,7 @@ export async function $init ({
         ts
           ? 'tsx'
           : 'jsx'
-      }`]: test && tpl.source_component_test(params),
+      }`]: test && tpl.source_component_test({ ...params, componentName: 'Detail' }),
       // config files
       'configs/webpack.config.common.js': tpl.webpack_config_common(params),
       'configs/webpack.config.dev.js': tpl.webpack_config_dev(params),
