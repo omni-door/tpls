@@ -9,6 +9,7 @@ import prettierignore, { tpl_ignore_prettier } from './ignore/prettierignore';
 import jest, { tpl_jest } from './jest';
 import omni, { tpl_omni } from './omni';
 import pkj, { tpl_package } from './package';
+import postcss, { tpl_postcss } from './postcss';
 import prettier, { tpl_prettier } from './prettier';
 import readme, { tpl_readme } from './readme';
 import source_index_react, { tpl_src_index } from './source/index_react';
@@ -50,6 +51,7 @@ export { default as prettierignore, tpl_ignore_prettier } from './ignore/prettie
 export { default as jest, tpl_jest } from './jest';
 export { default as omni, tpl_omni } from './omni';
 export { default as pkj, tpl_package } from './package';
+export { default as postcss, tpl_postcss } from './postcss';
 export { default as prettier, tpl_prettier } from './prettier';
 export { default as readme, tpl_readme } from './readme';
 export { default as source_index_react, tpl_src_index } from './source/index_react';
@@ -93,6 +95,7 @@ export const tpls_init = {
   prettierignore,
   omni,
   pkj,
+  postcss,
   prettier,
   readme,
   stylelint,
@@ -130,6 +133,7 @@ export const tpls_origin_init = {
   tpl_ignore_prettier,
   tpl_omni,
   tpl_package,
+  tpl_postcss,
   tpl_readme,
   tpl_prettier,
   tpl_stylelint,

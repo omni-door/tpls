@@ -11,6 +11,7 @@ import tpl_npmignore from '../ignore/npmignore';
 import tpl_prettierignore from '../ignore/prettierignore';
 import tpl_omni from '../omni';
 import tpl_package from '../package';
+import tpl_postcss from '../postcss';
 import tpl_prettier from '../prettier';
 import tpl_readme from '../readme';
 import tpl_stylelint from '../stylelint';
@@ -86,6 +87,12 @@ describe('[tpl-spa-react]: tpl_omni template test', function () {
 describe('[tpl-spa-react]: tpl_package template test', function () {
   it('type checking', function () {
     expect(tpl_package).to.be.a('function');
+  });
+});
+
+describe('[tpl-spa-react]: tpl_postcss template test', function () {
+  it('type checking', function () {
+    expect(tpl_postcss).to.be.a('function');
   });
 });
 

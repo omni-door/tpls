@@ -19,6 +19,7 @@ import { devDependencies as devDependencyMap } from './configs/dependencies_stab
 import type {
   PKJTOOL,
   STYLE,
+  LAYOUT,
   STRATEGY
 } from '@omni-door/utils';
 import type {
@@ -41,6 +42,7 @@ export type InitOptions = {
   prettier: boolean;
   commitlint: boolean;
   style: STYLE;
+  layout?: LAYOUT;
   stylelint: boolean;
   install: boolean;
   pkgtool?: PKJTOOL;
@@ -64,6 +66,7 @@ export async function $init ({
   prettier,
   commitlint,
   style,
+  layout = 'px',
   stylelint,
   install,
   tpls,
@@ -122,7 +125,7 @@ export async function $init ({
 
   // 生成项目文件
   logTime('生成文件(create files)');
-  const params = { project_type, project_name, ts, test, eslint, prettier, commitlint, style, stylelint, strategy, configFileName };
+  const params = { project_type, project_name, ts, test, eslint, prettier, commitlint, style, layout, stylelint, strategy, configFileName };
   try {
     const suffix_stylesheet = style && style === 'all' ? 'scss' : style;
     const pathToFileContentMap = {
@@ -154,12 +157,13 @@ export async function $init ({
           ? 'tsx'
           : 'jsx'
       }`]: test && tpl.source_component_test(params),
-      // webpack config files
+      // config files
       'configs/webpack.config.common.js': tpl.webpack_config_common(params),
       'configs/webpack.config.dev.js': tpl.webpack_config_dev(params),
       'configs/webpack.config.prod.js': tpl.webpack_config_prod(params),
       'tsconfig.json': ts && tpl.tsconfig(params), // tsconfig
       'configs/jest.config.js': test && tpl.jest(params), // test files
+      'configs/postcss.config.js': style && tpl.postcss(params),
       // lint files
       '.vscode/settings.json': tpl.vscode(params),
       '.editorconfig': (eslint || prettier) && tpl.editor(params),
@@ -236,6 +240,7 @@ export async function $init ({
     prettier,
     commitlint,
     style,
+    layout,
     stylelint,
     test
   });

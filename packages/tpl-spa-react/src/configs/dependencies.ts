@@ -1,6 +1,6 @@
 import { getDependency, arr2str } from '@omni-door/utils';
 import { dependencies as dependenciesMap, devDependencies as devDependenciesMap } from './dependencies_stable_map';
-import type { STYLE, STRATEGY } from '@omni-door/utils';
+import type { STYLE, STRATEGY, LAYOUT } from '@omni-door/utils';
 
 interface Config {
   ts: boolean;
@@ -9,6 +9,7 @@ interface Config {
   prettier: boolean;
   commitlint: boolean;
   style: STYLE;
+  layout: LAYOUT;
   stylelint: boolean;
 }
 
@@ -37,13 +38,18 @@ export function devDependencies (strategy: STRATEGY, config: Config) {
     prettier,
     commitlint,
     style,
-    stylelint
+    stylelint,
+    layout
   } = config;
 
   const loaderDependencies = [
     dependency('babel-loader'),
     style ? dependency('style-loader') : '',
     style ? dependency('css-loader') : '',
+    style ? dependency('postcss-loader') : '',
+    style ? dependency('autoprefixer') : '',
+    style && layout === 'rem' ? dependency('postcss-plugin-px2rem') : '',
+    style && layout === 'viewport' ? dependency('postcss-px-to-viewport') : '',
     (style === 'all' || style === 'less') ? dependency('less') : '',
     (style === 'all' || style === 'less') ? dependency('less-loader') : '',
     (style === 'all' || style === 'scss') ? dependency('sass-loader') : '',
