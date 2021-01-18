@@ -9,7 +9,7 @@ module.exports = {
     // https://github.com/pigcan/postcss-plugin-px2rem
     require('postcss-plugin-px2rem')({
       replace: true,
-      rootValue: 75,
+      rootValue: 16,
       unitPrecision: 10,
       propBlackList: ['font-size', 'border', 'border-width']
     })\` : \`,
