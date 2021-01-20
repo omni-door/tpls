@@ -10,11 +10,11 @@ const tpl =
 const path = require('path');
 const { merge } = require('webpack-merge');
 const TerserPlugin = require('terser-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin');
-const HTMLInlineCSSWebpackPlugin = require("html-inline-css-webpack-plugin").default;
+const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin');\${style ? \`
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HTMLInlineCSSWebpackPlugin = require("html-inline-css-webpack-plugin").default;\` : ''}
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 const commonConfig = require(path.resolve(__dirname, 'webpack.config.common.js'));
@@ -52,14 +52,14 @@ module.exports = merge(commonConfig, {
             comments: false
           }
         }
-      }),
+      })\${style ? \`,
       new OptimizeCSSAssetsPlugin({
         cssProcessor: require('cssnano'),
         cssProcessorOptions: {
           reduceIndents: false,
           autoprefixer: false
         }
-      })
+      })\` : ''}
     ],
     chunkIds: 'named',
     splitChunks: {
@@ -96,10 +96,11 @@ module.exports = merge(commonConfig, {
     }
   },
   plugins: [
+    \${style ? \`
     new MiniCssExtractPlugin({
       filename: hash ? \\\`[name].[\\\${typeof hash === 'string' ? hash : 'contenthash'}:8].css\\\` : '[name].css'
     }),
-
+    \` : ''}
     // ! 需要分析打包时，请打开注释
     // Remove annotation when need analyze package
     // new BundleAnalyzerPlugin({
@@ -148,7 +149,7 @@ module.exports = merge(commonConfig, {
     //     }
     //   ]
     // }),
-
+    \${style ? \`
     // 将同步的外链 link 注入到 html 中
     // Inject the outer-links into html-style tag
     //! 能一定程度上减少首屏时长
@@ -162,6 +163,7 @@ module.exports = merge(commonConfig, {
         return !fileName.includes('async');
       }
     })
+    \` : ''}
   ],
   mode: 'production'
 });

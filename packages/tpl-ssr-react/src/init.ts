@@ -69,7 +69,7 @@ export async function $init ({
   stylelint,
   install,
   tpls,
-  pkgtool = 'yarn',
+  pkgtool = 'pnpm',
   isSlient,
   ssrServer = 'next',
   dependencies: dependencies_custom,
@@ -125,7 +125,7 @@ export async function $init ({
 
   // 生成项目文件
   logTime('生成文件(create files)');
-  const params = { project_type, project_name, ts, test, eslint, prettier, commitlint, style, stylelint, strategy, configFileName, serverType: ssrServer };
+  const params = { project_type, project_name, ts, test, eslint, prettier, commitlint, style, stylelint: !!style && stylelint, strategy, configFileName, serverType: ssrServer };
   try {
     const suffix_stylesheet = style && style === 'all' ? 'scss' : style;
     const pathToFileContentMap = {
@@ -134,7 +134,7 @@ export async function $init ({
       'package.json': install && tpl.pkj(devDependencyMap['@types/react'])({ ...params, install, dependencies: '', devDependencies: '' }),
       '.gitignore': tpl.gitignore(params),
       [`src/routes.js`]: ssrServer === 'koa-next' && tpl.source_routes(params),
-      [`src/styles/reset.${suffix_stylesheet}`]: suffix_stylesheet && tpl.source_index_reset(params),
+      [`src/styles/reset.${suffix_stylesheet}`]: style && tpl.source_index_reset(params),
       // pages
       [`pages/${ssrServer === 'koa-next' ? 'home' : 'index'}.${ts ? 'tsx' : 'jsx'}`]: tpl.source_page_index({ ...params, pageName: 'Home' }),
       [`pages/start.${ts ? 'tsx' : 'jsx'}`]: tpl.source_page_index({ ...params, pageName: 'Start' }),
@@ -143,19 +143,19 @@ export async function $init ({
       // components - Home
       [`src/components/Home/index.${ts ? 'ts' : 'js'}`]: tpl.source_component_index({ ...params, componentName: 'Home' }),
       [`src/components/Home/Home.${ts ? 'tsx' : 'jsx'}`]: tpl.source_component_cp({ ...params, componentName: 'Home' }),
-      [`src/components/Home/style/Home.module.${suffix_stylesheet}`]: tpl.source_component_style({ ...params, componentName: 'Home' }),
+      [`src/components/Home/style/Home.module.${suffix_stylesheet}`]: style && tpl.source_component_style({ ...params, componentName: 'Home' }),
       // components - Start
       [`src/components/Start/index.${ts ? 'ts' : 'js'}`]: tpl.source_component_index({ ...params, componentName: 'Start' }),
       [`src/components/Start/Start.${ts ? 'tsx' : 'jsx'}`]: tpl.source_component_cp({ ...params, componentName: 'Start' }),
-      [`src/components/Start/style/Start.module.${suffix_stylesheet}`]: tpl.source_component_style({ ...params, componentName: 'Start' }),
+      [`src/components/Start/style/Start.module.${suffix_stylesheet}`]: style && tpl.source_component_style({ ...params, componentName: 'Start' }),
       // components - Docs
       [`src/components/Docs/index.${ts ? 'ts' : 'js'}`]: tpl.source_component_index({ ...params, componentName: 'Docs' }),
       [`src/components/Docs/Docs.${ts ? 'tsx' : 'jsx'}`]: tpl.source_component_cp({ ...params, componentName: 'Docs' }),
-      [`src/components/Docs/style/Docs.module.${suffix_stylesheet}`]: tpl.source_component_style({ ...params, componentName: 'Docs' }),
+      [`src/components/Docs/style/Docs.module.${suffix_stylesheet}`]: style && tpl.source_component_style({ ...params, componentName: 'Docs' }),
       // components - Layout
       [`src/components/Layout/index.${ts ? 'ts' : 'js'}`]: tpl.source_component_index({ ...params, componentName: 'Layout' }),
       [`src/components/Layout/Layout.${ts ? 'tsx' : 'jsx'}`]: tpl.source_component_layout({ ...params, componentName: 'Layout' }),
-      [`src/components/Layout/style/Layout.module.${suffix_stylesheet}`]: tpl.source_component_layout_style({ ...params, componentName: 'Layout' }),
+      [`src/components/Layout/style/Layout.module.${suffix_stylesheet}`]: style && tpl.source_component_layout_style({ ...params, componentName: 'Layout' }),
       // components - Link
       [`src/components/Link/index.${ts ? 'ts' : 'js'}`]: ssrServer === 'koa-next' && tpl.source_component_index({ ...params, componentName: 'Link' }),
       [`src/components/Link/Link.${ts ? 'tsx' : 'jsx'}`]: ssrServer === 'koa-next' && tpl.source_component_link({ ...params, componentName: 'Link' }),
@@ -165,7 +165,7 @@ export async function $init ({
       // next configs
       'next.config.js': tpl.nextConfig(params),
       'next-env.d.ts': ts && tpl.nextDeclartion(params),
-      'postcss.config.js': suffix_stylesheet && tpl.postcss(params),
+      'postcss.config.js': style && tpl.postcss(params),
       // webpack config files
       'configs/webpack.config.js': tpl.webpack(params),
       // tsconfig

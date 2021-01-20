@@ -70,7 +70,7 @@ export async function $init ({
   stylelint,
   install,
   tpls,
-  pkgtool = 'yarn',
+  pkgtool = 'pnpm',
   isSlient,
   dependencies: dependencies_custom,
   devDependencies: devDependencies_custom,
@@ -125,7 +125,7 @@ export async function $init ({
 
   // 生成项目文件
   logTime('生成文件(create files)');
-  const params = { project_type, project_name, ts, test, eslint, prettier, commitlint, style, layout, stylelint, strategy, configFileName };
+  const params = { project_type, project_name, ts, test, eslint, prettier, commitlint, style, layout, stylelint: !!style && stylelint, strategy, configFileName };
   try {
     const suffix_stylesheet = style && style === 'all' ? 'scss' : style;
     const pathToFileContentMap = {
@@ -139,19 +139,19 @@ export async function $init ({
       // d.ts files
       'src/@types/index.d.ts': ts && tpl.source_d_i(params),
       'src/@types/global.d.ts': ts && tpl.source_d_g(params),
-      [`src/index.${suffix_stylesheet}`]: suffix_stylesheet && tpl.source_index_style(params),
-      [`src/reset.${suffix_stylesheet}`]: suffix_stylesheet && tpl.source_index_reset(params),
+      [`src/index.${suffix_stylesheet}`]: style && tpl.source_index_style(params),
+      [`src/reset.${suffix_stylesheet}`]: style && tpl.source_index_reset(params),
       // pages
       [`src/pages/home/index.${ts ? 'ts' : 'js'}`]: tpl.source_page_index({ ...params, pageName: 'home' }),
       [`src/pages/home/home.${ts ? 'tsx' : 'jsx'}`]: tpl.source_page_page({ ...params, pageName: 'home', content: 'Home Page' }),
-      [`src/pages/home/style/home.${suffix_stylesheet}`]: tpl.source_page_style({ ...params, pageName: 'home' }),
+      [`src/pages/home/style/home.${suffix_stylesheet}`]: style && tpl.source_page_style({ ...params, pageName: 'home' }),
       [`src/pages/detail/index.${ts ? 'ts' : 'js'}`]: tpl.source_page_index({ ...params, pageName: 'detail' }),
       [`src/pages/detail/detail.${ts ? 'tsx' : 'jsx'}`]: tpl.source_page_page_nest({ ...params, pageName: 'detail', content: 'Detail Page' }),
-      [`src/pages/detail/style/detail.${suffix_stylesheet}`]: tpl.source_page_style({ ...params, pageName: 'detail' }),
+      [`src/pages/detail/style/detail.${suffix_stylesheet}`]: style && tpl.source_page_style({ ...params, pageName: 'detail' }),
       // components
       [`src/components/Detail/index.${ts ? 'ts' : 'js'}`]: tpl.source_component_index({ ...params, componentName: 'Detail' }),
       [`src/components/Detail/Detail.${ts ? 'tsx' : 'jsx'}`]: tpl.source_component_cp({ ...params, componentName: 'Detail' }),
-      [`src/components/Detail/style/Detail.${suffix_stylesheet}`]: tpl.source_component_style({ ...params, componentName: 'Detail' }),
+      [`src/components/Detail/style/Detail.${suffix_stylesheet}`]: style && tpl.source_component_style({ ...params, componentName: 'Detail' }),
       [`src/components/Detail/__test__/index.test.${
         ts
           ? 'tsx'

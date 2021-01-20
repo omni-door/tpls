@@ -62,19 +62,19 @@ export function devDependencies (strategy: STRATEGY, config: Config) {
     dependency('@babel/core'),
     dependency('@babel/preset-env'),
     dependency('@babel/preset-react'),
-    dependency('@umijs/babel-plugin-auto-css-modules'),
+    style ? dependency('@umijs/babel-plugin-auto-css-modules') : '',
     ts ? dependency('@babel/preset-typescript') : ''
   ];
 
   const pluginDependencies = [
     dependency('html-webpack-plugin'),
     dependency('terser-webpack-plugin'),
-    dependency('optimize-css-assets-webpack-plugin'),
-    dependency('mini-css-extract-plugin'),
-    dependency('cssnano'),
+    style ? dependency('optimize-css-assets-webpack-plugin') : '',
+    style ? dependency('mini-css-extract-plugin') : '',
+    style ? dependency('cssnano') : '',
     dependency('webpackbar'),
     dependency('webpack-bundle-analyzer'),
-    dependency('html-inline-css-webpack-plugin'),
+    style ? dependency('html-inline-css-webpack-plugin') : '',
     dependency('html-webpack-externals-plugin'),
     ts ? dependency('fork-ts-checker-webpack-plugin') : ''
   ];

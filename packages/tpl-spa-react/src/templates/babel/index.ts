@@ -12,7 +12,7 @@ module.exports = function (api) {
   ];
 
   const plugins = [
-    '../node_modules/@umijs/babel-plugin-auto-css-modules'
+    \${style ? \`'../node_modules/@umijs/babel-plugin-auto-css-modules'\` : ''}
   ];
 
   return {

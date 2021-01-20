@@ -16,7 +16,7 @@ if (args.length > 0) {
       ts: true,
       test: false,
       componentName: 'Omni',
-      stylesheet: 'scss' as STYLE,
+      stylesheet: '' as STYLE,
       newPath: process.cwd(),
       type: 'fc' as 'fc'
     };
@@ -45,10 +45,10 @@ if (args.length > 0) {
       eslint: true,
       prettier: true,
       commitlint: false,
-      style: 'scss' as STYLE,
+      style: '' as STYLE,
       stylelint: true,
       install: true,
-      pkgtool: 'yarn' as PKJTOOL
+      pkgtool: 'pnpm' as PKJTOOL
     };
     for (let i = 0; i < args.length; i++) {
       const item = args[i];
