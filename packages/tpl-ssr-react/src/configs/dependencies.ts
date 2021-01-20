@@ -131,7 +131,7 @@ export function devDependencies (strategy: STRATEGY, config: Config) {
   ];
 
   const defaultDep = [
-    tag ? dependency('@omni-door/cli') : `@omni-door/cli@${tag}`,
+    !tag ? dependency('@omni-door/cli') : `@omni-door/cli@${tag}`,
     dependency('del')
   ];
 
