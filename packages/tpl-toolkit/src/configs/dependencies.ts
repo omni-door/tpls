@@ -8,6 +8,7 @@ interface Config {
   eslint: boolean;
   prettier: boolean;
   commitlint: boolean;
+  tag?: string;
 }
 
 export function devDependencies (strategy: STRATEGY, config: Config) {
@@ -18,7 +19,8 @@ export function devDependencies (strategy: STRATEGY, config: Config) {
     test,
     eslint,
     prettier,
-    commitlint
+    commitlint,
+    tag
   } = config;
 
   const babelDependencies = [
@@ -98,7 +100,7 @@ export function devDependencies (strategy: STRATEGY, config: Config) {
   ];
 
   const defaultDep = [
-    dependency('@omni-door/cli'),
+    tag ? dependency('@omni-door/cli') : `@omni-door/cli@${tag}`,
     dependency('del')
   ];
 

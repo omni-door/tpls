@@ -11,6 +11,7 @@ interface Config {
   style: STYLE;
   layout: LAYOUT;
   stylelint: boolean;
+  tag?: string;
 }
 
 export function dependencies (strategy: STRATEGY) {
@@ -39,7 +40,8 @@ export function devDependencies (strategy: STRATEGY, config: Config) {
     commitlint,
     style,
     stylelint,
-    layout
+    layout,
+    tag
   } = config;
 
   const loaderDependencies = [
@@ -155,7 +157,7 @@ export function devDependencies (strategy: STRATEGY, config: Config) {
   ];
 
   const defaultDep = [
-    dependency('@omni-door/cli'),
+    tag ? dependency('@omni-door/cli') : `@omni-door/cli@${tag}`,
     dependency('del')
   ];
 

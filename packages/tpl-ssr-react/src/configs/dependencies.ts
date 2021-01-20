@@ -11,6 +11,7 @@ interface Config {
   style: STYLE;
   stylelint: boolean;
   ssrServer: SSRSERVER;
+  tag?: string;
 }
 
 export function dependencies (strategy: STRATEGY, config: Config) {
@@ -46,7 +47,8 @@ export function devDependencies (strategy: STRATEGY, config: Config) {
     commitlint,
     style,
     stylelint,
-    ssrServer
+    ssrServer,
+    tag
   } = config;
   const isKoa = ssrServer === 'koa-next' || ssrServer === 'koa-nuxt';
 
@@ -129,7 +131,7 @@ export function devDependencies (strategy: STRATEGY, config: Config) {
   ];
 
   const defaultDep = [
-    dependency('@omni-door/cli'),
+    tag ? dependency('@omni-door/cli') : `@omni-door/cli@${tag}`,
     dependency('del')
   ];
 

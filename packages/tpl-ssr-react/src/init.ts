@@ -47,6 +47,7 @@ export type InitOptions = {
   pkgtool?: PKJTOOL;
   isSlient?: boolean;
   ssrServer?: SSRSERVER;
+  tag?: string;
   tpls?: (tpls: TPLS_ORIGIN_INITIAL) => TPLS_INITIAL_RETURE;
   dependencies?: (dependecies_default: string[]) => ResultOfDependencies;
   devDependencies?: (devDependecies_default: string[]) => ResultOfDependencies;
@@ -72,6 +73,7 @@ export async function $init ({
   pkgtool = 'pnpm',
   isSlient,
   ssrServer = 'next',
+  tag,
   dependencies: dependencies_custom,
   devDependencies: devDependencies_custom,
   error = () => {
@@ -210,7 +212,8 @@ export async function $init ({
     style,
     stylelint,
     test,
-    ssrServer
+    ssrServer,
+    tag
   };
 
   let {

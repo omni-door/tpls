@@ -47,6 +47,7 @@ export type InitOptions = {
   install: boolean;
   pkgtool?: PKJTOOL;
   isSlient?: boolean;
+  tag?: string;
   tpls?: (tpls: TPLS_ORIGIN_INITIAL) => TPLS_INITIAL_RETURE;
   dependencies?: (dependecies_default: string[]) => ResultOfDependencies;
   devDependencies?: (devDependecies_default: string[]) => ResultOfDependencies;
@@ -72,6 +73,7 @@ export async function $init ({
   tpls,
   pkgtool = 'pnpm',
   isSlient,
+  tag,
   dependencies: dependencies_custom,
   devDependencies: devDependencies_custom,
   error = () => {
@@ -242,7 +244,8 @@ export async function $init ({
     style,
     layout,
     stylelint,
-    test
+    test,
+    tag
   });
 
   let customDepStr;
