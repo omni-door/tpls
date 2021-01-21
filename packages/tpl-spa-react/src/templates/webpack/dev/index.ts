@@ -16,14 +16,13 @@ const commonConfig = require('./webpack.config.common.js');
 
 module.exports = merge(commonConfig, {
   mode: 'development',
-  cache: true,
+  cache: {
+    type: 'filesystem'
+  },
   devtool: false,
   // devtool: 'cheap-module-eval-source-map',
   optimization: {
     minimize: false,
-  },
-  cache: {
-    type: 'filesystem'
   },
   entry: [
     'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
