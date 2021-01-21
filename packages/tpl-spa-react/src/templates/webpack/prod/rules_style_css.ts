@@ -7,11 +7,16 @@ const tpl =
             resourceQuery: /modules/,
             use: [
               MiniCssExtractPlugin.loader,
-              { loader: 'css-loader', options: { modules: { localIdentName: '[local]___[hash:base64:6]' } } }
+              { loader: 'css-loader', options: { modules: { localIdentName: '[local]___[hash:base64:6]' } } }，
+              { loader: 'postcss-loader', options: { postcssOptions: { config: path.resolve(__dirname, 'postcss.config.js') } } }
             ]
           },
           {
-            use: [MiniCssExtractPlugin.loader, 'css-loader']
+            use: [
+              MiniCssExtractPlugin.loader,
+              'css-loader'，
+              { loader: 'postcss-loader', options: { postcssOptions: { config: path.resolve(__dirname, 'postcss.config.js') } } }
+            ]
           }
         ]
       }
