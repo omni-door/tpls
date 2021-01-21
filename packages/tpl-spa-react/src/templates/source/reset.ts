@@ -13,7 +13,9 @@ body {
   overflow-x: hidden;
 }
 
-*, ::after, ::before {
+*,
+::after,
+::before {
   box-sizing: border-box;
   outline: 0;
   -webkit-tap-highlight-color: transparent;
@@ -33,7 +35,8 @@ a {
   outline: none;
 }
 
-ul, ol {
+ul,
+ol {
   list-style-type: none;
 }
 
@@ -83,16 +86,19 @@ input,
 button {
   outline: none;
 }
+
 button::placeholder {
   color: rgb(194, 197, 210);
 }
 
 input::-ms-clear {
-  display:none;
+  display: none;
 }
+
 input::-ms-reveal {
-  display:none;
+  display: none;
 }
+
 input::-webkit-credentials-auto-fill-button {
   position: absolute;
   right: 0;
@@ -100,7 +106,9 @@ input::-webkit-credentials-auto-fill-button {
   visibility: hidden;
   pointer-events: none;
 }
-input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
   color: #9b9b9b;
   font-weight: 500;
   font-size: 12px;
@@ -125,6 +133,7 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
   -ms-perspective: 1000;
   perspective: 1000;
 }
+
 \``;
 
 export const tpl_src_reset = {
