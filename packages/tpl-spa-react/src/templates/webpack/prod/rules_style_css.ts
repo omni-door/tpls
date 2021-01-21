@@ -7,15 +7,15 @@ const tpl =
             resourceQuery: /modules/,
             use: [
               MiniCssExtractPlugin.loader,
-              { loader: 'css-loader', options: { modules: { localIdentName: '[local]___[hash:base64:6]' } } }，
-              { loader: 'postcss-loader', options: { postcssOptions: { config: path.resolve(__dirname, 'postcss.config.js') } } }
+              { loader: 'css-loader', options: { modules: { localIdentName: '[local]___[hash:base64:6]' } } },\${layout !== 'px' ? \`
+              { loader: 'postcss-loader', options: { postcssOptions: { config: path.resolve(__dirname, 'postcss.config.js') } } },\` : ''}
             ]
           },
           {
             use: [
               MiniCssExtractPlugin.loader,
-              'css-loader'，
-              { loader: 'postcss-loader', options: { postcssOptions: { config: path.resolve(__dirname, 'postcss.config.js') } } }
+              'css-loader',\${layout !== 'px' ? \`
+              { loader: 'postcss-loader', options: { postcssOptions: { config: path.resolve(__dirname, 'postcss.config.js') } } },\` : ''}
             ]
           }
         ]

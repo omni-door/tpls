@@ -165,7 +165,7 @@ export async function $init ({
       'configs/webpack.config.prod.js': tpl.webpack_config_prod(params),
       'tsconfig.json': ts && tpl.tsconfig(params), // tsconfig
       'configs/jest.config.js': test && tpl.jest(params), // test files
-      'configs/postcss.config.js': style && tpl.postcss(params),
+      'configs/postcss.config.js': style && layout !== 'px' && tpl.postcss(params),
       // lint files
       '.vscode/settings.json': tpl.vscode(params),
       '.editorconfig': (eslint || prettier) && tpl.editor(params),
