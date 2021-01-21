@@ -148,8 +148,7 @@ module.exports = merge(commonConfig, {
     //       global: 'ReactRouterDOM'
     //     }
     //   ]
-    // }),
-    \${style ? \`
+    // })\${style ? \`,
     // 将同步的外链 link 注入到 html 中
     // Inject the outer-links into html-style tag
     //! 能一定程度上减少首屏时长
