@@ -5,14 +5,14 @@ const tpl =
 
 module.exports = {
   plugins: [
-    require('autoprefixer')()\${ (!layout || layout === 'px') ? '' : layout === 'rem' ? \`,
+    require('autoprefixer')()\${layout === 'rem' ? \`,
     // https://github.com/pigcan/postcss-plugin-px2rem
     require('postcss-plugin-px2rem')({
       replace: true,
       rootValue: 16,
       unitPrecision: 10,
       propBlackList: ['font-size', 'border', 'border-width']
-    })\` : \`,
+    })\` : layout === 'viewport' ? \`,
     // https://github.com/evrone/postcss-px-to-viewport
     require('postcss-px-to-viewport')({
       viewportWidth: 375, // 视口宽度（数字)
@@ -23,7 +23,7 @@ module.exports = {
       selectorBlackList: ['.ignore', '.hairlines'], // 不需要进行转换的类名（数组）
       minPixelValue: 1, // 设置要替换的最小像素值（数字）
       mediaQuery: false // 允许在媒体查询中转换px（true/false）
-    })\`}
+    })\` : ''}
   ]
 };
 \``;
