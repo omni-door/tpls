@@ -233,7 +233,7 @@ export async function \$init ({
 
   // 生成项目文件
   logTime('生成文件(create files)');
-  const params = { project_type, project_name, ts, test, eslint, prettier, commitlint, style, stylelint, strategy, configFileName };
+  const params = { project_type, project_name, ts, test, eslint, prettier, commitlint, style, stylelint: !!style && stylelint, strategy, configFileName };
   const suffix_stylesheet = style && style === 'all' ? 'scss' : style;
   try {
     const pathToFileContentMap = {
