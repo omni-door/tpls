@@ -4,6 +4,7 @@ const tpl =
 `\`\${ts ? "///<reference types='webpack-env' />" : ''}
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
+import 'amfe-flexible';
 import React from 'react';
 import { render } from 'react-dom';
 import { HashRouter as Router, Switch, Link } from 'react-router-dom';

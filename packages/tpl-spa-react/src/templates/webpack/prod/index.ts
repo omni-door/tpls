@@ -72,6 +72,13 @@ module.exports = merge(commonConfig, {
           name: 'polyfill',
           priority: 110
         },
+        flexible: {
+          chunks: 'all',
+          test: /amfe-flexible/,
+          enforce: true,
+          name: 'flexible',
+          priority: 105
+        },
         vendors: {
           chunks: 'all',
           test: /(react|react-dom|react-router|react-router-dom|redux|react-redux|mobx|mobx-react)/,

@@ -9,9 +9,9 @@ module.exports = {
     // https://github.com/pigcan/postcss-plugin-px2rem
     require('postcss-plugin-px2rem')({
       replace: true,
-      rootValue: 16,
+      rootValue: 37.5,
       unitPrecision: 10,
-      propBlackList: ['font-size', 'border', 'border-width']
+      propBlackList: ['border', 'border-width']
     })\` : layout === 'viewport' ? \`,
     // https://github.com/evrone/postcss-px-to-viewport
     require('postcss-px-to-viewport')({

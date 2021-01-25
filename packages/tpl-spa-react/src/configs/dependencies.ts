@@ -14,14 +14,15 @@ interface Config {
   tag?: string;
 }
 
-export function dependencies (strategy: STRATEGY) {
+export function dependencies (strategy: STRATEGY, config: Config) {
   const dependency = getDependency(strategy, dependenciesMap);
   const deps = [
     dependency('react'),
     dependency('react-dom'),
     dependency('react-router-dom'),
     dependency('core-js'),
-    dependency('regenerator-runtime')
+    dependency('regenerator-runtime'),
+    config.layout === 'rem' ? dependency('amfe-flexible') : ''
   ];
   return {
     depArr: [ ...deps ],

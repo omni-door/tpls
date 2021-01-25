@@ -195,11 +195,22 @@ export async function $init ({
   logTime('依赖解析(dependency resolution)');
   let installCliPrefix = pkgtool === 'yarn' ? `${pkgtool} add --cwd ${initPath}` : `${pkgtool} install --save --save-exact --prefix ${initPath}`;
   let installDevCliPrefix = pkgtool === 'yarn' ? `${pkgtool} add -D --cwd ${initPath}` : `${pkgtool} install --save-dev --save-exact --prefix ${initPath}`;
+  const dependenciesOptions = {
+    ts,
+    eslint,
+    prettier,
+    commitlint,
+    style,
+    layout,
+    stylelint,
+    test,
+    tag
+  };
 
   let {
     depArr,
     depStr
-  } = dependencies(strategy);
+  } = dependencies(strategy, dependenciesOptions);
   let dependencies_str = depStr;
   if (typeof dependencies_custom === 'function') {
     const result = dependencies_custom(depArr);
@@ -236,17 +247,7 @@ export async function $init ({
     devServerDepArr,
     devServerDepStr,
     devDepArr
-  } = devDependencies(strategy, {
-    ts,
-    eslint,
-    prettier,
-    commitlint,
-    style,
-    layout,
-    stylelint,
-    test,
-    tag
-  });
+  } = devDependencies(strategy, dependenciesOptions);
 
   let customDepStr;
   if (typeof devDependencies_custom === 'function') {

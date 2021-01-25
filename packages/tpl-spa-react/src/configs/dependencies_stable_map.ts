@@ -3,7 +3,8 @@ export const dependencies = {
   'react': '^17.0.1',
   'react-dom': '^17.0.1',
   'react-router-dom': '^5.2.0',
-  'regenerator-runtime': '^0.13.5'
+  'regenerator-runtime': '^0.13.5',
+  'amfe-flexible': '^2.2.1'
 };
 
 export const devDependencies = {
