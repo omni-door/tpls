@@ -191,7 +191,7 @@ export async function $init ({
 
   let installCliPrefix, installDevCliPrefix;
 
-  if (pkgtool === 'pnpm' && ts) {
+  if (pkgtool === 'pnpm' && ts && devServer === 'storybook') {
     logWarn('回退至 yarn，因为 typescript 暂时无法兼容 pnpm 的软连机制，详见 https://github.com/microsoft/TypeScript/issues/29221');
     pkgtool = 'yarn';
   } 
