@@ -175,8 +175,21 @@ export async function $init ({
 
   // 项目依赖解析
   logTime('依赖解析(dependency resolution)');
-  let installCliPrefix = pkgtool === 'yarn' ? `${pkgtool} add --cwd ${initPath}` : `${pkgtool} install --save --save-exact --prefix ${initPath}`;
-  let installDevCliPrefix = pkgtool === 'yarn' ? `${pkgtool} add -D --cwd ${initPath}` : `${pkgtool} install --save-dev --save-exact --prefix ${initPath}`;
+  let installCliPrefix, installDevCliPrefix;
+  switch (pkgtool) {
+    case 'pnpm':
+      installCliPrefix = `${pkgtool} add -P --save-exact --prefix ${initPath}`;
+      installDevCliPrefix = `${pkgtool} add -D --save-exact --prefix ${initPath}`;
+      break;
+    case 'yarn':
+      installCliPrefix = `${pkgtool} add --cwd ${initPath}`;
+      installDevCliPrefix = `${pkgtool} add -D --cwd ${initPath}`;
+      break;
+    case 'npm':
+    default:
+      installCliPrefix = `${pkgtool} install --save --save-exact --prefix ${initPath}`;
+      installDevCliPrefix = `${pkgtool} install --save-dev --save-exact --prefix ${initPath}`;
+  }
 
   let dependencies_str = '';
   if (typeof dependencies_custom === 'function') {
