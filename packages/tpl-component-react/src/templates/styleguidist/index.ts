@@ -11,7 +11,7 @@ const path = require('path')
 const { version } = require('./package')
 
 module.exports = {
-  components: 'src/components/[A-Za-z]*/index.\${ts ? 'ts' : 'js'}',
+  components: 'src/[A-Za-z]*/index.\${ts ? 'ts' : 'js'}',
   defaultExample: true,
   resolver: require('react-docgen').resolver.findAllComponentDefinitions,
   propsParser: \${
