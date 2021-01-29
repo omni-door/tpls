@@ -29,7 +29,7 @@ const configs = require('./configs/omni.config');
 const isProd = process.env.NODE_ENV === 'production';
 
 module.exports = withPlugin([
-  \${!(style === 'css' && ssrServer !== 'koa-next' && ssrServer !== 'koa-nuxt') ? alter_style({
+  \${!(style === 'css' && serverType !== 'koa-next' && serverType !== 'koa-nuxt') ? alter_style({
     css: 'style_plugin_css',
     less: 'style_plugin_less',
     scss: 'style_plugin_scss',

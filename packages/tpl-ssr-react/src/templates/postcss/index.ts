@@ -6,7 +6,7 @@ const tpl =
 module.exports = {
   plugins: [
     // https://github.com/evrone/postcss-px-to-viewport
-    \${!(style === 'css' && ssrServer !== 'koa-next' && ssrServer !== 'koa-nuxt') ? \`require('postcss-px-to-viewport')({
+    \${!(style === 'css' && serverType !== 'koa-next' && serverType !== 'koa-nuxt') ? \`require('postcss-px-to-viewport')({
       viewportWidth: 375, // 视口宽度（数字)
       viewportHeight: 1334, // 视口高度（数字）
       unitPrecision: 3, // 设置的保留小数位数（数字）
