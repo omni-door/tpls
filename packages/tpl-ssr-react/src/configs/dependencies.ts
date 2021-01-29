@@ -63,7 +63,7 @@ export function devDependencies (strategy: STRATEGY, config: Config) {
     dependency('next-transpile-modules'),
     dependency('@next/bundle-analyzer'),
     style ? dependency('postcss-px-to-viewport') : '',
-    style ? dependency('@zeit/next-css') : '',
+    style && !(style === 'css' && !isKoa) ? dependency('@zeit/next-css') : '',
     (style === 'all' || style === 'less') ? dependency('less') : '',
     (style === 'all' || style === 'less') ? dependency('@zeit/next-less') : '',
     (style === 'all' || style === 'scss') ? dependency('node-sass') : '',
