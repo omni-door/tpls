@@ -12,12 +12,12 @@ const tpl =
 `\`\${use_strict}
 
 const path = require('path');
-\${alter_style({
+\${!(style === 'css' && serverType !== 'koa-next' && serverType !== 'koa-nuxt') ? alter_style({
   css: 'style_import_css',
   less: 'style_import_less',
   scss: 'style_import_scss',
   all: 'style_import_all',
-})}
+}) : ''}
 const withTM = require('next-transpile-modules');
 const withPlugin = require('next-compose-plugins');
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
