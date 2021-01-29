@@ -53,6 +53,7 @@ export function devDependencies (strategy: STRATEGY, config: Config) {
   const isKoa = ssrServer === 'koa-next' || ssrServer === 'koa-nuxt';
 
   const babelDependencies = [
+    dependency('@babel/core'),
     dependency('@babel/plugin-proposal-decorators')
   ];
 

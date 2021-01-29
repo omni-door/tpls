@@ -14,6 +14,7 @@ export const dependencies = {
 export const devDependencies = {
   'del': '5.1.0',
   '@omni-door/cli': 'latest',
+  '@babel/core': '~7.10.5',
   '@babel/plugin-proposal-decorators': '~7.10.5',
   '@commitlint/cli': '8.3.5',
   '@next/bundle-analyzer': '~10.0.1',
