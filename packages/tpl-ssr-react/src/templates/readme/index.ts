@@ -22,7 +22,7 @@ const tpl =
 
 *新建一个名为Button的函数组件 (Create a functional Component which name is Button) 👇*
 \\\`\\\`\\\`shell
-\${runScript} new Button -- -f
+\${runScript} new Button \${paramScript}f
 \\\`\\\`\\\`
 
 ---
@@ -35,7 +35,7 @@ const tpl =
 
 *构建项目时绕过所有检查 (Bypass all pre-check before building) 👇*
 \\\`\\\`\\\`shell
-\${runScript} build -- -n
+\${runScript} build \${paramScript}n
 \\\`\\\`\\\`
 
 ### 生产环境运行项目 (Run project in production env)

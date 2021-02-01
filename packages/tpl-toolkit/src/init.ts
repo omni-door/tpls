@@ -78,7 +78,7 @@ export async function $init ({
   },
   success = () => logSuc('SDK工具库项目安装完成！(The SDK-Tool project installation has been completed!)')
 }: InitOptions) {
-  let installCliPrefix, installDevCliPrefix, installReadMe, runScript;
+  let installCliPrefix, installDevCliPrefix, installReadMe, runScript, paramScript;
 
   if (pkgtool === 'pnpm') {
     logWarn('回退至 yarn，因为 typescript 暂时无法兼容 pnpm 的软连机制，详见 https://github.com/microsoft/TypeScript/issues/29221');
@@ -91,12 +91,14 @@ export async function $init ({
       installDevCliPrefix = `${pkgtool} add -D --save-exact --prefix ${initPath}`;
       installReadMe = `${pkgtool} install`;
       runScript = `${pkgtool}`;
+      paramScript = '-- -';
       break;
     case 'yarn':
       installCliPrefix = `${pkgtool} add --cwd ${initPath}`;
       installDevCliPrefix = `${pkgtool} add -D --cwd ${initPath}`;
       installReadMe = `${pkgtool}`;
       runScript = `${pkgtool}`;
+      paramScript = '-';
       break;
     case 'npm':
     default:
@@ -104,6 +106,7 @@ export async function $init ({
       installDevCliPrefix = `${pkgtool} install --save-dev --save-exact --prefix ${initPath}`;
       installReadMe = `${pkgtool} install`;
       runScript = `${pkgtool} run`;
+      paramScript = '-- -';
   }
 
   // 模板解析
@@ -177,7 +180,7 @@ export async function $init ({
       'babel.config.js': tpl.babel(params),
       'rollup.config.js': tpl.rollup(params),
       // ReadMe
-      'README.md': tpl.readme({ ...params, install: installReadMe, runScript }),
+      'README.md': tpl.readme({ ...params, install: installReadMe, runScript, paramScript }),
       // dumi-config files
       [`.umirc.${ts ? 'ts' : 'js'}`]: tpl.umirc(params),
       // '.env': tpl.env(params),

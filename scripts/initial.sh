@@ -188,6 +188,31 @@ export async function \$init ({
   },
   success = () => logSuc('项目安装完成！(The project installation has been completed!)')
 }: InitOptions) {
+  let installCliPrefix, installDevCliPrefix, installReadMe, runScript, paramScript;
+  switch (pkgtool) {
+    case 'pnpm':
+      installCliPrefix = \`\${pkgtool} add -P --save-exact --prefix \${initPath}\`;
+      installDevCliPrefix = \`\${pkgtool} add -D --save-exact --prefix \${initPath}\`;
+      installReadMe = \`\${pkgtool} install\`;
+      runScript = \`\${pkgtool}\`;
+      paramScript = '-- -';
+      break;
+    case 'yarn':
+      installCliPrefix = \`\${pkgtool} add --cwd \${initPath}\`;
+      installDevCliPrefix = \`\${pkgtool} add -D --cwd \${initPath}\`;
+      installReadMe = \`\${pkgtool}\`;
+      runScript = \`\${pkgtool}\`;
+      paramScript = '-';
+      break;
+    case 'npm':
+    default:
+      installCliPrefix = \`\${pkgtool} install --save --save-exact --prefix \${initPath}\`;
+      installDevCliPrefix = \`\${pkgtool} install --save-dev --save-exact --prefix \${initPath}\`;
+      installReadMe = \`\${pkgtool} install\`;
+      runScript = \`\${pkgtool} run\`;
+      paramScript = '-- -';
+  }
+
   // 模板解析
   logTime('模板解析(template parsing)');
   let custom_tpl_list: ReturnType<Exclude<typeof tpls, undefined>> = {};
@@ -240,7 +265,7 @@ export async function \$init ({
       // package.json
       'package.json': install && tpl.pkj({ ...params, install, dependencies: '', devDependencies: '' }),
       // ReadMe
-      'README.md': tpl.readme({ ...params, install: pkgtool !== 'yarn' ? \`\${pkgtool} i\` : pkgtool }),
+      'README.md': tpl.readme({ ...params, install: installReadMe, runScript, paramScript }),
       // lint files
       '.vscode/settings.json': tpl.vscode(params)
     };
@@ -259,22 +284,6 @@ export async function \$init ({
 
   // 项目依赖解析
   logTime('依赖解析(dependency resolution)');
-  let installCliPrefix, installDevCliPrefix;
-  switch (pkgtool) {
-    case 'pnpm':
-      installCliPrefix = \`\${pkgtool} add -P --save-exact --prefix \${initPath}\`;
-      installDevCliPrefix = \`\${pkgtool} add -D --save-exact --prefix \${initPath}\`;
-      break;
-    case 'yarn':
-      installCliPrefix = \`\${pkgtool} add --cwd \${initPath}\`;
-      installDevCliPrefix = \`\${pkgtool} add -D --cwd \${initPath}\`;
-      break;
-    case 'npm':
-    default:
-      installCliPrefix = \`\${pkgtool} install --save --save-exact --prefix \${initPath}\`;
-      installDevCliPrefix = \`\${pkgtool} install --save-dev --save-exact --prefix \${initPath}\`;
-  }
-
   let {
     depArr,
     depStr
@@ -694,57 +703,62 @@ echo "import { tpl_engine_init } from '@omni-door/utils';
 const tpl = 
 \`\\\`# \\\${project_name}
 
-## 启动项目 (Run project)
-
+## 快速开始 (quick start)
+### 安装依赖 (Install dependencies)
 \\\\\\\`\\\\\\\`\\\\\\\`shell
-npm start
+\\\${install}
+\\\\\\\`\\\\\\\`\\\\\\\`
+
+### 启动项目 (Run project)
+\\\\\\\`\\\\\\\`\\\\\\\`shell
+\\\${runScript} start
 \\\\\\\`\\\\\\\`\\\\\\\`
 or
 \\\\\\\`\\\\\\\`\\\\\\\`shell
-npm run dev
+\\\${runScript} dev
 \\\\\\\`\\\\\\\`\\\\\\\`
 
-## 新建组件 (Create a Component)
-
+### 新建组件 (Create a Component)
 \\\\\\\`\\\\\\\`\\\\\\\`shell
-npm run new
+\\\${runScript} new
 \\\\\\\`\\\\\\\`\\\\\\\`
 
-### 新建一个名为Button的函数组件 (Create a functional Component which name is Button)
+*新建一个名为Button的函数组件 (Create a functional Component which name is Button) 👇*
 \\\\\\\`\\\\\\\`\\\\\\\`shell
-npm run new Button -- -f
+\\\${runScript} new Button \\\${paramScript}f
 \\\\\\\`\\\\\\\`\\\\\\\`
 
-## 构建项目 (Build project)
+---
 
+## 构建和发布 (Build and Release)
+### 构建 (Build)
 \\\\\\\`\\\\\\\`\\\\\\\`shell
-npm run build
+\\\${runScript} build
 \\\\\\\`\\\\\\\`\\\\\\\`
 
-### 构建项目时绕过所有检查 (Bypass all pre-check before building)
+*构建项目时绕过所有检查 (Bypass all pre-check before building) 👇*
 \\\\\\\`\\\\\\\`\\\\\\\`shell
-npm run build -- -n
+\\\${runScript} build \\\${paramScript}n
 \\\\\\\`\\\\\\\`\\\\\\\`
 
-## 发布项目 (Release project)
-
+### 发布 (Release)
 \\\\\\\`\\\\\\\`\\\\\\\`shell
-npm run release
+\\\${runScript} release
 \\\\\\\`\\\\\\\`\\\\\\\`
 
-### 发布项目时忽略版本迭代 (Ignoring version of iteration)
+*发布项目时忽略版本迭代 (Ignoring version of iteration) 👇*
 \\\\\\\`\\\\\\\`\\\\\\\`shell
-npm run release -- -i
+\\\${runScript} release \\\${paramScript}i
 \\\\\\\`\\\\\\\`\\\\\\\`
 
-### 发布项目时指定迭代的版本为0.3.25 (Manual specify version of iteration to 0.3.25)
+*发布项目时指定迭代的版本为0.3.25 (Manual specify version of iteration to 0.3.25) 👇*
 \\\\\\\`\\\\\\\`\\\\\\\`shell
-npm run release -- -m 0.3.25
+\\\${runScript} release \\\${paramScript}m 0.3.25
 \\\\\\\`\\\\\\\`\\\\\\\`
 
-\#\#\# 发布项目时绕过所有检查 (Bypass all pre-check before release)
+*发布项目时绕过所有检查 (Bypass all pre-check before release) 👇*
 \\\\\\\`\\\\\\\`\\\\\\\`shell
-npm run release -- -n
+\\\${runScript} release \\\${paramScript}n
 \\\\\\\`\\\\\\\`\\\\\\\`
 
 **更多配置项请在 [\\\${configFileName}](https://github.com/omni-door/cli/blob/master/docs/OMNI.zh-CN.md) 中编辑 (More powerful customizations is in [\\\${configFileName}](https://github.com/omni-door/cli/blob/master/docs/OMNI.md))**

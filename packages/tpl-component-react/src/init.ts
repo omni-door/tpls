@@ -84,7 +84,7 @@ export async function $init ({
   },
   success = () => logSuc('组件库项目安装完成！(The component-library project installation has been completed!)')
 }: InitOptions) {
-  let installCliPrefix, installDevCliPrefix, installReadMe, runScript;
+  let installCliPrefix, installDevCliPrefix, installReadMe, runScript, paramScript;
 
   if (pkgtool === 'pnpm') {
     logWarn('回退至 yarn，因为 typescript 暂时无法兼容 pnpm 的软连机制，详见 https://github.com/microsoft/TypeScript/issues/29221');
@@ -97,12 +97,14 @@ export async function $init ({
       installDevCliPrefix = `${pkgtool} add -D --save-exact --prefix ${initPath}`;
       installReadMe = `${pkgtool} install`;
       runScript = `${pkgtool}`;
+      paramScript = '-- -';
       break;
     case 'yarn':
       installCliPrefix = `${pkgtool} add --cwd ${initPath}`;
       installDevCliPrefix = `${pkgtool} add -D --cwd ${initPath}`;
       installReadMe = `${pkgtool}`;
       runScript = `${pkgtool}`;
+      paramScript = '-';
       break;
     case 'npm':
     default:
@@ -110,6 +112,7 @@ export async function $init ({
       installDevCliPrefix = `${pkgtool} install --save-dev --save-exact --prefix ${initPath}`;
       installReadMe = `${pkgtool} install`;
       runScript = `${pkgtool} run`;
+      paramScript = '-- -';
   }
 
   // 模板解析
@@ -185,7 +188,7 @@ export async function $init ({
       'stylelint.config.js': stylelint && tpl.stylelint(params),
       'commitlint.config.js': commitlint && tpl.commitlint(params),
       'babel.config.js': (devServer === 'storybook' || devServer === 'styleguidist') && tpl.babel(params), // build file
-      'README.md': tpl.readme({ ...params, install: installReadMe, runScript }), // ReadMe
+      'README.md': tpl.readme({ ...params, install: installReadMe, runScript, paramScript }), // ReadMe
       // server files
       'src/index.mdx': devServer === 'docz' && tpl.mdx(params),
       'bisheng.config.js': devServer === 'bisheng' && tpl.bisheng(params),

@@ -82,19 +82,21 @@ export async function $init ({
   },
   success = () => logSuc('单页应用项目安装完成！(The single-page-application project installation has been completed!)')
 }: InitOptions) {
-  let installCliPrefix, installDevCliPrefix, installReadMe, runScript;
+  let installCliPrefix, installDevCliPrefix, installReadMe, runScript, paramScript;
   switch (pkgtool) {
     case 'pnpm':
       installCliPrefix = `${pkgtool} add -P --save-exact --prefix ${initPath}`;
       installDevCliPrefix = `${pkgtool} add -D --save-exact --prefix ${initPath}`;
       installReadMe = `${pkgtool} install`;
       runScript = `${pkgtool}`;
+      paramScript = '-- -';
       break;
     case 'yarn':
       installCliPrefix = `${pkgtool} add --cwd ${initPath}`;
       installDevCliPrefix = `${pkgtool} add -D --cwd ${initPath}`;
       installReadMe = `${pkgtool}`;
       runScript = `${pkgtool}`;
+      paramScript = '-';
       break;
     case 'npm':
     default:
@@ -102,6 +104,7 @@ export async function $init ({
       installDevCliPrefix = `${pkgtool} install --save-dev --save-exact --prefix ${initPath}`;
       installReadMe = `${pkgtool} install`;
       runScript = `${pkgtool} run`;
+      paramScript = '-- -';
   }
 
   // 模板解析
@@ -198,7 +201,7 @@ export async function $init ({
       'configs/stylelint.config.js': stylelint && tpl.stylelint(params),
       'configs/commitlint.config.js': commitlint && tpl.commitlint(params),
       'configs/babel.config.js': tpl.babel(params), // build files
-      'README.md': tpl.readme({ ...params, install: installReadMe, runScript }) // ReadMe
+      'README.md': tpl.readme({ ...params, install: installReadMe, runScript, paramScript }) // ReadMe
     };
     const file_path = (p: string) => path.resolve(initPath, p);
     for (const p in pathToFileContentMap) {
