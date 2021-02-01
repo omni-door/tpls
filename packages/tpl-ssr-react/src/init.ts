@@ -82,23 +82,26 @@ export async function $init ({
   },
   success = () => logSuc('项目安装完成！(The project installation has been completed!)')
 }: InitOptions) {
-  let installCliPrefix, installDevCliPrefix, installReadMe;
+  let installCliPrefix, installDevCliPrefix, installReadMe, runScript;
   switch (pkgtool) {
     case 'pnpm':
       installCliPrefix = `${pkgtool} add -P --save-exact --prefix ${initPath}`;
       installDevCliPrefix = `${pkgtool} add -D --save-exact --prefix ${initPath}`;
       installReadMe = `${pkgtool} install`;
+      runScript = `${pkgtool}`;
       break;
     case 'yarn':
       installCliPrefix = `${pkgtool} add --cwd ${initPath}`;
       installDevCliPrefix = `${pkgtool} add -D --cwd ${initPath}`;
       installReadMe = `${pkgtool}`;
+      runScript = `${pkgtool}`;
       break;
     case 'npm':
     default:
       installCliPrefix = `${pkgtool} install --save --save-exact --prefix ${initPath}`;
       installDevCliPrefix = `${pkgtool} install --save-dev --save-exact --prefix ${initPath}`;
       installReadMe = `${pkgtool} install`;
+      runScript = `${pkgtool} run`;
   }
 
   // 模板解析
@@ -203,7 +206,7 @@ export async function $init ({
       'configs/stylelint.config.js': stylelint && tpl.stylelint(params),
       'configs/commitlint.config.js': commitlint && tpl.commitlint(params),
       'babel.config.js': tpl.babel(params), // build files
-      'README.md': tpl.readme({ ...params, install: installReadMe }) // ReadMe
+      'README.md': tpl.readme({ ...params, install: installReadMe, runScript }) // ReadMe
     };
     const file_path = (p: string) => path.resolve(initPath, p);
     for (const p in pathToFileContentMap) {
