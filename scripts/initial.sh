@@ -240,7 +240,7 @@ export async function \$init ({
       // package.json
       'package.json': install && tpl.pkj({ ...params, install, dependencies: '', devDependencies: '' }),
       // ReadMe
-      'README.md': tpl.readme(params),
+      'README.md': tpl.readme({ ...params, install: pkgtool !== 'yarn' ? \`\${pkgtool} i\` : pkgtool }),
       // lint files
       '.vscode/settings.json': tpl.vscode(params)
     };

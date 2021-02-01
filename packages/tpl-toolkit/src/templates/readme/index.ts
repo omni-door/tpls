@@ -3,6 +3,12 @@ import { tpl_engine_init } from '@omni-door/utils';
 const tpl = 
 `\`# \${project_name}
 
+## 安装依赖 (Install dependencies)
+
+\\\`\\\`\\\`shell
+\${install}
+\\\`\\\`\\\`
+
 ## 启动项目 (Run project)
 
 \\\`\\\`\\\`shell

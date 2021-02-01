@@ -82,6 +82,25 @@ export async function $init ({
   },
   success = () => logSuc('项目安装完成！(The project installation has been completed!)')
 }: InitOptions) {
+  let installCliPrefix, installDevCliPrefix, installReadMe;
+  switch (pkgtool) {
+    case 'pnpm':
+      installCliPrefix = `${pkgtool} add -P --save-exact --prefix ${initPath}`;
+      installDevCliPrefix = `${pkgtool} add -D --save-exact --prefix ${initPath}`;
+      installReadMe = `${pkgtool} install`;
+      break;
+    case 'yarn':
+      installCliPrefix = `${pkgtool} add --cwd ${initPath}`;
+      installDevCliPrefix = `${pkgtool} add -D --cwd ${initPath}`;
+      installReadMe = `${pkgtool}`;
+      break;
+    case 'npm':
+    default:
+      installCliPrefix = `${pkgtool} install --save --save-exact --prefix ${initPath}`;
+      installDevCliPrefix = `${pkgtool} install --save-dev --save-exact --prefix ${initPath}`;
+      installReadMe = `${pkgtool} install`;
+  }
+
   // 模板解析
   logTime('模板解析(template parsing)');
   let custom_tpl_list: ReturnType<Exclude<typeof tpls, undefined>> = {};
@@ -184,7 +203,7 @@ export async function $init ({
       'configs/stylelint.config.js': stylelint && tpl.stylelint(params),
       'configs/commitlint.config.js': commitlint && tpl.commitlint(params),
       'babel.config.js': tpl.babel(params), // build files
-      'README.md': tpl.readme(params) // ReadMe
+      'README.md': tpl.readme({ ...params, install: installReadMe }) // ReadMe
     };
     const file_path = (p: string) => path.resolve(initPath, p);
     for (const p in pathToFileContentMap) {
@@ -201,22 +220,6 @@ export async function $init ({
 
   // 项目依赖解析
   logTime('依赖解析(dependency resolution)');
-  let installCliPrefix, installDevCliPrefix;
-  switch (pkgtool) {
-    case 'pnpm':
-      installCliPrefix = `${pkgtool} add -P --save-exact --prefix ${initPath}`;
-      installDevCliPrefix = `${pkgtool} add -D --save-exact --prefix ${initPath}`;
-      break;
-    case 'yarn':
-      installCliPrefix = `${pkgtool} add --cwd ${initPath}`;
-      installDevCliPrefix = `${pkgtool} add -D --cwd ${initPath}`;
-      break;
-    case 'npm':
-    default:
-      installCliPrefix = `${pkgtool} install --save --save-exact --prefix ${initPath}`;
-      installDevCliPrefix = `${pkgtool} install --save-dev --save-exact --prefix ${initPath}`;
-  }
-
   const dependenciesOptions = {
     ts,
     eslint,

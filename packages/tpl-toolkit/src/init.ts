@@ -78,6 +78,31 @@ export async function $init ({
   },
   success = () => logSuc('SDK工具库项目安装完成！(The SDK-Tool project installation has been completed!)')
 }: InitOptions) {
+  let installCliPrefix, installDevCliPrefix, installReadMe;
+
+  if (pkgtool === 'pnpm') {
+    logWarn('回退至 yarn，因为 typescript 暂时无法兼容 pnpm 的软连机制，详见 https://github.com/microsoft/TypeScript/issues/29221');
+    pkgtool = 'yarn';
+  }
+
+  switch (pkgtool as PKJTOOL) {
+    case 'pnpm':
+      installCliPrefix = `${pkgtool} add -P --save-exact --prefix ${initPath}`;
+      installDevCliPrefix = `${pkgtool} add -D --save-exact --prefix ${initPath}`;
+      installReadMe = `${pkgtool} install`;
+      break;
+    case 'yarn':
+      installCliPrefix = `${pkgtool} add --cwd ${initPath}`;
+      installDevCliPrefix = `${pkgtool} add -D --cwd ${initPath}`;
+      installReadMe = `${pkgtool}`;
+      break;
+    case 'npm':
+    default:
+      installCliPrefix = `${pkgtool} install --save --save-exact --prefix ${initPath}`;
+      installDevCliPrefix = `${pkgtool} install --save-dev --save-exact --prefix ${initPath}`;
+      installReadMe = `${pkgtool} install`;
+  }
+
   // 模板解析
   logTime('模板解析(template parsing)');
   let custom_tpl_list = {};
@@ -149,7 +174,7 @@ export async function $init ({
       'babel.config.js': tpl.babel(params),
       'rollup.config.js': tpl.rollup(params),
       // ReadMe
-      'README.md': tpl.readme(params),
+      'README.md': tpl.readme({ ...params, install: installReadMe }),
       // dumi-config files
       [`.umirc.${ts ? 'ts' : 'js'}`]: tpl.umirc(params),
       // '.env': tpl.env(params),
@@ -175,27 +200,6 @@ export async function $init ({
 
   // 项目依赖解析
   logTime('依赖解析(dependency resolution)');
-  if (pkgtool === 'pnpm') {
-    logWarn('回退至 yarn，因为 typescript 暂时无法兼容 pnpm 的软连机制，详见 https://github.com/microsoft/TypeScript/issues/29221');
-    pkgtool = 'yarn';
-  }
-
-  let installCliPrefix, installDevCliPrefix;
-  switch (pkgtool as PKJTOOL) {
-    case 'pnpm':
-      installCliPrefix = `${pkgtool} add -P --save-exact --prefix ${initPath}`;
-      installDevCliPrefix = `${pkgtool} add -D --save-exact --prefix ${initPath}`;
-      break;
-    case 'yarn':
-      installCliPrefix = `${pkgtool} add --cwd ${initPath}`;
-      installDevCliPrefix = `${pkgtool} add -D --cwd ${initPath}`;
-      break;
-    case 'npm':
-    default:
-      installCliPrefix = `${pkgtool} install --save --save-exact --prefix ${initPath}`;
-      installDevCliPrefix = `${pkgtool} install --save-dev --save-exact --prefix ${initPath}`;
-  }
-
   let dependencies_str = '';
   if (typeof dependencies_custom === 'function') {
     const result = dependencies_custom([]);

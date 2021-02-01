@@ -84,6 +84,31 @@ export async function $init ({
   },
   success = () => logSuc('组件库项目安装完成！(The component-library project installation has been completed!)')
 }: InitOptions) {
+  let installCliPrefix, installDevCliPrefix, installReadMe;
+
+  if (pkgtool === 'pnpm') {
+    logWarn('回退至 yarn，因为 typescript 暂时无法兼容 pnpm 的软连机制，详见 https://github.com/microsoft/TypeScript/issues/29221');
+    pkgtool = 'yarn';
+  }
+
+  switch (pkgtool as PKJTOOL) {
+    case 'pnpm':
+      installCliPrefix = `${pkgtool} add -P --save-exact --prefix ${initPath}`;
+      installDevCliPrefix = `${pkgtool} add -D --save-exact --prefix ${initPath}`;
+      installReadMe = `${pkgtool} install`;
+      break;
+    case 'yarn':
+      installCliPrefix = `${pkgtool} add --cwd ${initPath}`;
+      installDevCliPrefix = `${pkgtool} add -D --cwd ${initPath}`;
+      installReadMe = `${pkgtool}`;
+      break;
+    case 'npm':
+    default:
+      installCliPrefix = `${pkgtool} install --save --save-exact --prefix ${initPath}`;
+      installDevCliPrefix = `${pkgtool} install --save-dev --save-exact --prefix ${initPath}`;
+      installReadMe = `${pkgtool} install`;
+  }
+
   // 模板解析
   logTime('模板解析(template parsing)');
   let custom_tpl_list = {};
@@ -157,7 +182,7 @@ export async function $init ({
       'stylelint.config.js': stylelint && tpl.stylelint(params),
       'commitlint.config.js': commitlint && tpl.commitlint(params),
       'babel.config.js': (devServer === 'storybook' || devServer === 'styleguidist') && tpl.babel(params), // build file
-      'README.md': tpl.readme(params), // ReadMe
+      'README.md': tpl.readme({ ...params, install: installReadMe }), // ReadMe
       // server files
       'src/index.mdx': devServer === 'docz' && tpl.mdx(params),
       'bisheng.config.js': devServer === 'bisheng' && tpl.bisheng(params),
@@ -188,29 +213,6 @@ export async function $init ({
 
   // 项目依赖解析
   logTime('依赖解析(dependency resolution)');
-
-  let installCliPrefix, installDevCliPrefix;
-
-  if (pkgtool === 'pnpm') {
-    logWarn('回退至 yarn，因为 typescript 暂时无法兼容 pnpm 的软连机制，详见 https://github.com/microsoft/TypeScript/issues/29221');
-    pkgtool = 'yarn';
-  }
-
-  switch (pkgtool as PKJTOOL) {
-    case 'pnpm':
-      installCliPrefix = `${pkgtool} add -P --save-exact --prefix ${initPath}`;
-      installDevCliPrefix = `${pkgtool} add -D --save-exact --prefix ${initPath}`;
-      break;
-    case 'yarn':
-      installCliPrefix = `${pkgtool} add --cwd ${initPath}`;
-      installDevCliPrefix = `${pkgtool} add -D --cwd ${initPath}`;
-      break;
-    case 'npm':
-    default:
-      installCliPrefix = `${pkgtool} install --save --save-exact --prefix ${initPath}`;
-      installDevCliPrefix = `${pkgtool} install --save-dev --save-exact --prefix ${initPath}`;
-  }
-
   let {
     depArr,
     depStr
