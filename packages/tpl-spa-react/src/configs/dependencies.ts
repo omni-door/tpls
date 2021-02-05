@@ -30,8 +30,8 @@ export function dependencies (strategy: STRATEGY, config: Config) {
   };
 }
 
-export function devDependencies (strategy: STRATEGY, config: Config) {
-  const dependency = getDependency(strategy, devDependenciesMap);
+export async function devDependencies (strategy: STRATEGY, config: Config) {
+  const dependency = getDependency(strategy, await devDependenciesMap);
 
   const {
     ts,

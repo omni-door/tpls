@@ -153,12 +153,13 @@ export async function $init ({
   // 生成项目文件
   logTime('生成文件(create files)');
   const params = { project_type, project_name, ts, test, eslint, prettier, commitlint, style, stylelint: !!style && stylelint, strategy, configFileName, serverType: ssrServer };
+  const devDep = await devDependencyMap;
   try {
     const suffix_stylesheet = style && style === 'all' ? 'scss' : style;
     const pathToFileContentMap = {
       // default files
       [`configs/${configFileName}`]: tpl.omni({ ...params, git }),
-      'package.json': install && tpl.pkj(devDependencyMap['@types/react'])({ ...params, install, dependencies: '', devDependencies: '' }),
+      'package.json': install && tpl.pkj(devDep['@types/react'])({ ...params, install, dependencies: '', devDependencies: '' }),
       '.gitignore': tpl.gitignore(params),
       [`src/routes.js`]: ssrServer === 'koa-next' && tpl.source_routes(params),
       [`src/styles/reset.${suffix_stylesheet}`]: style && tpl.source_index_reset(params),
@@ -278,7 +279,7 @@ export async function $init ({
     serverDepArr,
     serverDepStr,
     devDepArr
-  } = devDependencies(strategy, dependenciesOptions);
+  } = await devDependencies(strategy, dependenciesOptions);
 
   let customDepStr;
   if (typeof devDependencies_custom === 'function') {
@@ -365,9 +366,10 @@ export async function $init ({
 
       return `"${prefix}": {\n${result}\n  },`;
     };
+    const devDep = await devDependencyMap;
     output_file({
       file_path: path.resolve(initPath, 'package.json'),
-      file_content: tpl.pkj(devDependencyMap['@types/react'])({
+      file_content: tpl.pkj(devDep['@types/react'])({
         ...params,
         install,
         dependencies: processDepStr(dependencies_str, 'dependencies'),

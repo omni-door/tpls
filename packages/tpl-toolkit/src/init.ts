@@ -236,7 +236,7 @@ export async function $init ({
     devServerDepArr,
     devServerDepStr,
     devDepArr
-  } = devDependencies(strategy, {
+  } = await devDependencies(strategy, {
     ts,
     eslint,
     prettier,
