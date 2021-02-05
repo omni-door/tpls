@@ -12,7 +12,7 @@ interface Config {
 }
 
 export async function devDependencies (strategy: STRATEGY, config: Config) {
-  const dependency = getDependency(strategy, await devDependenciesMap);
+  const dependency = await getDependency(strategy, await devDependenciesMap);
 
   const {
     ts,

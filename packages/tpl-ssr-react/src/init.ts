@@ -242,7 +242,7 @@ export async function $init ({
   let {
     depArr,
     depStr
-  } = dependencies(strategy, dependenciesOptions);
+  } = await dependencies(strategy, dependenciesOptions);
   let dependencies_str = depStr;
   if (typeof dependencies_custom === 'function') {
     const result = dependencies_custom(depArr);

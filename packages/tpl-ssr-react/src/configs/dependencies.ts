@@ -14,10 +14,10 @@ interface Config {
   tag?: string;
 }
 
-export function dependencies (strategy: STRATEGY, config: Config) {
+export async function dependencies (strategy: STRATEGY, config: Config) {
   const { ssrServer } = config;
   const isKoa = ssrServer === 'koa-next' || ssrServer === 'koa-nuxt';
-  const dependency = getDependency(strategy, dependenciesMap);
+  const dependency = await getDependency(strategy, dependenciesMap);
   const deps = [
     dependency('react'),
     dependency('react-dom'),
@@ -37,7 +37,7 @@ export function dependencies (strategy: STRATEGY, config: Config) {
 }
 
 export async function devDependencies (strategy: STRATEGY, config: Config) {
-  const dependency = getDependency(strategy, await devDependenciesMap);
+  const dependency = await getDependency(strategy, await devDependenciesMap);
 
   const {
     ts,

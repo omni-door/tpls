@@ -14,8 +14,8 @@ interface Config {
   tag?: string;
 }
 
-export function dependencies(strategy: STRATEGY) {
-  const dependency = getDependency(strategy, dependenciesMap);
+export async function dependencies(strategy: STRATEGY) {
+  const dependency = await getDependency(strategy, dependenciesMap);
   const deps: string[] = [
     dependency('classnames')
   ];
@@ -26,7 +26,7 @@ export function dependencies(strategy: STRATEGY) {
 }
 
 export async function devDependencies(strategy: STRATEGY, config: Config) {
-  const dependency = getDependency(strategy, await devDependenciesMap);
+  const dependency = await getDependency(strategy, await devDependenciesMap);
 
   const {
     ts,
