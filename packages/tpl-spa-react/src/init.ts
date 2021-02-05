@@ -153,13 +153,12 @@ export async function $init ({
   // 生成项目文件
   logTime('生成文件(create files)');
   const params = { project_type, project_name, ts, test, eslint, prettier, commitlint, style, layout, stylelint: !!style && stylelint, strategy, configFileName };
-  const devDep = await devDependencyMap;
   try {
     const suffix_stylesheet = style && style === 'all' ? 'scss' : style;
     const pathToFileContentMap = {
       // default files
       [`configs/${configFileName}`]: tpl.omni({ ...params, git }),
-      'package.json': install && tpl.pkj(devDep['@types/react'])({ ...params, install, dependencies: '', devDependencies: '' }),
+      'package.json': install && tpl.pkj(devDependencyMap['@types/react'])({ ...params, install, dependencies: '', devDependencies: '' }),
       '.gitignore': tpl.gitignore(params),
       [`src/index.${ts ? 'tsx' : 'jsx'}`]: tpl.source_index_react(params),
       [`src/routes.${ts ? 'tsx' : 'jsx'}`]: tpl.source_routes(params),
@@ -358,10 +357,9 @@ export async function $init ({
 
       return `"${prefix}": {\n${result}\n  },`;
     };
-    const devDep = await devDependencyMap;
     output_file({
       file_path: path.resolve(initPath, 'package.json'),
-      file_content: tpl.pkj(devDep['@types/react'])({
+      file_content: tpl.pkj(devDependencyMap['@types/react'])({
         ...params,
         install,
         dependencies: processDepStr(dependencies_str, 'dependencies'),

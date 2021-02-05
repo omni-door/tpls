@@ -162,13 +162,12 @@ export async function $init ({
   // 生成项目文件
   logTime('生成文件(create files)');
   const params = { project_type, project_name, ts, test, eslint, prettier, commitlint, style, stylelint: !!style && stylelint, strategy, configFileName };
-  const devDep = await devDependencyMap;
   try {
     const pathToFileContentMap = {
       // default files
       [`${configFileName}`]: tpl.omni({ ...params, git, npm, devServer }),
       'package.json': install && tpl.pkj({
-        type_react: devDep['@types/react'],
+        type_react: devDependencyMap['@types/react'],
         project_name,
         devServer
       })({ ...params, install, dependencies: '', devDependencies: '' }),
@@ -357,11 +356,10 @@ export async function $init ({
 
       return `"${prefix}": {\n${result}\n  },`;
     };
-    const devDep = await devDependencyMap;
     output_file({
       file_path: path.resolve(initPath, 'package.json'),
       file_content: tpl.pkj({
-        type_react: devDep['@types/react'],
+        type_react: devDependencyMap['@types/react'],
         project_name,
         devServer
       })({
