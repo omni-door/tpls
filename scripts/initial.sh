@@ -287,7 +287,7 @@ export async function \$init ({
   let {
     depArr,
     depStr
-  } = dependencies(strategy);
+  } = await dependencies(strategy);
   let dependencies_str = depStr;
   if (typeof dependencies_custom === 'function') {
     const result = dependencies_custom(depArr);
@@ -308,7 +308,7 @@ export async function \$init ({
     defaultDepArr,
     defaultDepStr,
     devDepArr
-  } = devDependencies(strategy, {
+  } = await devDependencies(strategy, {
     ts,
     eslint,
     prettier,
@@ -520,8 +520,8 @@ interface Config {
   stylelint: boolean;
 }
 
-export function dependencies (strategy: STRATEGY) {
-  const dependency = getDependency(strategy, dependenciesMap);
+export async function dependencies (strategy: STRATEGY) {
+  const dependency = await getDependency(strategy, dependenciesMap);
   const deps = [''];
   return {
     depArr: [ ...deps ],
@@ -529,8 +529,8 @@ export function dependencies (strategy: STRATEGY) {
   };
 }
 
-export function devDependencies (strategy: STRATEGY, config: Config) {
-  const dependency = getDependency(strategy, devDependenciesMap);
+export async function devDependencies (strategy: STRATEGY, config: Config) {
+  const dependency = await getDependency(strategy, devDependenciesMap);
 
   const {
     ts,
