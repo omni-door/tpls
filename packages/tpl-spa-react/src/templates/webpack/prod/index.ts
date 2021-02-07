@@ -24,6 +24,7 @@ const {
   outDir = path.resolve(__dirname, '../lib/'),
   hash
 } = build || {};
+const publicPath = '';
 
 module.exports = merge(commonConfig, {
   // 需要 source-map 请开启
@@ -31,6 +32,9 @@ module.exports = merge(commonConfig, {
   // devtool: 'cheap-module-source-map',
   cache: {
     type: 'memory'
+  },
+  output: {
+    publicPath
   },
   module: {
     rules: [
