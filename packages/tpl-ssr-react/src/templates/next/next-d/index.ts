@@ -4,13 +4,25 @@ const tpl =
 `\`/// <reference types='next' />
 /// <reference types='next/types/global' />
 
-declare module '*.css';
+declare module '*.css' {
+  const resource: { [key: string]: string };
+  export = resource;
+}
 
-declare module '*.less';
+declare module '*.less' {
+  const resource: { [key: string]: string };
+  export = resource;
+}
 
-declare module '*.scss';
+declare module '*.scss' {
+  const resource: { [key: string]: string };
+  export = resource;
+}
 
-declare module '*.sass';
+declare module '*.sass' {
+  const resource: { [key: string]: string };
+  export = resource;
+}
 
 declare module '*.svg';
 
