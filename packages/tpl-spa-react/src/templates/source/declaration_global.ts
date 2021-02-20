@@ -1,13 +1,25 @@
 import { tpl_engine_init } from '@omni-door/utils';
 
 const tpl = 
-`\`declare module '*.css';
+`\`declare module '*.css' {
+  const resource: { [key: string]: string };
+  export = resource;
+};
 
-declare module '*.less';
+declare module '*.less' {
+  const resource: { [key: string]: string };
+  export = resource;
+};
 
-declare module '*.scss';
+declare module '*.scss' {
+  const resource: { [key: string]: string };
+  export = resource;
+};
 
-declare module '*.sass';
+declare module '*.sass' {
+  const resource: { [key: string]: string };
+  export = resource;
+};
 
 declare module '*.svg';
 
