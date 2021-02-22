@@ -118,7 +118,7 @@ import {
   logSuc,
   logTime,
   exec,
-  output_file,
+  outputFile,
 } from '@omni-door/utils';
 import {
   tpls_init,
@@ -271,7 +271,7 @@ export async function \$init ({
     };
     const file_path = (p: string) => path.resolve(initPath, p);
     for (const p in pathToFileContentMap) {
-      output_file({
+      outputFile({
         file_path: file_path(p),
         file_content: pathToFileContentMap[p as keyof typeof pathToFileContentMap]
       });
@@ -371,7 +371,7 @@ export async function \$init ({
 
       return \`\"\${prefix}\": {\n\${result}\n  },\`;
     };
-    output_file({
+    outputFile({
       file_path: path.resolve(initPath, 'package.json'),
       file_content: tpl.pkj({
         ...params,
@@ -395,7 +395,7 @@ import {
   logWarn,
   logTime,
   logErr,
-  output_file,
+  outputFile,
 } from '@omni-door/utils';
 import {
   tpls_new,
@@ -480,7 +480,7 @@ export function \$new ({
     */
     const file_path = (p: string) => path.resolve(newPath, p);
     for (const p in pathToFileContentMap) {
-      output_file({
+      outputFile({
         file_path: file_path(p),
         file_content: pathToFileContentMap[p as keyof typeof pathToFileContentMap]
       });
@@ -578,7 +578,7 @@ describe('[tpl-${projectName}]: dependencies test', function () {
 
 
 # src - templates - package
-echo 'import { tpl_engine_init } from "@omni-door/utils";
+echo 'import { tplEngineInit } from "@omni-door/utils";
 
 const tpl = 
 `\`{
@@ -607,11 +607,11 @@ export const tpl_package = {
   tpl
 };
 
-export default tpl_engine_init(tpl_package, "tpl");' > ${dirName}/src/templates/package/index.ts
+export default tplEngineInit(tpl_package, "tpl");' > ${dirName}/src/templates/package/index.ts
 
 
 # src - templates - omni
-echo "import { tpl_engine_init } from '@omni-door/utils';
+echo "import { tplEngineInit } from '@omni-door/utils';
 
 const tpl = 
 \`\\\`\\\${use_strict}
@@ -695,10 +695,10 @@ export const tpl_omni = {
   tpl
 };
 
-export default tpl_engine_init(tpl_omni, 'tpl');" > ${dirName}/src/templates/omni/index.ts
+export default tplEngineInit(tpl_omni, 'tpl');" > ${dirName}/src/templates/omni/index.ts
 
 # src - templates - readme
-echo "import { tpl_engine_init } from '@omni-door/utils';
+echo "import { tplEngineInit } from '@omni-door/utils';
 
 const tpl = 
 \`\\\`# \\\${project_name}
@@ -768,10 +768,10 @@ export const tpl_readme = {
   tpl
 };
 
-export default tpl_engine_init(tpl_readme, 'tpl');" > ${dirName}/src/templates/readme/index.ts
+export default tplEngineInit(tpl_readme, 'tpl');" > ${dirName}/src/templates/readme/index.ts
 
 # src - templates - vsc
-echo 'import { tpl_engine_init } from "@omni-door/utils";
+echo 'import { tplEngineInit } from "@omni-door/utils";
 
 const tpl = 
 `\`{
@@ -823,10 +823,10 @@ export const tpl_vscode_setting = {
   tpl
 };
 
-export default tpl_engine_init(tpl_vscode_setting, "tpl");' > ${dirName}/src/templates/vsc/index.ts
+export default tplEngineInit(tpl_vscode_setting, "tpl");' > ${dirName}/src/templates/vsc/index.ts
 
 # src - templates - new - readme
-echo "import { tpl_engine_new } from '@omni-door/utils';
+echo "import { tplEngineNew } from '@omni-door/utils';
 
 const tpl = 
 \`\\\`# \\\${componentName}
@@ -844,7 +844,7 @@ export const tpl_new_readme = {
   tpl
 };
 
-export default tpl_engine_new(tpl_new_readme, 'tpl');" > ${dirName}/src/templates/new/readme.ts
+export default tplEngineNew(tpl_new_readme, 'tpl');" > ${dirName}/src/templates/new/readme.ts
 
 # src - templates - __test__
 echo "import { expect } from 'chai';

@@ -1,4 +1,4 @@
-import { tpl_engine_init } from '@omni-door/utils';
+import { tplEngineInit } from '@omni-door/utils';
 
 const tpl = 
 `\`---
@@ -27,7 +27,7 @@ export const tpl_bisheng_posts = {
 
 export default () => {
   const date = new Date();
-  return tpl_engine_init(tpl_bisheng_posts, 'tpl', {
+  return tplEngineInit(tpl_bisheng_posts, 'tpl', {
     publishDate: `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
   });
 };

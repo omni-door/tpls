@@ -1,4 +1,4 @@
-import { tpl_engine_init } from '@omni-door/utils';
+import { tplEngineInit } from '@omni-door/utils';
 
 const tpl = 
 `\`const path = require('path');
@@ -22,4 +22,4 @@ export const tpl_rollup = {
   tpl
 };
 
-export default tpl_engine_init(tpl_rollup, 'tpl');
+export default tplEngineInit(tpl_rollup, 'tpl');

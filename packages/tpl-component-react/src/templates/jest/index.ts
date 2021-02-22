@@ -1,4 +1,4 @@
-import { tpl_engine_init } from '@omni-door/utils';
+import { tplEngineInit } from '@omni-door/utils';
 import ts_jest from './ts_jest';
 
 const tpl = 
@@ -38,4 +38,4 @@ export const tpl_jest = {
   ts_jest
 };
 
-export default tpl_engine_init(tpl_jest, 'tpl');
+export default tplEngineInit(tpl_jest, 'tpl');

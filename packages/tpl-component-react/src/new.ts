@@ -1,6 +1,6 @@
 import path from 'path';
 import {
-  output_file,
+  outputFile,
   logInfo,
   logWarn,
   logTime,
@@ -113,7 +113,7 @@ export function $new ({
      */
     const file_path = (p: string) => path.resolve(newPath, p);
     for (const p in pathToFileContentMap) {
-      output_file({
+      outputFile({
         file_path: file_path(p),
         file_content: pathToFileContentMap[p]
       });

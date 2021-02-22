@@ -1,4 +1,4 @@
-import { tpl_engine_init } from '@omni-door/utils';
+import { tplEngineInit } from '@omni-door/utils';
 
 const tpl = 
 `\`import paramsToQueryString from './paramsToQueryString';
@@ -27,4 +27,4 @@ export const tpl_src_utils_mapctx = {
   tpl
 };
 
-export default tpl_engine_init(tpl_src_utils_mapctx, 'tpl');
+export default tplEngineInit(tpl_src_utils_mapctx, 'tpl');

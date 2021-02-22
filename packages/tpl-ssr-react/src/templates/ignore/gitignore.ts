@@ -1,4 +1,4 @@
-import { tpl_engine_init } from '@omni-door/utils';
+import { tplEngineInit } from '@omni-door/utils';
 
 const tpl = 
 `\`.idea
@@ -38,4 +38,4 @@ export const tpl_ignore_git = {
   tpl 
 };
 
-export default tpl_engine_init(tpl_ignore_git, 'tpl');
+export default tplEngineInit(tpl_ignore_git, 'tpl');

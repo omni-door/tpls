@@ -1,4 +1,4 @@
-import { tpl_engine_init } from '@omni-door/utils';
+import { tplEngineInit } from '@omni-door/utils';
 
 const tpl = 
 `\`# http://editorconfig.org
@@ -17,4 +17,4 @@ export const tpl_editor = {
   tpl 
 };
 
-export default tpl_engine_init(tpl_editor, 'tpl');
+export default tplEngineInit(tpl_editor, 'tpl');

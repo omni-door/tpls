@@ -1,4 +1,4 @@
-import { tpl_engine_new } from '@omni-door/utils';
+import { tplEngineNew } from '@omni-door/utils';
 
 const tpl = 
 `\`import * as React from 'react';
@@ -22,5 +22,5 @@ export const tpl_new_test = {
   tpl
 };
 
-export default tpl_engine_new(tpl_new_test, 'tpl');
+export default tplEngineNew(tpl_new_test, 'tpl');
 

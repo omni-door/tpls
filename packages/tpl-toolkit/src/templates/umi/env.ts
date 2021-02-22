@@ -1,4 +1,4 @@
-import { tpl_engine_init } from '@omni-door/utils';
+import { tplEngineInit } from '@omni-door/utils';
 
 const tpl = 
 `\`PORT=6200\``;
@@ -7,4 +7,4 @@ export const tpl_env = {
   tpl
 };
 
-export default tpl_engine_init(tpl_env, 'tpl');
+export default tplEngineInit(tpl_env, 'tpl');

@@ -1,4 +1,4 @@
-import { tpl_engine_init } from '@omni-door/utils';
+import { tplEngineInit } from '@omni-door/utils';
 import style_import_css from './style_import_css';
 import style_import_less from './style_import_less';
 import style_import_scss from './style_import_scss';
@@ -61,4 +61,4 @@ export const tpl_next_config = {
   style_plugin_all
 };
 
-export default tpl_engine_init(tpl_next_config, 'tpl');
+export default tplEngineInit(tpl_next_config, 'tpl');

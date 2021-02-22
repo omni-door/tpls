@@ -1,4 +1,4 @@
-import { tpl_engine_init } from '@omni-door/utils';
+import { tplEngineInit } from '@omni-door/utils';
 
 const tpl = 
 `\`{
@@ -88,4 +88,4 @@ export const tpl_tsconfig = {
   tpl
 };
 
-export default tpl_engine_init(tpl_tsconfig, 'tpl');
+export default tplEngineInit(tpl_tsconfig, 'tpl');

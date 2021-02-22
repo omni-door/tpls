@@ -1,4 +1,4 @@
-import { tpl_engine_new } from '@omni-door/utils';
+import { tplEngineNew } from '@omni-door/utils';
 
 const tpl = 
 `\`import React, { PureComponent } from 'react';
@@ -35,4 +35,4 @@ export const tpl_new_class = {
   tpl
 };
 
-export default tpl_engine_new(tpl_new_class, 'tpl');
+export default tplEngineNew(tpl_new_class, 'tpl');

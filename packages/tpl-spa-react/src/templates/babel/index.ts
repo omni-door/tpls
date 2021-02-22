@@ -1,4 +1,4 @@
-import { tpl_engine_init } from '@omni-door/utils';
+import { tplEngineInit } from '@omni-door/utils';
 import preset_typescript from './preset_typescript';
 
 const tpl = 
@@ -27,4 +27,4 @@ export const tpl_babel = {
   preset_typescript
 };
 
-export default tpl_engine_init(tpl_babel, 'tpl');
+export default tplEngineInit(tpl_babel, 'tpl');

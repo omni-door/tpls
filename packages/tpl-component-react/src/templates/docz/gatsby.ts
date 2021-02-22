@@ -1,4 +1,4 @@
-import { tpl_engine_init } from '@omni-door/utils';
+import { tplEngineInit } from '@omni-door/utils';
 
 const tpl_less = `"'gatsby-plugin-less'"`;
 const tpl_scss = `"'gatsby-plugin-sass'"`;
@@ -28,4 +28,4 @@ export const tpl_gatsby = {
   tpl_all
 };
 
-export default tpl_engine_init(tpl_gatsby, 'tpl');
+export default tplEngineInit(tpl_gatsby, 'tpl');

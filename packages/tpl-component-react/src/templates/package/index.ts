@@ -1,4 +1,4 @@
-import { tpl_engine_init, COMPONENTSERVER } from '@omni-door/utils';
+import { tplEngineInit, COMPONENTSERVER } from '@omni-door/utils';
 import script_test from './script_test';
 import script_commitlint from './script_commitlint';
 import script_lint from './script_lint';
@@ -95,7 +95,7 @@ export default ({
       demoScript = 'styleguidist build';
       break;
   }
-  return tpl_engine_init(tpl_package, 'tpl', {
+  return tplEngineInit(tpl_package, 'tpl', {
     type_react,
     devScript,
     demoScript,

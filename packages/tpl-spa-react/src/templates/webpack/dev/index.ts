@@ -1,4 +1,4 @@
-import { tpl_engine_init } from '@omni-door/utils';
+import { tplEngineInit } from '@omni-door/utils';
 import rules_style_css from './rules_style_css';
 import rules_style_less from './rules_style_less';
 import rules_style_scss from './rules_style_scss';
@@ -64,4 +64,4 @@ export const tpl_webpack_dev = {
   rules_style_all
 };
 
-export default tpl_engine_init(tpl_webpack_dev, 'tpl');
+export default tplEngineInit(tpl_webpack_dev, 'tpl');

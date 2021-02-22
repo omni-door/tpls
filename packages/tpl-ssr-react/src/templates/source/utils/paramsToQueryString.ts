@@ -1,4 +1,4 @@
-import { tpl_engine_init } from '@omni-door/utils';
+import { tplEngineInit } from '@omni-door/utils';
 
 const tpl = 
 `\`const isObject = (param\${ts ? ': any' : ''})\${ts ? ': boolean' : ''} =>
@@ -35,4 +35,4 @@ export const tpl_src_utils_params = {
   tpl
 };
 
-export default tpl_engine_init(tpl_src_utils_params, 'tpl');
+export default tplEngineInit(tpl_src_utils_params, 'tpl');

@@ -1,4 +1,4 @@
-import { tpl_engine_init } from '@omni-door/utils';
+import { tplEngineInit } from '@omni-door/utils';
 import script_test from './script_test';
 import script_commitlint from './script_commitlint';
 import script_lint from './script_lint';
@@ -47,7 +47,7 @@ export const tpl_package = {
   commitlint
 };
 
-export default tpl_engine_init(tpl_package, 'tpl', {
+export default tplEngineInit(tpl_package, 'tpl', {
   script_eslint: 'npm run lint:es',
   script_prettier: 'npm run lint:prettier',
   script_eslint_fix: 'npm run lint:es_fix',

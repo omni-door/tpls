@@ -1,4 +1,4 @@
-import { tpl_engine_new } from '@omni-door/utils';
+import { tplEngineNew } from '@omni-door/utils';
 
 const tpl = 
 `\`import \${componentName} from './\${componentName}';
@@ -14,4 +14,4 @@ export const tpl_new_index = {
   tpl
 };
 
-export default tpl_engine_new(tpl_new_index, 'tpl');
+export default tplEngineNew(tpl_new_index, 'tpl');

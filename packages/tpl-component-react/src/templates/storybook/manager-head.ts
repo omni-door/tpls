@@ -1,4 +1,4 @@
-import { tpl_engine_init } from '@omni-door/utils';
+import { tplEngineInit } from '@omni-door/utils';
 
 const tpl = 
 `\`<script>
@@ -20,4 +20,4 @@ export const tpl_storybook_mhead = {
   tpl
 };
 
-export default tpl_engine_init(tpl_storybook_mhead, 'tpl');
+export default tplEngineInit(tpl_storybook_mhead, 'tpl');

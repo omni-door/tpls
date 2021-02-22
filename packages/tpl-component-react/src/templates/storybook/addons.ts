@@ -1,4 +1,4 @@
-import { tpl_engine_init } from '@omni-door/utils';
+import { tplEngineInit } from '@omni-door/utils';
 
 const tpl = 
 `\`import '@storybook/addon-actions/register';
@@ -13,4 +13,4 @@ export const tpl_storybook_addons = {
   tpl
 };
 
-export default tpl_engine_init(tpl_storybook_addons, 'tpl');
+export default tplEngineInit(tpl_storybook_addons, 'tpl');

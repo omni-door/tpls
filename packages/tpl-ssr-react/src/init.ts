@@ -7,7 +7,7 @@ import {
   logSuc,
   logTime,
   exec,
-  output_file,
+  outputFile,
 } from '@omni-door/utils';
 import {
   tpls_init,
@@ -213,7 +213,7 @@ export async function $init ({
     };
     const file_path = (p: string) => path.resolve(initPath, p);
     for (const p in pathToFileContentMap) {
-      output_file({
+      outputFile({
         file_path: file_path(p),
         file_content: pathToFileContentMap[p as keyof typeof pathToFileContentMap]
       });
@@ -365,7 +365,7 @@ export async function $init ({
 
       return `"${prefix}": {\n${result}\n  },`;
     };
-    output_file({
+    outputFile({
       file_path: path.resolve(initPath, 'package.json'),
       file_content: tpl.pkj(devDependencyMap['@types/react'])({
         ...params,

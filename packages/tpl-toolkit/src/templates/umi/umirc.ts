@@ -1,4 +1,4 @@
-import { tpl_engine_init } from '@omni-door/utils';
+import { tplEngineInit } from '@omni-door/utils';
 
 const tpl = 
 `\`export default {
@@ -13,4 +13,4 @@ export const tpl_umirc = {
   tpl
 };
 
-export default tpl_engine_init(tpl_umirc, 'tpl');
+export default tplEngineInit(tpl_umirc, 'tpl');

@@ -1,4 +1,4 @@
-import { tpl_engine_init } from '@omni-door/utils';
+import { tplEngineInit } from '@omni-door/utils';
 
 const tpl = 
 `\`# mocha.opts
@@ -12,4 +12,4 @@ export const tpl_mocha = {
   tpl
 };
 
-export default tpl_engine_init(tpl_mocha, 'tpl');
+export default tplEngineInit(tpl_mocha, 'tpl');

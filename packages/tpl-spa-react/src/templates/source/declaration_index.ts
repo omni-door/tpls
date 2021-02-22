@@ -1,4 +1,4 @@
-import { tpl_engine_init } from '@omni-door/utils';
+import { tplEngineInit } from '@omni-door/utils';
 
 const tpl = 
 `\`import type { IRoute } from '@/routes';
@@ -12,4 +12,4 @@ export const tpl_src_declaration_index = {
   tpl
 };
 
-export default tpl_engine_init(tpl_src_declaration_index, 'tpl');
+export default tplEngineInit(tpl_src_declaration_index, 'tpl');

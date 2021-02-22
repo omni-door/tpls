@@ -1,4 +1,4 @@
-import { tpl_engine_init } from '@omni-door/utils';
+import { tplEngineInit } from '@omni-door/utils';
 
 const tpl = 
 `\`import React, { memo } from 'react';
@@ -56,4 +56,4 @@ export const tpl_src_component_layout = {
   tpl
 };
 
-export default tpl_engine_init(tpl_src_component_layout, 'tpl');
+export default tplEngineInit(tpl_src_component_layout, 'tpl');

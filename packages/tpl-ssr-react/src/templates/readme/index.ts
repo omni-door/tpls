@@ -1,4 +1,4 @@
-import { tpl_engine_init } from '@omni-door/utils';
+import { tplEngineInit } from '@omni-door/utils';
 
 const tpl = 
 `\`# \${project_name}
@@ -50,4 +50,4 @@ export const tpl_readme = {
   tpl
 };
 
-export default tpl_engine_init(tpl_readme, 'tpl');
+export default tplEngineInit(tpl_readme, 'tpl');

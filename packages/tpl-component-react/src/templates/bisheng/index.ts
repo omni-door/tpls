@@ -1,4 +1,4 @@
-import { tpl_engine_init } from '@omni-door/utils';
+import { tplEngineInit } from '@omni-door/utils';
 
 const tpl = 
 `\`\${use_strict}
@@ -24,4 +24,4 @@ export const tpl_bisheng = {
   tpl
 };
 
-export default tpl_engine_init(tpl_bisheng, 'tpl');
+export default tplEngineInit(tpl_bisheng, 'tpl');

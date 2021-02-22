@@ -1,4 +1,4 @@
-import { tpl_engine_init } from '@omni-door/utils';
+import { tplEngineInit } from '@omni-door/utils';
 import extends_typescript from './extends_typescript';
 import extends_prettier from './extends_prettier';
 import parser_typescript from './parser_typescript';
@@ -59,4 +59,4 @@ export const tpl_eslint = {
   rules_prettier
 };
 
-export default tpl_engine_init(tpl_eslint, 'tpl');
+export default tplEngineInit(tpl_eslint, 'tpl');

@@ -1,4 +1,4 @@
-import { tpl_engine_init } from "@omni-door/utils";
+import { tplEngineInit } from "@omni-door/utils";
 import script_test from './script_test';
 import script_commitlint from './script_commitlint';
 import script_lint from './script_lint';
@@ -67,7 +67,7 @@ export const tpl_package = {
   resolutions
 };
 
-export default (type_react: string = '') => tpl_engine_init(tpl_package, 'tpl', {
+export default (type_react: string = '') => tplEngineInit(tpl_package, 'tpl', {
   type_react,
   script_eslint: 'npm run lint:es',
   script_stylelint: 'npm run lint:style',

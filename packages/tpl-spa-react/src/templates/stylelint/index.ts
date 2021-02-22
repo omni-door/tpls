@@ -1,4 +1,4 @@
-import { tpl_engine_init } from '@omni-door/utils';
+import { tplEngineInit } from '@omni-door/utils';
 import plugins_scss from './plugins_scss';
 import rules_scss from './rules_scss';
 import extends_prettier from './extends_prettier';
@@ -30,4 +30,4 @@ export const tpl_stylelint = {
   rules_scss
 };
 
-export default tpl_engine_init(tpl_stylelint, 'tpl');
+export default tplEngineInit(tpl_stylelint, 'tpl');

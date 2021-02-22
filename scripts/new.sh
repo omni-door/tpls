@@ -11,7 +11,7 @@ if [ "$type" == "init" ]; then
   tplPath="${dirName}/${templateName}"
   mkdir ${tplPath}
 
-  echo "import { tpl_engine_init } from '@omni-door/utils';
+  echo "import { tplEngineInit } from '@omni-door/utils';
 
   const tpl = 
   \`\\\`\\\${use_strict}
@@ -22,11 +22,11 @@ if [ "$type" == "init" ]; then
     tpl
   };
 
-  export default tpl_engine_init(tpl_${templateName}, 'tpl');" > ${tplPath}/index.ts
+  export default tplEngineInit(tpl_${templateName}, 'tpl');" > ${tplPath}/index.ts
 else
   tplPath="${dirName}/new"
 
-  echo "import { tpl_engine_new } from '@omni-door/utils';
+  echo "import { tplEngineNew } from '@omni-door/utils';
 
   const tpl = 
   \`\\\`\\\${use_strict}
@@ -37,5 +37,5 @@ else
     tpl
   };
 
-  export default tpl_engine_new(tpl_${templateName}, 'tpl');" > ${tplPath}/${templateName}.ts
+  export default tplEngineNew(tpl_${templateName}, 'tpl');" > ${tplPath}/${templateName}.ts
 fi

@@ -1,4 +1,4 @@
-import { tpl_engine_init } from '@omni-door/utils';
+import { tplEngineInit } from '@omni-door/utils';
 
 const tpl = 
 `\`{
@@ -50,4 +50,4 @@ export const tpl_vscode_setting = {
   tpl
 };
 
-export default tpl_engine_init(tpl_vscode_setting, 'tpl');
+export default tplEngineInit(tpl_vscode_setting, 'tpl');

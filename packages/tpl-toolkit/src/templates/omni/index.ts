@@ -1,4 +1,4 @@
-import { tpl_engine_init, BUILD } from '@omni-door/utils';
+import { tplEngineInit, BUILD } from '@omni-door/utils';
 
 const tpl = 
 `\`\${use_strict}
@@ -95,4 +95,4 @@ export const tpl_omni = {
   tpl
 };
 
-export default (build: BUILD) => tpl_engine_init(tpl_omni, 'tpl', { build });
+export default (build: BUILD) => tplEngineInit(tpl_omni, 'tpl', { build });
