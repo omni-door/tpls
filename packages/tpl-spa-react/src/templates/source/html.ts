@@ -10,6 +10,11 @@ const tpl =
     <title>\${project_name}</title>
   </head>
   <body>
+    <noscript>
+      <strong>
+        Please enable JavaScript to continue.
+      </strong>
+    </noscript>
     <div id='root'></div>
   </body>
 </html>
