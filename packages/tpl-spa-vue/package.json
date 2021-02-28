@@ -1,0 +1,52 @@
+{
+  "name": "@omni-door/tpl-spa-vue",
+  "version": "0.0.1",
+  "description": "",
+  "bin": {
+    "omni-spa-vue": "./bin/omni-door-spa-vue.js"
+  },
+  "keywords": [
+    "template",
+    "omni",
+    "omni-door"
+  ],
+  "author": "bobby.li <bobby.lhan@gmail.com>",
+  "homepage": "https://github.com/omni-door/tpls/tree/master/packages/tpl-spa-vue#readme",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "src/**/__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omni-door/tpls.git"
+  },
+  "scripts": {
+    "test": "nyc mocha --opts mocha.opts",
+    "lint": "eslint src/ --ext .ts --ext .tsx",
+    "lint:fix": "eslint src/ --ext .ts --ext .tsx --fix",
+    "build": "npm run build:rm && npm run build:tsc",
+    "build:rm": "rm -rf lib/*",
+    "build:tsc": "tsc --build",
+    "build:branch": "../../scripts/branch.sh",
+    "build:version": "../../scripts/version.sh",
+    "release": "npm run build:branch master TPL-SPA-VUE && npm run build && npm run build:version TPL-SPA-VUE",
+    "upgrade:utils": "yarn upgrade @omni-door/utils@latest"
+  },
+  "bugs": {
+    "url": "https://github.com/omni-door/tpls/issues"
+  },
+  "dependencies": {
+    "@omni-door/utils": "^1.2.3"
+  },
+  "devDependencies": {
+    "typescript": "~3.9.7"
+  }
+}

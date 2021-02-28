@@ -3,7 +3,7 @@ import { tplEngineInit } from '@omni-door/utils';
 const tpl = 
 `\`import React, { lazy, Suspense } from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import Home from './pages/home';
+import Home from '@pages/home';
 \${ts ? \`/* import types */
 import type {
   ReactNode,
