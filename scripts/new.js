@@ -32,7 +32,7 @@ const { exec } = require('child_process');
       if(!answer.name || !answer.dir) {
         process.exit(0);
       };
-      const dirPath = answer.type === '新建' ? `packages/${answer.dir}/new/${answer.name}` : `packages/${answer.dir}/${answer.name}`;
+      const dirPath = answer.type === '新建' ? `packages/${answer.dir}/src/templates/new/${answer.name}` : `packages/${answer.dir}/src/templates/${answer.name}`;
       return `模板将会创建在 ${dirPath} 下，确认吗？`;
     },
     default: true
