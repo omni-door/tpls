@@ -177,8 +177,7 @@ export async function $init ({
       'src/pages/detail/detail.vue': tpl.source_page_page({
         ...params,
         pageName: 'detail',
-        content: `Detail Page
-      <router-view />`
+        content: 'Detail Page <router-view />'
       }),
       [`src/pages/detail/style/detail.${suffix_stylesheet}`]: style && tpl.source_page_style({ ...params, pageName: 'detail' }),
       // components

@@ -22,8 +22,7 @@ const tpl =
 
 <style lang="\${style === 'all' ? 'scss' : style}" scoped>
 @import './App.\${style === 'all' ? 'scss' : style}';
-</style>
-\``;
+</style>\``;
 
 export const tpl_src_app = {
   tpl
