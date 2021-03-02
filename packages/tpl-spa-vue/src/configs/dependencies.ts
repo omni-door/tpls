@@ -46,6 +46,7 @@ export async function devDependencies (strategy: STRATEGY, config: Config) {
 
   const loaderDependencies = [
     dependency('vue-loader'),
+    dependency('@vue/compiler-sfc'),
     dependency('babel-loader'),
     style ? dependency('style-loader') : '',
     style ? dependency('css-loader') : '',

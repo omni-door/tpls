@@ -9,14 +9,13 @@ const tpl =
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: '\${pageName}'
+  name: '\${pageName.charAt(0).toUpperCase() + pageName.slice(1) + 'Page'}'
 });
 </script>
 
 <style lang="\${style === 'all' ? 'scss' : style}">
-@import './style/home.\${style === 'all' ? 'scss' : style}';
-</style>
-\``;
+@import './style/\${pageName}.\${style === 'all' ? 'scss' : style}';
+</style>\``;
 
 export const tpl_src_page_page = {
   tpl

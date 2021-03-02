@@ -171,14 +171,19 @@ export async function $init ({
       'src/@types/global.d.ts': ts && tpl.source_d_g(params),
       // pages
       [`src/pages/home/index.${ts ? 'ts' : 'js'}`]: tpl.source_page_index({ ...params, pageName: 'home' }),
-      [`src/pages/home/home.${ts ? 'ts' : 'js'}`]: tpl.source_page_page({ ...params, pageName: 'home', content: 'Home Page' }),
+      'src/pages/home/home.vue': tpl.source_page_page({ ...params, pageName: 'home', content: 'Home Page' }),
       [`src/pages/home/style/home.${suffix_stylesheet}`]: style && tpl.source_page_style({ ...params, pageName: 'home' }),
       [`src/pages/detail/index.${ts ? 'ts' : 'js'}`]: tpl.source_page_index({ ...params, pageName: 'detail' }),
-      [`src/pages/detail/detail.${ts ? 'ts' : 'js'}`]: tpl.source_page_page({ ...params, pageName: 'detail', content: 'Detail Page' }),
+      'src/pages/detail/detail.vue': tpl.source_page_page({
+        ...params,
+        pageName: 'detail',
+        content: `Detail Page
+      <router-view />`
+      }),
       [`src/pages/detail/style/detail.${suffix_stylesheet}`]: style && tpl.source_page_style({ ...params, pageName: 'detail' }),
       // components
       [`src/components/Detail/index.${ts ? 'ts' : 'js'}`]: tpl.source_component_index({ ...params, componentName: 'Detail' }),
-      [`src/components/Detail/Detail.${ts ? 'ts' : 'js'}`]: tpl.source_component_cp({ ...params, componentName: 'Detail' }),
+      'src/components/Detail/Detail.vue': tpl.source_component_cp({ ...params, componentName: 'Detail' }),
       [`src/components/Detail/style/Detail.${suffix_stylesheet}`]: style && tpl.source_component_style({ ...params, componentName: 'Detail' }),
       [`src/components/Detail/__test__/index.test.${
         ts

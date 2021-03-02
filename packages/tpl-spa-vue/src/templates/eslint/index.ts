@@ -27,12 +27,10 @@ module.exports = {
   parser: 'vue-eslint-parser',
   parserOptions: {
     \${alter('ts', 'parser_typescript')}
-    ecmaFeatures: {
-      jsx: true
-    },
-    ecmaVersion: 2018,
+    ecmaVersion: 2020,
     sourceType: 'module',
-    project: './tsconfig.json'
+    project: './tsconfig.json',
+    extraFileExtensions: ['.vue']
   },
   plugins: [
     'vue'\${alter('ts', 'plugins_typescript')}\${alter('prettier', 'plugins_prettier')}

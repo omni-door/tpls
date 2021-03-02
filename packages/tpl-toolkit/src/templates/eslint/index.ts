@@ -24,10 +24,7 @@ module.exports = {
     'SharedArrayBuffer': 'readonly'
   },\${alter('ts', 'parser_typescript')}
   parserOptions: {
-    ecmaFeatures: {
-      jsx: true
-    },
-    ecmaVersion: 2018,
+    ecmaVersion: 2020,
     sourceType: 'module',
     project: './tsconfig.json'
   },

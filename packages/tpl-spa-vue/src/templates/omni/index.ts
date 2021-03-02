@@ -10,9 +10,22 @@ module.exports = {
   type: '\${project_type}', // 项目类型，请勿任意变动 (project type, please don't modify)
 
   dev: {
+    webpack: require(path.resolve(__dirname, 'webpack.config.dev.js')), // 开发服务端webpack配置 (dev-server webpack configuration)
+    proxy:  [
+      // {
+      //   route: '/api',
+      //   config: {
+      //     target: 'http://www.api.com/api',
+      //     changeOrigin: true
+      //   }
+      // }
+    ], // 开发服务代理配置 (dev-server proxy config)
     port: 6200, // 开发服务端口号 (dev-server port)
     // host: 'dev.domain.com', // 开发服务端host (dev-server host)
     // https: true, // 以https协议启动开发服务 (start dev-server with https)
+    devMiddlewareOptions: {
+      headers: { 'Access-Control-Allow-Origin': '*' }
+    }
   },
 
   build: {
@@ -62,7 +75,7 @@ module.exports = {
   template: {
     // 生成模板的根路径 (the root directory for generate template)
     // 务必使用绝对路径 (must be a absolute path)
-    root: path.resolve(__dirname, '../src'),
+    root: path.resolve(__dirname, '../src/components'),
 
     // 是否创建ts文件 (whether or not generate typescript)
     typescript: \${!!ts},
