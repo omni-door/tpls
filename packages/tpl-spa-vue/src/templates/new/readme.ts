@@ -6,7 +6,7 @@ const tpl =
 ## Example
 
 \\\`\\\`\\\`\${ts ? 'tsx' : 'jsx'}
-import { \${componentName} } from './\${componentName}';
+import \${componentName} from './\${componentName}';
 
 <\${componentName} />
 \\\`\\\`\\\`

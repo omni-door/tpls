@@ -19,7 +19,8 @@ import { devDependencies as devDependencyMap } from './configs/dependencies_stab
 import type {
   PKJTOOL,
   STYLE,
-  STRATEGY
+  STRATEGY,
+  LAYOUT
 } from '@omni-door/utils';
 import type {
   TPLS_INITIAL,
@@ -44,7 +45,9 @@ export type InitOptions = {
   stylelint: boolean;
   install: boolean;
   pkgtool?: PKJTOOL;
+  layout?: LAYOUT;
   isSlient?: boolean;
+  tag?: string;
   tpls?: (tpls: TPLS_ORIGIN_INITIAL) => TPLS_INITIAL_RETURE;
   dependencies?: (dependecies_default: string[]) => ResultOfDependencies;
   devDependencies?: (devDependecies_default: string[]) => ResultOfDependencies;
@@ -66,6 +69,8 @@ export async function $init ({
   style,
   stylelint,
   install,
+  layout = 'px',
+  tag,
   tpls,
   pkgtool = 'yarn',
   isSlient,
@@ -142,7 +147,7 @@ export async function $init ({
     logWarn('生成自定义模板出错，将全部使用默认模板进行初始化！(The custom template generating occured error, all will be initializated with the default template!)');
   }
   const tpl = { ...tpls_init, ...custom_tpl_list };
-  const project_type = 'spa-react' as 'spa-react';
+  const project_type = 'spa-vue' as 'spa-vue';
   logTime('模板解析(template parsing)', true);
 
   // 生成项目文件
@@ -151,12 +156,53 @@ export async function $init ({
   const suffix_stylesheet = style && style === 'all' ? 'scss' : style;
   try {
     const pathToFileContentMap = {
-      // package.json
+      // default files
+      [`configs/${configFileName}`]: tpl.omni({ ...params, git }),
       'package.json': install && tpl.pkj({ ...params, install, dependencies: '', devDependencies: '' }),
-      // ReadMe
-      'README.md': tpl.readme({ ...params, install: installReadMe, runScript, paramScript }),
+      '.gitignore': tpl.gitignore(params),
+      [`src/index.${ts ? 'ts' : 'js'}`]: tpl.source_index_vue(params),
+      [`src/routes.${ts ? 'ts' : 'js'}`]: tpl.source_routes(params),
+      'src/index.html': tpl.source_html(params),
+      'src/App.vue': ts && tpl.source_app(params),
+      // stylesheets
+      [`src/App.${suffix_stylesheet}`]: style && tpl.source_index_style(params),
+      [`src/reset.${suffix_stylesheet}`]: style && tpl.source_index_reset(params),
+      // d.ts files
+      'src/@types/global.d.ts': ts && tpl.source_d_g(params),
+      // pages
+      [`src/pages/home/index.${ts ? 'ts' : 'js'}`]: tpl.source_page_index({ ...params, pageName: 'home' }),
+      [`src/pages/home/home.${ts ? 'ts' : 'js'}`]: tpl.source_page_page({ ...params, pageName: 'home', content: 'Home Page' }),
+      [`src/pages/home/style/home.${suffix_stylesheet}`]: style && tpl.source_page_style({ ...params, pageName: 'home' }),
+      [`src/pages/detail/index.${ts ? 'ts' : 'js'}`]: tpl.source_page_index({ ...params, pageName: 'detail' }),
+      [`src/pages/detail/detail.${ts ? 'ts' : 'js'}`]: tpl.source_page_page({ ...params, pageName: 'detail', content: 'Detail Page' }),
+      [`src/pages/detail/style/detail.${suffix_stylesheet}`]: style && tpl.source_page_style({ ...params, pageName: 'detail' }),
+      // components
+      [`src/components/Detail/index.${ts ? 'ts' : 'js'}`]: tpl.source_component_index({ ...params, componentName: 'Detail' }),
+      [`src/components/Detail/Detail.${ts ? 'ts' : 'js'}`]: tpl.source_component_cp({ ...params, componentName: 'Detail' }),
+      [`src/components/Detail/style/Detail.${suffix_stylesheet}`]: style && tpl.source_component_style({ ...params, componentName: 'Detail' }),
+      [`src/components/Detail/__test__/index.test.${
+        ts
+          ? 'ts'
+          : 'js'
+      }`]: test && tpl.source_component_test({ ...params, componentName: 'Detail' }),
+      // config files
+      'configs/webpack.config.common.js': tpl.webpack_config_common(params),
+      'configs/webpack.config.dev.js': tpl.webpack_config_dev(params),
+      'configs/webpack.config.prod.js': tpl.webpack_config_prod(params),
+      'tsconfig.json': ts && tpl.tsconfig(params), // tsconfig
+      'configs/jest.config.js': test && tpl.jest(params), // test files
+      'configs/postcss.config.js': style && tpl.postcss(params),
       // lint files
-      '.vscode/settings.json': tpl.vscode(params)
+      '.vscode/settings.json': tpl.vscode(params),
+      '.editorconfig': (eslint || prettier) && tpl.editor(params),
+      'configs/.eslintrc.js': eslint && tpl.eslint(params),
+      '.eslintignore': eslint && tpl.eslintignore(params),
+      'configs/prettier.config.js': prettier && tpl.prettier(params),
+      '.prettierignore': prettier && tpl.prettierignore(params),
+      'configs/stylelint.config.js': stylelint && tpl.stylelint(params),
+      'configs/commitlint.config.js': commitlint && tpl.commitlint(params),
+      'configs/babel.config.js': tpl.babel(params), // build files
+      'README.md': tpl.readme({ ...params, install: installReadMe, runScript, paramScript }) // ReadMe
     };
     const file_path = (p: string) => path.resolve(initPath, p);
     for (const p in pathToFileContentMap) {
@@ -173,10 +219,22 @@ export async function $init ({
 
   // 项目依赖解析
   logTime('依赖解析(dependency resolution)');
+  const dependenciesOptions = {
+    ts,
+    eslint,
+    prettier,
+    commitlint,
+    style,
+    layout,
+    stylelint,
+    test,
+    tag
+  };
+
   let {
     depArr,
     depStr
-  } = await dependencies(strategy);
+  } = await dependencies(strategy, dependenciesOptions);
   let dependencies_str = depStr;
   if (typeof dependencies_custom === 'function') {
     const result = dependencies_custom(depArr);
@@ -196,16 +254,24 @@ export async function $init ({
   let {
     defaultDepArr,
     defaultDepStr,
+    buildDepArr,
+    buildDepStr,
+    tsDepArr,
+    tsDepStr,
+    testDepStr,
+    testDepArr,
+    eslintDepArr,
+    eslintDepStr,
+    prettierDepArr,
+    prettierDepStr,
+    commitlintDepArr,
+    commitlintDepStr,
+    stylelintDepArr,
+    stylelintDepStr,
+    devServerDepArr,
+    devServerDepStr,
     devDepArr
-  } = await devDependencies(strategy, {
-    ts,
-    eslint,
-    prettier,
-    commitlint,
-    style,
-    stylelint,
-    test
-  });
+  } = await devDependencies(strategy, dependenciesOptions);
 
   let customDepStr;
   if (typeof devDependencies_custom === 'function') {
@@ -217,13 +283,37 @@ export async function $init ({
       for (let i = 0; i < remove.length; i++) {
         const item_rm = remove[i];
         defaultDepArr = [ ...intersection(defaultDepArr, defaultDepArr.filter(v => v !== item_rm)) ];
+        buildDepArr = [ ...intersection(buildDepArr, buildDepArr.filter(v => v !== item_rm)) ];
+        tsDepArr = [ ...intersection(tsDepArr, tsDepArr.filter(v => v !== item_rm)) ];
+        testDepArr = [ ...intersection(testDepArr, testDepArr.filter(v => v !== item_rm)) ];
+        eslintDepArr = [ ...intersection(eslintDepArr, eslintDepArr.filter(v => v !== item_rm)) ];
+        prettierDepArr = [ ...intersection(prettierDepArr, prettierDepArr.filter(v => v !== item_rm)) ];
+        commitlintDepArr = [ ...intersection(commitlintDepArr, commitlintDepArr.filter(v => v !== item_rm)) ];
+        stylelintDepArr = [ ...intersection(stylelintDepArr, stylelintDepArr.filter(v => v !== item_rm)) ];
+        devServerDepArr = [ ...intersection(devServerDepArr, devServerDepArr.filter(v => v !== item_rm)) ];
       }
       defaultDepStr = arr2str(defaultDepArr);
+      buildDepStr = arr2str(buildDepArr);
+      tsDepStr = arr2str(tsDepArr);
+      testDepStr = arr2str(testDepArr);
+      eslintDepStr = arr2str(eslintDepArr);
+      prettierDepStr = arr2str(prettierDepArr);
+      commitlintDepStr = arr2str(commitlintDepArr);
+      stylelintDepStr = arr2str(stylelintDepArr);
+      devServerDepStr = arr2str(devServerDepArr);
       customDepStr = arr2str(add);
     }
   }
 
   const installDevCli = defaultDepStr ? `${installDevCliPrefix} ${defaultDepStr}` : '';
+  const installBuildDevCli = buildDepStr ? `${installDevCliPrefix} ${buildDepStr}` : '';
+  const installTsDevCli = tsDepStr ? `${installDevCliPrefix} ${tsDepStr}` : '';
+  const installTestDevCli = testDepStr ? `${installDevCliPrefix} ${testDepStr}` : '';
+  const installEslintDevCli = eslintDepStr ? `${installDevCliPrefix} ${eslintDepStr}` : '';
+  const installPrettierDevCli = prettierDepStr ? `${installDevCliPrefix} ${prettierDepStr}` : '';
+  const installCommitlintDevCli = commitlintDepStr ? `${installDevCliPrefix} ${commitlintDepStr}` : '';
+  const installStylelintDevCli = stylelintDepStr ? `${installDevCliPrefix} ${stylelintDepStr}` : '';
+  const installServerDevCli = devServerDepStr ? `${installDevCliPrefix} ${devServerDepStr}` : '';
   const installCustomDevCli = customDepStr ? `${installDevCliPrefix} ${customDepStr}` : '';
   logTime('依赖解析(dependency resolution)', true);
 
@@ -233,6 +323,14 @@ export async function $init ({
     exec([
       installCli,
       installDevCli,
+      installBuildDevCli,
+      installTsDevCli,
+      installTestDevCli,
+      installEslintDevCli,
+      installPrettierDevCli,
+      installCommitlintDevCli,
+      installStylelintDevCli,
+      installServerDevCli,
       installCustomDevCli
     ], res => {
       logTime('安装依赖(install dependency)', true);
@@ -266,7 +364,7 @@ export async function $init ({
         ...params,
         install,
         dependencies: processDepStr(dependencies_str, 'dependencies'),
-        devDependencies: processDepStr(`${defaultDepStr || ''} ${customDepStr || ''}`, 'devDependencies')
+        devDependencies: processDepStr(`${defaultDepStr || ''} ${buildDepStr || ''} ${tsDepStr || ''} ${testDepStr || ''} ${eslintDepStr || ''} ${prettierDepStr || ''} ${commitlintDepStr || ''} ${stylelintDepStr || ''} ${devServerDepStr || ''} ${customDepStr || ''}`, 'devDependencies')
       })
     });
     logTime('生成静态依赖文件(generate static dependency)', true);

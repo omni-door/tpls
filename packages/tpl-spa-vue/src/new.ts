@@ -25,7 +25,6 @@ export function $new ({
   stylesheet,
   newPath,
   md,
-  type,
   tpls
 }: {
   ts: boolean;
@@ -34,11 +33,10 @@ export function $new ({
   stylesheet: STYLE;
   newPath: string;
   md?: MARKDOWN;
-  type: 'fc' | 'cc';
   tpls?: (tpls: TPLS_ORIGIN_NEW) => TPLS_NEW_RETURE;
 }) {
   logTime('创建组件(create component)');
-  logInfo(`开始创建 ${componentName} ${type === 'cc' ? '类' : '函数'}组件 \(Start create ${componentName} ${type === 'cc' ? 'class' : 'functional'} component\)`);
+  logInfo(`开始创建 ${componentName} 组件 \(Start create ${componentName} component\)`);
   let custom_tpl_new_list = {};
   try {
     custom_tpl_new_list = typeof tpls === 'function'
@@ -78,9 +76,21 @@ export function $new ({
 
   try {
     // component tpl
+    const content_index = tpl.component_index(params);
+    const content_component = tpl.component(params);
     const content_readme = md && tpl.component_readme(params);
+    const content_style = stylesheet && tpl.component_stylesheet(params);
+    const content_test = test && tpl.component_test(params);
 
     const pathToFileContentMap = {
+      [`${componentName}.vue`]: content_component,
+      [`style/${componentName}.${stylesheet}`]: content_style,
+      [`__test__/index.test.${
+        ts
+          ? 'ts'
+          : 'js'
+      }`]: content_test,
+      [`index.${ts ? 'ts' : 'js'}`]: content_index,
       'README.md': content_readme
     };
 

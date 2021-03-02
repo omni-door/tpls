@@ -55,9 +55,8 @@ if (args.length > 0) {
       ts: true,
       test: false,
       componentName: 'Omni',
-      stylesheet: 'scss' as STYLE,
-      newPath: process.cwd(),
-      type: 'fc' as 'fc'
+      stylesheet: '' as STYLE,
+      newPath: process.cwd()
     };
     for (let i = 1; i < args.length; i++) {
       const item = args[i];
@@ -84,7 +83,7 @@ if (args.length > 0) {
       eslint: true,
       prettier: true,
       commitlint: false,
-      style: 'scss' as STYLE,
+      style: '' as STYLE,
       stylelint: true,
       install: true,
       pkgtool: 'yarn' as PKJTOOL
@@ -156,6 +155,7 @@ export type InitOptions = {
   install: boolean;
   pkgtool?: PKJTOOL;
   isSlient?: boolean;
+  tag?: string;
   tpls?: (tpls: TPLS_ORIGIN_INITIAL) => TPLS_INITIAL_RETURE;
   dependencies?: (dependecies_default: string[]) => ResultOfDependencies;
   devDependencies?: (devDependecies_default: string[]) => ResultOfDependencies;
@@ -177,6 +177,7 @@ export async function \$init ({
   style,
   stylelint,
   install,
+  tag,
   tpls,
   pkgtool = 'yarn',
   isSlient,
@@ -253,7 +254,7 @@ export async function \$init ({
     logWarn('生成自定义模板出错，将全部使用默认模板进行初始化！(The custom template generating occured error, all will be initializated with the default template!)');
   }
   const tpl = { ...tpls_init, ...custom_tpl_list };
-  const project_type = 'spa-react' as 'spa-react';
+  const project_type = '${projectName}' as '${projectName}';
   logTime('模板解析(template parsing)', true);
 
   // 生成项目文件
@@ -284,10 +285,21 @@ export async function \$init ({
 
   // 项目依赖解析
   logTime('依赖解析(dependency resolution)');
+  const dependenciesOptions = {
+    ts,
+    eslint,
+    prettier,
+    commitlint,
+    style,
+    stylelint,
+    test,
+    tag
+  };
+
   let {
     depArr,
     depStr
-  } = await dependencies(strategy);
+  } = await dependencies(strategy, dependenciesOptions);
   let dependencies_str = depStr;
   if (typeof dependencies_custom === 'function') {
     const result = dependencies_custom(depArr);
@@ -308,15 +320,7 @@ export async function \$init ({
     defaultDepArr,
     defaultDepStr,
     devDepArr
-  } = await devDependencies(strategy, {
-    ts,
-    eslint,
-    prettier,
-    commitlint,
-    style,
-    stylelint,
-    test
-  });
+  } = await devDependencies(strategy, dependenciesOptions);
 
   let customDepStr;
   if (typeof devDependencies_custom === 'function') {
@@ -425,11 +429,10 @@ export function \$new ({
   stylesheet: STYLE;
   newPath: string;
   md?: MARKDOWN;
-  type: 'fc' | 'cc';
   tpls?: (tpls: TPLS_ORIGIN_NEW) => TPLS_NEW_RETURE;
 }) {
   logTime('创建组件(create component)');
-  logInfo(\`开始创建 \${componentName} \${type === 'cc' ? '类' : '函数'}组件 \(Start create \${componentName} \${type === 'cc' ? 'class' : 'functional'} component\)\`);
+  logInfo(\`开始创建 \${componentName} 组件 \(Start create \${componentName} component\)\`);
   let custom_tpl_new_list = {};
   try {
     custom_tpl_new_list = typeof tpls === 'function'
@@ -518,9 +521,10 @@ interface Config {
   commitlint: boolean;
   style: STYLE;
   stylelint: boolean;
+  tag?: string;
 }
 
-export async function dependencies (strategy: STRATEGY) {
+export async function dependencies (strategy: STRATEGY, config: Config) {
   const dependency = await getDependency(strategy, dependenciesMap);
   const deps = [''];
   return {
@@ -539,11 +543,12 @@ export async function devDependencies (strategy: STRATEGY, config: Config) {
     prettier,
     commitlint,
     style,
-    stylelint
+    stylelint,
+    tag
   } = config;
 
   const defaultDep = [
-    dependency('@omni-door/cli'),
+    !tag ? dependency('@omni-door/cli') : \\\`@omni-door/cli@\\\${tag}\\\`,
     dependency('del')
   ];
 

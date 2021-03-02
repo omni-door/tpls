@@ -77,7 +77,7 @@ export function $new ({
   if (md === 'mdx') logInfo('暂不支持 mdx 文档格式，使用 md 代替！(Not support mdx format replace to md format!)');
 
   try {
-      // component tpl
+    // component tpl
     const content_index = tpl.component_index(params);
     const content_cc = type === 'cc' && tpl.component_class(params);
     const content_fc = type === 'fc' && tpl.component_functional(params);

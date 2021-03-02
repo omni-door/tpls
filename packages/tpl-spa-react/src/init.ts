@@ -166,6 +166,7 @@ export async function $init ({
       // d.ts files
       'src/@types/index.d.ts': ts && tpl.source_d_i(params),
       'src/@types/global.d.ts': ts && tpl.source_d_g(params),
+      // stylesheets
       [`src/index.${suffix_stylesheet}`]: style && tpl.source_index_style(params),
       [`src/reset.${suffix_stylesheet}`]: style && tpl.source_index_reset(params),
       // pages
