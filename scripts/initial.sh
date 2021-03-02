@@ -420,7 +420,6 @@ export function \$new ({
   stylesheet,
   newPath,
   md,
-  type,
   tpls
 }: {
   ts: boolean;
@@ -548,7 +547,7 @@ export async function devDependencies (strategy: STRATEGY, config: Config) {
   } = config;
 
   const defaultDep = [
-    !tag ? dependency('@omni-door/cli') : \\\`@omni-door/cli@\\\${tag}\\\`,
+    !tag ? dependency('@omni-door/cli') : \`@omni-door/cli@\${tag}\`,
     dependency('del')
   ];
 
