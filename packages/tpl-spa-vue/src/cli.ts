@@ -47,7 +47,7 @@ if (args.length > 0) {
       style: '' as STYLE,
       stylelint: true,
       install: true,
-      pkgtool: 'yarn' as PKJTOOL
+      pkgtool: 'pnpm' as PKJTOOL
     };
     for (let i = 0; i < args.length; i++) {
       const item = args[i];
