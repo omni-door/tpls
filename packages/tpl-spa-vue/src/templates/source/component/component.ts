@@ -14,11 +14,10 @@ export default defineComponent({
   name: '\${componentName}'
 });
 </script>
-
-\${style ? \`<style lang="\${style === 'all' ? 'scss' : style}">
+\${style ? \`
+<style lang="\${style === 'all' ? 'scss' : style}">
 @import './style/\${componentName}.\${style === 'all' ? 'scss' : style}';
-</style>\` : ''}
-\``;
+</style>\` : ''}\``;
 
 export const tpl_src_component_cp = {
   tpl

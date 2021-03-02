@@ -1,7 +1,7 @@
 import { tplEngineInit } from '@omni-door/utils';
 
 const tpl = 
-`\`import \${componentName} from './\${componentName}';
+`\`import \${componentName} from './\${componentName}.vue';
 
 export default \${componentName};
 \``;
