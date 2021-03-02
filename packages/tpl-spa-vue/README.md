@@ -16,7 +16,19 @@ The spa-vue project template
 ## Templates
 | folder | file |
 | --- | --- |
+| babel | configs/babel.config.js |
+| commitlint | configs/commitlint.config.js |
+| editor | .editorconfig |
+| eslint | configs/.eslintrc.js |
+| ignore | .eslintignore & .gitignore & .npmignore & .prettierignore |
+| jest | configs/jest.config.js |
 | new | the standard templates for `omni new` command |
-| omni | omni.config.js |
+| omni | configs/omni.config.js |
 | package | package.json |
+| prettier | configs/prettier.config.js |
 | readme | README.md |
+| source | the standard templates in `src` folder |
+| stylelint | configs/stylelint.config.js |
+| tsconfig | tsconfig.json |
+| vsc | .vscode/settings.json |
+| webpack | contain `wepack.config.common.js`, `wepack.config.dev.js`, `wepack.config.prod.js` files |
