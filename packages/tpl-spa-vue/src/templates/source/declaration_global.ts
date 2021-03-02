@@ -1,7 +1,13 @@
 import { tplEngineInit } from '@omni-door/utils';
 
 const tpl = 
-`\`declare module '*.css' {
+`\`declare module '*.vue' {
+  import type { DefineComponent } from 'vue';
+  const component: DefineComponent<{}, {}, any>;
+  export default component;
+}
+
+declare module '*.css' {
   const resource: { [key: string]: string };
   export = resource;
 }
