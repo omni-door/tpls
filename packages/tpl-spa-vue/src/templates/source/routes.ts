@@ -18,7 +18,7 @@ const routes\${ts ? ': Array<RouteRecordRaw>' : ''} = [
     component: () => import('@pages/detail'),
     children: [
       {
-        path: '/detail/:id',
+        path: ':id',
         component: () => import('@components/Detail')
       }
     ]
