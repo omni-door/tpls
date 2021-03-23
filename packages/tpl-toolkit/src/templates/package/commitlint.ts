@@ -5,7 +5,7 @@ const tpl =
     "pre-commit": "lint-staged",
     "pre-push": "\${
       (eslint || prettier) && test
-        ? 'npm run lint && npm run test:headless'
+        ? 'npm run lint && npm run test'
         : (eslint || prettier)
             ? 'npm run lint'
             : test
@@ -18,10 +18,7 @@ const tpl =
   \${eslint || prettier ? \`"src/**/*.{js,jsx,ts,tsx}": [
     \${eslint ? \`"\${script_eslint_fix}"\${prettier ? ',' : ''}\` : ''}
     \${prettier ? \`"\${script_prettier_fix}"\` : ''}
-  ]\${prettier ? ',' : ''}\` : ''}
-  \${prettier ? \`"src/**/*.{css,scss,sass,less}": [
-    "\${script_prettier_fix}"
-  ]\` : ''}
+  ]
 },
 \``;
 
