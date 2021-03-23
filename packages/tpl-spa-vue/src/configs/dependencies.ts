@@ -50,6 +50,7 @@ export async function devDependencies (strategy: STRATEGY, config: Config) {
     dependency('babel-loader'),
     style ? dependency('style-loader') : '',
     style ? dependency('css-loader') : '',
+    style ? dependency('postcss') : '',
     style ? dependency('postcss-loader') : '',
     style ? dependency('autoprefixer') : '',
     style && layout === 'rem' ? dependency('postcss-plugin-px2rem') : '',

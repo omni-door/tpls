@@ -50,6 +50,7 @@ export const devDependencies = {
   'node-sass': '~5.0.0',
   'open': '7.0.2',
   'optimize-css-assets-webpack-plugin': '5.0.4',
+  "postcss": "~8.2.8",
   'postcss-loader': '~4.1.0',
   'postcss-plugin-px2rem': '0.8.1',
   'postcss-px-to-viewport': '1.1.1',
