@@ -5,11 +5,11 @@ const tpl =
     "pre-commit": "lint-staged",
     "pre-push": "\${
       (eslint || prettier) && test
-        ? 'npm run lint && npm run test'
+        ? 'npm run lint && npm run test:headless'
         : (eslint || prettier)
             ? 'npm run lint'
             : test
-              ? 'npm run test'
+              ? 'npm run test:headless'
               : ''}",
     "commit-msg": "npm run lint:commit"
   }
