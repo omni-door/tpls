@@ -48,6 +48,7 @@ module.exports = {
     }],
     'vue/html-quotes': ['warn', 'double', { 'avoidEscape': true }],
     'vue/singleline-html-element-content-newline': ['off'],
+    'vue/max-attributes-per-line': ['off'],
     \${alter('ts', 'rules_typescript')}\${alter('ts', 'rules_typescript_false', false)}
     'no-console': ['error', { 'allow': ['warn', 'error', 'info'] }],
     'semi': ['error', 'always'],
