@@ -46,5 +46,6 @@ export const devDependencies = {
   'karma-opera-launcher': '1.0.0',
   'karma-safari-launcher': '1.0.0',
   'karma-typescript': '4.1.1',
-  'karma-webpack': '4.0.2'
+  'karma-webpack': '4.0.2',
+  'webpack': '~4.46.0'
 };

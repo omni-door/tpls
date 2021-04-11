@@ -9,6 +9,7 @@ import tpl_index from '../source';
 import tpl_get_ts from '../source/get_ts';
 import tpl_karma from '../karma';
 import tpl_mocha from '../mocha';
+import tpl_tsnode from '../mocha/ts-node';
 import tpl_npmignore from '../ignore/npmignore';
 import tpl_omni from '../omni';
 import tpl_package from '../package';
@@ -75,6 +76,12 @@ describe('[tpl-toolkit]: tpl_karma template test', function () {
 describe('[tpl-toolkit]: tpl_mocha template test', function () {
   it('type checking', function () {
     expect(tpl_mocha).to.be.a('function');
+  });
+});
+
+describe('[tpl-toolkit]: tpl_tsnode template test', function () {
+  it('type checking', function () {
+    expect(tpl_tsnode).to.be.a('function');
   });
 });
 

@@ -186,6 +186,7 @@ export async function $init ({
       // '.env': tpl.env(params),
       // test files
       'mocha.opts': test && tpl.mocha(params),
+      'mocha.ts-node.js': test && tpl.mochaTsNode(params),
       'karma.conf.js': test && tpl.karma(params),
     };
     /**
