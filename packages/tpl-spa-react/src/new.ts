@@ -37,8 +37,9 @@ export function $new ({
   type: 'fc' | 'cc';
   tpls?: (tpls: TPLS_ORIGIN_NEW) => TPLS_NEW_RETURE;
 }) {
-  logTime('创建组件(create component)');
-  logInfo(`开始创建 ${componentName} ${type === 'cc' ? '类' : '函数'}组件 (Start create ${componentName} ${type === 'cc' ? 'class' : 'functional'} component)`);
+  logTime('CREATE(创建组件)');
+  logInfo(`Start create ${componentName} ${type === 'cc' ? 'class' : 'functional'} component`);
+  logInfo(`开始创建 ${componentName} ${type === 'cc' ? '类' : '函数'}组件`);
   let custom_tpl_new_list = {};
   try {
     custom_tpl_new_list = typeof tpls === 'function'
@@ -54,7 +55,8 @@ export function $new ({
           return tpl && tpl(config);
         } catch (err) {
           logWarn(err);
-          logWarn(`自定义模板 [${name}] 解析出错，将使用默认模板进行创建组件！(The custom template [${name}] parsing occured error, the default template will be used for initialization!)`);    
+          logWarn(`The custom template "${name}" parsing occured error, the default template will be used for initialization`);
+          logWarn(`自定义模板 "${name}" 解析出错，将使用默认模板进行创建组件`);
         }
 
         return tpls_new[name](config);
@@ -64,7 +66,8 @@ export function $new ({
     }
   } catch (err_tpls) {
     logWarn(err_tpls);
-    logWarn('生成自定义模板出错，将全部使用默认模板进行创建组件！(The custom template generating occured error, all will be initializated with the default template!)');
+    logWarn('The custom template generating occured error, all will be initializated with the default template');
+    logWarn('生成自定义模板出错，将全部使用默认模板进行创建模块');
   }
   const tpl = { ...tpls_new, ...custom_tpl_new_list };
   const params = {
@@ -109,10 +112,11 @@ export function $new ({
     }
   } catch (err) {
     logErr(`${err.name}: ${err.message} at \n${err.stack}`);
-    logErr('创建组件失败！(The process of create component failed!)');
+    logErr('The process of create component failed');
+    logErr('创建组件失败');
     process.exit(1);
   }
-  logTime('创建组件(create component)', true);
+  logTime('CREATE(创建组件)', true);
 }
 
 export default $new;

@@ -184,10 +184,14 @@ export async function \$init ({
   dependencies: dependencies_custom,
   devDependencies: devDependencies_custom,
   error = () => {
-    logErr('项目安装失败！(The project installation has been occured some error!)');
+    logErr('The project installation has been occured some error');
+    logErr('项目安装失败');
     process.exit(1);
   },
-  success = () => logSuc('项目安装完成！(The project installation has been completed!)')
+  success = () => {
+    logSuc('The project installation has been completed');
+    logSuc('项目安装完成');
+  }
 }: InitOptions) {
   let installCliPrefix, installDevCliPrefix, installReadMe, runScript, paramScript;
   switch (pkgtool) {
@@ -215,7 +219,7 @@ export async function \$init ({
   }
 
   // 模板解析
-  logTime('模板解析(template parsing)');
+  logTime('PARSE(模板解析)');
   let custom_tpl_list: ReturnType<Exclude<typeof tpls, undefined>> = {};
   try {
     custom_tpl_list = typeof tpls === 'function'
@@ -242,7 +246,8 @@ export async function \$init ({
             return result;
           } catch (err) {
             logWarn(err);
-            logWarn(\`自定义模板 [\${name}] 解析出错，将使用默认模板进行初始化！(The custom template [\${name}] parsing occured error, the default template will be used for initialization!)\`);
+            logWarn(\`The custom template \"\${name}\" parsing occured error, the default template will be used for initialization\`);
+            logWarn(\`自定义模板 \"\${name}\" 解析出错，将使用默认模板进行初始化\`);
             return originTpl(config);
           }
         };
@@ -251,14 +256,15 @@ export async function \$init ({
     }
   } catch (err_tpls) {
     logWarn(err_tpls);
-    logWarn('生成自定义模板出错，将全部使用默认模板进行初始化！(The custom template generating occured error, all will be initializated with the default template!)');
+    logWarn('The custom template generating occured error, all will be initializated with the default template');
+    logWarn('生成自定义模板出错，将全部使用默认模板进行初始化');
   }
   const tpl = { ...tpls_init, ...custom_tpl_list };
   const project_type = '${projectName}' as '${projectName}';
-  logTime('模板解析(template parsing)', true);
+  logTime('PARSE(模板解析)', true);
 
   // 生成项目文件
-  logTime('生成文件(create files)');
+  logTime('CREATE(创建文件)');
   const params = { project_type, project_name, ts, test, eslint, prettier, commitlint, style, stylelint: !!style && stylelint, strategy, configFileName };
   const suffix_stylesheet = style && style === 'all' ? 'scss' : style;
   try {
@@ -281,10 +287,10 @@ export async function \$init ({
     logErr(\`\${err.name}: \${err.message} at \n\${err.stack}\`);
     error ? error(err) : process.exit(1);
   }
-  logTime('生成文件(create files)', true);
+  logTime('CREATE(创建文件)', true);
 
   // 项目依赖解析
-  logTime('依赖解析(dependency resolution)');
+  logTime('DEPENDENCY(依赖解析)');
   const dependenciesOptions = {
     ts,
     eslint,
@@ -340,21 +346,21 @@ export async function \$init ({
 
   const installDevCli = defaultDepStr ? \`\${installDevCliPrefix} \${defaultDepStr}\` : '';
   const installCustomDevCli = customDepStr ? \`\${installDevCliPrefix} \${customDepStr}\` : '';
-  logTime('依赖解析(dependency resolution)', true);
+  logTime('DEPENDENCY(依赖解析)', true);
 
   // 项目依赖安装
   if (install) {
-    logTime('安装依赖(install dependency)');
+    logTime('INSTALL(安装依赖)');
     exec([
       installCli,
       installDevCli,
       installCustomDevCli
     ], res => {
-      logTime('安装依赖(install dependency)', true);
+      logTime('INSTALL(安装依赖)', true);
       success(res);
     }, error, isSlient);
   } else {
-    logTime('生成静态依赖文件(generate static dependency)');
+    logTime('STATIC(生成静态依赖文件)');
     const processDepStr = (str: string, prefix: string) => {
       if (!str) return '';
       let result = '';
@@ -384,7 +390,7 @@ export async function \$init ({
         devDependencies: processDepStr(\`\${defaultDepStr || ''} \${customDepStr || ''}\`, 'devDependencies')
       })
     });
-    logTime('生成静态依赖文件(generate static dependency)', true);
+    logTime('STATIC(生成静态依赖文件)', true);
     success([]);
   }
 }
@@ -430,8 +436,9 @@ export function \$new ({
   md?: MARKDOWN;
   tpls?: (tpls: TPLS_ORIGIN_NEW) => TPLS_NEW_RETURE;
 }) {
-  logTime('创建组件(create component)');
-  logInfo(\`开始创建 \${componentName} 组件 \(Start create \${componentName} component\)\`);
+  logTime('CREATE(创建组件)');
+  logInfo(\`Start create \${componentName} component\`);
+  logInfo(\`开始创建 \${componentName} 组件\`);
   let custom_tpl_new_list = {};
   try {
     custom_tpl_new_list = typeof tpls === 'function'
@@ -447,7 +454,8 @@ export function \$new ({
           return tpl && tpl(config);
         } catch (err) {
           logWarn(err);
-          logWarn(\`自定义模板 [\${name}] 解析出错，将使用默认模板进行创建组件！(The custom template [\${name}] parsing occured error, the default template will be used for initialization!)\`);    
+          logWarn(\`The custom template \"\${name}\" parsing occured error, the default template will be used for initialization!\`);
+          logWarn(\`自定义模板 \"\${name}\" 解析出错，将使用默认模板进行创建组件\`);
         }
 
         return tpls_new[name](config);
@@ -457,7 +465,8 @@ export function \$new ({
     }
   } catch (err_tpls) {
     logWarn(err_tpls);
-    logWarn('生成自定义模板出错，将全部使用默认模板进行创建组件！(The custom template generating occured error, all will be initializated with the default template!)');
+    logWarn('The custom template generating occured error, all will be initializated with the default template');
+    logWarn('生成自定义模板出错，将全部使用默认模板进行创建模块');
   }
   const tpl = { ...tpls_new, ...custom_tpl_new_list };
   const params = {
@@ -489,10 +498,11 @@ export function \$new ({
     }
   } catch (err) {
     logErr(\`\${err.name}: \${err.message} at \n\${err.stack}\`);
-    logErr('创建组件失败！(The process of create component failed!)');
+    logErr('The process of create component failed');
+    logErr('创建组件失败');
     process.exit(1);
   }
-  logTime('创建组件(create component)', true);
+  logTime('CREATE(创建组件)', true);
 }
 
 export default \$new;" > ${dirName}/src/new.ts

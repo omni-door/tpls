@@ -33,8 +33,9 @@ export function $new ({
   md?: MARKDOWN;
   tpls?: (tpls: TPLS_ORIGIN_NEW) => TPLS_NEW_RETURE;
 }) {
-  logTime('创建模块(create module)');
-  logInfo(`开始创建 ${componentName} 模块 (Start create ${componentName} module)`);
+  logTime('CREATE(创建模块)');
+  logInfo(`Start create ${componentName} module`);
+  logInfo(`开始创建 ${componentName} 模块`);
   let custom_tpl_new_list = {};
   try {
     custom_tpl_new_list = typeof tpls === 'function'
@@ -50,7 +51,8 @@ export function $new ({
           return tpl && tpl(config);
         } catch (err) {
           logWarn(err);
-          logWarn(`自定义模板 [${name}] 解析出错，将使用默认模板进行创建模块！(The custom template [${name}] parsing occured error, the default template will be used for initialization!)`);    
+          logWarn(`The custom template "${name}" parsing occured error, the default template will be used for initialization`);
+          logWarn(`自定义模板 "${name}" 解析出错，将使用默认模板进行创建组件`);
         }
 
         return tpls_new[name](config);
@@ -60,7 +62,8 @@ export function $new ({
     }
   } catch (err_tpls) {
     logWarn(err_tpls);
-    logWarn('生成自定义模板出错，将全部使用默认模板进行创建模块！(The custom template generating occured error, all will be initializated with the default template!)');
+    logWarn('The custom template generating occured error, all will be initializated with the default template');
+    logWarn('生成自定义模板出错，将全部使用默认模板进行创建模块');
   }
   const tpl = { ...tpls_new, ...custom_tpl_new_list };
   const params = {
@@ -69,7 +72,10 @@ export function $new ({
     componentName,
     md
   };
-  if (md === 'mdx') logInfo('暂不支持 mdx 文档格式，使用 md 代替！(Not support mdx format replace to md format!)');
+  if (md === 'mdx') {
+    logInfo('Not support mdx format replace to md format');
+    logInfo('暂不支持 mdx 文档格式，使用 md 代替');
+  }
 
   try {
     // component tpl
@@ -98,11 +104,12 @@ export function $new ({
     }
   } catch (err) {
     logErr(`${err.name}: ${err.message} at \n${err.stack}`);
-    logErr('创建模块失败！(The process of create module failed!)');
+    logErr('The process of create module failed');
+    logErr('创建模块失败');
     process.exit(1);
   }
   
-  logTime('创建模块(create module)', true);
+  logTime('CREATE(创建模块)', true);
 }
 
 export default $new;
