@@ -79,15 +79,8 @@ export async function $init ({
   tag,
   dependencies: dependencies_custom,
   devDependencies: devDependencies_custom,
-  error = () => {
-    logErr('The component-library project installation has been occured some error');
-    logErr('组件库项目安装失败');
-    process.exit(1);
-  },
-  success = () => {
-    logSuc('The component-library project installation has been completed');
-    logSuc('组件库项目安装完成');
-  }
+  error = () => process.exit(1),
+  success = () => {}
 }: InitOptions) {
   let installCliPrefix, installDevCliPrefix, installReadMe, runScript, paramScript;
 

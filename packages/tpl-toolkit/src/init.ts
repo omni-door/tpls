@@ -73,15 +73,8 @@ export async function $init ({
   tag,
   dependencies: dependencies_custom,
   devDependencies: devDependencies_custom,
-  error = () => {
-    logErr('The SDK-Tool project installation has been occured some error');
-    logErr('SDK工具库项目安装失败');
-    process.exit(1);
-  },
-  success = () => {
-    logSuc('The SDK-Tool project installation has been completed');
-    logSuc('SDK工具库项目安装完成');
-  }
+  error = () => process.exit(1),
+  success = () => {}
 }: InitOptions) {
   let installCliPrefix, installDevCliPrefix, installReadMe, runScript, paramScript;
 
