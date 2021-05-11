@@ -2,7 +2,7 @@ import { tplEngineInit } from '@omni-door/utils';
 
 const tpl = 
 `\`import { addDecorator, configure } from '@storybook/react';
-import { setOptions } from '@storybook/addon-options';
+import { withOptions } from '@storybook/addon-options';
 import { withConsole } from '@storybook/addon-console';
 import { addReadme } from 'storybook-readme';
 import { withInfo } from '@storybook/addon-info';
@@ -10,7 +10,7 @@ import { withInfo } from '@storybook/addon-info';
 addDecorator(withInfo);
 addDecorator((storyFn, context) => withConsole()(storyFn)(context));
 addDecorator(addReadme);
-setOptions({
+withOptions({
   name: '\${project_name}'
 });
 
