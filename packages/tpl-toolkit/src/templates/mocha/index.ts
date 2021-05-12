@@ -2,7 +2,7 @@ import { tplEngineInit } from '@omni-door/utils';
 
 const tpl = 
 `\`# mocha.opts
-\${ts ? \`--require ts-node/register
+\${ts ? \`--require mocha.ts-node.js
 --require tsconfig-paths/register
 --reporter spec\` : '--reporter spec'}
 src/**/__test__/*.\${ts ? 'ts' : 'js'}

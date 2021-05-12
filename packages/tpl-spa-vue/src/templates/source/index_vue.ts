@@ -8,8 +8,7 @@ import 'amfe-flexible';\` : ''}
 import { createApp } from 'vue';
 import App from './App.vue';
 import routes from './routes';
-\${style ? \`import styles from './index.\${style === 'all' ? 'scss' : style}';
-import './reset.\${style === 'all' ? 'scss' : style}';\` : ''}
+\${style ? \`import './reset.\${style === 'all' ? 'scss' : style}';\` : ''}
 
 createApp(App).use(routes).mount('#root');
 

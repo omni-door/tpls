@@ -57,7 +57,8 @@ export async function devDependencies (strategy: STRATEGY, config: Config) {
     dependency('karma-opera-launcher'),
     dependency('karma-safari-launcher'),
     dependency('karma-typescript'),
-    dependency('karma-webpack')
+    dependency('karma-webpack'),
+    dependency('webpack')
   ] : [];
 
   const testTypesDependencies = test ? [
