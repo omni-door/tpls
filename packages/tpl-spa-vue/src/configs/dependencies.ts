@@ -66,7 +66,6 @@ export async function devDependencies (strategy: STRATEGY, config: Config) {
   const babelDependencies = [
     dependency('@babel/core'),
     dependency('@babel/preset-env'),
-    dependency('@babel/preset-react'),
     ts ? dependency('@babel/preset-typescript') : ''
   ];
 

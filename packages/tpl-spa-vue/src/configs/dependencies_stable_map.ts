@@ -9,7 +9,6 @@ export const dependencies = {
 export const devDependencies = {
   '@babel/core': '~7.12.10',
   '@babel/preset-env': '~7.12.11',
-  '@babel/preset-react': '~7.12.10',
   '@babel/preset-typescript': '~7.12.7',
   '@commitlint/cli': '8.3.5',
   '@omni-door/cli': 'latest',
