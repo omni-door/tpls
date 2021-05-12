@@ -2,7 +2,10 @@ import { tplEngineInit } from '@omni-door/utils';
 
 const tpl = 
 `\`export function getTs () {
-  return (Date.now && +Date.now()) || new Date().getTime();
+  return (
+    (Date.now && +Date.now()) ||
+    new Date().getTime()
+  );
 }
 
 export default getTs;
