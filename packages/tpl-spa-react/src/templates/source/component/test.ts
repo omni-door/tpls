@@ -11,7 +11,7 @@ configure({ adapter: new Adapter() });
 describe('\${componentName}', () => {
   it('renders correctly', () => {
     const wrapper = render(
-      <\${componentName} match={{ params: { id: 3 } }} />
+      <\${componentName} \${ts ? \`history={{} as any} location={{} as any} match={{} as any}\` : ''} />
     );
     expect(wrapper).toMatchSnapshot();
   });

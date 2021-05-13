@@ -15,7 +15,7 @@ export interface \${componentName}States {}
 \` : '' }
 export class \${componentName} extends PureComponent\${ts ? \`<\${componentName}Props, \${componentName}States>\` : ''} {
   \${ts ? 'public ' : ''}render() {
-    const { match: { params } } = this.props;
+    const { match: { params = {} } = {} } = this.props || {};
 
     return (
       <div
