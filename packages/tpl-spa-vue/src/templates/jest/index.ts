@@ -2,6 +2,7 @@ import { tplEngineInit } from '@omni-door/utils';
 
 const tpl = 
 `\`\${use_strict}
+const path = require('path');
 
 module.exports = {
   clearMocks: true,
