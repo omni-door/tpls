@@ -1,8 +1,3 @@
-const tpl = 
-`\`
-  transform: {
-    "^.+\\.(vue|tsx|ts)?$": "ts-jest"
-  },
-\``;
+const tpl = `\`"^.+\\.ts?$": "ts-jest",\``;
 
 export default tpl;

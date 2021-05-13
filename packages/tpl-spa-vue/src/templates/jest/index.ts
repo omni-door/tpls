@@ -11,24 +11,24 @@ module.exports = {
 
   moduleFileExtensions: [
     "js",
-    "json",
-    "jsx",
     "ts",
-    "tsx",
-    "vue",
-    "node"
+    "json",
+    "vue"
   ],
 
   roots: [
     "<rootDir>/../src"
   ],
 
-  testRegex: "(test|__test__)/.*.test.(vue|tsx|ts|jsx|js)?$",
+  testRegex: "(test|__test__)/.*.test.(vue|ts|js)?$",
 
-  \${alter('ts', 'ts_jest')}
+  transform: {
+    \${alter('ts', 'ts_jest')}
+    '^.+\\.vue$': 'vue-jest'
+  },
 
   moduleNameMapper: {
-    '^.+\\.vue$': 'vue-jest',
+    "^@/(.*)$": "<rootDir>/src/$1",
     "^.+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "jest-transform-stub"
   }
 };
