@@ -1,5 +1,4 @@
 import { tplEngineInit } from '@omni-door/utils';
-import ts_jest from './ts_jest';
 
 const tpl = 
 `\`\${use_strict}
@@ -23,8 +22,8 @@ module.exports = {
   testRegex: "(test|__test__)/.*.test.(vue|ts|js)?$",
 
   transform: {
-    \${alter('ts', 'ts_jest')}
-    '^.+\\.vue$': 'vue-jest'
+    \${ts ? \`"^.+.(tsx|ts)?$": "ts-jest",\` : \`"^.+.(jsx|js)?$": ["babel-jest", { configFile: path.resolve(__dirname, "babel.config.js") }],\` }
+    "^.+\\.vue$": "vue-jest"
   },
 
   moduleNameMapper: {
@@ -35,8 +34,7 @@ module.exports = {
 \``;
 
 export const tpl_jest = {
-  tpl,
-  ts_jest
+  tpl
 };
 
 export default tplEngineInit(tpl_jest, 'tpl');

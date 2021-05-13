@@ -1,4 +1,5 @@
 import { expect } from 'chai';
+import type { PROJECT_TYPE, STRATEGY, STYLE, LAYOUT } from '@omni-door/utils';
 import tpl_babel from '../babel';
 import tpl_commitlint from '../commitlint';
 import tpl_editor from '../editor';
@@ -17,6 +18,21 @@ import tpl_readme from '../readme';
 import tpl_stylelint from '../stylelint';
 import tpl_tsconfig from '../tsconfig';
 import tpl_vscode from '../vsc';
+
+const params_entire = { 
+  project_type: 'spa-react' as PROJECT_TYPE,
+  project_name: 'test-project',
+  ts: true,
+  test: true,
+  eslint: true,
+  prettier: true,
+  layout: 'viewport' as LAYOUT,
+  commitlint: true,
+  style: 'less' as STYLE,
+  stylelint: true,
+  strategy: 'stable' as STRATEGY,
+  configFileName: 'omni.config.js'
+};
 
 describe('[tpl-spa-react]: tpl_babel template test', function () {
   it('type checking', function () {
@@ -63,6 +79,8 @@ describe('[tpl-spa-react]: tpl_index template test', function () {
 describe('[tpl-spa-react]: tpl_jest template test', function () {
   it('type checking', function () {
     expect(tpl_jest).to.be.a('function');
+    const data = tpl_jest(params_entire);
+    expect(data).to.be.a('string');
   });
 });
 

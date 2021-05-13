@@ -33,6 +33,7 @@ export const devDependencies = {
   '@zeit/next-css': '~1.0.1',
   '@zeit/next-less': '~1.0.1',
   '@zeit/next-sass': '~1.0.1',
+  "babel-jest": "~26.6.3",
   'http-proxy-middleware': '0.20.0',
   'next-compose-plugins': '~2.2.0',
   'next-transpile-modules': '~4.0.2',

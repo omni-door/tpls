@@ -95,12 +95,12 @@ export async function devDependencies (strategy: STRATEGY, config: Config) {
     dependency('vue-jest'),
     dependency('@vue/test-utils'),
     dependency('jest'),
-    dependency('jest-transform-stub')
+    dependency('jest-transform-stub'),
+    ts ? dependency('ts-jest') : dependency('babel-jest')
   ] : [];
 
   const testTypesDependencies = test ? [
-    dependency('@types/jest'),
-    dependency('ts-jest')
+    dependency('@types/jest')
   ] : [];
 
   const tsDependencies = ts ? [

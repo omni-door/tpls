@@ -1,5 +1,4 @@
 import { tplEngineInit } from '@omni-door/utils';
-import ts_jest from './ts_jest';
 
 const tpl = 
 `\`\${use_strict}
@@ -24,7 +23,9 @@ module.exports = {
 
   testRegex: "(test|__test__)/.*.test.(tsx|ts|jsx|js)?$",
 
-  \${alter('ts', 'ts_jest')}
+  transform: {
+    \${ts ? \`"^.+.(tsx|ts)?$": "ts-jest"\` : \`"^.+.(jsx|js)?$": "babel-jest"\` }
+  },
 
   moduleNameMapper: {
     "^.+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "jest-transform-stub"
@@ -33,8 +34,7 @@ module.exports = {
 \``;
 
 export const tpl_jest = {
-  tpl,
-  ts_jest
+  tpl
 };
 
 export default tplEngineInit(tpl_jest, 'tpl');

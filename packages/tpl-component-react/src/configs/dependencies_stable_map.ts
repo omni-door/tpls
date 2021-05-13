@@ -24,6 +24,7 @@ export const devDependencies = {
   '@types/vfile-message': '1.0.1', // 和 docz、bisheng 版本强相关，一定要确保一致性，否则打包时易出错
   '@typescript-eslint/eslint-plugin': '~3.8.0',
   '@typescript-eslint/parser': '~3.8.0',
+  "babel-jest": "~26.6.3",
   'babel-loader': '~8.1.0',
   'css-loader': '~3.4.2',
   'del': '5.1.0',

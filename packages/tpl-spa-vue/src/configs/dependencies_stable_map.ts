@@ -22,6 +22,7 @@ export const devDependencies = {
   '@vue/eslint-config-typescript': '~7.0.0',
   '@vue/test-utils': 'next',
   'autoprefixer': '~10.2.1',
+  "babel-jest": "~26.6.3",
   'babel-loader': '~8.2.2',
   'css-loader': '~5.0.1',
   'cssnano': '4.1.10',

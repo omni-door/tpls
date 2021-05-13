@@ -27,7 +27,7 @@ import component_test from '../new/test';
 const params_entire = { 
   project_type: 'spa-vue' as PROJECT_TYPE,
   project_name: 'test-project',
-  ts: false,
+  ts: true,
   test: true,
   eslint: true,
   prettier: true,

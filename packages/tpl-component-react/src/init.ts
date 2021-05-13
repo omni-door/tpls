@@ -189,7 +189,7 @@ export async function $init ({
       '.prettierignore': prettier && tpl.prettierignore(params),
       'stylelint.config.js': stylelint && tpl.stylelint(params),
       'commitlint.config.js': commitlint && tpl.commitlint(params),
-      'babel.config.js': (devServer === 'storybook' || devServer === 'styleguidist') && tpl.babel(params), // build file
+      'babel.config.js': (!ts || devServer === 'storybook' || devServer === 'styleguidist') && tpl.babel(params), // build file
       'README.md': tpl.readme({ ...params, install: installReadMe, runScript, paramScript }), // ReadMe
       // server files
       'src/index.mdx': devServer === 'docz' && tpl.mdx(params),
