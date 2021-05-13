@@ -23,13 +23,13 @@ module.exports = {
   testRegex: "(test|__test__)/.*.test.(vue|ts|js)?$",
 
   transform: {
-    \${ts ? \`"^.+.(tsx|ts)?$": "ts-jest",\` : \`"^.+.(jsx|js)?$": ["babel-jest", { configFile: path.resolve(__dirname, "babel.config.js") }],\` }
-    "^.+\\.vue$": "vue-jest"
+    \${ts ? \`"^.+.ts$": "ts-jest",\` : \`"^.+.js$": ["babel-jest", { configFile: path.resolve(__dirname, "babel.config.js") }],\` }
+    "^.+.vue$": "vue-jest"
   },
 
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/src/$1",
-    "^.+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "jest-transform-stub"
+    "^.+.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "jest-transform-stub"
   }
 };
 \``;

@@ -11,7 +11,7 @@ configure({ adapter: new Adapter() });
 describe('\${componentName}', () => {
   it('renders correctly', () => {
     const wrapper = render(
-      <\${componentName} />
+      <\${componentName} match={{ params: { id: 3 } }} />
     );
     expect(wrapper).toMatchSnapshot();
   });
