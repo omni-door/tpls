@@ -12,6 +12,7 @@ English | [简体中文](./README.zh-CN.md)
 | name | description |
 | --- | --- |
 | [@omni-door/tpl-component-react](https://github.com/omni-door/tpls/tree/master/packages/tpl-component-react#readme) | React-Component-Library template |
+| [@omni-door/tpl-component-vue](https://github.com/omni-door/tpls/tree/master/packages/tpl-component-vue#readme) | Vue-Component-Library template |
 | [@omni-door/tpl-spa-react](https://github.com/omni-door/tpls/tree/master/packages/tpl-spa-react#readme) | React Single-Application-App template |
 | [@omni-door/tpl-spa-vue](https://github.com/omni-door/tpls/tree/master/packages/tpl-spa-vue#readme) | Vue Single-Application-App template |
 | [@omni-door/tpl-ssr-react](https://github.com/omni-door/tpls/tree/master/packages/tpl-ssr-react#readme) | React Server-Side-Render-App template |
