@@ -80,7 +80,7 @@ module.exports = {
     // 样式文件类型 (stylesheet type)
     stylesheet: '\${style === 'all' ? 'scss' : style}',
 
-    // [是否生成ReadMe文件, 创建md 或 mdx文件] ([whether or not README.md, generate mdx or md file])
+    // [是否生成README文件, md 或 mdx 后缀] ([whether or not README generate file,  mdx or md suffix])
     readme: [true, \${devServer === 'docz' ? "'mdx'" : "'md'"}]
   },
 

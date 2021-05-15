@@ -11,7 +11,6 @@ import {
   tpls_origin_new
 } from './templates';
 /* import types */
-import type { MARKDOWN } from '@omni-door/utils';
 import type {
   TPLS_ORIGIN_NEW,
   TPLS_NEW_FN,
@@ -30,7 +29,7 @@ export function $new ({
   test: boolean;
   componentName: string;
   newPath: string;
-  md?: MARKDOWN;
+  md?: boolean;
   tpls?: (tpls: TPLS_ORIGIN_NEW) => TPLS_NEW_RETURE;
 }) {
   logTime('CREATE(创建模块)');
@@ -69,13 +68,8 @@ export function $new ({
   const params = {
     ts,
     test,
-    componentName,
-    md
+    componentName
   };
-  if (md === 'mdx') {
-    logInfo('Not support mdx format replace to md format');
-    logInfo('暂不支持 mdx 文档格式，使用 md 代替');
-  }
 
   try {
     // component tpl

@@ -79,8 +79,8 @@ module.exports = {
     // 样式文件类型 (stylesheet type)
     stylesheet: '\${style === 'all' ? 'scss' : style}',
 
-    // [是否生成ReadMe文件, 创建md 或 mdx文件] ([whether or not README.md, generate mdx or md file])
-    readme: [true, \${devServer === 'docz' ? "'mdx'" : "'md'"}]
+    // 是否生成README.md (whether or not generate README.md)
+    readme: true
   },
 
   plugins: []

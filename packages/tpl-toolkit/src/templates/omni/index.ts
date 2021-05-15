@@ -83,8 +83,8 @@ module.exports = {
     // 是否创建单元测试文件 (whether or not generate unit test frame)
     test: \${!!test},
 
-    // [是否生成ReadMe文件, 创建md 或 mdx文件] ([whether or not README.md, generate mdx or md file])
-    readme: [true, 'md']
+    // 是否生成README.md (whether or not generate README.md)
+    readme: true
   },
 
   plugins: []

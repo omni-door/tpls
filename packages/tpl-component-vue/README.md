@@ -1,5 +1,5 @@
 # 🐸 @omni-door/tpl-component-vue
-The component-vue project template
+The Vue Component project template
 
 [![NPM downloads](http://img.shields.io/npm/dm/%40omni-door%2Ftpl-component-vue.svg?style=flat-square)](https://www.npmjs.com/package/@omni-door/tpl-component-vue)
 [![npm version](https://badge.fury.io/js/%40omni-door%2Ftpl-component-vue.svg)](https://badge.fury.io/js/%40omni-door%2Ftpl-component-vue)
@@ -16,7 +16,19 @@ The component-vue project template
 ## Templates
 | folder | file |
 | --- | --- |
+| babel | babel.config.js |
+| commitlint | commitlint.config.js |
+| editor | .editorconfig |
+| eslint | .eslintrc.js |
+| ignore | .eslintignore & .gitignore & .npmignore & .prettierignore |
+| jest | jest.config.js |
 | new | the standard templates for `omni new` command |
 | omni | omni.config.js |
 | package | package.json |
+| prettier | prettier.config.js |
 | readme | README.md |
+| source | the standard templates in `src` folder |
+| storybook | .storybook/config.js & .storybook/addons.js & .storybook/manager-head.html & .storybook/webpack.config.js |
+| stylelint | stylelint.config.js |
+| tsconfig | tsconfig.json |
+| vsc | .vscode/settings.json |

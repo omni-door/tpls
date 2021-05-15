@@ -1,5 +1,5 @@
 # 🐸 @omni-door/tpl-component-react
-The React component-react project template
+The React Component project template
 
 [![NPM downloads](http://img.shields.io/npm/dm/%40omni-door%2Ftpl-component-react.svg?style=flat-square)](https://www.npmjs.com/package/@omni-door/tpl-component-react)
 [![npm version](https://badge.fury.io/js/%40omni-door%2Ftpl-component-react.svg)](https://badge.fury.io/js/%40omni-door%2Ftpl-component-react)
