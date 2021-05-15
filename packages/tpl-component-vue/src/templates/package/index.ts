@@ -31,8 +31,8 @@ const tpl =
   "peerDependencies": {
     "vue": "2.6.x"
   },
-  \${\!install \? dependencies \: }
-  \${\!install \? devDependencies \: }
+  \${!install ? dependencies : ""}
+  \${!install ? devDependencies : ""}
   "license": "ISC"
 }
 \``;

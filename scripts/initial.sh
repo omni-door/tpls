@@ -598,8 +598,8 @@ const tpl =
   },
   "keywords": [],
   "author": "",
-  \${\!install \? dependencies \: ''}
-  \${\!install \? devDependencies \: ''}
+  \${!install ? dependencies : ""}
+  \${!install ? devDependencies : ""}
   "omni": {
     "filePath": "./configs/omni.config.js"
   },
