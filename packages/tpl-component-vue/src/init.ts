@@ -34,6 +34,7 @@ export type InitOptions = {
   initPath: string;
   configFileName?: string;
   git?: string;
+  npm?: string;
   ts: boolean;
   test: boolean;
   eslint: boolean;
@@ -58,6 +59,7 @@ export async function $init ({
   initPath,
   configFileName = 'omni.config.js',
   git = '',
+  npm = '',
   ts,
   test,
   eslint,
@@ -159,7 +161,7 @@ export async function $init ({
   try {
     const pathToFileContentMap = {
       // default files
-      [`${configFileName}`]: tpl.omni({ ...params, git }),
+      [`${configFileName}`]: tpl.omni({ ...params, npm, git }),
       'package.json': install && tpl.pkj({ ...params, install, dependencies: '', devDependencies: '' }),
       '.gitignore': tpl.gitignore(params),
       '.npmignore': tpl.npmignore(params),
