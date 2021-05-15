@@ -20,11 +20,11 @@ module.exports = {
 
     // 输入路径 (the build source directory)
     // 务必使用绝对路径 (must be a absolute path)
-    srcDir: path.resolve(__dirname, '../src'),
+    srcDir: path.resolve('src'),
 
     // 输出路径 (the directory for compiled project)
     // 务必使用绝对路径 (must be a absolute path)
-    outDir: path.resolve(__dirname, '../dist'),
+    outDir: path.resolve('lib'),
 
     // es6 module输出路径 (es6 module compiled directory)
     // 务必使用绝对路径 (must be a absolute path)

@@ -26,7 +26,6 @@ module.exports = {
   },
   parser: 'vue-eslint-parser',
   parserOptions: {
-    ecmaFeatures: {
     \${alter('ts', 'parser_typescript')}
     ecmaVersion: 2020,
     sourceType: 'module',

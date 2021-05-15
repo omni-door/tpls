@@ -20,8 +20,7 @@ export default {
 
 \${style ? \`<style lang="\${style === 'all' ? 'scss' : style}">
 @import './style/\${componentName}.\${style === 'all' ? 'scss' : style}';
-</style>\` : ''}
-\``;
+</style>\` : ''}\``;
 
 export const tpl_new_component = {
   tpl
