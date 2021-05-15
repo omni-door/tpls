@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@omni-door/utils@~1.2.2":
-  version "1.2.2"
-  resolved "https://registry.npmjs.org/@omni-door/utils/-/utils-1.2.2.tgz#e7b28902b8bc2eff415d3a4f80dae09113ab1bb9"
-  integrity sha512-JZTZxJBus9wkeNkiR8qPLcGqGh5tgjpRxkYD5tqgncOC2/T8SL2Mbl+Odf3cBhLsgQ0wSZGXjnGZdURXsd2flw==
+"@omni-door/utils@~1.2.6":
+  version "1.2.6"
+  resolved "https://registry.npmjs.org/@omni-door/utils/-/utils-1.2.6.tgz#c459f67e80c1bedd794ff48765c967760e5570ad"
+  integrity sha512-xOu+34UzabmHOZix+PJorbt5pJ8cHGKCGZoZObQ82e6/Oye3yLrntZ9AbmgJmVDSOHsXZa3jptBapA0yO/GpiQ==
   dependencies:
     "@types/signale" "1.4.0"
     chalk "3.0.0"

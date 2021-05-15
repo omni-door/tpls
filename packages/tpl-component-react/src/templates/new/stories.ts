@@ -11,7 +11,7 @@ import { \${componentName} } from '../index';
 storiesOf('\${componentName}', module)
   .addParameters({
     readme: {
-      sidebar: require('../README.md').default,
+      \${md ? \`sidebar: require('../README.md').default,\` : ''}
       highlightSidebar: true,
       codeTheme: 'github'
     },

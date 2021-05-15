@@ -4,12 +4,12 @@ const tpl =
 `\`import { storiesOf } from '@storybook/vue';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { themes } from '@storybook/theming';
-import { \${componentName} } from '../index';
+import \${componentName} from '../index';
 
 storiesOf('\${componentName}', module)
   .addParameters({
     readme: {
-      sidebar: require('../README.md').default,
+      \${md ? \`sidebar: require('../README.md').default,\` : ''}
       highlightSidebar: true,
       codeTheme: 'github'
     },

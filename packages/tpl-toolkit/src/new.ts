@@ -68,7 +68,8 @@ export function $new ({
   const params = {
     ts,
     test,
-    componentName
+    componentName,
+    md
   };
 
   try {

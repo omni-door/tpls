@@ -72,7 +72,8 @@ export function $new ({
     ts,
     test,
     componentName,
-    style: stylesheet
+    style: stylesheet,
+    md
   };
 
   try {
