@@ -8,17 +8,14 @@ const tpl =
 </template>
 
 <script \${ts ? 'lang="ts"' : ''}>
-import { defineComponent } from 'vue';
-
-export default defineComponent({
-  name: '\${componentName}',
+export default {
   props: {
     msg: {
       type: String,
       default: ''
     }
   }
-});
+};
 </script>
 
 \${style ? \`<style lang="\${style === 'all' ? 'scss' : style}">
