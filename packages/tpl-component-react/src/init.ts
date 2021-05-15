@@ -6,7 +6,6 @@ import {
   outputFile,
   logErr,
   logWarn,
-  logSuc,
   logTime,
   logInfo
 } from '@omni-door/utils';

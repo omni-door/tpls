@@ -78,12 +78,30 @@ export function $new ({
   if (md === 'mdx') logInfo('暂不支持 mdx 文档格式，使用 md 代替！(Not support mdx format replace to md format!)');
 
   try {
-    // component tpl
-    const content_readme = md && tpl.component_readme(params);
-
-    const pathToFileContentMap = {
-      'README.md': content_readme
-    };
+     // component tpl
+     const content_index = tpl.component_index(params);
+     const content_component = tpl.component(params);
+     const content_readme = md === 'md' && tpl.component_readme(params);
+     const content_stories = tpl.component_stories(params);
+     const content_stylesheet = stylesheet && tpl.component_stylesheet(params);
+     const content_test = test && tpl.component_test(params);
+ 
+     const pathToFileContentMap = {
+       [`index.${ts ? 'ts' : 'js'}`]: content_index,
+       [`${componentName}.vue`]: content_component,
+       [`style/${componentName}.${stylesheet}`]: content_stylesheet,
+       [`__test__/index.test.${
+         ts
+           ? 'ts'
+           : 'js'
+       }`]: content_test,
+       [`__stories__/index.stories.${
+         ts
+           ? 'ts'
+           : 'js'
+       }`]: content_stories,
+       'README.md': content_readme
+     };
 
     /**
     * create files

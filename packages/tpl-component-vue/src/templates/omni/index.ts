@@ -4,15 +4,13 @@ const tpl =
 `\`\${use_strict}
 
 const path = require('path');
-const { merge } = require('webpack-merge');
 
 module.exports = {
   type: '\${project_type}', // 项目类型，请勿任意变动 (project type, please don't modify)
 
   dev: {
     port: 6200, // 开发服务端口号 (dev-server port)
-    // host: 'dev.domain.com', // 开发服务端host (dev-server host)
-    // https: true, // 以https协议启动开发服务 (start dev-server with https)
+    // host: 'dev.domain.com' // 开发服务端host (dev-server host)
   },
 
   build: {
@@ -27,12 +25,9 @@ module.exports = {
     // 务必使用绝对路径 (must be a absolute path)
     outDir: path.resolve(__dirname, '../dist'),
 
-    // 构建的资源是否加上hash，可选 'hash'、'contenthash'、'chunkhash' (whether the hash tag add to building result)
-    hash: true,
-
-    // 构建阶段的自定义配置回调 (The callback will be call in the build-process)
-    // 返回自定义的配置 (You can return your custom build configuration)
-    configuration: config => merge(config, require(path.resolve(__dirname, 'webpack.config.prod.js'))),
+    // es6 module输出路径 (es6 module compiled directory)
+    // 务必使用绝对路径 (must be a absolute path)
+    esmDir: path.resolve('es'),
 
     reserve: {
       assets: [] // 构建结果保留其他资源的路径 (reserve other asset paths)
@@ -48,7 +43,18 @@ module.exports = {
   },
 
   release: {
-    git: '\${git}', // 发布的git仓库地址 (project git repo url)
+    // 发布之前是否自动构建项目 (auto build project before release process)
+    autoBuild: false,
+
+    // 发布到npm仓库时，根据当前版本号自动设置 tag (auto set tag according to the current version)
+    autoTag: false,
+
+    // 发布的git仓库地址 (project git repo url)
+    git: '\${git}',
+
+    // 发布的npm仓库地址 (npm depository url)
+    npm: '\${npm}',
+
     preflight: {
       test: \${!!test}, // 发布前是否进行单元测试 (whether or not process unit-test)
       eslint: \${!!eslint}, // 发布前是否进行eslint检测 (whether or not process eslint checking)
@@ -62,7 +68,7 @@ module.exports = {
   template: {
     // 生成模板的根路径 (the root directory for generate template)
     // 务必使用绝对路径 (must be a absolute path)
-    root: path.resolve(__dirname, '../src'),
+    root: path.resolve('src'),
 
     // 是否创建ts文件 (whether or not generate typescript)
     typescript: \${!!ts},
@@ -71,7 +77,10 @@ module.exports = {
     test: \${!!test},
 
     // 样式文件类型 (stylesheet type)
-    stylesheet: '\${style === 'all' ? 'scss' : style}'
+    stylesheet: '\${style === 'all' ? 'scss' : style}',
+
+    // [是否生成ReadMe文件, 创建md 或 mdx文件] ([whether or not README.md, generate mdx or md file])
+    readme: [true, \${devServer === 'docz' ? "'mdx'" : "'md'"}]
   },
 
   plugins: []

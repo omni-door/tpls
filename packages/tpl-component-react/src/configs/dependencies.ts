@@ -233,7 +233,7 @@ export async function devDependencies(strategy: STRATEGY, config: Config) {
     devServerDepArr: devServerDependencies,
     devServerDepStr: arr2str(devServerDependencies),
     buildDepArr: buildDependencies,
-    buildDepStr: arr2str(buildDependencies),
+    buildDepStr: arr2str(buildDependencies)
   };
 }
 

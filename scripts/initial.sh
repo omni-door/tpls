@@ -114,7 +114,6 @@ import {
   intersection,
   logWarn,
   logErr,
-  logSuc,
   logTime,
   exec,
   outputFile,

@@ -1,4 +1,6 @@
-export const dependencies = {};
+export const dependencies = {
+  'classnames': '~2.2.6'
+};
 
 export const devDependencies = {
   "@babel/core": "~7.10.0",
@@ -42,6 +44,7 @@ export const devDependencies = {
   "gulp-if": "3.0.0",
   "gulp-less": "4.0.1",
   "gulp-minify-css": "1.2.4",
+  'gulp-sass': '4.1.0',
   "gulp-sourcemaps": "3.0.0",
   "gulp-ts-alias": "1.1.0",
   "gulp-typescript": "5.0.1",
@@ -52,9 +55,10 @@ export const devDependencies = {
   "less": "3.11.1",
   "less-loader": "~5.0.0",
   "lint-staged": "10.0.7",
+  'node-sass': '~4.13.1',
   "prettier": "~2.1.2",
-  "prop-types": "^15.7.2",
   "storybook-readme": "5.0.8",
+  'sass-loader': '~8.0.2',
   "style-loader": "~1.1.3",
   "stylelint": "13.2.0",
   "stylelint-config-css-modules": "2.2.0",
@@ -63,6 +67,7 @@ export const devDependencies = {
   "stylelint-config-standard": "20.0.0",
   "stylelint-declaration-block-no-ignored-properties": "2.2.0",
   "stylelint-order": "4.0.0",
+  'stylelint-scss': '3.14.2',
   "through2": "4.0.1",
   "ts-jest": "25.2.0",
   "ts-node": "8.6.2",

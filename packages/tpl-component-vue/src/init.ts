@@ -4,7 +4,6 @@ import {
   intersection,
   logWarn,
   logErr,
-  logSuc,
   logTime,
   exec,
   outputFile,
@@ -14,7 +13,6 @@ import {
   tpls_origin_init
 } from './templates';
 import { dependencies, devDependencies } from './configs/dependencies';
-import { devDependencies as devDependencyMap } from './configs/dependencies_stable_map';
 /* import types */
 import type {
   PKJTOOL,
@@ -152,12 +150,32 @@ export async function $init ({
   const suffix_stylesheet = style && style === 'all' ? 'scss' : style;
   try {
     const pathToFileContentMap = {
-      // package.json
+      // default files
+      [`${configFileName}`]: tpl.omni({ ...params, git }),
       'package.json': install && tpl.pkj({ ...params, install, dependencies: '', devDependencies: '' }),
-      // ReadMe
-      'README.md': tpl.readme({ ...params, install: installReadMe, runScript, paramScript }),
+      '.gitignore': tpl.gitignore(params),
+      '.npmignore': tpl.npmignore(params),
+      [`src/index.${ts ? 'ts' : 'js'}`]: tpl.source_index(params),
+      [`src/utils/classnames.${ts ? 'ts' : 'js'}`]: tpl.source_classnames(params),
+      '@types/global.d.ts': ts && tpl.source_d(params), // d.ts files
+      'tsconfig.json': ts && tpl.tsconfig(params), // tsconfig
+      'jest.config.js': test && tpl.jest(params), // test files
       // lint files
-      '.vscode/settings.json': tpl.vscode(params)
+      '.vscode/settings.json': tpl.vscode(params),
+      '.editorconfig': (eslint || prettier) && tpl.editor(params),
+      '.eslintrc.js': eslint && tpl.eslint(params),
+      '.eslintignore': eslint && tpl.eslintignore(params),
+      'prettier.config.js': prettier && tpl.prettier(params),
+      '.prettierignore': prettier && tpl.prettierignore(params),
+      'stylelint.config.js': stylelint && tpl.stylelint(params),
+      'commitlint.config.js': commitlint && tpl.commitlint(params),
+      'babel.config.js': tpl.babel(params), // build file
+      'README.md': tpl.readme({ ...params, install: installReadMe, runScript, paramScript }), // ReadMe
+      // server files
+      '.storybook/addons.js': tpl.storybook_addons(params),
+      '.storybook/config.js': tpl.storybook_config(params),
+      '.storybook/manager-head.html': tpl.storybook_mhead(params),
+      '.storybook/webpack.config.js': tpl.storybook_webpack(params)
     };
     const file_path = (p: string) => path.resolve(initPath, p);
     for (const p in pathToFileContentMap) {
@@ -208,8 +226,33 @@ export async function $init ({
   let {
     defaultDepArr,
     defaultDepStr,
+    tsDepArr,
+    tsDepStr,
+    testDepStr,
+    testDepArr,
+    eslintDepArr,
+    eslintDepStr,
+    prettierDepArr,
+    prettierDepStr,
+    commitlintDepArr,
+    commitlintDepStr,
+    stylelintDepArr,
+    stylelintDepStr,
+    devServerDepArr,
+    devServerDepStr,
+    buildDepArr,
+    buildDepStr,
     devDepArr
-  } = await devDependencies(strategy, dependenciesOptions);
+  } = await devDependencies(strategy, {
+    ts,
+    eslint,
+    prettier,
+    commitlint,
+    style,
+    stylelint,
+    test,
+    tag
+  });
 
   let customDepStr;
   if (typeof devDependencies_custom === 'function') {
@@ -221,13 +264,37 @@ export async function $init ({
       for (let i = 0; i < remove.length; i++) {
         const item_rm = remove[i];
         defaultDepArr = [ ...intersection(defaultDepArr, defaultDepArr.filter(v => v !== item_rm)) ];
+        tsDepArr = [ ...intersection(tsDepArr, tsDepArr.filter(v => v !== item_rm)) ];
+        testDepArr = [ ...intersection(testDepArr, testDepArr.filter(v => v !== item_rm)) ];
+        eslintDepArr = [ ...intersection(eslintDepArr, eslintDepArr.filter(v => v !== item_rm)) ];
+        prettierDepArr = [ ...intersection(prettierDepArr, prettierDepArr.filter(v => v !== item_rm)) ];
+        commitlintDepArr = [ ...intersection(commitlintDepArr, commitlintDepArr.filter(v => v !== item_rm)) ];
+        stylelintDepArr = [ ...intersection(stylelintDepArr, stylelintDepArr.filter(v => v !== item_rm)) ];
+        devServerDepArr = [ ...intersection(devServerDepArr, devServerDepArr.filter(v => v !== item_rm)) ];
+        buildDepArr = [ ...intersection(buildDepArr, buildDepArr.filter(v => v !== item_rm)) ];
       }
       defaultDepStr = arr2str(defaultDepArr);
+      tsDepStr = arr2str(tsDepArr);
+      testDepStr = arr2str(testDepArr);
+      eslintDepStr = arr2str(eslintDepArr);
+      prettierDepStr = arr2str(prettierDepArr);
+      commitlintDepStr = arr2str(commitlintDepArr);
+      stylelintDepStr = arr2str(stylelintDepArr);
+      devServerDepStr = arr2str(devServerDepArr);
+      buildDepStr = arr2str(buildDepArr);
       customDepStr = arr2str(add);
     }
   }
 
   const installDevCli = defaultDepStr ? `${installDevCliPrefix} ${defaultDepStr}` : '';
+  const installTsDevCli = tsDepStr ? `${installDevCliPrefix} ${tsDepStr}` : '';
+  const installTestDevCli = testDepStr ? `${installDevCliPrefix} ${testDepStr}` : '';
+  const installEslintDevCli = eslintDepStr ? `${installDevCliPrefix} ${eslintDepStr}` : '';
+  const installPrettierDevCli = prettierDepStr ? `${installDevCliPrefix} ${prettierDepStr}` : '';
+  const installCommitlintDevCli = commitlintDepStr ? `${installDevCliPrefix} ${commitlintDepStr}` : '';
+  const installStylelintDevCli = stylelintDepStr ? `${installDevCliPrefix} ${stylelintDepStr}` : '';
+  const installServerDevCli = devServerDepStr ? `${installDevCliPrefix} ${devServerDepStr}` : '';
+  const installBuildDevCli = buildDepStr ? `${installDevCliPrefix} ${buildDepStr}` : '';
   const installCustomDevCli = customDepStr ? `${installDevCliPrefix} ${customDepStr}` : '';
   logTime('DEPENDENCY(依赖解析)', true);
 
@@ -237,6 +304,14 @@ export async function $init ({
     exec([
       installCli,
       installDevCli,
+      installTsDevCli,
+      installTestDevCli,
+      installEslintDevCli,
+      installPrettierDevCli,
+      installCommitlintDevCli,
+      installStylelintDevCli,
+      installServerDevCli,
+      installBuildDevCli,
       installCustomDevCli
     ], res => {
       logTime('INSTALL(安装依赖)', true);

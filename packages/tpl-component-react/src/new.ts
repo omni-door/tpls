@@ -109,7 +109,7 @@ export function $new ({
           : 'jsx'
       }`]: content_stories,
       'README.md': content_readme,
-      'README.mdx': content_mdx,
+      'README.mdx': content_mdx
     };
     /**
      * create files

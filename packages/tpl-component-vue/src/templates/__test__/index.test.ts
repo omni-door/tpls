@@ -1,14 +1,79 @@
 import { expect } from 'chai';
+import tpl_babel from '../babel';
+import tpl_commitlint from '../commitlint';
+import tpl_editor from '../editor';
+import tpl_eslint from '../eslint';
+import tpl_eslintignore from '../ignore/eslintignore';
+import tpl_gitignore from '../ignore/gitignore';
+import tpl_prettierignore from '../ignore/prettierignore';
 import tpl_index from '../index';
+import tpl_jest from '../jest';
+import tpl_npmignore from '../ignore/npmignore';
 import tpl_omni from '../omni';
 import tpl_package from '../package';
+import tpl_prettier from '../prettier';
 import tpl_readme from '../readme';
+import tpl_stylelint from '../stylelint';
+import tpl_tsconfig from '../tsconfig';
 import tpl_vscode from '../vsc';
-import component_readme from '../new/readme';
+
+describe('[tpl-component-vue]: tpl_babel template test', function () {
+  it('type checking', function () {
+    expect(tpl_babel).to.be.a('function');
+  });
+});
+
+describe('[tpl-component-vue]: tpl_commitlint template test', function () {
+  it('type checking', function () {
+    expect(tpl_commitlint).to.be.a('function');
+  });
+});
+
+describe('[tpl-component-vue]: tpl_editor template test', function () {
+  it('type checking', function () {
+    expect(tpl_editor).to.be.a('function');
+  });
+});
+
+describe('[tpl-component-vue]: tpl_eslint template test', function () {
+  it('type checking', function () {
+    expect(tpl_eslint).to.be.a('function');
+  });
+});
+
+describe('[tpl-component-vue]: tpl_eslintignore template test', function () {
+  it('type checking', function () {
+    expect(tpl_eslintignore).to.be.a('function');
+  });
+});
+
+describe('[tpl-component-vue]: tpl_gitignore template test', function () {
+  it('type checking', function () {
+    expect(tpl_gitignore).to.be.a('function');
+  });
+});
 
 describe('[tpl-component-vue]: tpl_index template test', function () {
   it('type checking', function () {
     expect(tpl_index).to.be.a('object');
+  });
+});
+
+describe('[tpl-component-vue]: tpl_jest template test', function () {
+  it('type checking', function () {
+    expect(tpl_jest).to.be.a('function');
+  });
+});
+
+describe('[tpl-component-vue]: tpl_npmignore template test', function () {
+  it('type checking', function () {
+    expect(tpl_npmignore).to.be.a('function');
+  });
+});
+
+describe('[tpl-component-vue]: tpl_prettierignore template test', function () {
+  it('type checking', function () {
+    expect(tpl_prettierignore).to.be.a('function');
   });
 });
 
@@ -24,20 +89,32 @@ describe('[tpl-component-vue]: tpl_package template test', function () {
   });
 });
 
+describe('[tpl-component-vue]: tpl_prettier template test', function () {
+  it('type checking', function () {
+    expect(tpl_prettier).to.be.a('function');
+  });
+});
+
 describe('[tpl-component-vue]: tpl_readme template test', function () {
   it('type checking', function () {
     expect(tpl_readme).to.be.a('function');
   });
 });
 
-describe('[tpl-component-vue]: tpl_vscode template test', function () {
+describe('[tpl-component-vue]: tpl_stylelint template test', function () {
   it('type checking', function () {
-    expect(tpl_vscode).to.be.a('function');
+    expect(tpl_stylelint).to.be.a('function');
   });
 });
 
-describe('[tpl-component-vue]: component_readme template test', function () {
+describe('[tpl-component-vue]: tpl_tsconfig template test', function () {
   it('type checking', function () {
-    expect(component_readme).to.be.a('function');
+    expect(tpl_tsconfig).to.be.a('function');
+  });
+});
+
+describe('[tpl-component-vue]: tpl_vscode template test', function () {
+  it('type checking', function () {
+    expect(tpl_vscode).to.be.a('function');
   });
 });
