@@ -2,6 +2,7 @@ import path from 'path';
 import {
   arr2str,
   intersection,
+  logInfo,
   logWarn,
   logErr,
   logTime,
@@ -75,7 +76,14 @@ export async function $init ({
   success = () => {}
 }: InitOptions) {
   let installCliPrefix, installDevCliPrefix, installReadMe, runScript, paramScript;
-  switch (pkgtool) {
+  if (pkgtool === 'pnpm') {
+    logInfo('back to yarn because the typescript cannot compatible with the soft connection of pnpm');
+    logInfo('回退至 yarn，因为 typescript 暂时无法兼容 pnpm 的软连机制');
+    logInfo('https://github.com/microsoft/TypeScript/issues/29221');
+    pkgtool = 'yarn';
+  }
+
+  switch (pkgtool as PKJTOOL) {
     case 'pnpm':
       installCliPrefix = `${pkgtool} add -P --save-exact --prefix ${initPath}`;
       installDevCliPrefix = `${pkgtool} add -D --save-exact --prefix ${initPath}`;
