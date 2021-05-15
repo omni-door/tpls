@@ -76,6 +76,7 @@ const { exec } = require('child_process');
         console.error(err);
         spinner.color = 'red';
         spinner.fail(`${package} 的发布过程遇到错误，终止该包的发布！`);
+        process.exit(1);
       }
 
       if (i + 1 === packages.length) {
