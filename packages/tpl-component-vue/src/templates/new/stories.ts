@@ -5,7 +5,7 @@ const tpl =
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { themes } from '@storybook/theming';
 import { \${componentName} } from '../';
-import './style';
+import '../style';
 
 storiesOf('\${componentName}', module)
   .addParameters({
