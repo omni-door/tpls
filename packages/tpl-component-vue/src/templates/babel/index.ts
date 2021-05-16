@@ -13,8 +13,18 @@ module.exports = function (api) {
 
   const plugins = [
     '@babel/plugin-transform-runtime',
-    ["@babel/proposal-decorators", { "legacy": true }],
-    ["@babel/proposal-class-properties", { "loose": true }]
+    ['@babel/proposal-decorators', {
+      legacy: true
+    }],
+    ['@babel/proposal-class-properties', {
+      loose: true
+    }],
+    ['@babel/plugin-proposal-private-property-in-object', {
+      loose: true
+    }],
+    ['@babel/plugin-proposal-private-methods', {
+      loose: true
+    }]
   ];
 
   const env = {
@@ -26,18 +36,21 @@ module.exports = function (api) {
         ]
       ],
       plugins: [
-        [
-          '@babel/plugin-transform-runtime',
-          { useESModules: true }
-        ],
-        [
-          "@babel/proposal-decorators",
-          { "legacy": true }
-        ],
-        [
-          "@babel/proposal-class-properties",
-          { "loose": true }
-        ]
+        ['@babel/plugin-transform-runtime',{
+          useESModules: true
+        }],
+        ['@babel/proposal-decorators', {
+          legacy: true
+        }],
+        ['@babel/proposal-class-properties', {
+          loose: true
+        }],
+        ['@babel/plugin-proposal-private-property-in-object', {
+          loose: true
+        }],
+        ['@babel/plugin-proposal-private-methods', {
+          loose: true
+        }]
       ]
     }
   };

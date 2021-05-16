@@ -59,6 +59,8 @@ export async function devDependencies (strategy: STRATEGY, config: Config) {
     dependency('@babel/plugin-transform-runtime'),
     dependency('@babel/plugin-proposal-class-properties'),
     dependency('@babel/plugin-proposal-decorators'),
+    dependency('@babel/plugin-proposal-private-property-in-object'),
+    dependency('@babel/plugin-proposal-private-methods'),
     ts ? dependency('@babel/preset-typescript') : ''
   ];
 

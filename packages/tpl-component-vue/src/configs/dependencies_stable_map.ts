@@ -6,6 +6,8 @@ export const devDependencies = {
   "@babel/core": "~7.10.0",
   "@babel/plugin-proposal-class-properties": "~7.10.0",
   "@babel/plugin-proposal-decorators": "~7.10.0",
+  "@babel/plugin-proposal-private-property-in-object": "~7.10.0",
+  "@babel/plugin-proposal-private-methods": "~7.10.0",
   "@babel/plugin-transform-runtime": "~7.10.0",
   "@babel/preset-env": "~7.10.0",
   "@babel/preset-typescript": "~7.10.0",
