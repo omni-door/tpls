@@ -24,6 +24,7 @@ export const devDependencies = {
   'typescript-transform-paths': '~2.0.3',
   '@omni-door/cli': 'latest',
   '@types/chai': '4.2.9',
+  '@types/node': '~14.0.27',
   '@types/mocha': '7.0.1',
   'chai': '4.2.0',
   'mocha': '7.0.1',

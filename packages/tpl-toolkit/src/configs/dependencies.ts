@@ -67,6 +67,7 @@ export async function devDependencies (strategy: STRATEGY, config: Config) {
   ] : [];
 
   const tsDependencies = ts ? [
+    dependency('@types/node'),
     dependency('tsconfig-paths'),
     dependency('ttypescript'),
     dependency('typescript'),

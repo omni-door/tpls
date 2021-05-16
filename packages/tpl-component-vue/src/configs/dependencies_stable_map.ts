@@ -4,6 +4,8 @@ export const dependencies = {
 
 export const devDependencies = {
   "@babel/core": "~7.10.0",
+  "@babel/plugin-proposal-class-properties": "~7.10.0",
+  "@babel/plugin-proposal-decorators": "~7.10.0",
   "@babel/plugin-transform-runtime": "~7.10.0",
   "@babel/preset-env": "~7.10.0",
   "@babel/preset-typescript": "~7.10.0",
@@ -22,6 +24,7 @@ export const devDependencies = {
   "@storybook/vue": "5.3.19",
   "@types/classnames": "~2.2.11",
   "@types/jest": "25.1.2",
+  '@types/node': '~14.0.27',
   "@typescript-eslint/eslint-plugin": "~3.8.0",
   "@typescript-eslint/parser": "~3.8.0",
   "@vue/test-utils": "^1.2.0",
@@ -76,8 +79,10 @@ export const devDependencies = {
   "typescript-transform-paths": "~2.0.3",
   "url-loader": "~3.0.0",
   "vue": "~2.6.8",
+  "vue-class-component": "~7.2.6",
   "vue-eslint-parser": "~7.5.0",
   "vue-jest": "~4.0.1",
   "vue-loader": "~15.7.0",
+  "vue-property-decorator": "~9.1.2",
   "vue-template-compiler": "~2.6.8"
 };

@@ -24,6 +24,7 @@ import storybook_webpack, { tpl_storybook_webpack } from './storybook/webpack';
 import component, { tpl_new_component } from './new/component';
 import component_index, { tpl_new_index } from './new/index';
 import component_readme, { tpl_new_readme } from './new/readme';
+import component_style, { tpl_new_style } from './new/style';
 import component_stylesheet, { tpl_new_stylesheet } from './new/stylesheet';
 import component_test, { tpl_new_test } from './new/test';
 import component_stories, { tpl_new_story } from './new/stories';
@@ -54,6 +55,7 @@ export { default as storybook_webpack, tpl_storybook_webpack } from './storybook
 export { default as component, tpl_new_component } from './new/component';
 export { default as component_index, tpl_new_index } from './new/index';
 export { default as component_readme, tpl_new_readme } from './new/readme';
+export { default as component_style, tpl_new_style } from './new/style';
 export { default as component_stylesheet, tpl_new_stylesheet } from './new/stylesheet';
 export { default as component_test, tpl_new_test } from './new/test';
 export { default as component_stories, tpl_new_story } from './new/stories';
@@ -128,6 +130,7 @@ export const tpls_new = {
   component,
   component_index,
   component_readme,
+  component_style,
   component_stylesheet,
   component_test,
   component_stories
@@ -138,6 +141,7 @@ export const tpls_origin_new = {
   tpl_new_index,
   tpl_new_readme,
   tpl_new_story,
+  tpl_new_style,
   tpl_new_stylesheet,
   tpl_new_test
 };

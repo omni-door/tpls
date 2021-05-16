@@ -1,26 +1,34 @@
 import { tplEngineNew } from '@omni-door/utils';
 
 const tpl = 
-`\`<template>
-  <div class="\${componentName}">
-    {{ msg }}
-  </div>
-</template>
+`\`import {
+  Component,
+  Vue,
+  Prop
+} from 'vue-property-decorator';
+import classnames from '@utils/classnames';
+\${ts ? \`/* import types */
+import type { CreateElement, VNode } from 'vue';
+\` : ''}
+@Component
+export class \${componentName} extends Vue {
+  @Prop({ type: String, default: '' }) private className!: string;
 
-<script \${ts ? 'lang="ts"' : ''}>
-export default {
-  props: {
-    msg: {
-      type: String,
-      default: ''
-    }
+  public render(h\${ts ? \`: CreateElement): VNode\` : ')'} {
+    const content = this.$slots.default;
+    const classes = classnames({ prefix: 'prefix' });
+    return h(
+      'div',
+      {
+        staticClass: classes('\${componentName.toLowercase()}'),
+        class: this.className
+      },
+      content
+    );
   }
-};
-</script>
+}
 
-\${style ? \`<style lang="\${style === 'all' ? 'scss' : style}">
-@import './style/\${componentName}.\${style === 'all' ? 'scss' : style}';
-</style>\` : ''}\``;
+export default \${componentName};\``;
 
 export const tpl_new_component = {
   tpl

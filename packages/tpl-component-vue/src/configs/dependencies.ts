@@ -57,6 +57,8 @@ export async function devDependencies (strategy: STRATEGY, config: Config) {
     dependency('@babel/preset-env'),
     dependency('babel-preset-vue'),
     dependency('@babel/plugin-transform-runtime'),
+    dependency('@babel/plugin-proposal-class-properties'),
+    dependency('@babel/plugin-proposal-decorators'),
     ts ? dependency('@babel/preset-typescript') : ''
   ];
 
@@ -74,6 +76,7 @@ export async function devDependencies (strategy: STRATEGY, config: Config) {
   ] : [];
 
   const tsDependencies = ts ? [
+    dependency('@types/node'),
     dependency('@types/classnames'),
     dependency('ttypescript'),
     dependency('typescript'),
@@ -155,7 +158,9 @@ export async function devDependencies (strategy: STRATEGY, config: Config) {
   const defaultDep = [
     !tag ? dependency('@omni-door/cli') : `@omni-door/cli@${tag}`,
     dependency('del'),
-    dependency('vue')
+    dependency('vue'),
+    dependency('vue-property-decorator'),
+    dependency('vue-class-component')
   ];
 
   return {

@@ -1,8 +1,9 @@
 import { tplEngineNew } from '@omni-door/utils';
 
 const tpl = 
-`\`.\${componentName} {
+`\`.prefix-\${componentName.toLowercase()} {
   display: block;
+  color: green;
 }
 \``;
 

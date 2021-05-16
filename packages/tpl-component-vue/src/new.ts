@@ -82,12 +82,14 @@ export function $new ({
      const content_component = tpl.component(params);
      const content_readme = md && tpl.component_readme(params);
      const content_stories = tpl.component_stories(params);
+     const content_style = stylesheet && tpl.component_style(params);
      const content_stylesheet = stylesheet && tpl.component_stylesheet(params);
      const content_test = test && tpl.component_test(params);
  
      const pathToFileContentMap = {
        [`index.${ts ? 'ts' : 'js'}`]: content_index,
-       [`${componentName}.vue`]: content_component,
+       [`${componentName}.${ts ? 'ts' : 'js'}`]: content_component,
+       [`style/index.${ts ? 'ts' : 'js'}`]: content_style,
        [`style/${componentName}.${stylesheet}`]: content_stylesheet,
        [`__test__/index.test.${
          ts

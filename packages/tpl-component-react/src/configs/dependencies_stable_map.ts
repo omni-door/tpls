@@ -19,6 +19,7 @@ export const devDependencies = {
   '@types/enzyme': '3.10.5',
   '@types/enzyme-adapter-react-16': '1.0.6',
   '@types/jest': '25.1.2',
+  '@types/node': '~14.0.27',
   '@types/react': '~17.0.0',
   '@types/react-dom': '~17.0.0',
   '@types/vfile-message': '1.0.1', // 和 docz、bisheng 版本强相关，一定要确保一致性，否则打包时易出错

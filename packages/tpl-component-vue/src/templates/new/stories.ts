@@ -20,7 +20,10 @@ storiesOf('\${componentName}', module)
     }
   })
   .add('with text', () => ({
-    render: h => h(\${componentName}, { props: { msg: 'Hello \${componentName}' } })
+    components: {
+      \${componentName}
+    },
+    template: \`\\\`<\${componentName}>{{'Hello \${componentName}'}}</\${componentName}>\\\`\`
   }));
 \``;
 
