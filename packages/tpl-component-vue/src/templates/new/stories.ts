@@ -24,7 +24,7 @@ storiesOf('\${componentName}', module)
     components: {
       \${componentName}
     },
-    template: \`\\\`<\${componentName}>{{'Hello \${componentName}'}}</\${componentName}>\\\`\`
+    template: \\\`<\${componentName}>{{'Hello \${componentName}'}}</\${componentName}>\\\`
   }));
 \``;
 
