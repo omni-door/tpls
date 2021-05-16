@@ -20,7 +20,7 @@ export class \${componentName} extends Vue {
     return h(
       'div',
       {
-        staticClass: classes('\${componentName.toLowercase()}'),
+        staticClass: classes('\${componentName.toLowerCase()}'),
         class: this.className
       },
       content
