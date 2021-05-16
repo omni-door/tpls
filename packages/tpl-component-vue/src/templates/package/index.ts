@@ -12,6 +12,9 @@ const tpl =
   "name": "\${project_name.toLowerCase()}",
   "version": "0.0.1",
   "description": "",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "typings": "lib/index.d.ts",
   "scripts": {
     "start": "omni dev",
     "dev": "omni dev",
