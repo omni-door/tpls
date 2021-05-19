@@ -26,7 +26,7 @@ The React single-page-application project template
 | omni | configs/omni.config.js |
 | package | package.json |
 | prettier | configs/prettier.config.js |
-| readme | README.md |
+| readme | README.md & README.zh-CN.md |
 | source | the standard templates in `src` folder |
 | stylelint | configs/stylelint.config.js |
 | tsconfig | tsconfig.json |

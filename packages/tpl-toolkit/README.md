@@ -27,7 +27,7 @@ The JS-SDK project template for @omni-door
 | omni | omni.config.js |
 | package | package.json |
 | prettier | prettier.config.js |
-| readme | README.md |
+| readme | README.md & README.zh-CN.md |
 | source | the standard templates in `src` folder |
 | tsconfig | tsconfig.json |
 | umi | .umirc.js & .env |

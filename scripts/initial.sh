@@ -1172,7 +1172,7 @@ The ${projectName} project template
 | new | the standard templates for \`omni new\` command |
 | omni | omni.config.js |
 | package | package.json |
-| readme | README.md |" > ${dirName}/README.md
+| readme | README.md & README.zh-CN.md |" > ${dirName}/README.md
 
 
 # tsconfig.json
