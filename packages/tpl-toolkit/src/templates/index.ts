@@ -10,6 +10,7 @@ import pkj, { tpl_package } from './package';
 import prettier, { tpl_prettier } from './prettier';
 import prettierignore, { tpl_ignore_prettier } from './ignore/prettierignore';
 import readme, { tpl_readme } from './readme';
+import readme_cn, { tpl_readme_cn } from './readme/index.zh-CN';
 import rollup, { tpl_rollup } from './rollup';
 import tsconfig, { tpl_tsconfig } from './tsconfig';
 import indexTpl, { tpl_src_index } from './source';
@@ -36,6 +37,7 @@ export { default as pkj, tpl_package } from './package';
 export { default as prettier, tpl_prettier } from './prettier';
 export { default as prettierignore, tpl_ignore_prettier } from './ignore/prettierignore';
 export { default as readme, tpl_readme } from './readme';
+export { default as readme_cn, tpl_readme_cn } from './readme/index.zh-CN';
 export { default as rollup, tpl_rollup } from './rollup';
 export { default as tsconfig, tpl_tsconfig } from './tsconfig';
 export { default as indexTpl, tpl_src_index } from './source';
@@ -64,6 +66,7 @@ export const tpls_init = {
   prettier,
   prettierignore,
   readme,
+  readme_cn,
   rollup,
   tsconfig,
   indexTpl,
@@ -88,6 +91,7 @@ export const tpls_origin_init = {
   tpl_package,
   tpl_prettier,
   tpl_readme,
+  tpl_readme_cn,
   tpl_rollup,
   tpl_src_index,
   tpl_src_get_ts,

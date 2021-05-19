@@ -180,7 +180,8 @@ export async function $init ({
       'stylelint.config.js': stylelint && tpl.stylelint(params),
       'commitlint.config.js': commitlint && tpl.commitlint(params),
       'babel.config.js': tpl.babel(params), // build file
-      'README.md': tpl.readme({ ...params, install: installReadMe, runScript, paramScript }), // ReadMe
+      'README.md': tpl.readme({ ...params, install: installReadMe, runScript, paramScript }), // README.md
+      'README.zh-CN.md': tpl.readme_cn({ ...params, install: installReadMe, runScript, paramScript }), // README.zh-CN.md
       // server files
       '.storybook/addons.js': tpl.storybook_addons(params),
       '.storybook/config.js': tpl.storybook_config(params),

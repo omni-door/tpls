@@ -3,53 +3,53 @@ import { tplEngineInit } from '@omni-door/utils';
 const tpl = 
 `\`# \${project_name}
 
-English | [简体中文](./README.zh-CN.md)
+[English](./README.md) | 简体中文
 
-## Quick start
-### Install dependencies
+## 快速开始
+### 安装依赖
 \\\`\\\`\\\`shell
 \${install}
 \\\`\\\`\\\`
 
-### Develop project
+### 开发项目
 \\\`\\\`\\\`shell
 \${runScript} dev
 \\\`\\\`\\\`
 
-### Create a Component
+### 新建组件
 
 \\\`\\\`\\\`shell
 \${runScript} new
 \\\`\\\`\\\`
 
-*Create a functional Component which name is Button👇*
+*新建一个名为 Button 的函数组件👇*
 \\\`\\\`\\\`shell
 \${runScript} new Button \${paramScript}f
 \\\`\\\`\\\`
 
 ---
 
-## Build and Run
-### Build
+## 构建和运行
+### 构建
 \\\`\\\`\\\`shell
 \${runScript} build
 \\\`\\\`\\\`
 
-*Bypass all pre-check before building👇*
+*构建项目时绕过所有检查👇*
 \\\`\\\`\\\`shell
 \${runScript} build \${paramScript}n
 \\\`\\\`\\\`
 
-### Run project in production env
+### 生产环境运行项目
 \\\`\\\`\\\`shell
 \${runScript} start
 \\\`\\\`\\\`
 
-**More powerful customizations is in [\${configFileName}](https://github.com/omni-door/cli/blob/master/docs/OMNI.md)**
+**更多配置项请在 [\${configFileName}](https://github.com/omni-door/cli/blob/master/docs/OMNI.zh-CN.md) 中编辑**
 \``;
 
-export const tpl_readme = {
+export const tpl_readme_cn = {
   tpl
 };
 
-export default tplEngineInit(tpl_readme, 'tpl');
+export default tplEngineInit(tpl_readme_cn, 'tpl');

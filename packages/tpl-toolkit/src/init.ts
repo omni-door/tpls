@@ -180,8 +180,8 @@ export async function $init ({
       // build files
       'babel.config.js': tpl.babel(params),
       'rollup.config.js': tpl.rollup(params),
-      // ReadMe
-      'README.md': tpl.readme({ ...params, install: installReadMe, runScript, paramScript }),
+      'README.md': tpl.readme({ ...params, install: installReadMe, runScript, paramScript }), // README.md
+      'README.zh-CN.md': tpl.readme_cn({ ...params, install: installReadMe, runScript, paramScript }), // README.zh-CN.md
       // dumi-config files
       [`.umirc.${ts ? 'ts' : 'js'}`]: tpl.umirc(params),
       // '.env': tpl.env(params),

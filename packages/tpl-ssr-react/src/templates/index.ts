@@ -13,6 +13,7 @@ import pkj, { tpl_package } from './package';
 import postcss, { tpl_postcss } from './postcss';
 import prettier, { tpl_prettier } from './prettier';
 import readme, { tpl_readme } from './readme';
+import readme_cn, { tpl_readme_cn } from './readme/index.zh-CN';
 import stylelint, { tpl_stylelint } from './stylelint';
 import tsconfig, { tpl_tsconfig } from './tsconfig';
 import vscode, { tpl_vscode_setting } from './vsc';
@@ -52,6 +53,7 @@ export { default as pkj, tpl_package } from './package';
 export { default as postcss, tpl_postcss } from './postcss';
 export { default as prettier, tpl_prettier } from './prettier';
 export { default as readme, tpl_readme } from './readme';
+export { default as readme_cn, tpl_readme_cn } from './readme/index.zh-CN';
 export { default as stylelint, tpl_stylelint } from './stylelint';
 export { default as tsconfig, tpl_tsconfig } from './tsconfig';
 export { default as vscode, tpl_vscode_setting } from './vsc';
@@ -93,6 +95,7 @@ export const tpls_init = {
   postcss,
   prettier,
   readme,
+  readme_cn,
   stylelint,
   tsconfig,
   vscode,
@@ -125,6 +128,7 @@ export const tpls_origin_init = {
   tpl_omni,
   tpl_package,
   tpl_readme,
+  tpl_readme_cn,
   tpl_postcss,
   tpl_prettier,
   tpl_stylelint,

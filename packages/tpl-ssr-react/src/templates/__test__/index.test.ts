@@ -3,6 +3,7 @@ import tpl_index from '../index';
 import tpl_omni from '../omni';
 import tpl_package from '../package';
 import tpl_readme from '../readme';
+import tpl_readme_cn from '../readme/index.zh-CN';
 import tpl_vscode from '../vsc';
 import tpl_babel from '../babel';
 import tpl_commitlint from '../commitlint';
@@ -41,6 +42,12 @@ describe('[tpl-ssr-react]: tpl_package template test', function () {
 describe('[tpl-ssr-react]: tpl_readme template test', function () {
   it('type checking', function () {
     expect(tpl_readme).to.be.a('function');
+  });
+});
+
+describe('[tpl-ssr-react]: tpl_readme_cn template test', function () {
+  it('type checking', function () {
+    expect(tpl_readme_cn).to.be.a('function');
   });
 });
 

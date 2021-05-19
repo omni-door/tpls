@@ -261,10 +261,9 @@ export async function \$init ({
   const suffix_stylesheet = style && style === 'all' ? 'scss' : style;
   try {
     const pathToFileContentMap = {
-      // package.json
-      'package.json': install && tpl.pkj({ ...params, install, dependencies: '', devDependencies: '' }),
-      // ReadMe
-      'README.md': tpl.readme({ ...params, install: installReadMe, runScript, paramScript }),
+      'package.json': install && tpl.pkj({ ...params, install, dependencies: '', devDependencies: '' }), // package.json
+      'README.md': tpl.readme({ ...params, install: installReadMe, runScript, paramScript }), // README.md
+      'README.zh-CN.md': tpl.readme_cn({ ...params, install: installReadMe, runScript, paramScript }), // README.zh-CN.md
       // lint files
       '.vscode/settings.json': tpl.vscode(params)
     };
@@ -707,13 +706,15 @@ echo "import { tplEngineInit } from '@omni-door/utils';
 const tpl = 
 \`\\\`# \\\${project_name}
 
-## 快速开始 (quick start)
-### 安装依赖 (Install dependencies)
+English | [简体中文](./README.zh-CN.md)
+
+## Quick start
+### Install dependencies
 \\\\\\\`\\\\\\\`\\\\\\\`shell
 \\\${install}
 \\\\\\\`\\\\\\\`\\\\\\\`
 
-### 启动项目 (Run project)
+### Run project
 \\\\\\\`\\\\\\\`\\\\\\\`shell
 \\\${runScript} start
 \\\\\\\`\\\\\\\`\\\\\\\`
@@ -722,50 +723,50 @@ or
 \\\${runScript} dev
 \\\\\\\`\\\\\\\`\\\\\\\`
 
-### 新建组件 (Create a Component)
+### Create a Component
 \\\\\\\`\\\\\\\`\\\\\\\`shell
 \\\${runScript} new
 \\\\\\\`\\\\\\\`\\\\\\\`
 
-*新建一个名为Button的函数组件 (Create a functional Component which name is Button) 👇*
+*Create a functional Component which name is Button👇*
 \\\\\\\`\\\\\\\`\\\\\\\`shell
 \\\${runScript} new Button \\\${paramScript}f
 \\\\\\\`\\\\\\\`\\\\\\\`
 
 ---
 
-## 构建和发布 (Build and Release)
-### 构建 (Build)
+## Build and Release
+### Build
 \\\\\\\`\\\\\\\`\\\\\\\`shell
 \\\${runScript} build
 \\\\\\\`\\\\\\\`\\\\\\\`
 
-*构建项目时绕过所有检查 (Bypass all pre-check before building) 👇*
+*Bypass all pre-check before building👇*
 \\\\\\\`\\\\\\\`\\\\\\\`shell
 \\\${runScript} build \\\${paramScript}n
 \\\\\\\`\\\\\\\`\\\\\\\`
 
-### 发布 (Release)
+### Release
 \\\\\\\`\\\\\\\`\\\\\\\`shell
 \\\${runScript} release
 \\\\\\\`\\\\\\\`\\\\\\\`
 
-*发布项目时忽略版本迭代 (Ignoring version of iteration) 👇*
+*Ignoring version of iteration👇*
 \\\\\\\`\\\\\\\`\\\\\\\`shell
 \\\${runScript} release \\\${paramScript}i
 \\\\\\\`\\\\\\\`\\\\\\\`
 
-*发布项目时指定迭代的版本为0.3.25 (Manual specify version of iteration to 0.3.25) 👇*
+*Manual specify version of iteration to 0.3.25👇*
 \\\\\\\`\\\\\\\`\\\\\\\`shell
 \\\${runScript} release \\\${paramScript}m 0.3.25
 \\\\\\\`\\\\\\\`\\\\\\\`
 
-*发布项目时绕过所有检查 (Bypass all pre-check before release) 👇*
+*Bypass all pre-check before release👇*
 \\\\\\\`\\\\\\\`\\\\\\\`shell
 \\\${runScript} release \\\${paramScript}n
 \\\\\\\`\\\\\\\`\\\\\\\`
 
-**更多配置项请在 [\\\${configFileName}](https://github.com/omni-door/cli/blob/master/docs/OMNI.zh-CN.md) 中编辑 (More powerful customizations is in [\\\${configFileName}](https://github.com/omni-door/cli/blob/master/docs/OMNI.md))**
+**More powerful customizations is in [\\\${configFileName}](https://github.com/omni-door/cli/blob/master/docs/OMNI.md)**
 \\\`\`;
 
 export const tpl_readme = {
@@ -773,6 +774,81 @@ export const tpl_readme = {
 };
 
 export default tplEngineInit(tpl_readme, 'tpl');" > ${dirName}/src/templates/readme/index.ts
+
+# src - templates - readme
+echo "import { tplEngineInit } from '@omni-door/utils';
+
+const tpl = 
+\`\\\`# \\\${project_name}
+
+[English](./README.md) | 简体中文
+
+## 快速开始
+### 安装依赖
+\\\\\\\`\\\\\\\`\\\\\\\`shell
+\\\${install}
+\\\\\\\`\\\\\\\`\\\\\\\`
+
+### 启动项目
+\\\\\\\`\\\\\\\`\\\\\\\`shell
+\\\${runScript} start
+\\\\\\\`\\\\\\\`\\\\\\\`
+or
+\\\\\\\`\\\\\\\`\\\\\\\`shell
+\\\${runScript} dev
+\\\\\\\`\\\\\\\`\\\\\\\`
+
+### 新建组件
+\\\\\\\`\\\\\\\`\\\\\\\`shell
+\\\${runScript} new
+\\\\\\\`\\\\\\\`\\\\\\\`
+
+*新建一个名为 Button 的函数组件👇*
+\\\\\\\`\\\\\\\`\\\\\\\`shell
+\\\${runScript} new Button \\\${paramScript}f
+\\\\\\\`\\\\\\\`\\\\\\\`
+
+---
+
+## 构建和发布
+### 构建
+\\\\\\\`\\\\\\\`\\\\\\\`shell
+\\\${runScript} build
+\\\\\\\`\\\\\\\`\\\\\\\`
+
+*构建项目时绕过所有检查👇*
+\\\\\\\`\\\\\\\`\\\\\\\`shell
+\\\${runScript} build \\\${paramScript}n
+\\\\\\\`\\\\\\\`\\\\\\\`
+
+### 发布
+\\\\\\\`\\\\\\\`\\\\\\\`shell
+\\\${runScript} release
+\\\\\\\`\\\\\\\`\\\\\\\`
+
+*发布项目时忽略版本迭代👇*
+\\\\\\\`\\\\\\\`\\\\\\\`shell
+\\\${runScript} release \\\${paramScript}i
+\\\\\\\`\\\\\\\`\\\\\\\`
+
+*发布项目时指定迭代的版本为 0.3.25👇*
+\\\\\\\`\\\\\\\`\\\\\\\`shell
+\\\${runScript} release \\\${paramScript}m 0.3.25
+\\\\\\\`\\\\\\\`\\\\\\\`
+
+*发布项目时绕过所有检查👇*
+\\\\\\\`\\\\\\\`\\\\\\\`shell
+\\\${runScript} release \\\${paramScript}n
+\\\\\\\`\\\\\\\`\\\\\\\`
+
+**更多配置项请在 [\\\${configFileName}](https://github.com/omni-door/cli/blob/master/docs/OMNI.zh-CN.md) 中编辑**
+\\\`\`;
+
+export const tpl_readme_cn = {
+  tpl
+};
+
+export default tplEngineInit(tpl_readme_cn, 'tpl');" > ${dirName}/src/templates/readme/index.zh-CN.ts
 
 # src - templates - vsc
 echo 'import { tplEngineInit } from "@omni-door/utils";
@@ -856,6 +932,7 @@ import tpl_index from '../index';
 import tpl_omni from '../omni';
 import tpl_package from '../package';
 import tpl_readme from '../readme';
+import tpl_readme_cn from '../readme/index.zh-CN';
 import tpl_vscode from '../vsc';
 import component_readme from '../new/readme';
 
@@ -883,6 +960,12 @@ describe('[tpl-${projectName}]: tpl_readme template test', function () {
   });
 });
 
+describe('[tpl-${projectName}]: tpl_readme_cn template test', function () {
+  it('type checking', function () {
+    expect(tpl_readme_cn).to.be.a('function');
+  });
+});
+
 describe('[tpl-${projectName}]: tpl_vscode template test', function () {
   it('type checking', function () {
     expect(tpl_vscode).to.be.a('function');
@@ -900,12 +983,14 @@ describe('[tpl-${projectName}]: component_readme template test', function () {
 echo "import omni, { tpl_omni } from './omni';
 import pkj, { tpl_package } from './package';
 import readme, { tpl_readme } from './readme';
+import readme_cn, { tpl_readme_cn } from './readme/index.zh-CN';
 import vscode, { tpl_vscode_setting } from './vsc';
 import component_readme, { tpl_new_readme } from './new/readme';
 
 export { default as omni, tpl_omni } from './omni';
 export { default as pkj, tpl_package } from './package';
 export { default as readme, tpl_readme } from './readme';
+export { default as readme_cn, tpl_readme_cn } from './readme/index.zh-CN';
 export { default as component_readme, tpl_new_readme } from './new/readme';
 
 /* -- templates - init --  */
@@ -913,6 +998,7 @@ export const tpls_init = {
   omni,
   pkj,
   readme,
+  readme_cn,
   vscode
 };
 
@@ -920,6 +1006,7 @@ export const tpls_origin_init = {
   tpl_omni,
   tpl_package,
   tpl_readme,
+  tpl_readme_cn,
   tpl_vscode_setting
 };
 

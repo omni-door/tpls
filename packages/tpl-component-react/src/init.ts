@@ -189,7 +189,8 @@ export async function $init ({
       'stylelint.config.js': stylelint && tpl.stylelint(params),
       'commitlint.config.js': commitlint && tpl.commitlint(params),
       'babel.config.js': (!ts || devServer === 'storybook' || devServer === 'styleguidist') && tpl.babel(params), // build file
-      'README.md': tpl.readme({ ...params, install: installReadMe, runScript, paramScript }), // ReadMe
+      'README.md': tpl.readme({ ...params, install: installReadMe, runScript, paramScript }), // README.md
+      'README.zh-CN.md': tpl.readme_cn({ ...params, install: installReadMe, runScript, paramScript }), // README.zh-CN.md
       // server files
       'src/index.mdx': devServer === 'docz' && tpl.mdx(params),
       'bisheng.config.js': devServer === 'bisheng' && tpl.bisheng(params),

@@ -11,6 +11,7 @@ import omni, { tpl_omni } from './omni';
 import pkj, { tpl_package } from './package';
 import prettier, { tpl_prettier } from './prettier';
 import readme, { tpl_readme } from './readme';
+import readme_cn, { tpl_readme_cn } from './readme/index.zh-CN';
 import tsconfig, { tpl_tsconfig } from './tsconfig';
 import vscode, { tpl_vscode_setting } from './vsc';
 import stylelint, { tpl_stylelint } from './stylelint';
@@ -42,6 +43,7 @@ export { default as omni, tpl_omni } from './omni';
 export { default as pkj, tpl_package } from './package';
 export { default as prettier, tpl_prettier } from './prettier';
 export { default as readme, tpl_readme } from './readme';
+export { default as readme_cn, tpl_readme_cn } from './readme/index.zh-CN';
 export { default as tsconfig, tpl_tsconfig } from './tsconfig';
 export { default as vscode, tpl_vscode_setting } from './vsc';
 export { default as stylelint, tpl_stylelint } from './stylelint';
@@ -75,6 +77,7 @@ export const tpls_init = {
   pkj,
   prettier,
   readme,
+  readme_cn,
   stylelint,
   tsconfig,
   vscode,
@@ -101,6 +104,7 @@ export const tpls_origin_init = {
   tpl_package,
   tpl_prettier,
   tpl_readme,
+  tpl_readme_cn,
   tpl_src_declaration,
   tpl_src_classnames,
   tpl_src_index,

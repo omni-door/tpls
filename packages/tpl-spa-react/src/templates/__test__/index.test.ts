@@ -15,6 +15,7 @@ import tpl_package from '../package';
 import tpl_postcss from '../postcss';
 import tpl_prettier from '../prettier';
 import tpl_readme from '../readme';
+import tpl_readme_cn from '../readme/index.zh-CN';
 import tpl_stylelint from '../stylelint';
 import tpl_tsconfig from '../tsconfig';
 import tpl_vscode from '../vsc';
@@ -123,6 +124,12 @@ describe('[tpl-spa-react]: tpl_prettier template test', function () {
 describe('[tpl-spa-react]: tpl_readme template test', function () {
   it('type checking', function () {
     expect(tpl_readme).to.be.a('function');
+  });
+});
+
+describe('[tpl-spa-react]: tpl_readme_cn template test', function () {
+  it('type checking', function () {
+    expect(tpl_readme_cn).to.be.a('function');
   });
 });
 

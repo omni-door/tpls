@@ -12,6 +12,7 @@ import pkj, { tpl_package } from './package';
 import postcss, { tpl_postcss } from './postcss';
 import prettier, { tpl_prettier } from './prettier';
 import readme, { tpl_readme } from './readme';
+import readme_cn, { tpl_readme_cn } from './readme/index.zh-CN';
 import source_index_react, { tpl_src_index } from './source/index_react';
 import source_html, { tpl_src_html } from './source/html';
 import source_routes, { tpl_src_routes } from './source/routes';
@@ -54,6 +55,7 @@ export { default as pkj, tpl_package } from './package';
 export { default as postcss, tpl_postcss } from './postcss';
 export { default as prettier, tpl_prettier } from './prettier';
 export { default as readme, tpl_readme } from './readme';
+export { default as readme_cn, tpl_readme_cn } from './readme/index.zh-CN';
 export { default as source_index_react, tpl_src_index } from './source/index_react';
 export { default as source_html, tpl_src_html } from './source/html';
 export { default as source_routes, tpl_src_routes } from './source/routes';
@@ -98,6 +100,7 @@ export const tpls_init = {
   postcss,
   prettier,
   readme,
+  readme_cn,
   stylelint,
   tsconfig,
   vscode,
@@ -135,6 +138,7 @@ export const tpls_origin_init = {
   tpl_package,
   tpl_postcss,
   tpl_readme,
+  tpl_readme_cn,
   tpl_prettier,
   tpl_stylelint,
   tpl_tsconfig,

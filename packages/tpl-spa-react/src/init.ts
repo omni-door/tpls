@@ -200,7 +200,8 @@ export async function $init ({
       'configs/stylelint.config.js': stylelint && tpl.stylelint(params),
       'configs/commitlint.config.js': commitlint && tpl.commitlint(params),
       'configs/babel.config.js': tpl.babel(params), // build files
-      'README.md': tpl.readme({ ...params, install: installReadMe, runScript, paramScript }) // ReadMe
+      'README.md': tpl.readme({ ...params, install: installReadMe, runScript, paramScript }), // README.md
+      'README.zh-CN.md': tpl.readme_cn({ ...params, install: installReadMe, runScript, paramScript }) // README.zh-CN.md
     };
     const file_path = (p: string) => path.resolve(initPath, p);
     for (const p in pathToFileContentMap) {
