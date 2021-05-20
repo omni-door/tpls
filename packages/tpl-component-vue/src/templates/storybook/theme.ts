@@ -6,8 +6,8 @@ const tpl =
 export default create({
   base: 'light',
   brandTitle: '\${project_name}',
-  brandUrl: '',
-  brandImage: ''
+  // brandUrl: '',
+  // brandImage: ''
 });
 \``;
 
