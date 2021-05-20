@@ -22,6 +22,7 @@ import storybook_addons, { tpl_storybook_addons } from './storybook/addons';
 import storybook_config, { tpl_storybook_config } from './storybook/config';
 import storybook_mhead, { tpl_storybook_mhead } from './storybook/manager-head';
 import storybook_webpack, { tpl_storybook_webpack } from './storybook/webpack';
+import storybook_theme, { tpl_storybook_theme } from './storybook/theme';
 import component, { tpl_new_component } from './new/component';
 import component_index, { tpl_new_index } from './new/index';
 import component_readme, { tpl_new_readme } from './new/readme';
@@ -54,6 +55,7 @@ export { default as storybook_addons, tpl_storybook_addons } from './storybook/a
 export { default as storybook_config, tpl_storybook_config } from './storybook/config';
 export { default as storybook_mhead, tpl_storybook_mhead } from './storybook/manager-head';
 export { default as storybook_webpack, tpl_storybook_webpack } from './storybook/webpack';
+export { default as storybook_theme, tpl_storybook_theme } from './storybook/theme';
 export { default as component, tpl_new_component } from './new/component';
 export { default as component_index, tpl_new_index } from './new/index';
 export { default as component_readme, tpl_new_readme } from './new/readme';
@@ -87,7 +89,8 @@ export const tpls_init = {
   storybook_addons,
   storybook_config,
   storybook_mhead,
-  storybook_webpack
+  storybook_webpack,
+  storybook_theme
 };
 
 export const tpls_origin_init = {
@@ -112,6 +115,7 @@ export const tpls_origin_init = {
   tpl_storybook_config,
   tpl_storybook_mhead,
   tpl_storybook_webpack,
+  tpl_storybook_theme,
   tpl_stylelint,
   tpl_tsconfig,
   tpl_vscode_setting

@@ -186,7 +186,8 @@ export async function $init ({
       '.storybook/addons.js': tpl.storybook_addons(params),
       '.storybook/config.js': tpl.storybook_config(params),
       '.storybook/manager-head.html': tpl.storybook_mhead(params),
-      '.storybook/webpack.config.js': tpl.storybook_webpack(params)
+      '.storybook/webpack.config.js': tpl.storybook_webpack(params),
+      '.storybook/theme.js': tpl.storybook_theme(params)
     };
     const file_path = (p: string) => path.resolve(initPath, p);
     for (const p in pathToFileContentMap) {

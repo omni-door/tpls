@@ -7,8 +7,8 @@ import '@storybook/addon-notes/register';
 import 'storybook-readme/register';
 import '@storybook/addon-options/register';
 import '@storybook/addon-viewport/register';
-
 import { addons } from '@storybook/addons';
+import theme from './theme';
 
 addons.setConfig({
   isFullscreen: false,
@@ -21,7 +21,8 @@ addons.setConfig({
   sidebar: {
     showRoots: false,
     collapsedRoots: ['other']
-  }
+  },
+  theme
 });
 \``;
 

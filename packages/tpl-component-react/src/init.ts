@@ -199,6 +199,7 @@ export async function $init ({
       '.storybook/config.js': devServer === 'storybook' && tpl.storybook_config(params),
       '.storybook/manager-head.html': devServer === 'storybook' && tpl.storybook_mhead(params),
       '.storybook/webpack.config.js': devServer === 'storybook' && tpl.storybook_webpack(params),
+      '.storybook/theme.js': devServer === 'storybook' && tpl.storybook_theme(params),
       'doczrc.js': devServer === 'docz' && tpl.doczrc(params),
       'gatsby-config.js': devServer === 'docz' && tpl.gatsby(params),
       'styleguide.config.js': devServer === 'styleguidist' && tpl.styleguidist({ ...params, git })
