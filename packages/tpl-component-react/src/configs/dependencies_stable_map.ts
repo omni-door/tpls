@@ -76,10 +76,10 @@ export const devDependencies = {
   'typescript-transform-paths': '~2.0.3',
   'url-loader': '~3.0.0',
   // docz 依赖
-  'docz': '2.2.0',
-  'gatsby-plugin-less': '3.0.19',
-  'gatsby-plugin-sass': '2.1.29',
-  'gatsby-theme-docz': '2.2.0',
+  'docz': '2.3.1',
+  'gatsby-plugin-less': '5.6.0',
+  'gatsby-plugin-sass': '4.6.0',
+  'gatsby-theme-docz': '2.3.1',
   // storybook 依赖
   'react-hot-loader': '4.12.19',
   '@storybook/react': '5.3.19',
