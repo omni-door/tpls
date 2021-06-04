@@ -6,6 +6,7 @@ const tpl =
 *~
 ~*
 
+.github
 .vscode
 build
 src
@@ -20,6 +21,8 @@ dist-*
 
 # config files
 .eslintignore
+.editorconfig
+.prettierignore
 .eslintrc.js
 .gitignore
 *.config.js
