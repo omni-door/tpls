@@ -16,11 +16,11 @@ export class \${componentName} extends Vue {
 
   public render(h\${ts ? \`: CreateElement): VNode\` : ')'} {
     const content = this.$slots.default;
-    const classes = classnames({ prefix: 'prefix' });
+    const classes = classnames('\${componentName.toLowerCase()}');
     return h(
       'div',
       {
-        staticClass: classes('\${componentName.toLowerCase()}'),
+        staticClass: classes(),
         class: this.className
       },
       content

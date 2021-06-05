@@ -3,21 +3,21 @@ import { tplEngineInit } from '@omni-door/utils';
 const tpl = 
 `\`import classNames from 'classnames';
 
-export const classnames = ({ prefix, theme }: { prefix?: string; theme?: string }) => (
+export const classnames = (prefix: string) => (block?: string) => (
   suffix?: string,
   className?: string
-) =>
-  classNames(
+) => {
+  if (block) prefix = prefix + '-' + block;
+  return classNames(
     {
       [\\\`\\\${prefix}\\\`]: !!prefix && !suffix,
-      [\\\`\\\${prefix}-\\\${theme}\\\`]: !!prefix && !suffix && !!theme,
       [\\\`\\\${prefix}-\\\${suffix}\\\`]: !!prefix && !!suffix,
-      [\\\`\\\${prefix}-\\\${theme}-\\\${suffix}\\\`]: !!prefix && !!suffix && !!theme
     },
     className
   );
+};
 
-export default classnames;
+export default classnames('prefix');
 \``;
 
 export const tpl_src_classnames = {
