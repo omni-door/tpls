@@ -3,11 +3,12 @@ import { tplEngineInit } from '@omni-door/utils';
 const tpl = 
 `\`import classNames from 'classnames';
 
-export const classnames = (prefix: string) => (block?: string) => (
+export const classnames = (_prefix: string) => (prefix?: string) => (
   suffix?: string,
   className?: string
 ) => {
-  if (block) prefix = prefix + '-' + block;
+  if (prefix) prefix = _prefix + '-' + prefix;
+  else prefix = _prefix;
   return classNames(
     {
       [\\\`\\\${prefix}\\\`]: !!prefix && !suffix,
