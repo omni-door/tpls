@@ -6,6 +6,9 @@ const alias = require('@rollup/plugin-alias');
 
 module.exports = function (config) {
   config.forEach(v => {
+    // just keep the reference for third-party libs
+    v.external = [];
+
     v.plugins.push(
       alias({
         entries: [
