@@ -13,6 +13,7 @@ src
 *test*
 node_modules
 .omni_cache
+docs
 
 # config files
 .eslintignore

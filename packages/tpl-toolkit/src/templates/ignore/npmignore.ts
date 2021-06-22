@@ -15,6 +15,7 @@ node_modules
 .omni_cache
 dist
 dist.zip
+docs
 
 # config files
 .eslintignore
@@ -33,7 +34,7 @@ _config.yml
 .travis.yml
 coverage
 .nycrc
-mocha.opts
+mocha.*
 
 yarn.lock
 package-lock.json

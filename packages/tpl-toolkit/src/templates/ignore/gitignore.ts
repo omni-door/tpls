@@ -12,6 +12,7 @@ const tpl =
 node_modules
 lib
 es
+umd
 dist
 dist.zip
 src/.umi

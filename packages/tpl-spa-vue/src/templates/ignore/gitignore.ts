@@ -11,6 +11,7 @@ const tpl =
 node_modules
 lib
 es
+umd
 dist
 
 *.log

@@ -17,6 +17,7 @@ node_modules
 demo
 server
 dist-*
+docs
 
 # config files
 .eslintignore
@@ -33,7 +34,7 @@ _config.yml
 .travis.yml
 coverage
 .nycrc
-mocha.opts
+mocha.*
 
 yarn.lock
 package-lock.json
