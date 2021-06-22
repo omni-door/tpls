@@ -15,6 +15,7 @@ const tpl =
   "main": "lib/index.js",
   "module": "es/index.js",
   "typings": "lib/index.d.ts",
+  "unpkg": "umd/\${project_name.toLowerCase()}.min.js",
   "scripts": {
     "start": "omni dev",
     "dev": "omni dev",

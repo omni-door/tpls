@@ -42,6 +42,7 @@ export async function devDependencies (strategy: STRATEGY, config: Config) {
     ts ? dependency('rollup-plugin-typescript') : '',
     ts ? dependency('rollup-plugin-typescript2') : '',
     dependency('@rollup/plugin-json'),
+    dependency('rollup-plugin-terser'),
     ...babelDependencies
   ];
 

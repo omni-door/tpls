@@ -37,6 +37,7 @@ export const devDependencies = {
   '@rollup/plugin-json': '~4.1.0',
   '@rollup/plugin-node-resolve': '~11.0.0',
   '@rollup/plugin-typescript': '~8.0.0',
+  'rollup-plugin-terser': '~7.0.2',
   'rollup-plugin-typescript': '~1.0.1',
   'rollup-plugin-typescript2': '~0.26.0',
   'karma': '4.4.1',
