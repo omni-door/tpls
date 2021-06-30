@@ -5,10 +5,28 @@ const tpl =
 
 ## Example
 
-\\\`\\\`\\\`\${ts ? 'tsx' : 'jsx'}
-import { \${componentName} } from './\${componentName}';
+\\\`\\\`\\\`vue
+<template>
+  <\${componentName}>
+    {{ Hello /\${componentName}}}
+  </\${componentName}>
+</template>
 
-<\${componentName} />
+<script\${ts ? ' lang="ts"' : ''}>
+  import { Component, Vue } from 'vue-property-decorator';
+  import { \${componentName} } from './\${componentName}';
+
+  @Component(
+    components: {
+      \${componentName}
+    }
+  )
+  export class App extends Vue {
+    mounted () {
+      console.info('mounted!')
+    }
+  }
+</script>
 \\\`\\\`\\\`
 \``;
 
