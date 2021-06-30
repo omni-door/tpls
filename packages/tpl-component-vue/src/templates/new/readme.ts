@@ -8,7 +8,7 @@ const tpl =
 \\\`\\\`\\\`vue
 <template>
   <\${componentName}>
-    {{ Hello /\${componentName}}}
+    {{ 'Hello \${componentName}' }}
   </\${componentName}>
 </template>
 
