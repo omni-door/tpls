@@ -68,7 +68,7 @@ export const devDependencies = {
   'stylelint-order': '4.0.0',
   'stylelint-scss': '3.14.2',
   'terser-webpack-plugin': '5.1.1',
-  'ts-jest': '25.2.0',
+  'ts-jest': '25.5.1',
   'ts-node': '~9.1.1',
   'typescript': '~4.1.3',
   'url-loader': '~4.1.1',

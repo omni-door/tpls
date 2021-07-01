@@ -64,7 +64,7 @@ export const devDependencies = {
   'stylelint-declaration-block-no-ignored-properties': '2.3.0',
   'stylelint-order': '4.1.0',
   'stylelint-scss': '3.14.2',
-  'ts-jest': '25.2.0',
+  'ts-jest': '25.5.1',
   'ts-node': '8.10.2',
   'typescript': '~3.9.7'
 };
