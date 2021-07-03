@@ -28,7 +28,7 @@
     "upgrade:utils": "lerna run upgrade:utils",
     "release:branch": "./scripts/branch.sh",
     "release:push": "./scripts/release.sh",
-    "release": "npm run release:branch master TPLS && npm run lint && node ./scripts/release.js"
+    "release": "npm run release:branch v2.3 TPLS && npm run lint && node ./scripts/release.js"
   },
   "license": "MIT"
 }
