@@ -48,7 +48,7 @@ export const devDependencies = {
   'less-loader': '~7.2.1',
   'lint-staged': '10.0.7',
   'mini-css-extract-plugin': '1.3.4',
-  'node-sass': '~5.0.0',
+  'node-sass': '~4.14.1',
   'open': '7.0.2',
   'optimize-css-assets-webpack-plugin': '5.0.4',
   "postcss": "~8.2.8",

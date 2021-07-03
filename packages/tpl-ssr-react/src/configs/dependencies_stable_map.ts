@@ -55,7 +55,7 @@ export const devDependencies = {
   'open': '7.1.0',
   'postcss-px-to-viewport': '1.1.1',
   'prettier': '~2.1.2',
-  'node-sass': '~4.13.1',
+  'node-sass': '~4.14.1',
   'stylelint': '13.6.1',
   'stylelint-config-css-modules': '2.2.0',
   'stylelint-config-prettier': '8.0.2',
