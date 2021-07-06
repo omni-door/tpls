@@ -19,6 +19,7 @@ demo
 server
 dist-*
 docs
+DEV*.md
 
 # config files
 .eslintignore

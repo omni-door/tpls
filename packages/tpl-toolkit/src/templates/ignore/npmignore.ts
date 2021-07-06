@@ -16,6 +16,7 @@ node_modules
 dist
 dist.zip
 docs
+DEV*.md
 
 # config files
 .eslintignore
