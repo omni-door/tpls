@@ -26,7 +26,7 @@ The Vue Component project template
 | omni | omni.config.js |
 | package | package.json |
 | prettier | prettier.config.js |
-| readme | README.md & README.zh-CN.md |
+| readme | README.md & README.zh-CN.md & DEV.md & DEV.zh-CN.md |
 | source | the standard templates in `src` folder |
 | storybook | .storybook/config.js & .storybook/addons.js & .storybook/manager-head.html & .storybook/webpack.config.js |
 | stylelint | stylelint.config.js |
