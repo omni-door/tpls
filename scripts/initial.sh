@@ -261,10 +261,12 @@ export async function \$init ({
   const suffix_stylesheet = style && style === 'all' ? 'scss' : style;
   try {
     const pathToFileContentMap = {
-      'package.json': install && tpl.pkj({ ...params, install, dependencies: '', devDependencies: '' }), // package.json
-      'README.md': tpl.readme({ ...params, install: installReadMe, runScript, paramScript }), // README.md
-      'README.zh-CN.md': tpl.readme_cn({ ...params, install: installReadMe, runScript, paramScript }), // README.zh-CN.md
-      // lint files
+      // default
+      'package.json': install && tpl.pkj({ ...params, install, dependencies: '', devDependencies: '' }),
+      // docs
+      'README.md': tpl.readme({ ...params, install: installReadMe, runScript, paramScript }),
+      'README.zh-CN.md': tpl.readme_cn({ ...params, install: installReadMe, runScript, paramScript }),
+      // lint
       '.vscode/settings.json': tpl.vscode(params)
     };
     const file_path = (p: string) => path.resolve(initPath, p);

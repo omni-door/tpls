@@ -6,64 +6,23 @@ const tpl =
 [English](./README.md) | 简体中文
 
 ## 快速开始
-### 安装依赖
+### 安装
 \\\`\\\`\\\`shell
-\${install}
+\${runScript} add \${project_name}
 \\\`\\\`\\\`
 
-### 启动项目
-\\\`\\\`\\\`shell
-\${runScript} start
-\\\`\\\`\\\`
-or
-\\\`\\\`\\\`shell
-\${runScript} dev
-\\\`\\\`\\\`
+### 使用
 
-### 新建组件
+## 开发
+对于调试或维护，可以将项目 clone 到本地，然后启动项目。
+
 \\\`\\\`\\\`shell
-\${runScript} new
+git clone --depth 1
+
+\${install} && \${runScript} dev
 \\\`\\\`\\\`
 
-*新建一个名为 Button 的函数组件👇*
-\\\`\\\`\\\`shell
-\${runScript} new Button \${paramScript}f
-\\\`\\\`\\\`
-
----
-
-## 构建和发布
-### 构建
-\\\`\\\`\\\`shell
-\${runScript} build
-\\\`\\\`\\\`
-
-*构建项目时绕过所有检查👇*
-\\\`\\\`\\\`shell
-\${runScript} build \${paramScript}n
-\\\`\\\`\\\`
-
-### 发布
-\\\`\\\`\\\`shell
-\${runScript} release
-\\\`\\\`\\\`
-
-*发布项目时忽略版本迭代👇*
-\\\`\\\`\\\`shell
-\${runScript} release \${paramScript}i
-\\\`\\\`\\\`
-
-*发布项目时指定迭代的版本为 0.3.25 👇*
-\\\`\\\`\\\`shell
-\${runScript} release \${paramScript}m 0.3.25
-\\\`\\\`\\\`
-
-*发布项目时绕过所有检查👇*
-\\\`\\\`\\\`shell
-\${runScript} release \${paramScript}n
-\\\`\\\`\\\`
-
-**更多配置项请在 [\${configFileName}](https://github.com/omni-door/cli/blob/master/docs/OMNI.zh-CN.md) 中编辑**
+[更多详情](./DEV.zh-CN.md)
 \``;
 
 export const tpl_readme_cn = {

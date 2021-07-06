@@ -159,7 +159,7 @@ export async function $init ({
   const params = { project_type, project_name, ts, test, eslint, prettier, commitlint, strategy, configFileName };
   try {
     const pathToFileContentMap = {
-      // default files
+      // default
       [`${configFileName}`]: tpl.omni(build)({ ...params, git, npm }),
       'package.json': install && tpl.pkj({ ...params, install, dependencies: '', devDependencies: '' }),
       '.gitignore': tpl.gitignore(params),
@@ -167,9 +167,9 @@ export async function $init ({
       [`src/index.${ts ? 'ts' : 'js'}`]: tpl.indexTpl(params),
       [`src/utils/getTs.${ts ? 'ts' : 'js'}`]: tpl.getTsTpl(params),
       'src/utils/.buildignore': '# This directory will be ignore when build the project',
-      // tsconfig
+      // typescript
       'tsconfig.json': ts && tpl.tsconfig(params),
-      // lint files
+      // lint
       '.vscode/settings.json': tpl.vscode(params),
       '.editorconfig': (eslint || prettier) && tpl.editor(params),
       '.eslintrc.js': eslint && tpl.eslint(params),
@@ -177,15 +177,18 @@ export async function $init ({
       'prettier.config.js': prettier && tpl.prettier(params),
       '.prettierignore': prettier && tpl.prettierignore(params),
       'commitlint.config.js': commitlint && tpl.commitlint(params),
-      // build files
+      // build
       'babel.config.js': tpl.babel(params),
       'rollup.config.js': tpl.rollup(params),
-      'README.md': tpl.readme({ ...params, install: installReadMe, runScript, paramScript }), // README.md
-      'README.zh-CN.md': tpl.readme_cn({ ...params, install: installReadMe, runScript, paramScript }), // README.zh-CN.md
-      // dumi-config files
+      // docs
+      'README.md': tpl.readme({ ...params, install: installReadMe, runScript, paramScript }),
+      'README.zh-CN.md': tpl.readme_cn({ ...params, install: installReadMe, runScript, paramScript }),
+      'DEV.md': tpl.readme_dev({ ...params, install: installReadMe, runScript, paramScript }),
+      'DEV.zh-CN.md': tpl.readme_dev_cn({ ...params, install: installReadMe, runScript, paramScript }),
+      // demo
       [`.umirc.${ts ? 'ts' : 'js'}`]: tpl.umirc(params),
       // '.env': tpl.env(params),
-      // test files
+      // unit test
       'mocha.opts': test && tpl.mocha(params),
       'mocha.ts-node.js': test && tpl.mochaTsNode(params),
       'karma.conf.js': test && tpl.karma(params),

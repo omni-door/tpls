@@ -160,17 +160,19 @@ export async function $init ({
   const suffix_stylesheet = style && style === 'all' ? 'scss' : style;
   try {
     const pathToFileContentMap = {
-      // default files
+      // default
       [`${configFileName}`]: tpl.omni({ ...params, npm, git }),
       'package.json': install && tpl.pkj({ ...params, install, dependencies: '', devDependencies: '' }),
       '.gitignore': tpl.gitignore(params),
       '.npmignore': tpl.npmignore(params),
       [`src/index.${ts ? 'ts' : 'js'}`]: tpl.source_index(params),
       [`src/utils/classnames.${ts ? 'ts' : 'js'}`]: tpl.source_classnames(params),
-      '@types/global.d.ts': ts && tpl.source_d(params), // d.ts files
-      'tsconfig.json': ts && tpl.tsconfig(params), // tsconfig
-      'jest.config.js': test && tpl.jest(params), // test files
-      // lint files
+      // typescript
+      '@types/global.d.ts': ts && tpl.source_d(params),
+      'tsconfig.json': ts && tpl.tsconfig(params),
+      // unit test
+      'jest.config.js': test && tpl.jest(params),
+      // lint
       '.vscode/settings.json': tpl.vscode(params),
       '.editorconfig': (eslint || prettier) && tpl.editor(params),
       '.eslintrc.js': eslint && tpl.eslint(params),
@@ -179,10 +181,14 @@ export async function $init ({
       '.prettierignore': prettier && tpl.prettierignore(params),
       'stylelint.config.js': stylelint && tpl.stylelint(params),
       'commitlint.config.js': commitlint && tpl.commitlint(params),
-      'babel.config.js': tpl.babel(params), // build file
-      'README.md': tpl.readme({ ...params, install: installReadMe, runScript, paramScript }), // README.md
-      'README.zh-CN.md': tpl.readme_cn({ ...params, install: installReadMe, runScript, paramScript }), // README.zh-CN.md
-      // server files
+      // build
+      'babel.config.js': tpl.babel(params),
+      // docs
+      'README.md': tpl.readme({ ...params, install: installReadMe, runScript, paramScript }),
+      'README.zh-CN.md': tpl.readme_cn({ ...params, install: installReadMe, runScript, paramScript }),
+      'DEV.md': tpl.readme_dev({ ...params, install: installReadMe, runScript, paramScript }),
+      'DEV.zh-CN.md': tpl.readme_dev_cn({ ...params, install: installReadMe, runScript, paramScript }),
+      // demo
       '.storybook/addons.js': tpl.storybook_addons(params),
       '.storybook/config.js': tpl.storybook_config(params),
       '.storybook/manager-head.html': tpl.storybook_mhead(params),

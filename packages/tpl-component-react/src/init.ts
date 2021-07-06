@@ -165,7 +165,7 @@ export async function $init ({
   const params = { project_type, project_name, ts, test, eslint, prettier, commitlint, style, stylelint: !!style && stylelint, strategy, configFileName };
   try {
     const pathToFileContentMap = {
-      // default files
+      // default
       [`${configFileName}`]: tpl.omni({ ...params, git, npm, devServer }),
       'package.json': install && tpl.pkj({
         type_react: devDependencyMap['@types/react'],
@@ -176,10 +176,12 @@ export async function $init ({
       '.npmignore': tpl.npmignore(params),
       [`src/index.${ts ? 'ts' : 'js'}`]: tpl.source_index(params),
       [`src/utils/classnames.${ts ? 'ts' : 'js'}`]: tpl.source_classnames(params),
-      '@types/global.d.ts': ts && tpl.source_d(params), // d.ts files
-      'tsconfig.json': ts && tpl.tsconfig(params), // tsconfig
-      'jest.config.js': test && tpl.jest(params), // test files
-      // lint files
+      // typescript
+      '@types/global.d.ts': ts && tpl.source_d(params),
+      'tsconfig.json': ts && tpl.tsconfig(params),
+      // unit test
+      'jest.config.js': test && tpl.jest(params),
+      // lint
       '.vscode/settings.json': tpl.vscode(params),
       '.editorconfig': (eslint || prettier) && tpl.editor(params),
       '.eslintrc.js': eslint && tpl.eslint(params),
@@ -188,10 +190,14 @@ export async function $init ({
       '.prettierignore': prettier && tpl.prettierignore(params),
       'stylelint.config.js': stylelint && tpl.stylelint(params),
       'commitlint.config.js': commitlint && tpl.commitlint(params),
-      'babel.config.js': (!ts || devServer === 'storybook' || devServer === 'styleguidist') && tpl.babel(params), // build file
-      'README.md': tpl.readme({ ...params, install: installReadMe, runScript, paramScript }), // README.md
-      'README.zh-CN.md': tpl.readme_cn({ ...params, install: installReadMe, runScript, paramScript }), // README.zh-CN.md
-      // server files
+      // build
+      'babel.config.js': (!ts || devServer === 'storybook' || devServer === 'styleguidist') && tpl.babel(params),
+      // docs
+      'README.md': tpl.readme({ ...params, install: installReadMe, runScript, paramScript }),
+      'README.zh-CN.md': tpl.readme_cn({ ...params, install: installReadMe, runScript, paramScript }),
+      'DEV.md': tpl.readme_dev({ ...params, install: installReadMe, runScript, paramScript }),
+      'DEV.zh-CN.md': tpl.readme_dev_cn({ ...params, install: installReadMe, runScript, paramScript }),
+      // demo
       'src/index.mdx': devServer === 'docz' && tpl.mdx(params),
       'bisheng.config.js': devServer === 'bisheng' && tpl.bisheng(params),
       'posts/README.md': devServer === 'bisheng' && tpl.posts_readme()(params),

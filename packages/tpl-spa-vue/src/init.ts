@@ -153,7 +153,7 @@ export async function $init ({
   const suffix_stylesheet = style && style === 'all' ? 'scss' : style;
   try {
     const pathToFileContentMap = {
-      // default files
+      // default
       [`configs/${configFileName}`]: tpl.omni({ ...params, git }),
       'package.json': install && tpl.pkj({ ...params, install, dependencies: '', devDependencies: '' }),
       '.gitignore': tpl.gitignore(params),
@@ -164,8 +164,9 @@ export async function $init ({
       // stylesheets
       [`src/App.${suffix_stylesheet}`]: style && tpl.source_index_style(params),
       [`src/reset.${suffix_stylesheet}`]: style && tpl.source_index_reset(params),
-      // d.ts files
+      // typescript
       'src/@types/global.d.ts': ts && tpl.source_d_g(params),
+      'tsconfig.json': ts && tpl.tsconfig(params),
       // pages
       [`src/pages/home/index.${ts ? 'ts' : 'js'}`]: tpl.source_page_index({ ...params, pageName: 'home' }),
       'src/pages/home/home.vue': tpl.source_page_page({ ...params, pageName: 'home', content: 'Home Page' }),
@@ -186,13 +187,14 @@ export async function $init ({
           ? 'ts'
           : 'js'
       }`]: test && tpl.source_component_test({ ...params, componentName: 'Detail' }),
-      // config files
+      // build
       'configs/webpack.config.common.js': tpl.webpack_config_common(params),
       'configs/webpack.config.dev.js': tpl.webpack_config_dev(params),
       'configs/webpack.config.prod.js': tpl.webpack_config_prod(params),
-      'tsconfig.json': ts && tpl.tsconfig(params), // tsconfig
-      'configs/jest.config.js': test && tpl.jest(params), // test files
       'configs/postcss.config.js': style && tpl.postcss(params),
+      'configs/babel.config.js': tpl.babel(params),
+      // unit test
+      'configs/jest.config.js': test && tpl.jest(params),
       // lint files
       '.vscode/settings.json': tpl.vscode(params),
       '.editorconfig': (eslint || prettier) && tpl.editor(params),
@@ -202,9 +204,9 @@ export async function $init ({
       '.prettierignore': prettier && tpl.prettierignore(params),
       'configs/stylelint.config.js': stylelint && tpl.stylelint(params),
       'configs/commitlint.config.js': commitlint && tpl.commitlint(params),
-      'configs/babel.config.js': tpl.babel(params), // build files
-      'README.md': tpl.readme({ ...params, install: installReadMe, runScript, paramScript }), // README.md
-      'README.zh-CN.md': tpl.readme_cn({ ...params, install: installReadMe, runScript, paramScript }) // README.zh-CN.md
+      // docs
+      'README.md': tpl.readme({ ...params, install: installReadMe, runScript, paramScript }),
+      'README.zh-CN.md': tpl.readme_cn({ ...params, install: installReadMe, runScript, paramScript })
     };
     const file_path = (p: string) => path.resolve(initPath, p);
     for (const p in pathToFileContentMap) {

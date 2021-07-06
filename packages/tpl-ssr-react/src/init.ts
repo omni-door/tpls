@@ -154,7 +154,7 @@ export async function $init ({
   try {
     const suffix_stylesheet = style && style === 'all' ? 'scss' : style;
     const pathToFileContentMap = {
-      // default files
+      // default
       [`configs/${configFileName}`]: tpl.omni({ ...params, git }),
       'package.json': install && tpl.pkj(devDependencyMap['@types/react'])({ ...params, install, dependencies: '', devDependencies: '' }),
       '.gitignore': tpl.gitignore(params),
@@ -191,13 +191,13 @@ export async function $init ({
       'next.config.js': tpl.nextConfig(params),
       'next-env.d.ts': ts && tpl.nextDeclartion(params),
       'postcss.config.js': style && tpl.postcss(params),
-      // webpack config files
+      // webpack
       'configs/webpack.config.js': tpl.webpack(params),
-      // tsconfig
-      'tsconfig.json': ts && tpl.tsconfig(params), // tsconfig
-      // jest config
-      'configs/jest.config.js': test && tpl.jest(params), // test files
-      // lint files
+      // typescript
+      'tsconfig.json': ts && tpl.tsconfig(params),
+      // unit test
+      'configs/jest.config.js': test && tpl.jest(params),
+      // lint
       '.vscode/settings.json': tpl.vscode(params),
       '.editorconfig': (eslint || prettier) && tpl.editor(params),
       'configs/.eslintrc.js': eslint && tpl.eslint(params),
@@ -206,9 +206,11 @@ export async function $init ({
       '.prettierignore': prettier && tpl.prettierignore(params),
       'configs/stylelint.config.js': stylelint && tpl.stylelint(params),
       'configs/commitlint.config.js': commitlint && tpl.commitlint(params),
-      'babel.config.js': tpl.babel(params), // build files
-      'README.md': tpl.readme({ ...params, install: installReadMe, runScript, paramScript }), // README.md
-      'README.zh-CN.md': tpl.readme_cn({ ...params, install: installReadMe, runScript, paramScript }) // README.zh-CN.md
+      // build
+      'babel.config.js': tpl.babel(params),
+      // docs
+      'README.md': tpl.readme({ ...params, install: installReadMe, runScript, paramScript }),
+      'README.zh-CN.md': tpl.readme_cn({ ...params, install: installReadMe, runScript, paramScript })
     };
     const file_path = (p: string) => path.resolve(initPath, p);
     for (const p in pathToFileContentMap) {
