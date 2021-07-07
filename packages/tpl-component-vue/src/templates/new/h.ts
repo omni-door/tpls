@@ -17,7 +17,7 @@ export default defineComponent({
   setup() {
     const classes = classnames('\${componentName.toLowerCase()}');
     onMounted(() => {
-      console.info('mounted!');
+      console.info('\${componentName} mounted!');
     })
 
     return { classes };
@@ -30,10 +30,7 @@ export default defineComponent({
       </div>
     );
   }
-})
-
-;
-\``;
+});\``;
 
 export const tpl_new_component_h = {
   tpl

@@ -1,12 +1,12 @@
 import { tplEngineNew } from '@omni-door/utils';
 
 const tpl = 
-`\`import \${componentName} from './\${componentName}';
+`\`import \${componentName} from './\${componentName}\${extname}';
 \${ts ? \`import type { VueConstructor } from 'vue';
 \` : ''}
 \${componentName}.install = (\${ts ? \`app: VueConstructor<Vue>\` : 'app'}): void => {
-  app.component(\${componentName}.name, \${componentName})
-}
+  app.component(\${componentName}.name, \${componentName});
+};
 
 export default \${componentName};
 \``;

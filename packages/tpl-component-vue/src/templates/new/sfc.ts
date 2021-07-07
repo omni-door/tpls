@@ -8,7 +8,10 @@ const tpl =
 </template>
 
 <script\${ts ? \` lang="ts"\` : ''}>
-import { defineComponent, onMounted } from '@vue/composition-api';
+import {
+  defineComponent,
+  onMounted
+} from '@vue/composition-api';
 import classnames from '@utils/classnames';
 
 export default defineComponent({
@@ -22,7 +25,7 @@ export default defineComponent({
   setup() {
     const classes = classnames('\${componentName.toLowerCase()}');
     onMounted(() => {
-      console.info('mounted!');
+      console.info('\${componentName} mounted!');
     })
 
     return { classes };
