@@ -81,7 +81,7 @@ export function $new ({
   try {
      // component tpl
      const content_index = tpl.component_index(params);
-     const content_component = tpl[`component_${type}` as 'component_h' | 'component_sfc'](params);
+     const content_component = type === 'h' ? tpl.component_h(params) : tpl.component_sfc(params);
      const content_readme = md && tpl.component_readme(params);
      const content_stories = tpl.component_stories(params);
      const content_style = stylesheet && tpl.component_style(params);
