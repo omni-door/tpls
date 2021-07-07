@@ -19,7 +19,8 @@ import vscode, { tpl_vscode_setting } from './vsc';
 import stylelint, { tpl_stylelint } from './stylelint';
 import source_index, { tpl_src_index } from './source/index';
 import source_classnames, { tpl_src_classnames } from './source/classnames';
-import source_d, { tpl_src_declaration } from './source/declaration';
+import source_d_global, { tpl_src_d_global } from './source/d-global';
+import source_d_shim_tsx, { tpl_src_d_shim_tsx } from './source/d-shim-tsx';
 import storybook_addons, { tpl_storybook_addons } from './storybook/addons';
 import storybook_config, { tpl_storybook_config } from './storybook/config';
 import storybook_mhead, { tpl_storybook_mhead } from './storybook/manager-head';
@@ -55,7 +56,8 @@ export { default as vscode, tpl_vscode_setting } from './vsc';
 export { default as stylelint, tpl_stylelint } from './stylelint';
 export { default as source_index, tpl_src_index } from './source/index';
 export { default as source_classnames, tpl_src_classnames } from './source/classnames';
-export { default as source_d, tpl_src_declaration } from './source/declaration';
+export { default as source_d_global, tpl_src_d_global } from './source/d-global';
+export { default as source_d_shim_tsx, tpl_src_d_shim_tsx } from './source/d-shim-tsx';
 export { default as storybook_addons, tpl_storybook_addons } from './storybook/addons';
 export { default as storybook_config, tpl_storybook_config } from './storybook/config';
 export { default as storybook_mhead, tpl_storybook_mhead } from './storybook/manager-head';
@@ -93,7 +95,8 @@ export const tpls_init = {
   vscode,
   source_index,
   source_classnames,
-  source_d,
+  source_d_global,
+  source_d_shim_tsx,
   storybook_addons,
   storybook_config,
   storybook_mhead,
@@ -118,7 +121,8 @@ export const tpls_origin_init = {
   tpl_readme_dev,
   tpl_readme_cn,
   tpl_readme_dev_cn,
-  tpl_src_declaration,
+  tpl_src_d_global,
+  tpl_src_d_shim_tsx,
   tpl_src_classnames,
   tpl_src_index,
   tpl_storybook_addons,

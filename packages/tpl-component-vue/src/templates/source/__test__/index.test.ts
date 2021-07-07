@@ -1,11 +1,18 @@
 import { expect } from 'chai';
 import source_index from '../index';
-import source_declaration from '../declaration';
+import source_d_global from '../d-global';
+import source_d_shim_tsx from '../d-shim-tsx';
 import source_classnames from '../classnames';
 
-describe('[tpl-component-vue]: source_declaration template test', function () {
+describe('[tpl-component-vue]: source_d_global template test', function () {
   it('type checking', function () {
-    expect(source_declaration).to.be.a('function');
+    expect(source_d_global).to.be.a('function');
+  });
+});
+
+describe('[tpl-component-vue]: source_d_shim_tsx template test', function () {
+  it('type checking', function () {
+    expect(source_d_shim_tsx).to.be.a('function');
   });
 });
 

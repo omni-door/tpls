@@ -43,8 +43,8 @@ declare module '*.tsx' {
 }
 \``;
 
-export const tpl_src_declaration = {
+export const tpl_src_d_global = {
   tpl
 };
 
-export default tplEngineInit(tpl_src_declaration, 'tpl');
+export default tplEngineInit(tpl_src_d_global, 'tpl');

@@ -168,7 +168,8 @@ export async function $init ({
       [`src/index.${ts ? 'ts' : 'js'}`]: tpl.source_index(params),
       [`src/utils/classnames.${ts ? 'ts' : 'js'}`]: tpl.source_classnames(params),
       // typescript
-      '@types/global.d.ts': ts && tpl.source_d(params),
+      '@types/global.d.ts': ts && tpl.source_d_global(params),
+      '@types/shim-tsx.d.ts': ts && tpl.source_d_shim_tsx(params),
       'tsconfig.json': ts && tpl.tsconfig(params),
       // unit test
       'jest.config.js': test && tpl.jest(params),
