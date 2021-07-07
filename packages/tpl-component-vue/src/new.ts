@@ -81,7 +81,7 @@ export function $new ({
   try {
      // component tpl
      const content_index = tpl.component_index(params);
-     const content_component = type === 'h' ? tpl.component_h(params) : tpl.component_sfc(params);
+     const content_component = type === 'sfc' ? tpl.component_sfc(params) : tpl.component_h(params);
      const content_readme = md && tpl.component_readme(params);
      const content_stories = tpl.component_stories(params);
      const content_style = stylesheet && tpl.component_style(params);
@@ -90,7 +90,10 @@ export function $new ({
  
      const pathToFileContentMap = {
        [`index.${ts ? 'ts' : 'js'}`]: content_index,
-       [`${componentName}.${ts ? 'ts' : 'js'}`]: content_component,
+       [`${componentName}.${
+        type === 'sfc'
+          ? 'vue'
+          : ts ? 'ts' : 'js'}`]: content_component,
        [`style/index.${ts ? 'ts' : 'js'}`]: content_style,
        [`style/${componentName}.${stylesheet}`]: content_stylesheet,
        [`__test__/index.test.${
