@@ -25,7 +25,7 @@ export default defineComponent({
   render(h: CreateElement): VNode {
     const content = this.$slots.default;
     return (
-      <div class={classes(void 0, this.className)}>
+      <div class={this.classes(void 0, this.className)}>
         { content }
       </div>
     );

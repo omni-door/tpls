@@ -93,7 +93,7 @@ export function $new ({
        [`${componentName}.${
         type === 'sfc'
           ? 'vue'
-          : ts ? 'ts' : 'js'}`]: content_component,
+          : ts ? 'tsx' : 'jsx'}`]: content_component,
        [`style/index.${ts ? 'ts' : 'js'}`]: content_style,
        [`style/${componentName}.${stylesheet}`]: content_stylesheet,
        [`__test__/index.test.${
