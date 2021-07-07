@@ -7,24 +7,17 @@ module.exports = function (api) {
   api.cache(false);
   const presets = [
     '@babel/preset-env',
-    'babel-preset-vue'\${ts ? \`,
+    'babel-preset-vue',
+    ['@vue/babel-preset-jsx', { compositionAPI: true }]\${ts ? \`,
     '@babel/preset-typescript'\` : ''}
   ];
 
   const plugins = [
     '@babel/plugin-transform-runtime',
-    ['@babel/proposal-decorators', {
-      legacy: true
-    }],
-    ['@babel/proposal-class-properties', {
-      loose: true
-    }],
-    ['@babel/plugin-proposal-private-property-in-object', {
-      loose: true
-    }],
-    ['@babel/plugin-proposal-private-methods', {
-      loose: true
-    }]
+    ['@babel/plugin-proposal-decorators', { legacy: true }],
+    ['@babel/plugin-proposal-class-properties', { loose: true }],
+    ['@babel/plugin-proposal-private-property-in-object', { loose: true }],
+    ['@babel/plugin-proposal-private-methods', { loose: true }]
   ];
 
   const env = {
@@ -39,10 +32,10 @@ module.exports = function (api) {
         ['@babel/plugin-transform-runtime',{
           useESModules: true
         }],
-        ['@babel/proposal-decorators', {
+        ['@babel/plugin-proposal-decorators', {
           legacy: true
         }],
-        ['@babel/proposal-class-properties', {
+        ['@babel/plugin-proposal-class-properties', {
           loose: true
         }],
         ['@babel/plugin-proposal-private-property-in-object', {

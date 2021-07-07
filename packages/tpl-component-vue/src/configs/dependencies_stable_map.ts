@@ -1,4 +1,5 @@
 export const dependencies = {
+  '@vue/composition-api': '^1.0.0-rc.13',
   'classnames': '~2.2.6'
 };
 
@@ -29,7 +30,9 @@ export const devDependencies = {
   '@types/node': '~14.0.27',
   '@typescript-eslint/eslint-plugin': '~3.8.0',
   '@typescript-eslint/parser': '~3.8.0',
-  '@vue/test-utils': '^1.2.0',
+  '@vue/babel-helper-vue-jsx-merge-props': '~1.2.1',
+  '@vue/babel-preset-jsx': '~1.2.4',
+  '@vue/test-utils': '~1.2.0',
   'babel-jest': '~26.6.3',
   'babel-loader': '~8.1.0',
   'babel-preset-vue': '^2.0.2',

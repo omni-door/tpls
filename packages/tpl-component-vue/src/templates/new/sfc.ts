@@ -8,10 +8,10 @@ const tpl =
 </template>
 
 <script\${ts ? \` lang="ts"\` : ''}>
-import Vue from 'vue';
+import { defineComponent, onMounted } from '@vue/composition-api';
 import classnames from '@utils/classnames';
 
-export const \${componentName} = Vue.extend({
+export default defineComponent({
   name: '\${componentName}',
   props: {
     className: {
@@ -19,12 +19,15 @@ export const \${componentName} = Vue.extend({
       default: ''
     }
   },
-  methods: {
-    classes: classnames('\${componentName.toLowerCase()}')
+  setup() {
+    const classes = classnames('\${componentName.toLowerCase()}');
+    onMounted(() => {
+      console.info('mounted!');
+    })
+
+    return { classes };
   }
 });
-
-export default \${componentName};
 </script>\``;
 
 export const tpl_new_component_sfc = {

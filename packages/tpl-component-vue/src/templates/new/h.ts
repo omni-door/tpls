@@ -1,34 +1,39 @@
 import { tplEngineNew } from '@omni-door/utils';
 
 const tpl = 
-`\`import {
-  Component,
-  Vue,
-  Prop
-} from 'vue-property-decorator';
+`\`import { defineComponent, onMounted } from '@vue/composition-api';
 import classnames from '@utils/classnames';
 \${ts ? \`/* import types */
 import type { CreateElement, VNode } from 'vue';
 \` : ''}
-@Component
-export class \${componentName} extends Vue {
-  @Prop({ type: String, default: '' }) private className!: string;
-
-  public render(h\${ts ? \`: CreateElement): VNode\` : ')'} {
-    const content = this.$slots.default;
+export default defineComponent({
+  name: '\${componentName}',
+  props: {
+    className: {
+      type: String,
+      default: ''
+    }
+  },
+  setup() {
     const classes = classnames('\${componentName.toLowerCase()}');
-    return h(
-      'div',
-      {
-        staticClass: classes(),
-        class: this.className
-      },
-      content
+    onMounted(() => {
+      console.info('mounted!');
+    })
+
+    return { classes };
+  },
+  render(h: CreateElement): VNode {
+    const content = this.$slots.default;
+    return (
+      <div class={classes(void 0, this.className)}>
+        { content }
+      </div>
     );
   }
-}
+})
 
-export default \${componentName};\``;
+;
+\``;
 
 export const tpl_new_component_h = {
   tpl

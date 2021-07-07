@@ -16,6 +16,7 @@ interface Config {
 export async function dependencies (strategy: STRATEGY, config: Config) {
   const dependency = await getDependency(strategy, dependenciesMap);
   const deps = [
+    dependency('@vue/composition-api'),
     dependency('classnames')
   ];
   return {
@@ -56,6 +57,8 @@ export async function devDependencies (strategy: STRATEGY, config: Config) {
     dependency('@babel/core'),
     dependency('@babel/preset-env'),
     dependency('babel-preset-vue'),
+    dependency('@vue/babel-preset-jsx'),
+    dependency('@vue/babel-helper-vue-jsx-merge-props'),
     dependency('@babel/plugin-transform-runtime'),
     dependency('@babel/plugin-proposal-class-properties'),
     dependency('@babel/plugin-proposal-decorators'),

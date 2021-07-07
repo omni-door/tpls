@@ -1,5 +1,7 @@
 import { expect } from 'chai';
-import component from '../component';
+import component_h from '../h';
+import component_h_c from '../h_class';
+import component_sfc from '../sfc';
 import component_index from '../index';
 import component_readme from '../readme';
 import component_stories from '../stories';
@@ -7,9 +9,21 @@ import component_style from '../style';
 import component_stylesheet from '../stylesheet';
 import component_test from '../test';
 
-describe('[tpl-component-vue]: component template test', function () {
+describe('[tpl-component-vue]: component_h template test', function () {
   it('type checking', function () {
-    expect(component).to.be.a('function');
+    expect(component_h).to.be.a('function');
+  });
+});
+
+describe('[tpl-component-vue]: component_h_c template test', function () {
+  it('type checking', function () {
+    expect(component_h_c).to.be.a('function');
+  });
+});
+
+describe('[tpl-component-vue]: component_sfc template test', function () {
+  it('type checking', function () {
+    expect(component_sfc).to.be.a('function');
   });
 });
 

@@ -4,7 +4,7 @@ const tpl =
 `\`import { storiesOf } from '@storybook/vue';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { themes } from '@storybook/theming';
-import { \${componentName} } from '../';
+import \${componentName} from '../';
 import '../style';
 
 storiesOf('\${componentName}', module)
