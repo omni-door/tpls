@@ -25,6 +25,7 @@ export function $new ({
   stylesheet,
   newPath,
   md,
+  type = 'h',
   tpls
 }: {
   ts: boolean;
@@ -33,6 +34,7 @@ export function $new ({
   stylesheet: STYLE;
   newPath: string;
   md?: boolean;
+  type?: 'sfc' | 'h';
   tpls?: (tpls: TPLS_ORIGIN_NEW) => TPLS_NEW_RETURE;
 }) {
   logTime('CREATE(创建组件)');
@@ -79,7 +81,7 @@ export function $new ({
   try {
      // component tpl
      const content_index = tpl.component_index(params);
-     const content_component = tpl.component(params);
+     const content_component = tpl[`component_${type}` as 'component_h' | 'component_sfc'](params);
      const content_readme = md && tpl.component_readme(params);
      const content_stories = tpl.component_stories(params);
      const content_style = stylesheet && tpl.component_style(params);

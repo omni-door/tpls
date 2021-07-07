@@ -30,8 +30,8 @@ export class \${componentName} extends Vue {
 
 export default \${componentName};\``;
 
-export const tpl_new_component = {
+export const tpl_new_component_h = {
   tpl
 };
 
-export default tplEngineNew(tpl_new_component, 'tpl');
+export default tplEngineNew(tpl_new_component_h, 'tpl');

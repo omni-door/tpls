@@ -25,7 +25,8 @@ import storybook_config, { tpl_storybook_config } from './storybook/config';
 import storybook_mhead, { tpl_storybook_mhead } from './storybook/manager-head';
 import storybook_webpack, { tpl_storybook_webpack } from './storybook/webpack';
 import storybook_theme, { tpl_storybook_theme } from './storybook/theme';
-import component, { tpl_new_component } from './new/component';
+import component_h, { tpl_new_component_h } from './new/h';
+import component_sfc, { tpl_new_component_sfc } from './new/sfc';
 import component_index, { tpl_new_index } from './new/index';
 import component_readme, { tpl_new_readme } from './new/readme';
 import component_style, { tpl_new_style } from './new/style';
@@ -60,7 +61,8 @@ export { default as storybook_config, tpl_storybook_config } from './storybook/c
 export { default as storybook_mhead, tpl_storybook_mhead } from './storybook/manager-head';
 export { default as storybook_webpack, tpl_storybook_webpack } from './storybook/webpack';
 export { default as storybook_theme, tpl_storybook_theme } from './storybook/theme';
-export { default as component, tpl_new_component } from './new/component';
+export { default as component_sfc, tpl_new_component_sfc } from './new/sfc';
+export { default as component_h, tpl_new_component_h } from './new/h';
 export { default as component_index, tpl_new_index } from './new/index';
 export { default as component_readme, tpl_new_readme } from './new/readme';
 export { default as component_style, tpl_new_style } from './new/style';
@@ -143,7 +145,8 @@ export type TPLS_INITIAL_RETURE = Partial<TPLS_INITIAL>;
 
 /* -- templates - new --  */
 export const tpls_new = {
-  component,
+  component_h,
+  component_sfc,
   component_index,
   component_readme,
   component_style,
@@ -153,7 +156,8 @@ export const tpls_new = {
 };
 
 export const tpls_origin_new = {
-  tpl_new_component,
+  tpl_new_component_h,
+  tpl_new_component_sfc,
   tpl_new_index,
   tpl_new_readme,
   tpl_new_story,
