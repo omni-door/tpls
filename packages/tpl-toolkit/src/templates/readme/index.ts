@@ -12,6 +12,9 @@ English | [简体中文](./README.zh-CN.md)
 \\\`\\\`\\\`
 
 ### Usage
+\\\`\\\`\\\`js
+import Tool from '\${project_name}';
+\\\`\\\`\\\`
 
 ## Dev
 For debugging or maintenance, you can clone the whole git repository and run the project:
