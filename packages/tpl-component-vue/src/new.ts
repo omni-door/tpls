@@ -76,7 +76,7 @@ export function $new ({
     componentName,
     style: stylesheet,
     md,
-    extname: type === 'sfc' ? '.vue' : ts ? '.tsx' : '.jsx'
+    type
   };
 
   try {

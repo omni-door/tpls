@@ -32,15 +32,6 @@ declare module '*.vue' {
   };
   export default component;
 }
-
-declare module '*.tsx' {
-  import type { VueConstructor } from 'vue';
-  import type { defineComponent } from '@vue/composition-api';
-  const VueComponent: ReturnType<typeof defineComponent> & {
-    install(app: VueConstructor<Vue>): void
-  };
-  export default VueComponent;
-}
 \``;
 
 export const tpl_src_d_global = {
