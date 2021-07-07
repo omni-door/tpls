@@ -1,12 +1,15 @@
 import { tplEngineInit } from '@omni-door/utils';
 
 const tpl = 
-`\`\${ts ? \`import type { VueConstructor } from 'vue';\` : ''}
+`\`import VueCompositionAPI from '@vue/composition-api';
+\${ts ? \`import type { VueConstructor } from 'vue';
+\` : ''}
 
 install.installed = false;
 function install (Vue\${ts ? \`: VueConstructor<Vue>\` : ''}) {
   if (install.installed) return;
   install.installed = true;
+  Vue.use(VueCompositionAPI);
 }
 
 let GlobalVue;
