@@ -6,30 +6,30 @@ const tpl =
 module.exports = {
   clearMocks: true,
 
-  coverageDirectory: "coverage",
+  coverageDirectory: 'coverage',
 
   moduleFileExtensions: [
-    "js",
-    "json",
-    "jsx",
-    "ts",
-    "tsx",
-    "node"
+    'js',
+    'json',
+    'jsx',
+    'ts',
+    'tsx',
+    'node'
   ],
 
   roots: [
-    "<rootDir>/src"
+    '<rootDir>/src'
   ],
 
-  testRegex: "(test|__test__)/.*.test.(tsx|ts|jsx|js)?$",
+  testRegex: '(test|__test__)/.*.test.(tsx|ts|jsx|js)?$',
 
   transform: {
-    \${ts ? \`"^.+.(tsx|ts)?$": "ts-jest"\` : \`"^.+.(jsx|js)?$": "babel-jest"\` }
+    \${ts ? \`'^.+.(tsx|ts)?$': 'ts-jest'\` : \`'^.+.(jsx|js)?$': 'babel-jest'\` }
   },
 
   moduleNameMapper: {
-    "^@utils(.*)$": "<rootDir>/src/utils$1",
-    "^.+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "jest-transform-stub"
+    '^@utils(.*)$': '<rootDir>/src/utils$1',
+    '^.+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$': 'jest-transform-stub'
   }
 };
 \``;

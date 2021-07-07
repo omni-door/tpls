@@ -6,31 +6,31 @@ const tpl =
 module.exports = {
   clearMocks: true,
 
-  coverageDirectory: "coverage",
+  coverageDirectory: 'coverage',
 
   moduleFileExtensions: [
-    "js",
-    "jsx",
-    "json",
-    "ts",
-    "tsx",
-    "vue"
+    'js',
+    'jsx',
+    'json',
+    'ts',
+    'tsx',
+    'vue'
   ],
 
   roots: [
-    "<rootDir>/src"
+    '<rootDir>/src'
   ],
 
-  testRegex: "(test|__test__)/.*.test.(vue|ts|tsx|js|jsx)?$",
+  testRegex: '(test|__test__)/.*.test.(vue|ts|tsx|js|jsx)?$',
 
   transform: {
-    \${ts ? \`"^.+.tsx?$": "babel-jest",\` : \`"^.+.jsx?$": "babel-jest",\` }
+    \${ts ? \`'^.+.tsx?$': 'babel-jest',\` : \`'^.+.jsx?$': 'babel-jest',\` }
     '^.+.vue$': 'vue-jest'
   },
 
   moduleNameMapper: {
-    "^@utils(.*)$": "<rootDir>/src/utils$1",
-    "^.+.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "jest-transform-stub"
+    '^@utils(.*)$': '<rootDir>/src/utils$1',
+    '^.+.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$': 'jest-transform-stub'
   },
 
   preset: 'ts-jest/presets/js-with-ts',

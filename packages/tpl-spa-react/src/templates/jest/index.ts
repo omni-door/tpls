@@ -7,29 +7,29 @@ const path = require('path');
 module.exports = {
   clearMocks: true,
 
-  coverageDirectory: "coverage",
+  coverageDirectory: 'coverage',
 
   moduleFileExtensions: [
-    "js",
-    "json",
-    "jsx",
-    "ts",
-    "tsx",
-    "node"
+    'js',
+    'json',
+    'jsx',
+    'ts',
+    'tsx',
+    'node'
   ],
 
   roots: [
-    "<rootDir>/../src"
+    '<rootDir>/../src'
   ],
 
-  testRegex: "(test|__test__)/.*.test.(tsx|ts|jsx|js)?$",
+  testRegex: '(test|__test__)/.*.test.(tsx|ts|jsx|js)?$',
 
   transform: {
-    \${ts ? \`"^.+.(tsx|ts)?$": "ts-jest"\` : \`"^.+.(jsx|js)?$": ["babel-jest", { configFile: path.resolve(__dirname, "babel.config.js") }]\` }
+    \${ts ? \`'^.+.(tsx|ts)?$': 'ts-jest'\` : \`'^.+.(jsx|js)?$': ['babel-jest', { configFile: path.resolve(__dirname, 'babel.config.js') }]\` }
   },
 
   moduleNameMapper: {
-    "^.+.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "jest-transform-stub"
+    '^.+.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$': 'jest-transform-stub'
   }
 };
 \``;
