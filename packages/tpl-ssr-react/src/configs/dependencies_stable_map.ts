@@ -38,7 +38,7 @@ export const devDependencies = {
   'next-compose-plugins': '~2.2.0',
   'next-transpile-modules': '~4.0.2',
   'ip': '1.1.5',
-  'jest': '25.1.0',
+  'jest': '~26.6.3',
   'jest-transform-stub': '2.0.0',
   'enzyme': '3.11.0',
   'enzyme-adapter-react-16': '1.15.2',
@@ -64,7 +64,7 @@ export const devDependencies = {
   'stylelint-declaration-block-no-ignored-properties': '2.3.0',
   'stylelint-order': '4.1.0',
   'stylelint-scss': '3.14.2',
-  'ts-jest': '25.5.1',
+  'ts-jest': '~26.5.6',
   'ts-node': '8.10.2',
-  'typescript': '~3.9.7'
+  'typescript': '~4.3.5'
 };

@@ -26,7 +26,7 @@ export default defineComponent({
     const classes = classnames('\${componentName.toLowerCase()}');
     onMounted(() => {
       console.info('\${componentName} mounted!');
-    })
+    });
 
     return { classes };
   }

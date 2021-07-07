@@ -20,7 +20,7 @@ export const devDependencies = {
   'ts-node': '8.6.2',
   'tsconfig-paths': '~3.9.0',
   'ttypescript': '~1.5.12',
-  'typescript': '~3.9.7',
+  'typescript': '~4.3.5',
   'typescript-transform-paths': '~2.0.3',
   '@omni-door/cli': 'latest',
   '@types/chai': '4.2.9',

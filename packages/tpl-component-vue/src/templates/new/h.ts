@@ -1,7 +1,10 @@
 import { tplEngineNew } from '@omni-door/utils';
 
 const tpl = 
-`\`import { defineComponent, onMounted } from '@vue/composition-api';
+`\`import {
+  defineComponent,
+  onMounted
+} from '@vue/composition-api';
 import classnames from '@utils/classnames';
 \${ts ? \`/* import types */
 import type { CreateElement, VNode } from 'vue';
@@ -18,7 +21,7 @@ export default defineComponent({
     const classes = classnames('\${componentName.toLowerCase()}');
     onMounted(() => {
       console.info('\${componentName} mounted!');
-    })
+    });
 
     return { classes };
   },
