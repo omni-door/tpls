@@ -4,6 +4,7 @@ const tpl =
 `\`\${use_strict}
 
 const path = require('path');
+const gulpfile = require('./gulpfile');
 
 module.exports = {
   type: '\${project_type}', // 项目类型，请勿任意变动 (project type, please don't modify)
@@ -29,6 +30,10 @@ module.exports = {
     // es6 module输出路径 (es6 module compiled directory)
     // 务必使用绝对路径 (must be a absolute path)
     esmDir: path.resolve('es'),
+
+    // 构建阶段的自定义配置回调 (The callback will be call in the build-process)
+    // 返回自定义的配置 (You can return your custom build configuration)
+    configuration: gulpfile,
 
     reserve: {
       assets: [] // 构建结果保留其他资源的路径 (reserve other asset paths)
