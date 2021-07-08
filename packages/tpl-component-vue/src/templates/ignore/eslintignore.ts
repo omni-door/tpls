@@ -14,7 +14,7 @@ node_modules/
 **/__test__/
 **/__stories__/
 
-doczrc.js
+gulpfile.js
 .eslintrc.js
 *.config.js
 *.conf.js

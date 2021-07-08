@@ -7,7 +7,6 @@ const tpl =
 ~*
 
 .nyc_output
-.omni_cache
 node_modules
 lib
 es

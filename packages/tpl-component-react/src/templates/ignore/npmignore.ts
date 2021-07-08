@@ -12,7 +12,6 @@ build
 src
 *test*
 node_modules
-.omni_cache
 .storybook
 .docz
 demo
@@ -30,6 +29,7 @@ DEV*.md
 *.config.js
 *.conf.js
 tsconfig.json
+gulpfile.js
 
 _config.yml
 .nyc_output

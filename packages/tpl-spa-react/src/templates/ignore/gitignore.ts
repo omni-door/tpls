@@ -6,7 +6,6 @@ const tpl =
 *~
 ~*
 
-.omni_cache
 node_modules
 lib
 es

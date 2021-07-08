@@ -192,6 +192,7 @@ export async function $init ({
       'commitlint.config.js': commitlint && tpl.commitlint(params),
       // build
       'babel.config.js': (!ts || devServer === 'storybook' || devServer === 'styleguidist') && tpl.babel(params),
+      'gulpfile.js': tpl.gulpfile(params),
       // docs
       'README.md': tpl.readme({ ...params, install: installReadMe, runScript, paramScript }),
       'README.zh-CN.md': tpl.readme_cn({ ...params, install: installReadMe, runScript, paramScript }),

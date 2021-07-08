@@ -3,6 +3,7 @@ import tpl_babel from '../babel';
 import tpl_commitlint from '../commitlint';
 import tpl_editor from '../editor';
 import tpl_eslint from '../eslint';
+import tpl_gulpfile from '../gulpfile';
 import tpl_eslintignore from '../ignore/eslintignore';
 import tpl_gitignore from '../ignore/gitignore';
 import tpl_prettierignore from '../ignore/prettierignore';
@@ -39,6 +40,12 @@ describe('[tpl-component-vue]: tpl_editor template test', function () {
 describe('[tpl-component-vue]: tpl_eslint template test', function () {
   it('type checking', function () {
     expect(tpl_eslint).to.be.a('function');
+  });
+});
+
+describe('[tpl-component-vue]: tpl_gulpfile template test', function () {
+  it('type checking', function () {
+    expect(tpl_gulpfile).to.be.a('function');
   });
 });
 

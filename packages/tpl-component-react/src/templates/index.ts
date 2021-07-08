@@ -2,6 +2,7 @@ import babel, { tpl_babel } from './babel';
 import commitlint, { tpl_commitlint } from './commitlint';
 import editor, { tpl_editor } from './editor';
 import eslint, { tpl_eslint } from './eslint';
+import gulpfile, { tpl_gulpfile } from './gulpfile';
 import eslintignore, { tpl_ignore_eslint } from './ignore/eslintignore';
 import gitignore, { tpl_ignore_git } from './ignore/gitignore';
 import npmignore, { tpl_ignore_npm } from './ignore/npmignore';
@@ -46,6 +47,7 @@ export { default as babel, tpl_babel } from './babel';
 export { default as commitlint, tpl_commitlint } from './commitlint';
 export { default as editor, tpl_editor } from './editor';
 export { default as eslint, tpl_eslint } from './eslint';
+export { default as gulpfile, tpl_gulpfile } from './gulpfile';
 export { default as eslintignore, tpl_ignore_eslint } from './ignore/eslintignore';
 export { default as gitignore, tpl_ignore_git } from './ignore/gitignore';
 export { default as npmignore, tpl_ignore_npm } from './ignore/npmignore';
@@ -92,6 +94,7 @@ export const tpls_init = {
   commitlint,
   editor,
   eslint,
+  gulpfile,
   eslintignore,
   gitignore,
   jest,
@@ -132,6 +135,7 @@ export const tpls_origin_init = {
   tpl_docz,
   tpl_docz_mdx,
   tpl_eslint,
+  tpl_gulpfile,
   tpl_gatsby,
   tpl_ignore_eslint,
   tpl_ignore_git,
