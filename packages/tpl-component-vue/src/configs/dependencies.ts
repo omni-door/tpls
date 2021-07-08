@@ -56,7 +56,6 @@ export async function devDependencies (strategy: STRATEGY, config: Config) {
   const babelDependencies = [
     dependency('@babel/core'),
     dependency('@babel/preset-env'),
-    dependency('@babel/preset-flow'),
     dependency('babel-preset-vue'),
     dependency('@vue/babel-preset-jsx'),
     dependency('@vue/babel-helper-vue-jsx-merge-props'),
@@ -65,7 +64,8 @@ export async function devDependencies (strategy: STRATEGY, config: Config) {
     dependency('@babel/plugin-proposal-decorators'),
     dependency('@babel/plugin-proposal-private-property-in-object'),
     dependency('@babel/plugin-proposal-private-methods'),
-    ts ? dependency('@babel/preset-typescript') : ''
+    ts ? dependency('@babel/preset-typescript') : '',
+    ts ? dependency('@babel/preset-flow') : ''
   ];
 
   const testDependencies = test ? [
