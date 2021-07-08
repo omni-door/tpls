@@ -7,6 +7,7 @@ module.exports = function (api) {
   api.cache(false);
   const presets = [
     '@babel/preset-env',
+    '@babel/preset-flow',
     'babel-preset-vue',
     ['@vue/babel-preset-jsx', { compositionAPI: true }]\${ts ? \`,
     '@babel/preset-typescript'\` : ''}

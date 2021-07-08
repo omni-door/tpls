@@ -11,6 +11,7 @@ export const devDependencies = {
   '@babel/plugin-proposal-private-methods': '~7.10.0',
   '@babel/plugin-transform-runtime': '~7.10.0',
   '@babel/preset-env': '~7.10.0',
+  '@babel/preset-flow': '~7.10.0',
   '@babel/preset-typescript': '~7.10.0',
   '@commitlint/cli': '8.3.5',
   '@omni-door/cli': 'latest',
