@@ -1,7 +1,7 @@
 import { tplEngineNew } from '@omni-door/utils';
 
 const tpl = 
-`\`import \${componentName} from './\${type === 'sfc' ? '\${componentName}.vue' : '\${componentName}'}';
+`\`import \${componentName} from './\${type === 'sfc' ? componentName + '.vue' : componentName}';
 \${ts ? \`import type { defineComponent } from '@vue/composition-api';
 import type { VueConstructor } from 'vue';
 
