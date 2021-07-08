@@ -2,13 +2,13 @@ import { tplEngineInit } from '@omni-door/utils';
 
 const tpl = 
 `\`\${use_strict}
+const gulp = require('gulp');
 
 module.exports = function (config) {
   const { task, params } = config;
-  task.push(function () {
-    return Promise.resolve();
-  });
-  return task;
+
+  const [ compileCJS, compileES, compileSFC, ...rest ] = task;
+  return [ gulp.series(compileCJS, compileES, compileSFC), ...rest ];
 }
 \``;
 
