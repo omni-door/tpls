@@ -152,6 +152,8 @@ export async function devDependencies (strategy: STRATEGY, config: Config) {
     dependency('gulp-concat'),
     dependency('gulp-concat-css'),
     dependency('gulp-cssnano'),
+    dependency('gulp-replace-path'),
+    dependency('@omni-door/gulp-plugin-vue-sfc'),
     (style === 'all' || style === 'less') ? dependency('gulp-less') : '',
     (style === 'all' || style === 'scss') ? dependency('gulp-sass') : '',
     dependency('gulp-if'),
