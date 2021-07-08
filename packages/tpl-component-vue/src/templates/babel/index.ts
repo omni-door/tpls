@@ -10,7 +10,7 @@ module.exports = function (api) {
     'babel-preset-vue',
     ['@vue/babel-preset-jsx', { compositionAPI: true }]\${ts ? \`,
     '@babel/preset-typescript',
-    '@babel/preset-flow'\` : ''}
+    'babel-preset-typescript-vue3'\` : ''}
   ];
 
   const plugins = [

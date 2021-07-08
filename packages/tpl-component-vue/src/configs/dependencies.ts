@@ -65,7 +65,7 @@ export async function devDependencies (strategy: STRATEGY, config: Config) {
     dependency('@babel/plugin-proposal-private-property-in-object'),
     dependency('@babel/plugin-proposal-private-methods'),
     ts ? dependency('@babel/preset-typescript') : '',
-    ts ? dependency('@babel/preset-flow') : ''
+    ts ? dependency('babel-preset-typescript-vue3') : ''
   ];
 
   const testDependencies = test ? [
