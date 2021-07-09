@@ -2,7 +2,7 @@ import { tplEngineNew } from '@omni-door/utils';
 
 const tpl = 
 `\`<template>
-  <div :class="classes(void 0, className)">
+  <div :class="classes()">
     <slot name="default" />
   </div>
 </template>
@@ -17,13 +17,13 @@ import classnames from '@utils/classnames';
 export default defineComponent({
   name: '\${componentName}',
   props: {
-    className: {
+    prefixCls: {
       type: String,
-      default: ''
+      default: '\${componentName.toLowerCase()}'
     }
   },
   setup() {
-    const classes = classnames('\${componentName.toLowerCase()}');
+    const classes = classnames(this.prefixCls);
     onMounted(() => {
       console.info('\${componentName} mounted!');
     });

@@ -12,13 +12,13 @@ import type { CreateElement, VNode } from 'vue';
 export default defineComponent({
   name: '\${componentName}',
   props: {
-    className: {
+    prefixCls: {
       type: String,
-      default: ''
+      default: '\${componentName.toLowerCase()}'
     }
   },
   setup() {
-    const classes = classnames('\${componentName.toLowerCase()}');
+    const classes = classnames(this.prefixCls);
     onMounted(() => {
       console.info('\${componentName} mounted!');
     });
@@ -28,7 +28,7 @@ export default defineComponent({
   render(h: CreateElement): VNode {
     const content = this.$slots.default;
     return (
-      <div class={this.classes(void 0, this.className)}>
+      <div class={this.classes()}>
         { content }
       </div>
     );

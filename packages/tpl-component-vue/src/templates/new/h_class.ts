@@ -8,16 +8,15 @@ import type { CreateElement, VNode } from 'vue';
 \` : ''}
 @Component
 export default class \${componentName} extends Vue {
-  @Prop({ type: String, default: '' }) \${ts ? \`private className!: string;\` : 'className;'}
+  @Prop({ type: String, default: '\${componentName.toLowerCase()}' }) \${ts ? \`private prefixCls!: string;\` : 'prefixCls;'}
 
   \${ts ? \`protected render(h: CreateElement): VNode\` : 'render(h)'} {
     const content = this.$slots.default;
-    const classes = classnames('\${componentName.toLowerCase()}');
+    const classes = classnames(this.prefixCls);
     return h(
       'div',
       {
-        staticClass: classes(),
-        class: this.className
+        staticClass: classes()
       },
       content
     );
