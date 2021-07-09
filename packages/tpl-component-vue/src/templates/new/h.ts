@@ -17,8 +17,8 @@ export default defineComponent({
       default: '\${componentName.toLowerCase()}'
     }
   },
-  setup() {
-    const classes = classnames(this.prefixCls);
+  setup(props) {
+    const classes = classnames(props.prefixCls);
     onMounted(() => {
       console.info('\${componentName} mounted!');
     });
