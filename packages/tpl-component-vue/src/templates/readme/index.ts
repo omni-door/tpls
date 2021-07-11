@@ -8,7 +8,11 @@ English | [简体中文](./README.zh-CN.md)
 ## Quick start
 ### Install
 \\\`\\\`\\\`shell
-\${runScript} add \${project_name}
+npm i -S \${project_name}
+# or
+yarn add \${project_name}
+# or
+pnpm i -S \${project_name}
 \\\`\\\`\\\`
 
 ### Usage

@@ -6,14 +6,22 @@ const tpl =
 [English](./README.md) | 简体中文
 
 ## 快速开始
-### 安装
+### NPM
 \\\`\\\`\\\`shell
-\${runScript} add \${project_name}
+npm i -S \${project_name}
+# 或者
+yarn add \${project_name}
+# 或者
+pnpm i -S \${project_name}
 \\\`\\\`\\\`
 
-### 使用
 \\\`\\\`\\\`js
 import Tool from '\${project_name}';
+\\\`\\\`\\\`
+
+### CDN
+\\\`\\\`\\\`html
+<script src="https://unpkg.com/\${project_name}@latest/umd/\${project_name.toLowerCase()}.min.js"></script>
 \\\`\\\`\\\`
 
 ## 开发

@@ -8,7 +8,11 @@ const tpl =
 ## 快速开始
 ### 安装
 \\\`\\\`\\\`shell
-\${runScript} add \${project_name}
+npm i -S \${project_name}
+# 或者
+yarn add \${project_name}
+# 或者
+pnpm i -S \${project_name}
 \\\`\\\`\\\`
 
 ### 使用
