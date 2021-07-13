@@ -3,6 +3,13 @@ import { tplEngineNew } from '@omni-door/utils';
 const tpl = 
 `\`# \${componentName}
 
+## APIs
+| Name | Description | Type | Default |
+| --- | --- | --- | --- |
+| className(optional) | The extra classname for \${componentName} | string | - |
+| prefixCls(optional) | The classname prefix for wholly control the component style | string | \\\`'\${componentName.toLowerCase()}'\\\` | 
+
+
 ## Example
 
 \\\`\\\`\\\`\${ts ? 'tsx' : 'jsx'}

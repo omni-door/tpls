@@ -4,6 +4,7 @@ const tpl =
 `\`\${cc ? \`export interface \${componentName}States {}\n\` : ''}
 export interface \${componentName}Props {
   className?: string;
+  prefixCls?: string;
 }
 \``;
 

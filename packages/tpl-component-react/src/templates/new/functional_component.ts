@@ -3,16 +3,18 @@ import { tplEngineNew } from '@omni-door/utils';
 const tpl = 
 `\`import React, { memo } from 'react';
 import propTypes from 'prop-types';
+import classnames from '@utils/classnames';
 \${ts ? \`/* import types */
 import type { FC } from 'react';
 import type { \${componentName}Props } from './interface';
 \` : ''}
 export const \${componentName}\${ts ? \`: FC<\${componentName}Props>\` : ''} = props => {
-  const { children } = props;
+  const { children, className, prefixCls = '\${componentName.toLowerCase()}' } = props;
+  const classes = classnames(prefixCls);
 
   return (
     <div
-      className='\${componentName}'
+      className={classes(void 0, className)}
     >
       { children }
     </div>
@@ -24,7 +26,8 @@ export const \${componentName}\${ts ? \`: FC<\${componentName}Props>\` : ''} = p
  * prop-types can make sure the type-check whatever the environment whether or not use typescript
  */
 \${componentName}.propTypes = {
-  className: propTypes.string
+  className: propTypes.string,
+  prefixCls: propTypes.string
 };
 
 export default memo(\${componentName});

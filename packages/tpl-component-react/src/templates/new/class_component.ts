@@ -3,6 +3,7 @@ import { tplEngineNew } from '@omni-door/utils';
 const tpl = 
 `\`import React, { PureComponent } from 'react';
 import propTypes from 'prop-types';
+import classnames from '@utils/classnames';
 \${ts ? \`/* import types */
 import type { \${componentName}Props, \${componentName}States } from './interface';
 \` : ''}
@@ -12,15 +13,17 @@ export class \${componentName} extends PureComponent\${ts ? \`<\${componentName}
    * prop-types can make sure the type-check whatever the environment whether or not use typescript
    */
   \${ts ? 'public ' : ''}static propTypes = {
-    className: propTypes.string
+    className: propTypes.string,
+    prefixCls: propTypes.string
   };
 
   \${ts ? 'public ' : ''}render() {
-    const { children } = this.props;
+    const { children, className, prefixCls = '\${componentName.toLowerCase()}' } = this.props;
+    const classes = classnames(prefixCls);
 
     return (
       <div
-        className='\${componentName}'
+        className={classes(void 0, className)}
       >
         { children }
       </div>
