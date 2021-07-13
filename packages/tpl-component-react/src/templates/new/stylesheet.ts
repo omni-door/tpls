@@ -3,7 +3,7 @@ import { tplEngineNew } from '@omni-door/utils';
 const tpl = 
 `\`.prefix-\${componentName.toLowerCase()} {
   display: block;
-  color: lightblue;
+  color: blue;
 }
 \``;
 

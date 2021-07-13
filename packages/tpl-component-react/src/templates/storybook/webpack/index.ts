@@ -12,7 +12,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: \${ts ? \`/\.(js|jsx|ts|tsx)$/\` : \`/\.(js|jsx)$/\` },
         use: [
           {loader: 'babel-loader'}
         ],
@@ -30,17 +30,6 @@ module.exports = {
           }
         ]
       },
-      \${ts ? \`{
-        test: /\.(ts|tsx)$/,
-        use: [
-          {
-            loader: require.resolve('awesome-typescript-loader'),
-          },
-          {
-            loader: require.resolve('react-docgen-typescript-loader'),
-          },
-        ]
-      },\` : ''}
       \${alter_style({
         css: 'rules_style_css',
         less: 'rules_style_less',
