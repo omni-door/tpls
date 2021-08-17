@@ -1,5 +1,5 @@
 export const dependencies = {
-  '@vue/composition-api': '^1.0.0-rc.13',
+  '@vue/composition-api': '~1.1.1',
   'classnames': '~2.2.6'
 };
 
