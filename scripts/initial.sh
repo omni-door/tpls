@@ -1251,4 +1251,4 @@ echo '{
 
 yarn add @omni-door/utils@latest --cwd ${dirName} --registry="https://registry.npmjs.org/"
 
-yarn add -D typescript@~3.9.7 --cwd ${dirName} --registry="https://registry.npmjs.org/"
+yarn add -D typescript@~3.9.10 --cwd ${dirName} --registry="https://registry.npmjs.org/"
