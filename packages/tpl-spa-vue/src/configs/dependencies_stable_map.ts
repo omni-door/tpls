@@ -80,5 +80,5 @@ export const devDependencies = {
   'webpack-dev-middleware': '4.0.4',
   'webpack-hot-middleware': '2.25.0',
   'webpack-merge': '5.7.3',
-  'webpackbar': '5.0.0-3'
+  'webpackbar': '5.0.2'
 };
