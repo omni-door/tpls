@@ -48,7 +48,7 @@ export const devDependencies = {
   'gulp-sass': '4.1.0',
   'gulp-if': '3.0.0',
   'gulp-sourcemaps': '3.0.0',
-  'gulp-ts-alias': '1.1.0',
+  'gulp-ts-alias': '1.3.0',
   'gulp-typescript': '5.0.1',
   'through2': '4.0.1',
   'husky': '4.2.3',
