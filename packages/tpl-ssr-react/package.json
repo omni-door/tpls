@@ -1,6 +1,6 @@
 {
   "name": "@omni-door/tpl-ssr-react",
-  "version": "2.5.5",
+  "version": "2.5.6",
   "description": "",
   "bin": {
     "omni-ssr-react": "./bin/omni-door-ssr-react.js"
@@ -44,6 +44,6 @@
     "@omni-door/utils": "~1.2.6"
   },
   "devDependencies": {
-    "typescript": "^3.9.7"
+    "typescript": "~3.9.10"
   }
 }

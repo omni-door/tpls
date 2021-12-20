@@ -1,12 +1,12 @@
 export const dependencies = {
-  'react': '^17.0.1',
-  'react-dom': '^17.0.1',
+  'react': '^17.0.2',
+  'react-dom': '^17.0.2',
   'classnames': '~2.2.6'
 };
 
 export const devDependencies = {
-  'react': '^17.0.1',
-  'react-dom': '^17.0.1',
+  'react': '^17.0.2',
+  'react-dom': '^17.0.2',
   'prop-types': '^15.7.2',
   '@babel/core': '~7.10.0',
   '@babel/preset-env': '~7.10.0',
@@ -48,7 +48,7 @@ export const devDependencies = {
   'gulp-sass': '4.1.0',
   'gulp-if': '3.0.0',
   'gulp-sourcemaps': '3.0.0',
-  'gulp-ts-alias': '1.1.0',
+  'gulp-ts-alias': '1.3.0',
   'gulp-typescript': '5.0.1',
   'through2': '4.0.1',
   'husky': '4.2.3',

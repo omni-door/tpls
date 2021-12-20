@@ -1,7 +1,7 @@
 export const dependencies = {
   'core-js': '^3.6.4',
-  'react': '^17.0.1',
-  'react-dom': '^17.0.1',
+  'react': '^17.0.2',
+  'react-dom': '^17.0.2',
   'react-router-dom': '^5.2.0',
   'regenerator-runtime': '^0.13.5',
   'amfe-flexible': '^2.2.1'

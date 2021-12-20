@@ -140,12 +140,12 @@ module.exports = merge(commonConfig, {
     //   externals: [
     //     {
     //       module: 'react',
-    //       entry: 'https://cdnjs.cloudflare.com/ajax/libs/react/17.0.1/umd/react.production.min.js',
+    //       entry: 'https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js',
     //       global: 'React'
     //     },
     //     {
     //       module: 'react-dom',
-    //       entry: 'https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.1/umd/react-dom.production.min.js',
+    //       entry: 'https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js',
     //       global: 'ReactDOM'
     //     },
     //     {

@@ -32,6 +32,7 @@ const tpl =
   "keywords": [],
   "author": "",
   "peerDependencies": {
+    "@vue/composition-api": "1.x.x",
     "vue": "2.6.x"
   },
   \${!install ? dependencies : ""}

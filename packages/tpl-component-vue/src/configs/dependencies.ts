@@ -16,7 +16,6 @@ interface Config {
 export async function dependencies (strategy: STRATEGY, config: Config) {
   const dependency = await getDependency(strategy, dependenciesMap);
   const deps = [
-    dependency('@vue/composition-api'),
     dependency('classnames')
   ];
   return {
@@ -168,6 +167,7 @@ export async function devDependencies (strategy: STRATEGY, config: Config) {
     !tag ? dependency('@omni-door/cli') : `@omni-door/cli@${tag}`,
     dependency('del'),
     dependency('vue'),
+    dependency('@vue/composition-api'),
     dependency('vue-property-decorator'),
     dependency('vue-class-component')
   ];

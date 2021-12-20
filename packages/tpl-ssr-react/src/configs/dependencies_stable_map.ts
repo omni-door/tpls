@@ -4,10 +4,10 @@ export const dependencies = {
   'koa-router': '9.1.0',
   'koa-static': '5.0.0',
   'koa2-connect': '1.0.2',
-  'next': '~10.0.1',
+  'next': '10.0.5',
   'next-url-prettifier': '1.4.0',
-  'react': '^17.0.1',
-  'react-dom': '^17.0.1',
+  'react': '^17.0.2',
+  'react-dom': '^17.0.2',
   'webpack-merge': '4.2.2'
 };
 
@@ -17,7 +17,7 @@ export const devDependencies = {
   '@babel/core': '~7.10.5',
   '@babel/plugin-proposal-decorators': '~7.10.5',
   '@commitlint/cli': '8.3.5',
-  '@next/bundle-analyzer': '~10.0.1',
+  '@next/bundle-analyzer': '10.0.5',
   '@types/koa': '~2.11.3',
   '@types/koa-bodyparser': '~4.3.0',
   '@types/koa-router': '~7.4.1',

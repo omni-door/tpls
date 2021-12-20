@@ -1,6 +1,6 @@
 {
   "name": "@omni-door/tpl-spa-vue",
-  "version": "2.5.7",
+  "version": "2.5.9",
   "description": "",
   "bin": {
     "omni-spa-vue": "./bin/omni-door-spa-vue.js"
@@ -47,6 +47,6 @@
     "@omni-door/utils": "~1.2.6"
   },
   "devDependencies": {
-    "typescript": "~3.9.7"
+    "typescript": "~3.9.10"
   }
 }
