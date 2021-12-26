@@ -32,6 +32,9 @@ const tpl =
   \${alter('commitlint', 'commitlint')}
   "keywords": [],
   "author": "",
+  "resolutions": {
+    "@mapbox/hast-util-to-jsx": "1.0.0"
+  },
   \${!install ? dependencies : ''}
   \${!install ? devDependencies : ''}
   "license": "ISC"
