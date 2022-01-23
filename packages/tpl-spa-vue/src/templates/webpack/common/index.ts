@@ -15,12 +15,20 @@ module.exports = {
   stats: 'errors-warnings',
   module: {
     rules: [
-      {
+      \${ts ? \`{
+        test: /\.(ts|tsx)$/,
+        loader: 'ts-loader',
+        options: {
+          appendTsSuffixTo: [/\.vue$/],
+        },
+        exclude: /node_modules/,
+      },
+      \` : ''}{
         test: /\.vue$/,
         loader: 'vue-loader'
       },
       {
-        test: \${ts ? /\\\.(js|jsx|ts|tsx)$/ : /\\\.(js|jsx)$/},
+        test: /\.(js|jsx)$/,
         use: [
           {
             loader: 'babel-loader',

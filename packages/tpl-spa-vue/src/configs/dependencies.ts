@@ -105,6 +105,7 @@ export async function devDependencies (strategy: STRATEGY, config: Config) {
 
   const tsDependencies = ts ? [
     dependency('typescript'),
+    dependency('ts-loader'),
     dependency('ts-node'),
     dependency('@types/webpack-env'),
     ...testTypesDependencies
