@@ -46,8 +46,8 @@ export async function devDependencies(strategy: STRATEGY, config: Config) {
     style ? dependency('css-loader') : '',
     (style === 'all' || style === 'less') ? dependency('less') : '',
     (style === 'all' || style === 'less') ? dependency('less-loader') : '',
+    (style === 'all' || style === 'scss') ? dependency('sass') : '',
     (style === 'all' || style === 'scss') ? dependency('sass-loader') : '',
-    (style === 'all' || style === 'scss') ? dependency('node-sass') : '',
     dependency('url-loader'),
     dependency('file-loader')
   ];
@@ -122,7 +122,7 @@ export async function devDependencies(strategy: STRATEGY, config: Config) {
     dependency('gatsby-theme-docz'),
     (style === 'all' || style === 'less') ? dependency('less') : '',
     (style === 'all' || style === 'less') ? dependency('gatsby-plugin-less') : '',
-    (style === 'all' || style === 'scss') ? dependency('node-sass') : '',
+    (style === 'all' || style === 'scss') ? dependency('sass') : '',
     (style === 'all' || style === 'scss') ? dependency('gatsby-plugin-sass') : '',
     dependency('react-hot-loader')
   ];

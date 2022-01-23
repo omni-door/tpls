@@ -56,8 +56,8 @@ export async function devDependencies (strategy: STRATEGY, config: Config) {
     style && layout === 'viewport' ? dependency('postcss-px-to-viewport') : '',
     (style === 'all' || style === 'less') ? dependency('less') : '',
     (style === 'all' || style === 'less') ? dependency('less-loader') : '',
+    (style === 'all' || style === 'scss') ? dependency('sass') : '',
     (style === 'all' || style === 'scss') ? dependency('sass-loader') : '',
-    (style === 'all' || style === 'scss') ? dependency('node-sass') : '',
     dependency('url-loader'),
     dependency('file-loader')
   ];
