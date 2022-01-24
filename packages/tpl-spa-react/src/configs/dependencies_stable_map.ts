@@ -8,10 +8,10 @@ export const dependencies = {
 };
 
 export const devDependencies = {
-  '@babel/core': '~7.12.10',
-  '@babel/preset-env': '~7.12.11',
-  '@babel/preset-react': '~7.12.10',
-  '@babel/preset-typescript': '~7.12.7',
+  '@babel/core': '~7.12.17',
+  '@babel/preset-env': '~7.12.17',
+  '@babel/preset-react': '~7.12.13',
+  '@babel/preset-typescript': '~7.12.17',
   '@commitlint/cli': '8.3.5',
   '@types/enzyme': '3.10.5',
   '@types/enzyme-adapter-react-16': '1.0.6',
@@ -27,6 +27,7 @@ export const devDependencies = {
   "babel-jest": "~26.6.3",
   'babel-loader': '~8.2.2',
   'css-loader': '~5.0.1',
+  'css-minimizer-webpack-plugin': '3.4.1',
   'cssnano': '4.1.10',
   'del': '5.1.0',
   'detect-port': '1.3.0',
@@ -49,7 +50,6 @@ export const devDependencies = {
   'lint-staged': '10.0.7',
   'mini-css-extract-plugin': '2.5.2',
   'open': '7.0.2',
-  'optimize-css-assets-webpack-plugin': '6.0.1',
   "postcss": "~8.2.8",
   'postcss-loader': '~4.1.0',
   'postcss-plugin-px2rem': '0.8.1',

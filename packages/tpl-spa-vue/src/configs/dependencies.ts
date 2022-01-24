@@ -72,7 +72,7 @@ export async function devDependencies (strategy: STRATEGY, config: Config) {
   const pluginDependencies = [
     dependency('html-webpack-plugin'),
     dependency('terser-webpack-plugin'),
-    style ? dependency('optimize-css-assets-webpack-plugin') : '',
+    style ? dependency('css-minimizer-webpack-plugin') : '',
     style ? dependency('mini-css-extract-plugin') : '',
     style ? dependency('cssnano') : '',
     dependency('webpackbar'),
