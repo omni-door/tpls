@@ -91,20 +91,23 @@ module.exports = merge(commonConfig, {
           test: /(react|react-dom|react-router|react-router-dom|redux|react-redux|mobx|mobx-react)/,
           enforce: true,
           name: 'vendors',
-          priority: 100
+          priority: 100,
+          reuseExistingChunk: true
         },
         commons: {
           chunks: 'all',
           test: /(axios)/,
           enforce: true,
           name: 'chunk',
-          priority: 90
+          priority: 90,
+          reuseExistingChunk: true
         },
         asyncs: {
           chunks: 'async',
           enforce: true,
           name: 'chunk.async',
-          priority: 80
+          priority: 80,
+          reuseExistingChunk: true
         }
       }
     }
