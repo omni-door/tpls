@@ -20,7 +20,7 @@ storiesOf('\${componentName}', module)
       defaultViewport: 'iphone6'
     }
   })
-  .add('with text', () => ({
+  .add('basic usage', () => ({
     components: {
       \${componentName}
     },

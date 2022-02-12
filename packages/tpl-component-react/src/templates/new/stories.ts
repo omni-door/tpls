@@ -21,7 +21,7 @@ storiesOf('\${componentName}', module)
       defaultViewport: 'iphone6'
     }
   })
-  .add('with text', () => <\${componentName}>Hello \${componentName}</\${componentName}>);
+  .add('basic usage', () => <\${componentName}>Hello \${componentName}</\${componentName}>);
 \``;
 
 export const tpl_new_story = {
