@@ -1,7 +1,8 @@
 import { tplEngineInit } from '@omni-door/utils';
 
 const tpl = 
-`\`import '../src/styles/reset.\${style === 'all' ? 'scss' : style}';
+`\`import * as React from 'react';
+import '../src/styles/reset.\${style === 'all' ? 'scss' : style}';
 
 function MyApp({ Component, pageProps }\${ts ? ': any' : ''}) {
   return <Component { ...pageProps } />;

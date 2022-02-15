@@ -1,7 +1,8 @@
 import { tplEngineInit } from '@omni-door/utils';
 
 const tpl = 
-`\`import Layout from '@components/Layout';
+`\`import * as React from 'react';
+import Layout from '@components/Layout';
 import \${pageName} from '@components/\${pageName}';
 import mapCtxToProps from '@utils/mapCtxToProps';
 \${ts ? \`/* import types */
