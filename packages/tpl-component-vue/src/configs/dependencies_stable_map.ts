@@ -87,11 +87,11 @@ export const devDependencies = {
   'typescript': '~4.3.5',
   'typescript-transform-paths': '~2.0.3',
   'url-loader': '~3.0.0',
-  'vue': '~2.6.8',
+  'vue': '2.6.12',
   'vue-class-component': '~7.2.6',
   'vue-eslint-parser': '~7.8.0',
   'vue-jest': '~4.0.1',
   'vue-loader': '~15.7.0',
   'vue-property-decorator': '~9.1.2',
-  'vue-template-compiler': '~2.6.8'
+  'vue-template-compiler': '2.6.12'
 };
