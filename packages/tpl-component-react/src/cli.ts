@@ -33,7 +33,7 @@ if (args.length > 0) {
     try {
       $new(options);
     } catch (err) {
-      logErr(err);
+      logErr(err as any);
       process.exit(1);
     }
   } else if (args[0] === 'init') {
@@ -65,7 +65,7 @@ if (args.length > 0) {
     try {
       $init(options);
     } catch (err) {
-      logErr(err);
+      logErr(err as any);
       process.exit(1);
     }
   }

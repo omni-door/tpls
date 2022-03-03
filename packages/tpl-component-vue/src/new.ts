@@ -54,7 +54,7 @@ export function $new ({
         try {
           return tpl && tpl(config);
         } catch (err) {
-          logWarn(err);
+          logWarn(err as any);
           logWarn(`The custom template "${name}" parsing occured error, the default template will be used for initialization!`);
           logWarn(`自定义模板 "${name}" 解析出错，将使用默认模板进行创建组件`);
         }
@@ -65,7 +65,7 @@ export function $new ({
       (list[name] as TPLS_NEW_FN) = tplFactory as TPLS_NEW_FN;
     }
   } catch (err_tpls) {
-    logWarn(err_tpls);
+    logWarn(err_tpls as any);
     logWarn('The custom template generating occured error, all will be initializated with the default template');
     logWarn('生成自定义模板出错，将全部使用默认模板进行创建模块');
   }
@@ -120,7 +120,8 @@ export function $new ({
         file_content: pathToFileContentMap[p as keyof typeof pathToFileContentMap]
       });
     }
-  } catch (err) {
+  } catch (e) {
+    const err = e as any;
     logErr(`${err.name}: ${err.message} at \n${err.stack}`);
     logErr('The process of create component failed');
     logErr('创建组件失败');

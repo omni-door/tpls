@@ -129,7 +129,7 @@ export async function $init ({
             }
             return result;
           } catch (err) {
-            logWarn(err);
+            logWarn(err as any);
             logWarn(`The custom template "${name}" parsing occured error, the default template will be used for initialization`);
             logWarn(`自定义模板 "${name}" 解析出错，将使用默认模板进行初始化`);
             return originTpl(config);
@@ -139,7 +139,7 @@ export async function $init ({
       (list[name] as TPLS_INITIAL_FN) = tplFactory(list[name], tpls_init[name]) as TPLS_INITIAL_FN;
     }
   } catch (err_tpls) {
-    logWarn(err_tpls);
+    logWarn(err_tpls as any);
     logWarn('The custom template generating occured error, all will be initializated with the default template');
     logWarn('生成自定义模板出错，将全部使用默认模板进行初始化');
   }
@@ -215,7 +215,8 @@ export async function $init ({
         file_content: pathToFileContentMap[p as keyof typeof pathToFileContentMap]
       });
     }
-  } catch (err) {
+  } catch (e) {
+    const err = e as any;
     logErr(`${err.name}: ${err.message} at \n${err.stack}`);
     error ? error(err) : process.exit(1);
   }
