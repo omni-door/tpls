@@ -2,17 +2,17 @@
 # yarn lockfile v1
 
 
-"@omni-door/utils@~1.2.6":
-  version "1.2.6"
-  resolved "https://registry.npmjs.org/@omni-door/utils/-/utils-1.2.6.tgz#c459f67e80c1bedd794ff48765c967760e5570ad"
-  integrity sha512-xOu+34UzabmHOZix+PJorbt5pJ8cHGKCGZoZObQ82e6/Oye3yLrntZ9AbmgJmVDSOHsXZa3jptBapA0yO/GpiQ==
+"@omni-door/utils@^1.2.10":
+  version "1.2.10"
+  resolved "https://registry.npmjs.org/@omni-door/utils/-/utils-1.2.10.tgz#75f7022b765dd09836daf7e46490ecab32f300be"
+  integrity sha512-zRLl0jPh7vAicD8CJdhTVY8EfzTuFTQbdaLIvNWpKEPaI9K+pJ1+ibmJI14x4M3UXzr1CAvR4fRk3mhQJqfrBw==
   dependencies:
     "@types/signale" "1.4.0"
     chalk "3.0.0"
     fs-extra "8.1.0"
     ora "4.0.3"
     semver "7.3.4"
-    shelljs "0.8.3"
+    shelljs "0.8.5"
     signale "1.4.0"
     update-notifier "5.1.0"
     validate-npm-package-name "3.0.0"
@@ -813,10 +813,10 @@ semver@^6.0.0, semver@^6.2.0, semver@^6.3.0:
   resolved "https://registry.npmjs.org/semver/-/semver-6.3.0.tgz#ee0a64c8af5e8ceea67687b133761e1becbd1d3d"
   integrity sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw==
 
-shelljs@0.8.3:
-  version "0.8.3"
-  resolved "https://registry.npmjs.org/shelljs/-/shelljs-0.8.3.tgz#a7f3319520ebf09ee81275b2368adb286659b097"
-  integrity sha512-fc0BKlAWiLpwZljmOvAOTE/gXawtCoNrP5oaY7KIaQbbyHeQVg01pSEuEGvGh3HEdBU4baCD7wQBwADmM/7f7A==
+shelljs@0.8.5:
+  version "0.8.5"
+  resolved "https://registry.npmjs.org/shelljs/-/shelljs-0.8.5.tgz#de055408d8361bed66c669d2f000538ced8ee20c"
+  integrity sha512-TiwcRcrkhHvbrZbnRcFYMLl30Dfov3HKqzp5tO5b4pt6G/SezKcYhmDg15zXVBswHmctSAQKznqNW2LO5tTDow==
   dependencies:
     glob "^7.0.0"
     interpret "^1.0.0"

@@ -1,6 +1,6 @@
 {
   "name": "@omni-door/tpl-toolkit",
-  "version": "2.5.10",
+  "version": "2.5.11",
   "description": "The JS-SDK project template",
   "bin": {
     "omni-toolkit": "./bin/omni-door-toolkit.js"
@@ -43,7 +43,7 @@
     "url": "https://github.com/omni-door/tpls/issues"
   },
   "dependencies": {
-    "@omni-door/utils": "~1.2.6"
+    "@omni-door/utils": "^1.2.10"
   },
   "devDependencies": {
     "typescript": "~3.9.10"
