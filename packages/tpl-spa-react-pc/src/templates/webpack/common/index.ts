@@ -45,8 +45,7 @@ module.exports = {
   },
   plugins: [
     new WebpackBar({
-      name: '[HUPU]:',
-      color: 'orange'
+      name: '[OMNI-DOOR]:'
     })
   ],
   resolve: {

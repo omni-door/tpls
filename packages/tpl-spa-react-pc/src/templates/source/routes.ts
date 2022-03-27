@@ -32,17 +32,17 @@ export const RouteWithSubRoutes = (route\${ts ? ': IRoute' : ''}) => {
 };
 \${ts ? \`
 export interface IRoute {
-  // 路由路径
+  // 路由路径 (The path for route)
   path: string | string[];
-  // 路由对应的组件
+  // 路由对应的组件 (The render component for route)
   component: LazyExoticComponent<ComponentType<any>> | NamedExoticComponent<any>;
-  // 是否精确匹配
+  // 是否精确匹配 (whether or not exact match the route)
   exact?: boolean;
-  // 启用懒加载的fallback
+  // 启用懒加载的fallback (the fallback for lazy load)
   fallback?: NonNullable<ReactNode> | null;
-  // 嵌套路由
+  // 嵌套路由 (nest route)
   routes?: IRoute[];
-  // 重定向路径
+  // 重定向路径 (redirect path)
   redirect?: string;
 }
 \` : ''}

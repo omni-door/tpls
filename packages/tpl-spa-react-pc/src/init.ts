@@ -166,10 +166,10 @@ export async function $init ({
       [`src/reset.${suffix_stylesheet}`]: style && tpl.source_index_reset(params),
       // pages
       [`src/pages/home/index.${ts ? 'ts' : 'js'}`]: tpl.source_page_index({ ...params, pageName: 'home' }),
-      [`src/pages/home/home.${ts ? 'tsx' : 'jsx'}`]: tpl.source_page_page({ ...params, pageName: 'home', content: '这世界是一个竞技场' }),
+      [`src/pages/home/home.${ts ? 'tsx' : 'jsx'}`]: tpl.source_page_page({ ...params, pageName: 'home', content: 'The world is an arena' }),
       [`src/pages/home/style/home.${suffix_stylesheet}`]: style && tpl.source_page_style({ ...params, pageName: 'home' }),
       [`src/pages/detail/index.${ts ? 'ts' : 'js'}`]: tpl.source_page_index({ ...params, pageName: 'detail' }),
-      [`src/pages/detail/detail.${ts ? 'tsx' : 'jsx'}`]: tpl.source_page_page_nest({ ...params, pageName: 'detail', content: '每个人的心中都有一个小小英雄' }),
+      [`src/pages/detail/detail.${ts ? 'tsx' : 'jsx'}`]: tpl.source_page_page_nest({ ...params, pageName: 'detail', content: 'Everyone\'s heart has a little hero' }),
       [`src/pages/detail/style/detail.${suffix_stylesheet}`]: style && tpl.source_page_style({ ...params, pageName: 'detail' }),
       // components
       [`src/components/Detail/index.${ts ? 'ts' : 'js'}`]: tpl.source_component_index({ ...params, componentName: 'Detail' }),

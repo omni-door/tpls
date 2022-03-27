@@ -67,7 +67,7 @@ const App = () => {
       <SiderMenu />
       <Layout className={\${style ? 'styles.main' : "'main'"}}>
         <Header className={\${style ? "styles['main-header']" : "'main-header'"}}>
-          头部导航栏
+          I'm Header
         </Header>
         <Content className={\${style ? "styles['main-content']" : "'main-content'"}}>
           <Switch>
@@ -77,7 +77,7 @@ const App = () => {
           </Switch>
         </Content>
         <Footer className={\${style ? "styles['main-footer']" : "'main-footer'"}}>
-          ©omni-door
+          OMNI-DOOR TEAM ©omni-door
         </Footer>
       </Layout>
     </Layout>

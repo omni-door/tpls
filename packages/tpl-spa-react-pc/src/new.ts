@@ -25,6 +25,7 @@ export function $new ({
   stylesheet,
   newPath,
   md,
+  type,
   tpls
 }: {
   ts: boolean;
@@ -33,6 +34,7 @@ export function $new ({
   stylesheet: STYLE;
   newPath: string;
   md?: boolean;
+  type: 'fc' | 'cc';
   tpls?: (tpls: TPLS_ORIGIN_NEW) => TPLS_NEW_RETURE;
 }) {
   logTime('CREATE(创建组件)');
@@ -77,9 +79,22 @@ export function $new ({
 
   try {
     // component tpl
+    const content_index = tpl.component_index(params);
+    const content_cc = type === 'cc' && tpl.component_class(params);
+    const content_fc = type === 'fc' && tpl.component_functional(params);
     const content_readme = md && tpl.component_readme(params);
+    const content_style = stylesheet && tpl.component_stylesheet(params);
+    const content_test = test && tpl.component_test(params);
 
     const pathToFileContentMap = {
+      [`${componentName}.${ts ? 'tsx' : 'jsx'}`]: content_fc || content_cc,
+      [`style/${componentName}.${stylesheet}`]: content_style,
+      [`__test__/index.test.${
+        ts
+          ? 'tsx'
+          : 'jsx'
+      }`]: content_test,
+      [`index.${ts ? 'ts' : 'js'}`]: content_index,
       'README.md': content_readme
     };
 
