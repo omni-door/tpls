@@ -11,9 +11,13 @@
 ## 模板列表
 | 模板名 | 说明 |
 | --- | --- |
-| [@omni-door/tpl-spa-react](https://github.com/omni-door/tpls/tree/master/packages/tpl-spa-react#readme) | React单页应用模板 |
-| [@omni-door/tpl-toolkit](https://github.com/omni-door/tpls/tree/master/packages/tpl-toolkit#readme) | 工具集模板 |
 | [@omni-door/tpl-component-react](https://github.com/omni-door/tpls/tree/master/packages/tpl-component-react#readme) | React组件库模板 |
+| [@omni-door/tpl-component-vue](https://github.com/omni-door/tpls/tree/master/packages/tpl-component-vue#readme) | Vue组件库模板 |
+| [@omni-door/tpl-spa-react](https://github.com/omni-door/tpls/tree/master/packages/tpl-spa-react#readme) | React单页应用模板 |
+| [@omni-door/tpl-spa-react-pc](https://github.com/omni-door/tpls/tree/master/packages/tpl-spa-react-pc#readme) | 基于antd的React单页pc应用模板 |
+| [@omni-door/tpl-spa-vue](https://github.com/omni-door/tpls/tree/master/packages/tpl-spa-vue#readme) | Vue单页应用模板 |
+| [@omni-door/tpl-ssr-react](https://github.com/omni-door/tpls/tree/master/packages/tpl-ssr-react#readme) | React SSR 模板 |
+| [@omni-door/tpl-toolkit](https://github.com/omni-door/tpls/tree/master/packages/tpl-toolkit#readme) | 工具集模板 |
 
 ## 开发说明
 - 初始化一个脚手架模板
