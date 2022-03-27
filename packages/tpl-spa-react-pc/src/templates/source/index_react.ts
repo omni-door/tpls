@@ -36,23 +36,23 @@ const SiderMenu = () => {
       >
         <Menu.Item key='/'>
           <Link to='/'>
-            首页
+            Home
           </Link>
         </Menu.Item>
         <Menu.SubMenu key='/detail' title='详情页'>
           <Menu.Item key='/detail'>
             <Link to='/detail'>
-              详情主页
+              Detail
             </Link>
           </Menu.Item>
           <Menu.Item key='/detail/2'>
             <Link to='/detail/2'>
-              详情二
+              Detail-2
             </Link>
           </Menu.Item>
           <Menu.Item key='/detail/6'>
             <Link to='/detail/6'>
-              详情六
+              Detail-6
             </Link>
           </Menu.Item>
         </Menu.SubMenu>
