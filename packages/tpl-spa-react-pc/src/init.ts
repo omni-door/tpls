@@ -250,6 +250,22 @@ export async function $init ({
   let {
     defaultDepArr,
     defaultDepStr,
+    buildDepArr,
+    buildDepStr,
+    tsDepArr,
+    tsDepStr,
+    testDepStr,
+    testDepArr,
+    eslintDepArr,
+    eslintDepStr,
+    prettierDepArr,
+    prettierDepStr,
+    commitlintDepArr,
+    commitlintDepStr,
+    stylelintDepArr,
+    stylelintDepStr,
+    devServerDepArr,
+    devServerDepStr,
     devDepArr
   } = await devDependencies(strategy, dependenciesOptions);
 
@@ -263,13 +279,37 @@ export async function $init ({
       for (let i = 0; i < remove.length; i++) {
         const item_rm = remove[i];
         defaultDepArr = [ ...intersection(defaultDepArr, defaultDepArr.filter(v => v !== item_rm)) ];
+        buildDepArr = [ ...intersection(buildDepArr, buildDepArr.filter(v => v !== item_rm)) ];
+        tsDepArr = [ ...intersection(tsDepArr, tsDepArr.filter(v => v !== item_rm)) ];
+        testDepArr = [ ...intersection(testDepArr, testDepArr.filter(v => v !== item_rm)) ];
+        eslintDepArr = [ ...intersection(eslintDepArr, eslintDepArr.filter(v => v !== item_rm)) ];
+        prettierDepArr = [ ...intersection(prettierDepArr, prettierDepArr.filter(v => v !== item_rm)) ];
+        commitlintDepArr = [ ...intersection(commitlintDepArr, commitlintDepArr.filter(v => v !== item_rm)) ];
+        stylelintDepArr = [ ...intersection(stylelintDepArr, stylelintDepArr.filter(v => v !== item_rm)) ];
+        devServerDepArr = [ ...intersection(devServerDepArr, devServerDepArr.filter(v => v !== item_rm)) ];
       }
       defaultDepStr = arr2str(defaultDepArr);
+      buildDepStr = arr2str(buildDepArr);
+      tsDepStr = arr2str(tsDepArr);
+      testDepStr = arr2str(testDepArr);
+      eslintDepStr = arr2str(eslintDepArr);
+      prettierDepStr = arr2str(prettierDepArr);
+      commitlintDepStr = arr2str(commitlintDepArr);
+      stylelintDepStr = arr2str(stylelintDepArr);
+      devServerDepStr = arr2str(devServerDepArr);
       customDepStr = arr2str(add);
     }
   }
 
   const installDevCli = defaultDepStr ? `${installDevCliPrefix} ${defaultDepStr}` : '';
+  const installBuildDevCli = buildDepStr ? `${installDevCliPrefix} ${buildDepStr}` : '';
+  const installTsDevCli = tsDepStr ? `${installDevCliPrefix} ${tsDepStr}` : '';
+  const installTestDevCli = testDepStr ? `${installDevCliPrefix} ${testDepStr}` : '';
+  const installEslintDevCli = eslintDepStr ? `${installDevCliPrefix} ${eslintDepStr}` : '';
+  const installPrettierDevCli = prettierDepStr ? `${installDevCliPrefix} ${prettierDepStr}` : '';
+  const installCommitlintDevCli = commitlintDepStr ? `${installDevCliPrefix} ${commitlintDepStr}` : '';
+  const installStylelintDevCli = stylelintDepStr ? `${installDevCliPrefix} ${stylelintDepStr}` : '';
+  const installServerDevCli = devServerDepStr ? `${installDevCliPrefix} ${devServerDepStr}` : '';
   const installCustomDevCli = customDepStr ? `${installDevCliPrefix} ${customDepStr}` : '';
   logTime('DEPENDENCY(依赖解析)', true);
 
@@ -279,6 +319,14 @@ export async function $init ({
     exec([
       installCli,
       installDevCli,
+      installBuildDevCli,
+      installTsDevCli,
+      installTestDevCli,
+      installEslintDevCli,
+      installPrettierDevCli,
+      installCommitlintDevCli,
+      installStylelintDevCli,
+      installServerDevCli,
       installCustomDevCli
     ], res => {
       logTime('INSTALL(安装依赖)', true);

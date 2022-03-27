@@ -19,17 +19,17 @@ const tpl =
   "version": "0.0.1",
   "description": "",
   "scripts": {
-    "start": "hupu dev",
-    "dev": "hupu dev",
+    "start": "omni dev",
+    "dev": "omni dev",
     \${alter('test', 'script_test')}
     \${include('script_lint')}
     \${alter('eslint', 'script_lint_es')}
     \${alter('prettier', 'script_lint_prettier')}
     \${alter('stylelint', 'script_lint_style')}
     \${alter('commitlint', 'script_commitlint')}
-    "new": "hupu new",
-    "build": "hupu build",
-    "release": "hupu release"
+    "new": "omni new",
+    "build": "omni build",
+    "release": "omni release"
   },
   \${alter('commitlint', 'commitlint')}
   "keywords": [],
@@ -45,8 +45,8 @@ const tpl =
   \${alter('prettier', 'field_prettier')}
   \${alter('stylelint', 'field_stylelint')}
   \${alter('commitlint', 'field_commitlint')}
-  "hupu": {
-    "filePath": "./configs/hupu.config.js"
+  "omni": {
+    "filePath": "./configs/omni.config.js"
   },
   "license": "ISC"
 }
