@@ -1,9 +1,9 @@
 export const dependencies = {
   'antd': '^4.3.4',
   'core-js': '^3.6.4',
-  'react': '^17.0.2',
-  'react-dom': '^17.0.2',
-  'react-router-dom': '^5.2.0',
+  'react': '^18.2.0',
+  'react-dom': '^18.2.0',
+  'react-router-dom': '^5.3.0',
   'regenerator-runtime': '^0.13.5'
 };
 
@@ -16,9 +16,9 @@ export const devDependencies = {
   '@types/enzyme': '3.10.5',
   '@types/enzyme-adapter-react-16': '1.0.6',
   '@types/jest': '25.1.2',
-  '@types/react': '~17.0.0',
-  '@types/react-dom': '~17.0.0',
-  '@types/react-router-dom': '~5.1.7',
+  '@types/react': '~18.0.17',
+  '@types/react-dom': '~18.0.6',
+  '@types/react-router-dom': '~5.3.0',
   '@types/webpack-env': '1.16.0',
   '@types/vfile-message': '1.0.1',
   '@typescript-eslint/eslint-plugin': '~4.13.0',
@@ -72,9 +72,9 @@ export const devDependencies = {
   'ts-node': '~9.1.1',
   'typescript': '~4.3.5',
   'url-loader': '~4.1.1',
-  'webpack': '~5.67.0',
+  'webpack': '~5.72.0',
   'webpack-bundle-analyzer': '4.3.0',
-  'webpack-cli': '~4.3.1',
+  'webpack-cli': '~4.10.0',
   'webpack-dev-middleware': '4.0.4',
   'webpack-hot-middleware': '2.25.0',
   'webpack-merge': '5.7.3',

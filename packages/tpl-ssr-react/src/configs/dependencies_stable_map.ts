@@ -6,8 +6,8 @@ export const dependencies = {
   'koa2-connect': '1.0.2',
   'next': '10.0.5',
   'next-url-prettifier': '1.4.0',
-  'react': '^17.0.2',
-  'react-dom': '^17.0.2',
+  'react': '^18.2.0',
+  'react-dom': '^18.2.0',
   'webpack-merge': '4.2.2'
 };
 
@@ -22,8 +22,8 @@ export const devDependencies = {
   '@types/koa-bodyparser': '~4.3.0',
   '@types/koa-router': '~7.4.1',
   '@types/node': '~14.0.27',
-  '@types/react': '~17.0.0',
-  '@types/react-dom': '~17.0.0',
+  '@types/react': '~18.0.17',
+  '@types/react-dom': '~18.0.6',
   '@types/vfile-message': '1.0.1',
   '@typescript-eslint/eslint-plugin': '~4.28.0',
   '@typescript-eslint/parser': '~4.28.0',

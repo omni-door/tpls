@@ -5,7 +5,8 @@ const tpl =
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import React, { useLayoutEffect, useState } from 'react';
-import { render\${ qiankun ? ', unmountComponentAtNode' : '' } } from 'react-dom';
+\${ qiankun ? \`import { unmountComponentAtNode } from 'react-dom';
+import { createRoot } from 'react-dom/client';\` : 'import { createRoot } from 'react-dom/client';' }
 import { HashRouter as Router, Switch, Link, useLocation } from 'react-router-dom';
 import { Layout, Menu } from 'antd';
 import routes, { RouteWithSubRoutes } from './routes';
@@ -85,7 +86,7 @@ const App = () => {
 };
 
 \${ qiankun ? \`function renderApp (container\${ts ? ': Element | DocumentFragment | null' : ''}, props\${ts ? ': any' : ''}) {
-  render(<Router><App { ...props } /></Router>, container);
+  createRoot(container\${ts ? '!)' : ')'}(<Router><App { ...props } /></Router>)
 }
 
 export async function bootstrap() {
@@ -106,7 +107,7 @@ export async function unmount(props\${ts ? ': any' : ''}) {
 
 if (!\${ts ? '(window as any)' : 'window'}.__POWERED_BY_QIANKUN__) {
   bootstrap().then(mount);
-}\` : "render(<Router><App /></Router>, document.getElementById('root'));" }
+}\` : "createRoot(document.getElementById('root')\${ts ? '!)' : ')'}(<Router><App /></Router>);" }
 
 \${ !ts ? '/* eslint-disable no-undef */' : '' }
 if (module.hot) {

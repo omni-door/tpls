@@ -6,7 +6,7 @@ import 'core-js/stable';
 import 'regenerator-runtime/runtime';\${layout === 'rem' ? \`
 import 'amfe-flexible';\` : ''}
 import React from 'react';
-import { render } from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { HashRouter as Router, Switch, Link } from 'react-router-dom';
 import routes, { RouteWithSubRoutes } from './routes';
 \${style ? \`import styles from './index.\${style === 'all' ? 'scss' : style}';
@@ -45,12 +45,7 @@ const App = () => (
   </div>
 );
 
-render(
-  <Router>
-    <App />
-  </Router>,
-  document.getElementById('root')
-);
+createRoot(document.getElementById('root')\${ts ? '!)' : ')'}(<Router><App /></Router>);
 
 \${ !ts ? '/* eslint-disable no-undef */' : '' }
 if (module.hot) {
