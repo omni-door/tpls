@@ -5,8 +5,8 @@ const tpl =
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import React, { useLayoutEffect, useState } from 'react';
-\${ qiankun ? \`import { unmountComponentAtNode } from 'react-dom';
-import { createRoot } from 'react-dom/client';\` : 'import { createRoot } from 'react-dom/client';' }
+\${qiankun ? \`import { unmountComponentAtNode } from 'react-dom';
+import { createRoot } from 'react-dom/client';\` : \`import { createRoot } from 'react-dom/client';\` }
 import { HashRouter as Router, Switch, Link, useLocation } from 'react-router-dom';
 import { Layout, Menu } from 'antd';
 import routes, { RouteWithSubRoutes } from './routes';
