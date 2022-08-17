@@ -107,7 +107,7 @@ export async function unmount(props\${ts ? ': any' : ''}) {
 
 if (!\${ts ? '(window as any)' : 'window'}.__POWERED_BY_QIANKUN__) {
   bootstrap().then(mount);
-}\` : "createRoot(document.getElementById('root')\${ts ? '!)' : ')'}.render(<Router><App /></Router>);" }
+}\` : \`createRoot(document.getElementById('root')\${ts ? '!)' : ')'}.render(<Router><App /></Router>);\` }
 
 \${ !ts ? '/* eslint-disable no-undef */' : '' }
 if (module.hot) {
