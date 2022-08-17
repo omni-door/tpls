@@ -45,7 +45,7 @@ const App = () => (
   </div>
 );
 
-createRoot(document.getElementById('root')\${ts ? '!)' : ')'}(<Router><App /></Router>);
+createRoot(document.getElementById('root')\${ts ? '!)' : ')'}.render(<Router><App /></Router>);
 
 \${ !ts ? '/* eslint-disable no-undef */' : '' }
 if (module.hot) {
