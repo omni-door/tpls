@@ -6,7 +6,7 @@ import Head from 'next/head';
 import Link from '\${serverType === 'koa-next' ? '@components/Link' : 'next/link'}';
 \${style ? \`import styles from './style/Layout.module.\${style === 'all' ? 'scss' : style}';\` : ''}
 \${ts ? \`/* import types */
-import type { FC } from 'react';
+import type { FC, PropsWithChildren } from 'react';
 
 export interface LayoutProps {
   title?: string;
@@ -15,7 +15,7 @@ export interface LayoutProps {
   children?: any
 }
 \` : '' }
-export const Layout\${ts ? ': FC<LayoutProps>' : ''} = props => {
+export const Layout\${ts ? ': FC<PropsWithChildren<LayoutProps>>' : ''} = props => {
   const { title = 'OMNI-DOOR', className = '', page = 'home', children } = props;
 
   return (

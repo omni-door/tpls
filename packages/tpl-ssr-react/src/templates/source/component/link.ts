@@ -5,7 +5,7 @@ const tpl =
 import { Link as NextLink } from 'next-url-prettifier';
 import { nextRouter } from '../../routes';
 \${ts ? \`/* import types */
-import type { FC } from 'react';
+import type { FC, PropsWithChildren } from 'react';
 
 export interface LinkProps {
   href?: string;
@@ -14,7 +14,7 @@ export interface LinkProps {
   children?: React.ReactNode;
 }
 \` : '' }
-export const Link\${ts ? ': FC<LinkProps>' : ''} = props => {
+export const Link\${ts ? ': FC<PropsWithChildren<LinkProps>>' : ''} = props => {
   const { href, page, params = {}, children } = props;
 
   return (

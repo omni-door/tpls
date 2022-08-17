@@ -5,11 +5,11 @@ const tpl =
 import MDSource from './\${componentName}.md';
 \${style ? \`import styles from './style/\${componentName}.module.\${style === 'all' ? 'scss' : style}';\` : ''}
 \${ts ? \`/* import types */
-import type { FC } from 'react';
+import type { FC, PropsWithChildren } from 'react';
 
 export interface \${componentName}Props {}
 \` : '' }
-export const \${componentName}\${ts ? \`: FC<\${componentName}Props>\` : ''} = props => {
+export const \${componentName}\${ts ? \`: FC<PropsWithChildren<\${componentName}Props>>\` : ''} = props => {
 
   return (
     <div

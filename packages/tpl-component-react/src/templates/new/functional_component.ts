@@ -5,10 +5,10 @@ const tpl =
 import propTypes from 'prop-types';
 import classnames from '@utils/classnames';
 \${ts ? \`/* import types */
-import type { FC } from 'react';
+import type { FC, PropsWithChildren } from 'react';
 import type { \${componentName}Props } from './interface';
 \` : ''}
-export const \${componentName}\${ts ? \`: FC<\${componentName}Props>\` : ''} = props => {
+export const \${componentName}\${ts ? \`: FC<PropsWithChildren<\${componentName}Props>>\` : ''} = props => {
   const { children, className, prefixCls = '\${componentName.toLowerCase()}' } = props;
   const classes = classnames(prefixCls);
 
