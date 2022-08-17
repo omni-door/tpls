@@ -3,12 +3,14 @@ import { tplEngineNew } from '@omni-door/utils';
 const tpl = 
 `\`import React, { PureComponent } from 'react';
 \${style ? \`import './style/\${componentName}.\${style === 'all' ? 'scss' : style}';\` : ''}
-\${ts ? \`
+\${ts ? \`/* import types */
+import type { PropsWithChildren } from 'react';
+
 export interface \${componentName}Props {}
 
 export interface \${componentName}States {}
 \` : ''}
-export class \${componentName} extends PureComponent\${ts ? \`<\${componentName}Props, \${componentName}States>\` : ''} {
+export class \${componentName} extends PureComponent\${ts ? \`<PropsWithChildren<\${componentName}Props>, \${componentName}States>\` : ''} {
   \${ts ? 'public ' : ''}render() {
     const { children } = this.props;
 
