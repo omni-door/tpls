@@ -46,8 +46,9 @@ export async function devDependencies (strategy: STRATEGY, config: {
     dependency('babel-loader'),
     style ? dependency('style-loader') : '',
     style ? dependency('css-loader') : '',
-    (style === 'all' || style === 'less') ? dependency('less') : '',
-    (style === 'all' || style === 'less') ? dependency('less-loader') : '',
+    // less and less-loader for antd
+    dependency('less'),
+    dependency('less-loader'),
     (style === 'all' || style === 'scss') ? dependency('sass-loader') : '',
     (style === 'all' || style === 'scss') ? dependency('sass') : '',
     dependency('url-loader'),

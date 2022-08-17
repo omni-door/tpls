@@ -1,7 +1,27 @@
 const tpl = 
 `\`
       {
-        test: /\\.(css|scss|sass)$/,
+        test: /\\.less$/,
+        oneOf: [
+          {
+            resourceQuery: /modules/,
+            use: [
+              'style-loader',
+              { loader: 'css-loader', options: { modules: { localIdentName: '[local]___[hash:base64:6]' } } },
+              { loader: 'less-loader', options: { lessOptions: { javascriptEnabled: true } } }
+            ]
+          },
+          {
+            use: [
+              'style-loader',
+              'css-loader',
+              { loader: 'less-loader', options: { lessOptions: { javascriptEnabled: true } } }
+            ]
+          }
+        ]
+      },
+      {
+        test: /\.(css|scss|sass)$/,
         oneOf: [
           {
             resourceQuery: /modules/,
