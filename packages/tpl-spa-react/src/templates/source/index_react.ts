@@ -5,7 +5,7 @@ const tpl =
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';\${layout === 'rem' ? \`
 import 'amfe-flexible';\` : ''}
-import React from 'react';
+import React, { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { HashRouter as Router, Switch, Link } from 'react-router-dom';
 import routes, { RouteWithSubRoutes } from './routes';
@@ -45,7 +45,14 @@ const App = () => (
   </div>
 );
 
-createRoot(document.getElementById('root')\${ts ? '!)' : ')'}.render(<Router><App /></Router>);
+let container\${ts ? ': null | HTMLElement ' : ''= null;
+document.addEventListener('DOMContentLoaded', function (e) {
+  if (!container) {
+    container = document.getElementById('root');
+    const root = createRoot(container\${ts ? '!)' : ')';
+    root.render(<Router><StrictMode><App /></StrictMode></Router>);
+  }
+});
 
 \${ !ts ? '/* eslint-disable no-undef */' : '' }
 if (module.hot) {

@@ -4,7 +4,7 @@ const tpl =
 `\`\${ts ? "///<reference types='webpack-env' />" : ''}
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
-import React, { useLayoutEffect, useState } from 'react';
+import React, { StrictMode, useLayoutEffect, useState } from 'react';
 \${qiankun ? \`import { unmountComponentAtNode } from 'react-dom';
 import { createRoot } from 'react-dom/client';\` : \`import { createRoot } from 'react-dom/client';\` }
 import { HashRouter as Router, Switch, Link, useLocation } from 'react-router-dom';
@@ -85,8 +85,13 @@ const App = () => {
   );
 };
 
-\${ qiankun ? \`function renderApp (container\${ts ? ': Element | DocumentFragment | null' : ''}, props\${ts ? ': any' : ''}) {
-  createRoot(container\${ts ? '!)' : ')'}.render(<Router><App { ...props } /></Router>)
+\${ qiankun ? \`let container\${ts ? ': null | HTMLElement ' : ''= null;
+function renderApp (container\${ts ? ': Element | DocumentFragment | null' : ''}, props\${ts ? ': any' : ''}) {
+  if (!container) {
+    container = document.getElementById('root');
+    const root = createRoot(container\${ts ? '!)' : ')';
+    root.render(<Router><StrictMode><App /></StrictMode></Router>);
+  }
 }
 
 export async function bootstrap() {
@@ -107,7 +112,14 @@ export async function unmount(props\${ts ? ': any' : ''}) {
 
 if (!\${ts ? '(window as any)' : 'window'}.__POWERED_BY_QIANKUN__) {
   bootstrap().then(mount);
-}\` : \`createRoot(document.getElementById('root')\${ts ? '!)' : ')'}.render(<Router><App /></Router>);\` }
+}\` : \`let container\${ts ? ': null | HTMLElement ' : ''= null;
+document.addEventListener('DOMContentLoaded', function (e) {
+  if (!container) {
+    container = document.getElementById('root');
+    const root = createRoot(container\${ts ? '!)' : ')';
+    root.render(<Router><StrictMode><App /></StrictMode></Router>);
+  }
+});\` }
 
 \${ !ts ? '/* eslint-disable no-undef */' : '' }
 if (module.hot) {
