@@ -11,6 +11,7 @@ const path = require('path');
 const webpack = require('webpack');
 const { merge } = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 \${ts ? "const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');" : ''}
 const commonConfig = require('./webpack.config.common.js');
 
@@ -52,6 +53,7 @@ module.exports = merge(commonConfig, {
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
+    new ReactRefreshWebpackPlugin(),
     \${ts ? "new ForkTsCheckerWebpackPlugin()" : ''}
   ]
 });

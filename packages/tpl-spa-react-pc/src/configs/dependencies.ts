@@ -74,6 +74,8 @@ export async function devDependencies (strategy: STRATEGY, config: {
     dependency('webpack-bundle-analyzer'),
     style ? dependency('html-inline-css-webpack-plugin') : '',
     dependency('html-webpack-externals-plugin'),
+    dependency('@pmmmwh/react-refresh-webpack-plugin'),
+    dependency('react-refresh'),
     ts ? dependency('fork-ts-checker-webpack-plugin') : ''
   ];
 
