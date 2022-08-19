@@ -45,7 +45,7 @@ const App = () => (
   </div>
 );
 
-let container\${ts ? ': null | HTMLElement ' : ''= null;
+let container\${ts ? ': null | HTMLElement ' : ''}= null;
 document.addEventListener('DOMContentLoaded', function (e) {
   if (!container) {
     container = document.getElementById('root');

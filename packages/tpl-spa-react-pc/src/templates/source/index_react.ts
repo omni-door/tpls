@@ -85,7 +85,7 @@ const App = () => {
   );
 };
 
-\${ qiankun ? \`let container\${ts ? ': null | HTMLElement ' : ''= null;
+\${ qiankun ? \`let container\${ts ? ': null | HTMLElement ' : ''}= null;
 function renderApp (container\${ts ? ': Element | DocumentFragment | null' : ''}, props\${ts ? ': any' : ''}) {
   if (!container) {
     container = document.getElementById('root');
@@ -112,7 +112,7 @@ export async function unmount(props\${ts ? ': any' : ''}) {
 
 if (!\${ts ? '(window as any)' : 'window'}.__POWERED_BY_QIANKUN__) {
   bootstrap().then(mount);
-}\` : \`let container\${ts ? ': null | HTMLElement ' : ''= null;
+}\` : \`let container\${ts ? ': null | HTMLElement ' : ''}= null;
 document.addEventListener('DOMContentLoaded', function (e) {
   if (!container) {
     container = document.getElementById('root');
