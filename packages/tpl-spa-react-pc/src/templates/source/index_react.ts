@@ -12,7 +12,9 @@ import { Layout, Menu } from 'antd';
 import routes, { RouteWithSubRoutes } from './routes';
 \${style ? \`import styles from './index.\${style === 'all' ? 'scss' : style}';
 import './reset.\${style === 'all' ? 'scss' : style}';\` : ''}
-
+\${ts ? \`/* import types */
+import type { MenuProps } from 'antd';
+\` : ''}
 const { Header, Content, Footer, Sider } = Layout;
 
 const SiderMenu = () => {
@@ -25,6 +27,38 @@ const SiderMenu = () => {
     setOpenedKeys([\\\`/\\\${pathname.split('/')[1]}\\\`]);
   }, [location]);
 
+  const menuItems\${ts ? ': MenuProps['items'] ': ''}= [
+    {
+      key: '/',
+      label: <Link to='/'>
+        Home
+      </Link>
+    },
+    {
+      key: '/detail',
+      label: '详情页',
+      children: [
+        {
+          key: '/detail/',
+          label: <Link to='/detail'>
+            Detail
+          </Link>
+        },
+        {
+          key: '/detail/2',
+          label: <Link to='/detail/2'>
+            Detail-2
+          </Link>
+        },
+        {
+          key: '/detail/6',
+          label: <Link to='/detail/6'>
+            Detail-6
+          </Link>
+        }
+      ]
+    }
+  ];
 
   return (
     <Sider className={\${style ? 'styles.sider' : "'sider'"}} theme='light'>
@@ -34,30 +68,8 @@ const SiderMenu = () => {
         mode='inline'
         onClick={e => setSelectedKeys([e.key\${ts ? ' as string': ''}])}
         onOpenChange={currOpenKeys => setOpenedKeys([...currOpenKeys\${ts ? ' as string[]': ''}])}
-      >
-        <Menu.Item key='/'>
-          <Link to='/'>
-            Home
-          </Link>
-        </Menu.Item>
-        <Menu.SubMenu key='/detail' title='详情页'>
-          <Menu.Item key='/detail'>
-            <Link to='/detail'>
-              Detail
-            </Link>
-          </Menu.Item>
-          <Menu.Item key='/detail/2'>
-            <Link to='/detail/2'>
-              Detail-2
-            </Link>
-          </Menu.Item>
-          <Menu.Item key='/detail/6'>
-            <Link to='/detail/6'>
-              Detail-6
-            </Link>
-          </Menu.Item>
-        </Menu.SubMenu>
-      </Menu>
+        items={menuItems}
+      />
     </Sider>
   );
 };
