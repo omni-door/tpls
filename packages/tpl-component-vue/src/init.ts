@@ -307,16 +307,18 @@ export async function $init ({
     }
   }
 
-  const installDevCli = defaultDepStr ? `${installDevCliPrefix} ${defaultDepStr}` : '';
-  const installTsDevCli = tsDepStr ? `${installDevCliPrefix} ${tsDepStr}` : '';
-  const installTestDevCli = testDepStr ? `${installDevCliPrefix} ${testDepStr}` : '';
-  const installEslintDevCli = eslintDepStr ? `${installDevCliPrefix} ${eslintDepStr}` : '';
-  const installPrettierDevCli = prettierDepStr ? `${installDevCliPrefix} ${prettierDepStr}` : '';
-  const installCommitlintDevCli = commitlintDepStr ? `${installDevCliPrefix} ${commitlintDepStr}` : '';
-  const installStylelintDevCli = stylelintDepStr ? `${installDevCliPrefix} ${stylelintDepStr}` : '';
-  const installServerDevCli = devServerDepStr ? `${installDevCliPrefix} ${devServerDepStr}` : '';
-  const installBuildDevCli = buildDepStr ? `${installDevCliPrefix} ${buildDepStr}` : '';
-  const installCustomDevCli = customDepStr ? `${installDevCliPrefix} ${customDepStr}` : '';
+  const installDevCliArr = [];
+  defaultDepStr && installDevCliArr.push(defaultDepStr);
+  buildDepStr && installDevCliArr.push(buildDepStr);
+  tsDepStr && installDevCliArr.push(tsDepStr);
+  testDepStr && installDevCliArr.push(testDepStr);
+  eslintDepStr && installDevCliArr.push(eslintDepStr);
+  prettierDepStr && installDevCliArr.push(prettierDepStr);
+  commitlintDepStr && installDevCliArr.push(commitlintDepStr);
+  stylelintDepStr && installDevCliArr.push(stylelintDepStr);
+  devServerDepStr && installDevCliArr.push(devServerDepStr);
+  customDepStr && installDevCliArr.push(customDepStr);
+  const installDevCli = `${installDevCliPrefix} ${installDevCliArr.join(' ')}`;
   logTime('DEPENDENCY(依赖解析)', true);
 
   // 项目依赖安装
@@ -324,16 +326,7 @@ export async function $init ({
     logTime('INSTALL(安装依赖)');
     exec([
       installCli,
-      installDevCli,
-      installTsDevCli,
-      installTestDevCli,
-      installEslintDevCli,
-      installPrettierDevCli,
-      installCommitlintDevCli,
-      installStylelintDevCli,
-      installServerDevCli,
-      installBuildDevCli,
-      installCustomDevCli
+      installDevCli
     ], res => {
       logTime('INSTALL(安装依赖)', true);
       success(res);

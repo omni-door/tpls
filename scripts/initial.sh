@@ -338,8 +338,10 @@ export async function \$init ({
     }
   }
 
-  const installDevCli = defaultDepStr ? \`\${installDevCliPrefix} \${defaultDepStr}\` : '';
-  const installCustomDevCli = customDepStr ? \`\${installDevCliPrefix} \${customDepStr}\` : '';
+  const installDevCliArr = [];
+  defaultDepStr && installDevCliArr.push(defaultDepStr);
+  customDepStr && installDevCliArr.push(customDepStr);
+  const installDevCli = \`\${installDevCliPrefix} \${installDevCliArr.join(' ')}\`;
   logTime('DEPENDENCY(依赖解析)', true);
 
   // 项目依赖安装
@@ -347,8 +349,7 @@ export async function \$init ({
     logTime('INSTALL(安装依赖)');
     exec([
       installCli,
-      installDevCli,
-      installCustomDevCli
+      installDevCli
     ], res => {
       logTime('INSTALL(安装依赖)', true);
       success(res);
