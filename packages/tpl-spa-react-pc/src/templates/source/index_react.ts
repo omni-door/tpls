@@ -27,7 +27,7 @@ const SiderMenu = () => {
     setOpenedKeys([\\\`/\\\${pathname.split('/')[1]}\\\`]);
   }, [location]);
 
-  const menuItems\${ts ? ': MenuProps['items'] ': ''}= [
+  const menuItems\${ts ? \`: MenuProps['items'] \`: ''}= [
     {
       key: '/',
       label: <Link to='/'>
