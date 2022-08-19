@@ -51,6 +51,7 @@ module.exports = merge(commonConfig, {
       filename: 'index.html'
     }),
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
     \${ts ? "new ForkTsCheckerWebpackPlugin()" : ''}
   ]
 });

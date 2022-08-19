@@ -75,11 +75,11 @@ export const devDependencies = {
   'vue-eslint-parser': '~7.8.0',
   'vue-jest': 'next',
   'vue-loader': 'next',
-  'webpack': '~5.72.0',
+  'webpack': '~5.72.1',
   'webpack-bundle-analyzer': '4.3.0',
   'webpack-cli': '~4.10.0',
   'webpack-dev-middleware': '4.0.4',
-  'webpack-hot-middleware': '2.25.0',
+  'webpack-hot-middleware': '2.25.2',
   'webpack-merge': '5.7.3',
   'webpackbar': '5.0.2'
 };
