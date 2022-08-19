@@ -49,7 +49,7 @@ let container\${ts ? ': null | HTMLElement ' : ''}= null;
 document.addEventListener('DOMContentLoaded', function (e) {
   if (!container) {
     container = document.getElementById('root');
-    const root = createRoot(container\${ts ? '!)' : ')';
+    const root = createRoot(container\${ts ? '!)' : ')'};
     root.render(<Router><StrictMode><App /></StrictMode></Router>);
   }
 });

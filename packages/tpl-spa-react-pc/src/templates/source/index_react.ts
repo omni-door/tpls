@@ -89,7 +89,7 @@ const App = () => {
 function renderApp (container\${ts ? ': Element | DocumentFragment | null' : ''}, props\${ts ? ': any' : ''}) {
   if (!container) {
     container = document.getElementById('root');
-    const root = createRoot(container\${ts ? '!)' : ')';
+    const root = createRoot(container\${ts ? '!)' : ')'};
     root.render(<Router><StrictMode><App /></StrictMode></Router>);
   }
 }
@@ -116,7 +116,7 @@ if (!\${ts ? '(window as any)' : 'window'}.__POWERED_BY_QIANKUN__) {
 document.addEventListener('DOMContentLoaded', function (e) {
   if (!container) {
     container = document.getElementById('root');
-    const root = createRoot(container\${ts ? '!)' : ')';
+    const root = createRoot(container\${ts ? '!)' : ')'};
     root.render(<Router><StrictMode><App /></StrictMode></Router>);
   }
 });\` }
