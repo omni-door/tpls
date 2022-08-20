@@ -5,15 +5,19 @@ const tpl =
 `\`\${use_strict}
 
 module.exports = function (api) {
-  api.cache(false);
+  api.cache.using(() => process.env.NODE_ENV);
   const presets = [
     ['@babel/preset-env', { useBuiltIns: 'entry', corejs: 3 }],
-    '@babel/preset-react'\${alter('ts', 'preset_typescript')}
+    ['@babel/preset-react', { development: api.env('development'), runtime: 'automatic' }]\${alter('ts', 'preset_typescript')}
   ];
 
   const plugins = [
     \${style ? \`'../node_modules/@umijs/babel-plugin-auto-css-modules'\` : ''}
   ];
+
+  if (api.env('development')) {
+    plugins.push('react-refresh/babel');
+  }
 
   return {
     presets,

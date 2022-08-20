@@ -7,18 +7,14 @@ import 'regenerator-runtime/runtime';\${layout === 'rem' ? \`
 import 'amfe-flexible';\` : ''}
 import React, { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { HashRouter as Router, Switch, Link } from 'react-router-dom';
-import routes, { RouteWithSubRoutes } from './routes';
+import { HashRouter as Router, Link, useLocation } from 'react-router-dom';
+import Routes from './routes';
 \${style ? \`import styles from './index.\${style === 'all' ? 'scss' : style}';
 import './reset.\${style === 'all' ? 'scss' : style}';\` : ''}
 
 const App = () => (
   <div className={\${style ? 'styles.main' : "'main'"}}>
-    <Switch>
-      {
-        routes.map((route, i) => <RouteWithSubRoutes key={i} { ...route } />)
-      }
-    </Switch>
+    <Routes />
     <span className={\${style ? "[styles['main-btn'], styles['main-btn-home']].join(' ')" : "'main-btn main-btn-home'"}}>
       <Link to='/'>
         Go Home

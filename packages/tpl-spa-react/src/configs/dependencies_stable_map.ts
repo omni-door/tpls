@@ -2,7 +2,7 @@ export const dependencies = {
   'core-js': '^3.6.4',
   'react': '^18.2.0',
   'react-dom': '^18.2.0',
-  'react-router-dom': '^5.3.0',
+  'react-router-dom': '^6.3.0',
   'regenerator-runtime': '^0.13.5',
   'amfe-flexible': '^2.2.1'
 };
@@ -19,7 +19,6 @@ export const devDependencies = {
   '@types/jest': '25.1.2',
   '@types/react': '~18.0.17',
   '@types/react-dom': '~18.0.6',
-  '@types/react-router-dom': '~5.3.0',
   '@types/webpack-env': '1.16.0',
   '@types/vfile-message': '1.0.1',
   '@typescript-eslint/eslint-plugin': '~4.13.0',
@@ -27,6 +26,7 @@ export const devDependencies = {
   'autoprefixer': '~10.2.1',
   "babel-jest": "~26.6.3",
   'babel-loader': '~8.2.2',
+  'cross-env': '~7.0.3',
   'css-loader': '~5.0.1',
   'css-minimizer-webpack-plugin': '3.4.1',
   'cssnano': '4.1.10',

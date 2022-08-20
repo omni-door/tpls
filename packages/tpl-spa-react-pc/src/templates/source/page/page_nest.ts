@@ -2,7 +2,7 @@ import { tplEngineInit } from '@omni-door/utils';
 
 const tpl = 
 `\`import React, { memo } from 'react';
-import { Switch } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { RouteWithSubRoutes } from '@/routes';
 \${style ? \`import './style/\${pageName}.\${style === 'all' ? 'scss' : style}';\` : ''}
 \${ts ? \`/* import types */
@@ -17,15 +17,7 @@ export const \${pageName}\${ts ? \`: FC<PropsWithChildren<\${pageName}Props>>\` 
       className='\${pageName}'
     >
       \${content}
-      {
-        props.routes
-          ? <Switch>
-            {
-              props.routes.map((route, i) => <RouteWithSubRoutes key={i} { ...route } />)
-            }
-          </Switch>
-          : null
-      }
+      <Outlet />
     </div>
   );
 };

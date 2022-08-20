@@ -111,7 +111,6 @@ export async function devDependencies (strategy: STRATEGY, config: Config) {
   const tsDependencies = ts ? [
     dependency('@types/react'),
     dependency('@types/react-dom'),
-    dependency('@types/react-router-dom'),
     dependency('typescript'),
     dependency('ts-node'),
     dependency('@types/webpack-env'),
@@ -152,6 +151,7 @@ export async function devDependencies (strategy: STRATEGY, config: Config) {
   const devServerDependencies = [
     dependency('open'),
     dependency('ip'),
+    dependency('cross-env'),
     dependency('detect-port'),
     dependency('express'),
     dependency('serve-favicon'),
