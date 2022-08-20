@@ -1,31 +1,25 @@
 import { tplEngineInit } from '@omni-door/utils';
 
 const tpl = 
-`\`import React, { PureComponent } from 'react';
+`\`import React from 'react';
+import { useParams } from 'react-router-dom';
 \${style ? \`import './style/\${componentName}.\${style === 'all' ? 'scss' : style}';\` : ''}
 \${ts ? \`/* import types */
-import type { PropsWithChildren } from 'react';
-import type { RouteComponentProps } from 'react-router-dom';
+import type { FC, PropsWithChildren } from 'react';
 import type { PageProps } from '@/@types';
 
-export interface \${componentName}Props extends PageProps, RouteComponentProps<{
-  id?: string;
-}> {}
-
-export interface \${componentName}States {}
+export interface \${componentName}Props extends PageProps, PropsWithChildren {}
 \` : '' }
-export class \${componentName} extends PureComponent\${ts ? \`<PropsWithChildren<\${componentName}Props>, \${componentName}States>\` : ''} {
-  \${ts ? 'public ' : ''}render() {
-    const { match: { params } } = this.props;
+export const \${componentName}\${ts ? \`: FC<DetailProps> \` : ''}= props => {
+  const params = useParams\${ts ? '<{ id: string }>()' : '()'};
 
-    return (
-      <div
-        className='\${componentName}'
-      >
-        { \\\`params is: \\\${params?.id}\\\` }
-      </div>
-    );
-  }
+  return (
+    <div
+      className='\${componentName}'
+    >
+      { \\\`params is: \\\${params?.id}\\\` }
+    </div>
+  );
 }
 
 export default \${componentName};
