@@ -7,9 +7,9 @@ import 'regenerator-runtime/runtime';
 import React, { StrictMode, useLayoutEffect, useState } from 'react';
 \${qiankun ? \`import { unmountComponentAtNode } from 'react-dom';
 import { createRoot } from 'react-dom/client';\` : \`import { createRoot } from 'react-dom/client';\` }
-import { HashRouter as Router, Switch, Link, useLocation } from 'react-router-dom';
+import { HashRouter as Router, Link, useLocation } from 'react-router-dom';
 import { Layout, Menu } from 'antd';
-import routes, { RouteWithSubRoutes } from './routes';
+import Routes from './routes';
 \${style ? \`import styles from './index.\${style === 'all' ? 'scss' : style}';
 import './reset.\${style === 'all' ? 'scss' : style}';\` : ''}
 \${ts ? \`/* import types */
@@ -83,11 +83,7 @@ const App = () => {
           I'm Header
         </Header>
         <Content className={\${style ? "styles['main-content']" : "'main-content'"}}>
-          <Switch>
-            {
-              routes.map((route, i) => <RouteWithSubRoutes key={i} { ...route } />)
-            }
-          </Switch>
+          <Routes />
         </Content>
         <Footer className={\${style ? "styles['main-footer']" : "'main-footer'"}}>
           OMNI-DOOR TEAM ©omni-door

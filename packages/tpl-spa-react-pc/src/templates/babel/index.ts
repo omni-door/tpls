@@ -4,10 +4,10 @@ const tpl =
 `\`\${use_strict}
 
 module.exports = function (api) {
-  api.cache(false);
+  api.cache.using(() => process.env.NODE_ENV);
   const presets = [
     ['@babel/preset-env', { useBuiltIns: 'entry', corejs: 3 }],
-    '@babel/preset-react'\${ts ? \`,
+    ['@babel/preset-react', { development: api.env('development'), runtime: 'automatic' }]\${ts ? \`,
     '@babel/preset-typescript'\` : ''}
   ];
 
@@ -23,6 +23,10 @@ module.exports = function (api) {
       'antd'
     ]
   ];
+
+  if (api.env('development')) {
+    plugins.push('react-refresh/babel');
+  }
 
   return {
     presets,

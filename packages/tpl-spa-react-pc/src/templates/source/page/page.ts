@@ -2,6 +2,7 @@ import { tplEngineInit } from '@omni-door/utils';
 
 const tpl = 
 `\`import React, { memo } from 'react';
+import { Outlet } from 'react-router-dom';
 \${style ? \`import './style/\${pageName}.\${style === 'all' ? 'scss' : style}';\` : ''}
 \${ts ? \`/* import types */
 import type { FC, PropsWithChildren } from 'react';
@@ -15,6 +16,7 @@ export const \${pageName}\${ts ? \`: FC<PropsWithChildren<\${pageName}Props>>\` 
       className='\${pageName}'
     >
       \${content}
+      <Outlet />
     </div>
   );
 };
