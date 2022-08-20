@@ -35,7 +35,7 @@ export const _Element = (route\${ts ? ': IRoute)' : ')'} => {
     ? <Suspense fallback={route.fallback}>
       {children}
     </Suspense>
-    : <>{children}</>
+    : <>{children}</>;
   return <_Suspense>
     {
       route.redirect
@@ -73,11 +73,11 @@ export const Routes = () => {
         path,
         element,
         children: getRoutes(children || [])
-      }
+      };
     });
-  }
-  return useRoutes(getRoutes(routes))
-}
+  };
+  return useRoutes(getRoutes(routes));
+};
 
 export default Routes;
 \``;

@@ -20,7 +20,7 @@ export const \${componentName}\${ts ? \`: FC<DetailProps> \` : ''}= props => {
       { \\\`params is: \\\${params?.id}\\\` }
     </div>
   );
-}
+};
 
 export default \${componentName};
 \``;
