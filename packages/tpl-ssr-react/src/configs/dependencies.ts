@@ -127,6 +127,7 @@ export async function devDependencies (strategy: STRATEGY, config: Config) {
   const serverDependencies = [
     dependency('open'),
     dependency('ip'),
+    dependency('cross-env'),
     dependency('detect-port'),
     dependency('http-proxy-middleware')
   ];
