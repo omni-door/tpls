@@ -8,9 +8,9 @@ import { useParams } from 'react-router-dom';
 import type { FC, PropsWithChildren } from 'react';
 import type { PageProps } from '@/@types';
 
-export interface \${componentName}Props extends PageProps, PropsWithChildren {}
+export interface \${componentName}Props extends PageProps {}
 \` : '' }
-export const \${componentName}\${ts ? \`: FC<DetailProps> \` : ''}= props => {
+export const \${componentName}\${ts ? \`: FC<PropsWithChildren<DetailProps>> \` : ''}= props => {
   const params = useParams\${ts ? '<{ id: string }>()' : '()'};
 
   return (

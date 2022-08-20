@@ -31,7 +31,7 @@ export interface IRoute {
 }
 \` : ''}
 export const _Element = (route\${ts ? ': IRoute)' : ')'} => {
-  const _Suspense = ({ children }\${ts ? ': PropsWithChildren)' : ')'} => route.fallback
+  const _Suspense = ({ children }\${ts ? ': PropsWithChildren<{}>)' : ')'} => route.fallback
     ? <Suspense fallback={route.fallback}>
       {children}
     </Suspense>
