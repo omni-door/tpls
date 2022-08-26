@@ -65,7 +65,8 @@ export async function devDependencies (strategy: STRATEGY, config: Config) {
     dependency('postcss-px-to-viewport'),
     dependency('sass'),
     dependency('less'),
-    dependency('less-loader')
+    dependency('less-loader'),
+    dependency('next-with-less')
   ];
 
   const testDependencies = test ? [
