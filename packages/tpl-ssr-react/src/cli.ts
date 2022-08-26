@@ -59,6 +59,7 @@ if (args.length > 0) {
           ? false
           : val;
     }
+    options['style'] = 'all';
     try {
       $init(options);
     } catch (err) {
