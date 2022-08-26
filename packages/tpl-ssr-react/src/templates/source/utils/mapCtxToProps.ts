@@ -2,14 +2,16 @@ import { tplEngineInit } from '@omni-door/utils';
 
 const tpl = 
 `\`import paramsToQueryString from './paramsToQueryString';
-\${ts ? \`
+\${ts ? \`/* import types */
+import type { NextPageContext } from 'next';
+
 export type MapCtxToProps = {
   page: string;
-  query: string;
+  query: NodeJS.Dict<string | string[]>;
   path: string;
 };
 \` : '' }
-export function mapCtxToProps(ctx\${ts ? ': any' : ''}) {
+export function mapCtxToProps(ctx\${ts ? ': NextPageContext' : ''}) {
   const { pathname, query, asPath } = ctx;
   return {
     page: (pathname.replace(/\\\\//g, '') || 'home')\${ts ? ' as string' : ''},

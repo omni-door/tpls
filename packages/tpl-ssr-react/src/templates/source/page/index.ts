@@ -6,10 +6,12 @@ import Layout from '@components/Layout';
 import \${pageName} from '@components/\${pageName}';
 import mapCtxToProps from '@utils/mapCtxToProps';
 \${ts ? \`/* import types */
+import type { NextPage } from 'next';
 import type { MapCtxToProps } from '@utils/mapCtxToProps';
-\` : ''}
 
-function \${pageName}Page (props\${ts ? ': MapCtxToProps' : ''}) {
+interface \${pageName}PageProps extends MapCtxToProps {}
+\` : ''}
+const \${pageName}Page\${ts ? ': NextPage<\${pageName}PageProps>' : ''}= props => {
   return (
     <Layout
       title={'\${pageName}'}
@@ -20,7 +22,7 @@ function \${pageName}Page (props\${ts ? ': MapCtxToProps' : ''}) {
   );
 }
 
-\${pageName}Page.getInitialProps = async (ctx\${ts ? ': any' : ''}) => {
+\${pageName}Page.getInitialProps = async ctx => {
   return mapCtxToProps(ctx);
 };
 
