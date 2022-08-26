@@ -45,7 +45,7 @@ if (args.length > 0) {
       eslint: true,
       prettier: true,
       commitlint: false,
-      style: '' as STYLE,
+      style: 'all' as STYLE,
       stylelint: true,
       install: true,
       pkgtool: 'pnpm' as PKJTOOL

@@ -1,5 +1,4 @@
 const tpl = 
-`\`const withCss = require('@zeit/next-css');
-const withLess = require('@zeit/next-less');\``;
+`\`const withLess = require('next-with-less');\``;
 
 export default tpl;

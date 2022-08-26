@@ -23,7 +23,7 @@ export const Layout\${ts ? ': FC<PropsWithChildren<LayoutProps>>' : ''} = props 
       className={\${style ? "[styles['layout'], className].join(' ')" : "'layout'"}}
     >
       <Head>
-        <title> { title } </title>
+        <title>{ title }</title>
         <link rel='icon' type='image/x-icon' href='/favicon.ico' />
       </Head>
       <header className={\${style ? "styles['layout-header']" : "'layout-header'"}}>

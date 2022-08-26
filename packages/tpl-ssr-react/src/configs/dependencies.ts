@@ -62,12 +62,10 @@ export async function devDependencies (strategy: STRATEGY, config: Config) {
     dependency('next-compose-plugins'),
     dependency('next-transpile-modules'),
     dependency('@next/bundle-analyzer'),
-    style ? dependency('postcss-px-to-viewport') : '',
-    style && !(style === 'css' && !isKoa) ? dependency('@zeit/next-css') : '',
-    (style === 'all' || style === 'less') ? dependency('less') : '',
-    (style === 'all' || style === 'less') ? dependency('@zeit/next-less') : '',
-    (style === 'all' || style === 'scss') ? dependency('node-sass') : '',
-    (style === 'all' || style === 'scss') ? dependency('@zeit/next-sass') : ''
+    dependency('postcss-px-to-viewport'),
+    dependency('sass'),
+    dependency('less'),
+    dependency('less-loader')
   ];
 
   const testDependencies = test ? [
@@ -121,7 +119,7 @@ export async function devDependencies (strategy: STRATEGY, config: Config) {
     dependency('stylelint-order'),
     dependency('stylelint-declaration-block-no-ignored-properties'),
     ts ? dependency('@types/vfile-message') : '', // stylelint -> postcss-markdown -> remark -> unified -> @types/vfile(3.0.0) -> @types/vfile-message(*)
-    style === 'all' || style === 'scss' ? dependency('stylelint-scss') : ''
+    dependency('stylelint-scss')
   ] : [];
 
   const serverDependencies = [

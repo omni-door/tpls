@@ -5,8 +5,6 @@ const tpl =
       importLoaders: 1,
       localIdentName: '[local]___[hash:base64:5]'
     }
-  }),
-  withSass,
-  withCss,\``;
+  }),\``;
 
 export default tpl;

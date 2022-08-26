@@ -8,7 +8,6 @@ const tpl =
     lessLoaderOptions: {
       javascriptEnabled: true
     }
-  }),
-  withCss,\``;
+  }),\``;
 
 export default tpl;
