@@ -1,7 +1,7 @@
 export const dependencies = {
   'koa': '~2.13.4',
   'koa-bodyparser': '~4.3.0',
-  'koa-router': '~12.1.0',
+  'koa-router': '~12.0.0',
   'koa-static': '~5.0.0',
   'koa2-connect': '~1.0.2',
   'next': '~12.1.6',
