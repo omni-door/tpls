@@ -11,7 +11,7 @@ import type { MapCtxToProps } from '@utils/mapCtxToProps';
 
 interface \${pageName}PageProps extends MapCtxToProps {}
 \` : ''}
-const \${pageName}Page\${ts ? ': NextPage<\${pageName}PageProps>' : ''}= props => {
+const \${pageName}Page\${ts ? \`: NextPage<\${pageName}PageProps>\` : ''}= props => {
   return (
     <Layout
       title={'\${pageName}'}
