@@ -14,11 +14,9 @@ export type MapCtxToProps = {
 export function mapCtxToProps(ctx\${ts ? ': NextPageContext' : ''}) {
   const { pathname, query, asPath } = ctx;
   return {
-    page: (pathname.replace(/\\\\//g, '') || 'home')\${ts ? ' as string' : ''},
-    query: query\${ts ? ' as string' : ''},
-    path:
-      (asPath ||
-        \\\`\\\${pathname}\\\${paramsToQueryString(query)}\\\`)\${ts ? ' as string' : ''}
+    page: pathname.replace(/\//g, '') || 'home',
+    query,
+    path: asPath || \\\`\\\${pathname}\\\${paramsToQueryString(query)}\\\`
   };
 }
 
