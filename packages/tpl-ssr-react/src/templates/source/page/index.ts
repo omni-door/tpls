@@ -20,7 +20,7 @@ const \${pageName}Page\${ts ? \`: NextPage<\${pageName}PageProps>\` : ''}= props
       <\${pageName} { ...props }/>
     </Layout>
   );
-}
+};
 
 \${pageName}Page.getInitialProps = async ctx => {
   return mapCtxToProps(ctx);
