@@ -194,6 +194,7 @@ export async function $init ({
       // webpack
       'configs/webpack.config.js': tpl.webpack(params),
       // typescript
+      '@types/global.d.ts': ts && ssrServer === 'koa-next' && tpl.source_d(params),
       'tsconfig.json': ts && tpl.tsconfig(params),
       // unit test
       'configs/jest.config.js': test && tpl.jest(params),
