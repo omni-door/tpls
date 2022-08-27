@@ -9,7 +9,7 @@ const tpl =
     "lib": ["dom", "es5", "es6", "es7", "es2017", "es2018", "esnext"],                             /* Specify library files to be included in the compilation. */
     "allowJs": true,                       /* Allow javascript files to be compiled. */
     // "checkJs": true,                       /* Report errors in .js files. */
-    "jsx": "react",                     /* Specify JSX code generation: 'preserve', 'react-native', or 'react'. */
+    "jsx": "preserve",                     /* Specify JSX code generation: 'preserve', 'react-native', or 'react'. */
     // "declaration": true,                 /* Generates corresponding '.d.ts' file. */
     // "declarationMap": true,                /* Generates a sourcemap for each corresponding '.d.ts' file. */
     // "sourceMap": true,                     /* Generates corresponding '.map' file. */
@@ -18,12 +18,10 @@ const tpl =
     // "rootDir": "./",                       /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
     // "composite": true,                     /* Enable project compilation */
     // "removeComments": true,                /* Do not emit comments to output. */
-    // "noEmit": true,                        /* Do not emit outputs. */
+    "noEmit": true,                        /* Do not emit outputs. */
     // "importHelpers": true,                 /* Import emit helpers from 'tslib'. */
     // "downlevelIteration": true,            /* Provide full support for iterables in 'for-of', spread, and destructuring when targeting 'ES5' or 'ES3'. */
     "isolatedModules": true,               /* Transpile each file as a separate module (similar to 'ts.transpileModule'). */
-
-    /* Strict Type-Checking Options */
     "strict": true,                           /* Enable all strict type-checking options. */
     // "noImplicitAny": true,                 /* Raise error on expressions and declarations with an implied 'any' type. */
     // "strictNullChecks": true,              /* Enable strict null checks. */
@@ -63,6 +61,9 @@ const tpl =
 
     /* Experimental Options */
     "experimentalDecorators": true,        /* Enables experimental support for ES7 decorators. */
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true
     // "emitDecoratorMetadata": true,         /* Enables experimental support for emitting type metadata for decorators. */
   },
   "exclude": [
@@ -79,7 +80,13 @@ const tpl =
     ".docz/",
     ".storybook/",
     ".out/",
-    "*.js"
+    \${serverType === 'koa-next' ? \`"*.js",
+    "src/routes.js"\` : '"*.js"'}
+  ],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
   ]
 }
 \``;
