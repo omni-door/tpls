@@ -1,4 +1,5 @@
 export const dependencies = {
+  '@koa/cors': '~4.0.0',
   'koa': '~2.13.4',
   'koa-bodyparser': '~4.3.0',
   'koa-router': '~12.0.0',

@@ -24,6 +24,7 @@ export async function dependencies (strategy: STRATEGY, config: Config) {
     dependency('next'),
     dependency('webpack-merge'),
     isKoa ? dependency('next-url-prettifier') : '',
+    isKoa ? dependency('@koa/cors') : '',
     isKoa ? dependency('koa') : '',
     isKoa ? dependency('koa-bodyparser') : '',
     isKoa ? dependency('koa-router') : '',
