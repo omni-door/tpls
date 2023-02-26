@@ -2,7 +2,7 @@ import { tplEngineNew } from '@omni-door/utils';
 
 const tpl = 
 `\`import React, { memo } from 'react';
-\${style ? \`import './style/\${componentName}.\${style === 'all' ? 'scss' : style}';\` : ''}
+\${style ? \`import styles from './style/\${componentName}.module.\${style === 'all' ? 'scss' : style}';\` : ''}
 \${ts ? \`/* import types */
 import type { FC, PropsWithChildren } from 'react';
 
@@ -13,7 +13,7 @@ export const \${componentName}\${ts ? \`: FC<PropsWithChildren<\${componentName}
 
   return (
     <div
-      className='\${componentName}'
+      className={\${style ? \`styles.\${componentName}\` : \`'\${componentName}'\`}}
     >
       { children }
     </div>

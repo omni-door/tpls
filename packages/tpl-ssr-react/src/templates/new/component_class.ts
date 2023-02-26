@@ -2,7 +2,7 @@ import { tplEngineNew } from '@omni-door/utils';
 
 const tpl = 
 `\`import React, { PureComponent } from 'react';
-\${style ? \`import './style/\${componentName}.\${style === 'all' ? 'scss' : style}';\` : ''}
+\${style ? \`import styles from './style/\${componentName}.module.\${style === 'all' ? 'scss' : style}';\` : ''}
 \${ts ? \`/* import types */
 import type { PropsWithChildren } from 'react';
 
@@ -16,7 +16,7 @@ export class \${componentName} extends PureComponent\${ts ? \`<PropsWithChildren
 
     return (
       <div
-        className='\${componentName}'
+        className={\${style ? \`styles.\${componentName}\` : \`'\${componentName}'\`}}
       >
         { children }
       </div>

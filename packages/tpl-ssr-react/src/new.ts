@@ -89,7 +89,7 @@ export function $new ({
 
     const pathToFileContentMap = {
       [`${componentName}.${ts ? 'tsx' : 'jsx'}`]: content_fc || content_cc,
-      [`style/${componentName}.${stylesheet}`]: content_style,
+      [`style/${componentName}.module.${stylesheet}`]: content_style,
       [`__test__/index.test.${
         ts
           ? 'tsx'
