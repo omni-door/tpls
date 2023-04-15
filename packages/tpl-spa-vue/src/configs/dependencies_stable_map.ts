@@ -1,6 +1,6 @@
 export const dependencies = {
-  'core-js': '^3.6.4',
-  'regenerator-runtime': '^0.13.5',
+  'core-js': '^3.30.0',
+  'regenerator-runtime': '^0.13.11',
   'vue': 'next',
   'vue-router': 'next',
   'amfe-flexible': '^2.2.1'

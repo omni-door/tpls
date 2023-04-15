@@ -1,10 +1,10 @@
 export const dependencies = {
   'antd': '^4.3.4',
-  'core-js': '^3.6.4',
+  'core-js': '^3.30.0',
   'react': '^18.2.0',
   'react-dom': '^18.2.0',
-  'react-router-dom': '^6.3.0',
-  'regenerator-runtime': '^0.13.5'
+  'react-router-dom': '^6.10.0',
+  'regenerator-runtime': '^0.13.11'
 };
 
 export const devDependencies = {
