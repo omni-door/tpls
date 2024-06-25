@@ -1,12 +1,12 @@
 export const dependencies = {
-  'react': '^18.2.0',
-  'react-dom': '^18.2.0',
+  'react': '^18.3.1',
+  'react-dom': '^18.3.1',
   'classnames': '~2.2.6'
 };
 
 export const devDependencies = {
-  'react': '^18.2.0',
-  'react-dom': '^18.2.0',
+  'react': '^18.3.1',
+  'react-dom': '^18.3.1',
   'prop-types': '^15.7.2',
   '@babel/core': '~7.12.17',
   '@babel/preset-env': '~7.12.17',
@@ -19,9 +19,9 @@ export const devDependencies = {
   '@types/enzyme': '3.10.5',
   '@types/enzyme-adapter-react-16': '1.0.6',
   '@types/jest': '25.1.2',
-  '@types/node': '~14.0.27',
-  '@types/react': '~18.0.17',
-  '@types/react-dom': '~18.0.6',
+  '@types/node': '~18.19.39',
+  '@types/react': '~18.3.3',
+  '@types/react-dom': '~18.3.0',
   '@types/vfile-message': '1.0.1', // 和 docz、bisheng 版本强相关，一定要确保一致性，否则打包时易出错
   '@typescript-eslint/eslint-plugin': '~4.28.0',
   '@typescript-eslint/parser': '~4.28.0',
@@ -55,11 +55,11 @@ export const devDependencies = {
   'ip': '1.1.5',
   'jest': '~26.6.3',
   'jest-transform-stub': '2.0.0',
-  'less': '3.11.1',
+  'less': '4.2.0',
   'less-loader': '~5.0.0',
   'lint-staged': '10.0.7',
   'prettier': '~2.3.2',
-  'sass': '~1.49.0',
+  'sass': '~1.77.6',
   'sass-loader': '~10.2.1',
   'style-loader': '~1.1.3',
   'stylelint': '13.13.1',
@@ -73,7 +73,7 @@ export const devDependencies = {
   'ts-jest': '~26.5.6',
   'ts-node': '8.6.2',
   'ttypescript': '~1.5.12',
-  'typescript': '~4.3.5',
+  'typescript': '~4.9.5',
   'typescript-transform-paths': '~2.0.3',
   'url-loader': '~3.0.0',
   // docz 依赖

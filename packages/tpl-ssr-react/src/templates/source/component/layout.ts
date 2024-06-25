@@ -29,13 +29,13 @@ export const Layout\${ts ? ': FC<PropsWithChildren<LayoutProps>>' : ''} = props 
       <header className={\${style ? "styles['layout-header']" : "'layout-header'"}}>
         <nav className={\${style ? "styles['layout-header-nav']" : "'layout-header-nav'"}}>
           <Link \${serverType === 'koa-next' ? "page='home'" : "href='/' as='/'"}>
-            <a>Home</a>
+            Home
           </Link>
           <Link \${serverType === 'koa-next' ? "page='start'" : "href='/start' as='/start'"}>
-            <a>Start</a>
+            Start
           </Link>
           <Link \${serverType === 'koa-next' ? "page='docs'" : "href='/docs' as='/docs'"}>
-            <a>Docs</a>
+            Docs
           </Link>
         </nav>
       </header>

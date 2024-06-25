@@ -55,7 +55,8 @@ export async function devDependencies (strategy: STRATEGY, config: Config) {
 
   const babelDependencies = [
     dependency('@babel/core'),
-    dependency('@babel/plugin-proposal-decorators')
+    dependency('@babel/plugin-proposal-decorators'),
+    dependency('@babel/runtime')
   ];
 
   const nextDependencies = [
