@@ -30,5 +30,6 @@
     "release:push": "./scripts/release.sh",
     "release": "npm run release:branch master TPLS && npm run lint && node ./scripts/release.js"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "packageManager": "pnpm@8.6.10+sha1.98fe2755061026799bfa30e7dc8d6d48e9c3edf0"
 }
