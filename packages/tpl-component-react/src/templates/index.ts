@@ -22,6 +22,7 @@ import styleguidist, { tpl_styleguidist } from './styleguidist';
 import source_index, { tpl_src_index } from './source/index';
 import source_classnames, { tpl_src_classnames } from './source/classnames';
 import source_d, { tpl_src_declaration } from './source/declaration';
+import source_stories, { tpl_src_stories } from './source/stories';
 import storybook_main, { tpl_storybook_main } from './storybook/main';
 import storybook_preview, { tpl_storybook_preview } from './storybook/preview';
 import storybook_mhead, { tpl_storybook_mhead } from './storybook/manager-head';
@@ -65,6 +66,7 @@ export { default as styleguidist, tpl_styleguidist } from './styleguidist';
 export { default as source_index, tpl_src_index } from './source/index';
 export { default as source_classnames, tpl_src_classnames } from './source/classnames';
 export { default as source_d, tpl_src_declaration } from './source/declaration';
+export { default as source_stories, tpl_src_stories } from './source/stories';
 export { default as storybook_preview, tpl_storybook_preview } from './storybook/preview';
 export { default as storybook_main, tpl_storybook_main } from './storybook/main';
 export { default as storybook_mhead, tpl_storybook_mhead } from './storybook/manager-head';
@@ -110,6 +112,7 @@ export const tpls_init = {
   source_index,
   source_classnames,
   source_d,
+  source_stories,
   storybook_preview,
   storybook_main,
   storybook_mhead,
@@ -146,6 +149,7 @@ export const tpls_origin_init = {
   tpl_src_declaration,
   tpl_src_classnames,
   tpl_src_index,
+  tpl_src_stories,
   tpl_storybook_preview,
   tpl_storybook_main,
   tpl_storybook_mhead,
