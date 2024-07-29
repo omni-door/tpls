@@ -83,8 +83,8 @@ export default ({
       demoScript = `docz build --base /dist-docz`;
       break;
     case 'storybook':
-      devScript = 'start-storybook -p 6200';
-      demoScript = `build-storybook -c .storybook -o dist-story`;
+      devScript = 'storybook dev -p 6200';
+      demoScript = `storybook build -c .storybook -o dist-story`;
       break;
     case 'bisheng':
       devScript = 'bisheng start';
