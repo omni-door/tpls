@@ -315,7 +315,6 @@ export async function $init ({
 
   const installDevCliArr = [];
   defaultDepStr && installDevCliArr.push(defaultDepStr);
-  buildDepStr && installDevCliArr.push(buildDepStr);
   tsDepStr && installDevCliArr.push(tsDepStr);
   testDepStr && installDevCliArr.push(testDepStr);
   eslintDepStr && installDevCliArr.push(eslintDepStr);
@@ -323,6 +322,7 @@ export async function $init ({
   commitlintDepStr && installDevCliArr.push(commitlintDepStr);
   stylelintDepStr && installDevCliArr.push(stylelintDepStr);
   devServerDepStr && installDevCliArr.push(devServerDepStr);
+  buildDepStr && installDevCliArr.push(buildDepStr);
   customDepStr && installDevCliArr.push(customDepStr);
   const installDevCli = `${installDevCliPrefix} ${installDevCliArr.join(' ')}`;
   logTime('DEPENDENCY(依赖解析)', true);
