@@ -55,7 +55,7 @@ export const devDependencies = {
   'gulp-cssnano': '2.1.3',
   'gulp-if': '3.0.0',
   'gulp-less': '4.0.1',
-  'gulp-sass': '4.1.0',
+  'gulp-sass': '5.1.0',
   'gulp-sourcemaps': '3.0.0',
   'gulp-ts-alias': '1.3.0',
   'gulp-typescript': '5.0.1',

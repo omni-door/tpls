@@ -128,21 +128,23 @@ export async function devDependencies(strategy: STRATEGY, config: Config) {
   ];
 
   const storybookDependencies = [
+    dependency('@chromatic-com/storybook'),
     dependency('@storybook/react'),
-    dependency('@storybook/addons'),
-    dependency('@storybook/addon-options'),
+    dependency('@storybook/blocks'),
+    dependency('@storybook/addon-onboarding'),
     dependency('@storybook/addon-viewport'),
     dependency('@storybook/addon-actions'),
     dependency('@storybook/addon-console'),
     dependency('@storybook/addon-docs'),
-    dependency('@storybook/addon-info'),
+    dependency('@storybook/react-vite'),
+    dependency('@storybook/addon-essentials'),
+    dependency('@storybook/addon-interactions'),
     dependency('@storybook/addon-knobs'),
     dependency('@storybook/addon-links'),
-    dependency('@storybook/addon-notes'),
+    dependency('@storybook/test'),
     dependency('@storybook/theming'),
-    // dependency('awesome-typescript-loader'),
-    // dependency('react-docgen-typescript-loader'),
-    dependency('storybook-readme'),
+    dependency('storybook'),
+    dependency('vite'),
     ...loaderDependencies
   ];
 

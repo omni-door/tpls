@@ -103,7 +103,7 @@ export function $new ({
           ? 'tsx'
           : 'jsx'
       }`]: content_test,
-      [`__stories__/index.stories.${
+      [`${componentName}.stories.${
         ts
           ? 'tsx'
           : 'jsx'

@@ -13,7 +13,8 @@ node_modules/
 .storybook/
 .out/
 **/__test__/
-**/__stories__/
+**/stories/
+**/*.stories.*
 
 doczrc.js
 gulpfile.js

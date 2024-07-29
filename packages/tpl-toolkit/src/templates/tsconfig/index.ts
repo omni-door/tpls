@@ -69,7 +69,6 @@ const tpl =
   "exclude": [
     "node_modules",
     "**/__test__/",
-    "**/__stories__/",
     "src/.umi",
     ".umirc.*",
     "configs/",
@@ -79,9 +78,6 @@ const tpl =
     "build/",
     "server/",
     "demo/",
-    ".docz/",
-    ".storybook/",
-    ".out/",
     "*.js"
   ]
 }

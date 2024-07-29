@@ -22,7 +22,6 @@ export const \${componentName}\${ts ? \`: FC<PropsWithChildren<\${componentName}
 };
 
 /**
- * 使用 prop-types 是为了确保即便宿主环境没有使用 typescript 也依然能够进行类型检查
  * prop-types can make sure the type-check whatever the environment whether or not use typescript
  */
 \${componentName}.propTypes = {

@@ -9,11 +9,7 @@ dist/
 server/
 demo/
 node_modules/
-.docz/
-.storybook/
-.out/
 **/__test__/
-**/__stories__/
 
 src/routes.js
 .eslintrc.js

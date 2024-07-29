@@ -202,11 +202,9 @@ export async function $init ({
       'src/index.mdx': devServer === 'docz' && tpl.mdx(params),
       'bisheng.config.js': devServer === 'bisheng' && tpl.bisheng(params),
       'posts/README.md': devServer === 'bisheng' && tpl.posts_readme()(params),
-      '.storybook/addons.js': devServer === 'storybook' && tpl.storybook_addons(params),
-      '.storybook/config.js': devServer === 'storybook' && tpl.storybook_config(params),
+      '.storybook/main.ts': devServer === 'storybook' && tpl.storybook_main(params),
+      '.storybook/preview.ts': devServer === 'storybook' && tpl.storybook_preview(params),
       '.storybook/manager-head.html': devServer === 'storybook' && tpl.storybook_mhead(params),
-      '.storybook/webpack.config.js': devServer === 'storybook' && tpl.storybook_webpack(params),
-      '.storybook/theme.js': devServer === 'storybook' && tpl.storybook_theme(params),
       'doczrc.js': devServer === 'docz' && tpl.doczrc(params),
       'gatsby-config.js': devServer === 'docz' && tpl.gatsby(params),
       'styleguide.config.js': devServer === 'styleguidist' && tpl.styleguidist({ ...params, git })

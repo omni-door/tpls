@@ -72,7 +72,6 @@ const tpl =
   "exclude": [
     "node_modules",
     "**/__test__/",
-    "**/__stories__/",
     "configs/",
     "lib/",
     "es/",
@@ -80,9 +79,6 @@ const tpl =
     "build/",
     "server/",
     "demo/",
-    ".docz/",
-    ".storybook/",
-    ".out/",
     "*.js"
   ]
 }

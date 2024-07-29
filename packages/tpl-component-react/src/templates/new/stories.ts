@@ -2,26 +2,21 @@ import { tplEngineNew } from '@omni-door/utils';
 
 const tpl = 
 `\`import * as React from 'react';
-import { storiesOf } from '@storybook/react';
-import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
-import { themes } from '@storybook/theming';
-import { \${componentName} } from '../index';
+import { \${componentName} } from './index';
 \${style ? "import '../style';" : ''}
+import type { Meta, StoryObj } from '@storybook/react';
 
-storiesOf('\${componentName}', module)
-  .addParameters({
-    readme: {
-      \${md ? \`sidebar: require('../README.md').default,\` : ''}
-      highlightSidebar: true,
-      codeTheme: 'github'
-    },
-    options: { theme: themes.light },
-    viewport: {
-      viewports: INITIAL_VIEWPORTS,
-      defaultViewport: 'iphone6'
-    }
-  })
-  .add('basic usage', () => <\${componentName}>Hello \${componentName}</\${componentName}>);
+const meta: Meta<typeof \${componentName}> = {
+  component: \${componentName},
+};
+ 
+export default meta;
+
+type Story = StoryObj<typeof \${componentName}>;
+ 
+export const Primary: Story = {
+  render: () => <\${componentName}>Hello \${componentName}</\${componentName}>
+};
 \``;
 
 export const tpl_new_story = {

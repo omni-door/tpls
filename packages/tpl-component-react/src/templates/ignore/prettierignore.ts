@@ -1,7 +1,7 @@
 import { tplEngineInit } from '@omni-door/utils';
 
 const tpl = 
-`\`**/__stories__/
+`\`**/stories/
 **/__test__/
 \``;
 
