@@ -2,6 +2,8 @@ import { tplEngineInit } from '@omni-door/utils';
 
 const tpl = 
 `\`import path from 'path';
+import vuePlugin from '@vitejs/plugin-vue';
+import jsxPlugin from '@vitejs/plugin-vue-jsx';
 
 import type { StorybookConfig } from '@storybook/react-vite';
 
@@ -32,6 +34,7 @@ const config: StorybookConfig = {
       ...config.resolve?.alias,
       '@': path.resolve(__dirname, '../src')
     };
+    config.plugins?.push(vuePlugin(), jsxPlugin());
     return config;
   }
 };
