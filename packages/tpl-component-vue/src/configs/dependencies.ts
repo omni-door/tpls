@@ -122,18 +122,25 @@ export async function devDependencies (strategy: STRATEGY, config: Config) {
   ] : [];
 
   const storybookDependencies = [
-    dependency('@storybook/vue'),
-    dependency('@storybook/addons'),
-    dependency('@storybook/addon-options'),
+    dependency('@chromatic-com/storybook'),
+    dependency('@storybook/vue3'),
+    dependency('@storybook/blocks'),
+    dependency('@storybook/addon-onboarding'),
     dependency('@storybook/addon-viewport'),
     dependency('@storybook/addon-actions'),
     dependency('@storybook/addon-console'),
     dependency('@storybook/addon-docs'),
+    dependency('@storybook/vue3-vite'),
+    dependency('@storybook/addon-essentials'),
+    dependency('@storybook/addon-interactions'),
     dependency('@storybook/addon-knobs'),
     dependency('@storybook/addon-links'),
-    dependency('@storybook/addon-notes'),
+    dependency('@storybook/test'),
     dependency('@storybook/theming'),
-    dependency('storybook-readme'),
+    dependency('storybook'),
+    dependency('vite'),
+    dependency('@vitejs/plugin-vue'),
+    dependency('@vitejs/plugin-vue-jsx'),
     ...loaderDependencies
   ];
 
@@ -167,7 +174,6 @@ export async function devDependencies (strategy: STRATEGY, config: Config) {
     !tag ? dependency('@omni-door/cli') : `@omni-door/cli@${tag}`,
     dependency('del'),
     dependency('vue'),
-    dependency('@vue/composition-api'),
     dependency('vue-property-decorator'),
     dependency('vue-class-component')
   ];

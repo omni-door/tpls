@@ -2,6 +2,7 @@ import { tplEngineNew } from '@omni-door/utils';
 
 const tpl = 
 `\`import * as React from 'react';
+import { fn } from '@storybook/test';
 import { \${componentName} } from './index';
 \${style ? "import './style';" : ''}
 import type { Meta, StoryObj } from '@storybook/react';
@@ -16,6 +17,7 @@ const meta: Meta<typeof \${componentName}> = {
   },
   args: {
     prefixCls: 'button',
+    onClick: fn(),
   },
   tags: ['autodocs'],
 };

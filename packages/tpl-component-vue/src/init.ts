@@ -191,11 +191,10 @@ export async function $init ({
       'DEV.md': tpl.readme_dev({ ...params, install: installReadMe, runScript, paramScript }),
       'DEV.zh-CN.md': tpl.readme_dev_cn({ ...params, install: installReadMe, runScript, paramScript }),
       // demo
-      '.storybook/addons.js': tpl.storybook_addons(params),
-      '.storybook/config.js': tpl.storybook_config(params),
+      'src/stories/GetStarted.mdx': tpl.source_stories({ ...params, install: installReadMe, runScript, paramScript }),
+      '.storybook/main.ts': tpl.storybook_main(params),
+      '.storybook/preview.ts': tpl.storybook_preview(params),
       '.storybook/manager-head.html': tpl.storybook_mhead(params),
-      '.storybook/webpack.config.js': tpl.storybook_webpack(params),
-      '.storybook/theme.js': tpl.storybook_theme(params)
     };
     const file_path = (p: string) => path.resolve(initPath, p);
     for (const p in pathToFileContentMap) {

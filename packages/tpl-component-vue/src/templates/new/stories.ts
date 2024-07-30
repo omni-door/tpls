@@ -1,31 +1,35 @@
 import { tplEngineNew } from '@omni-door/utils';
 
 const tpl = 
-`\`import { storiesOf } from '@storybook/vue';
-import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
-import { themes } from '@storybook/theming';
-import \${componentName} from '../';
-import '../style';
+`\`import \${componentName} from '.';
+import './style';
 
-storiesOf('\${componentName}', module)
-  .addParameters({
-    readme: {
-      \${md ? \`sidebar: require('../README.md').default,\` : ''}
-      highlightSidebar: true,
-      codeTheme: 'github'
-    },
-    options: { theme: themes.light },
-    viewport: {
-      viewports: INITIAL_VIEWPORTS,
-      defaultViewport: 'iphone6'
-    }
-  })
-  .add('basic usage', () => ({
-    components: {
-      \${componentName}
-    },
-    template: \\\`<\${componentName}>{{'Hello \${componentName}'}}</\${componentName}>\\\`
-  }));
+import type { Meta, StoryObj } from '@storybook/vue3';
+
+const meta: Meta<typeof \${componentName}> = {
+  title: 'Components/\${componentName}',
+  component: \${componentName},
+  // https://storybook.js.org/docs/api/arg-types#controltype
+  argTypes: {
+    label: { control: 'text' },
+    prefixCls: { control: 'text' },
+  },
+  args: {
+    label: 'Hello \${componentName}',
+    prefixCls: '\${componentName.toLowerCase()}',
+  },
+  tags: ['autodocs'],
+};
+
+export default meta;
+
+type Story = StoryObj<typeof \${componentName}>;
+
+export const Primary: Story = {
+  args: {
+    prefixCls: '\${componentName.toLowerCase()}',
+  },
+};
 \``;
 
 export const tpl_new_story = {

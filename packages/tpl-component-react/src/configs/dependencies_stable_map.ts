@@ -7,7 +7,7 @@ export const dependencies = {
 export const devDependencies = {
   'react': '^18.3.1',
   'react-dom': '^18.3.1',
-  'prop-types': '^15.7.2',
+  'prop-types': '^15.8.1',
   '@babel/core': '~7.12.17',
   '@babel/preset-env': '~7.12.17',
   '@babel/preset-react': '~7.12.13',
@@ -20,6 +20,7 @@ export const devDependencies = {
   '@types/enzyme-adapter-react-16': '1.0.6',
   '@types/jest': '25.1.2',
   '@types/node': '~18.19.39',
+  "@types/prop-types": "~15.7.12",
   '@types/react': '~18.3.3',
   '@types/react-dom': '~18.3.0',
   '@types/vfile-message': '1.0.1', // 和 docz、bisheng 版本强相关，一定要确保一致性，否则打包时易出错
@@ -72,7 +73,7 @@ export const devDependencies = {
   'stylelint-scss': '3.21.0',
   'ts-jest': '~26.5.6',
   'ts-node': '8.6.2',
-  'ttypescript': '~1.5.12',
+  'ttypescript': '~1.5.15',
   'typescript': '~4.9.5',
   'typescript-transform-paths': '~2.0.3',
   'url-loader': '~3.0.0',

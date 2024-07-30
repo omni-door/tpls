@@ -4,35 +4,34 @@ const tpl =
 `\`import {
   defineComponent,
   onMounted
-} from '@vue/composition-api';
-import classnames from '@utils/classnames';
-\${ts ? \`/* import types */
-import type { CreateElement, VNode } from 'vue';
-\` : ''}
+} from 'vue';
+import classnames from '@/utils/classnames';
+
 export default defineComponent({
   name: '\${componentName}',
   props: {
+    label: {
+      type: String,
+      default: 'Hello \${componentName}'
+    },
     prefixCls: {
       type: String,
       default: '\${componentName.toLowerCase()}'
     }
   },
-  setup(props) {
-    const classes = classnames(props.prefixCls);
+  setup(props, { slots }) {
+    const { label, prefixCls } = props;
+    const classes = classnames(prefixCls);
     onMounted(() => {
       console.info('\${componentName} mounted!');
     });
 
-    return { classes };
-  },
-  render(h: CreateElement): VNode {
-    const content = this.$slots.default;
-    return (
-      <div class={this.classes()}>
-        { content }
+    return () => (
+      <div class={classes()}>
+        {slots.default ? slots.default() : label}
       </div>
     );
-  }
+  },
 });\``;
 
 export const tpl_new_component_h = {

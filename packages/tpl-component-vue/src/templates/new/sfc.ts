@@ -3,7 +3,7 @@ import { tplEngineNew } from '@omni-door/utils';
 const tpl = 
 `\`<template>
   <div :class="classes()">
-    <slot name="default" />
+    <slot name="default">{{ label }}</slot>
   </div>
 </template>
 
@@ -11,12 +11,16 @@ const tpl =
 import {
   defineComponent,
   onMounted
-} from '@vue/composition-api';
-import classnames from '@utils/classnames';
+} from 'vue';
+import classnames from '@/utils/classnames';
 
 export default defineComponent({
   name: '\${componentName}',
   props: {
+    label: {
+      type: String,
+      default: 'Hello \${componentName}'
+    },
     prefixCls: {
       type: String,
       default: '\${componentName.toLowerCase()}'

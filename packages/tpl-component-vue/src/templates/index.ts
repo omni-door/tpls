@@ -22,11 +22,10 @@ import source_index, { tpl_src_index } from './source/index';
 import source_classnames, { tpl_src_classnames } from './source/classnames';
 import source_d_global, { tpl_src_d_global } from './source/d-global';
 import source_d_shim_tsx, { tpl_src_d_shim_tsx } from './source/d-shim-tsx';
-import storybook_addons, { tpl_storybook_addons } from './storybook/addons';
-import storybook_config, { tpl_storybook_config } from './storybook/config';
+import source_stories, { tpl_src_stories } from './source/stories';
+import storybook_main, { tpl_storybook_main } from './storybook/main';
+import storybook_preview, { tpl_storybook_preview } from './storybook/preview';
 import storybook_mhead, { tpl_storybook_mhead } from './storybook/manager-head';
-import storybook_webpack, { tpl_storybook_webpack } from './storybook/webpack';
-import storybook_theme, { tpl_storybook_theme } from './storybook/theme';
 import component_h, { tpl_new_component_h } from './new/h';
 import component_sfc, { tpl_new_component_sfc } from './new/sfc';
 import component_index, { tpl_new_index } from './new/index';
@@ -60,11 +59,10 @@ export { default as source_index, tpl_src_index } from './source/index';
 export { default as source_classnames, tpl_src_classnames } from './source/classnames';
 export { default as source_d_global, tpl_src_d_global } from './source/d-global';
 export { default as source_d_shim_tsx, tpl_src_d_shim_tsx } from './source/d-shim-tsx';
-export { default as storybook_addons, tpl_storybook_addons } from './storybook/addons';
-export { default as storybook_config, tpl_storybook_config } from './storybook/config';
+export { default as source_stories, tpl_src_stories } from './source/stories';
+export { default as storybook_preview, tpl_storybook_preview } from './storybook/preview';
+export { default as storybook_main, tpl_storybook_main } from './storybook/main';
 export { default as storybook_mhead, tpl_storybook_mhead } from './storybook/manager-head';
-export { default as storybook_webpack, tpl_storybook_webpack } from './storybook/webpack';
-export { default as storybook_theme, tpl_storybook_theme } from './storybook/theme';
 export { default as component_sfc, tpl_new_component_sfc } from './new/sfc';
 export { default as component_h, tpl_new_component_h } from './new/h';
 export { default as component_index, tpl_new_index } from './new/index';
@@ -100,11 +98,10 @@ export const tpls_init = {
   source_classnames,
   source_d_global,
   source_d_shim_tsx,
-  storybook_addons,
-  storybook_config,
+  source_stories,
+  storybook_preview,
+  storybook_main,
   storybook_mhead,
-  storybook_webpack,
-  storybook_theme
 };
 
 export const tpls_origin_init = {
@@ -129,11 +126,10 @@ export const tpls_origin_init = {
   tpl_src_d_shim_tsx,
   tpl_src_classnames,
   tpl_src_index,
-  tpl_storybook_addons,
-  tpl_storybook_config,
+  tpl_src_stories,
+  tpl_storybook_preview,
+  tpl_storybook_main,
   tpl_storybook_mhead,
-  tpl_storybook_webpack,
-  tpl_storybook_theme,
   tpl_stylelint,
   tpl_tsconfig,
   tpl_vscode_setting

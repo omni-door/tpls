@@ -33,11 +33,7 @@ module.exports = {
     '^.+.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$': 'jest-transform-stub'
   },
 
-  preset: 'ts-jest/presets/js-with-ts',
-
-  transformIgnorePatterns: [
-    '/node_modules/(?!(@vue/composition-api)/)/'
-  ]
+  preset: 'ts-jest/presets/js-with-ts'
 };
 \``;
 

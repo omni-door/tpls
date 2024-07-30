@@ -78,6 +78,7 @@ export async function devDependencies(strategy: STRATEGY, config: Config) {
   const tsDependencies = ts ? [
     dependency('@types/classnames'),
     dependency('@types/node'),
+    dependency('@types/prop-types'),
     dependency('@types/react'),
     dependency('@types/react-dom'),
     dependency('ttypescript'),
