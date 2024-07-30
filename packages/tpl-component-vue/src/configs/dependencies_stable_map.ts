@@ -40,7 +40,7 @@ export const devDependencies = {
   '@typescript-eslint/parser': '~4.28.0',
   '@vue/babel-helper-vue-jsx-merge-props': '~1.2.1',
   '@vue/babel-preset-jsx': '~1.2.4',
-  '@vue/test-utils': '~1.2.0',
+  '@vue/test-utils': '~2.4.6',
   'babel-jest': '~26.6.3',
   'babel-loader': '~8.1.0',
   'babel-preset-typescript-vue3': '~2.0.14',
