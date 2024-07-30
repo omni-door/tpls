@@ -6,11 +6,11 @@ const tpl =
 import type { StorybookConfig } from '@storybook/react-vite';
 
 const config: StorybookConfig = {
-  "stories": [
+  stories: [
     "../src/**/*.mdx",
     "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"
   ],
-  "addons": [
+  addons: [
     "@storybook/addon-actions",
     "@storybook/addon-console",
     "@storybook/addon-docs",
@@ -22,7 +22,7 @@ const config: StorybookConfig = {
     "@storybook/addon-interactions",
     "@storybook/addon-viewport"
   ],
-  "framework": {
+  framework: {
     "name": "@storybook/react-vite",
     "options": {}
   },
