@@ -1,7 +1,7 @@
 import { tplEngineInit } from '@omni-door/utils';
 
 const tpl = 
-`\`import type { Preview } from '@storybook/react'
+`\`import type { Preview } from '@storybook/vue3'
 
 const preview: Preview = {
   parameters: {

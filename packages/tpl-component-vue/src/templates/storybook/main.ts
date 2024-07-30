@@ -5,7 +5,7 @@ const tpl =
 import vuePlugin from '@vitejs/plugin-vue';
 import jsxPlugin from '@vitejs/plugin-vue-jsx';
 
-import type { StorybookConfig } from '@storybook/react-vite';
+import type { StorybookConfig } from '@storybook/vue3-vite';
 
 const config: StorybookConfig = {
   stories: [
@@ -25,7 +25,7 @@ const config: StorybookConfig = {
     "@storybook/addon-viewport"
   ],
   framework: {
-    "name": "@storybook/react-vite",
+    "name": "@storybook/vue3-vite",
     "options": {}
   },
   viteFinal: config => {
