@@ -12,7 +12,8 @@ node_modules/
 .storybook/
 .out/
 **/__test__/
-**/__stories__/
+**/stories/
+**/*.stories.*
 
 gulpfile.js
 .eslintrc.js

@@ -43,7 +43,7 @@ const tpl =
     "moduleResolution": "node",            /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */
     "baseUrl": ".",                       /* Base directory to resolve non-absolute module names. */
     "paths": {
-      "@utils/*": ["src/utils/*"]
+      "@/*": ["src/*"]
     },                           /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */
     // "rootDirs": [],                        /* List of root folders whose combined content represents the structure of the project at runtime. */
     "typeRoots": ["node_modules/@types", "@types"],                       /* List of folders to include type definitions from. */
@@ -69,7 +69,8 @@ const tpl =
   "exclude": [
     "node_modules",
     "**/__test__/",
-    "**/__stories__/",
+    "**/stories/",
+    "**/*.stories.*",
     "configs/",
     "lib/",
     "es/",
