@@ -18,12 +18,13 @@ export class \${componentName} extends PureComponent\${ts ? \`<PropsWithChildren
   };
 
   \${ts ? 'public ' : ''}render() {
-    const { children, className, prefixCls = '\${componentName.toLowerCase()}' } = this.props;
+    const { children, className, onClick, prefixCls = '\${componentName.toLowerCase()}' } = this.props;
     const classes = classnames(prefixCls);
 
     return (
       <div
         className={classes(void 0, className)}
+        onClick={onClick}
       >
         { children }
       </div>
