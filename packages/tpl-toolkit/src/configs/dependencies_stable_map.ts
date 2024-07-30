@@ -13,7 +13,7 @@ export const devDependencies = {
   'eslint': '~7.30.0',
   'eslint-config-prettier': '~8.3.0',
   'eslint-plugin-prettier': '~3.4.0',
-  'husky': '4.2.3',
+  'husky': '9.1.4',
   'ip': '1.1.5',
   'lint-staged': '10.0.7',
   'ts-loader': '6.2.1',

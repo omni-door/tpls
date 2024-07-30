@@ -50,7 +50,7 @@ export const devDependencies = {
   'eslint-config-prettier': '~8.3.0',
   'eslint-plugin-prettier': '~3.4.0',
   'eslint-plugin-react': '~7.24.0',
-  'husky': '4.2.5',
+  'husky': '9.1.4',
   'lint-staged': '10.2.11',
   'null-loader': '4.0.0',
   'open': '7.1.0',

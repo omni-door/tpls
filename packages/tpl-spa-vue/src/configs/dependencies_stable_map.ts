@@ -41,7 +41,7 @@ export const devDependencies = {
   'html-webpack-externals-plugin': '3.8.0',
   'html-webpack-plugin': '5.5.0',
   'http-proxy-middleware': '1.0.6',
-  'husky': '4.2.3',
+  'husky': '9.1.4',
   'ip': '1.1.5',
   'jest': '~26.6.3',
   'jest-transform-stub': '2.0.0',

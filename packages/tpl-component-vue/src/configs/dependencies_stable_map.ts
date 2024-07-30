@@ -67,7 +67,7 @@ export const devDependencies = {
   'gulp-ts-alias': '1.3.0',
   'gulp-typescript': '5.0.1',
   "gulp-replace-path": "0.4.0",
-  'husky': '4.2.3',
+  'husky': '9.1.4',
   'ip': '1.1.5',
   'jest': '~26.6.3',
   'jest-transform-stub': '2.0.0',
