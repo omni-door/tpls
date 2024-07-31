@@ -7,9 +7,9 @@ export const dependencies = {
 };
 
 export const devDependencies = {
-  '@babel/core': '~7.12.17',
-  '@babel/preset-env': '~7.12.17',
-  '@babel/preset-typescript': '~7.12.17',
+  '@babel/core': '~7.24.9',
+  '@babel/preset-env': '~7.24.8',
+  '@babel/preset-typescript': '~7.24.7',
   '@commitlint/cli': '8.3.5',
   '@omni-door/cli': 'latest',
   '@types/jest': '25.1.2',
@@ -24,7 +24,7 @@ export const devDependencies = {
   'autoprefixer': '~10.2.1',
   'cross-env': '~7.0.3',
   "babel-jest": "~26.6.3",
-  'babel-loader': '~8.2.2',
+  'babel-loader': '~8.3.0',
   'css-loader': '~5.0.1',
   'css-minimizer-webpack-plugin': '3.4.1',
   'cssnano': '4.1.10',
