@@ -3,7 +3,7 @@ import { tplEngineInit } from '@omni-door/utils';
 const tpl = 
 `\`import { Meta } from "@storybook/blocks";
 
-<Meta title="!Get Started" />
+<Meta title="Get Started" />
 
 # \${project_name}
 

@@ -7,7 +7,7 @@ module.exports = function (api) {
   api.cache(false);
   const presets = [
     '@babel/preset-env',
-    'babel-preset-vue'\${ts ? \`,
+    '@vue/cli-plugin-babel/preset'\${ts ? \`,
     '@babel/preset-typescript',
     'babel-preset-typescript-vue3'\` : ''}
   ];

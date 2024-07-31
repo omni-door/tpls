@@ -55,7 +55,7 @@ export async function devDependencies (strategy: STRATEGY, config: Config) {
   const babelDependencies = [
     dependency('@babel/core'),
     dependency('@babel/preset-env'),
-    dependency('babel-preset-vue'),
+    dependency('@vue/cli-plugin-babel'),
     dependency('@vue/babel-plugin-jsx'),
     dependency('@vue/babel-helper-vue-jsx-merge-props'),
     dependency('@babel/plugin-transform-runtime'),
@@ -83,7 +83,7 @@ export async function devDependencies (strategy: STRATEGY, config: Config) {
   const tsDependencies = ts ? [
     dependency('@types/node'),
     dependency('@types/classnames'),
-    dependency('ttypescript'),
+    dependency('ts-patch'),
     dependency('typescript'),
     dependency('typescript-transform-paths'),
     dependency('ts-node'),

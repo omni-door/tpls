@@ -81,7 +81,7 @@ export async function devDependencies(strategy: STRATEGY, config: Config) {
     dependency('@types/prop-types'),
     dependency('@types/react'),
     dependency('@types/react-dom'),
-    dependency('ttypescript'),
+    dependency('ts-patch'),
     dependency('typescript'),
     dependency('typescript-transform-paths'),
     dependency('ts-node'),

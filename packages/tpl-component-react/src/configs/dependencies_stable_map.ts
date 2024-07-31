@@ -73,9 +73,9 @@ export const devDependencies = {
   'stylelint-scss': '3.21.0',
   'ts-jest': '~26.5.6',
   'ts-node': '8.6.2',
-  'ttypescript': '~1.5.15',
-  'typescript': '~4.9.5',
-  'typescript-transform-paths': '~2.0.3',
+  'ts-patch': '~3.2.1',
+  'typescript': '~5.5.4',
+  'typescript-transform-paths': '~3.4.7',
   'url-loader': '~3.0.0',
   // docz 依赖
   'docz': '2.3.1',
