@@ -7,13 +7,13 @@ module.exports = function (api) {
   api.cache(false);
   const presets = [
     '@babel/preset-env',
-    'babel-preset-vue',
-    ['@vue/babel-preset-jsx', { compositionAPI: true }]\${ts ? \`,
+    'babel-preset-vue'\${ts ? \`,
     '@babel/preset-typescript',
     'babel-preset-typescript-vue3'\` : ''}
   ];
 
   const plugins = [
+    '@vue/babel-plugin-jsx',
     '@babel/plugin-transform-runtime',
     ['@babel/plugin-proposal-decorators', { legacy: true }],
     ['@babel/plugin-proposal-class-properties', { loose: true }],

@@ -56,7 +56,7 @@ export async function devDependencies (strategy: STRATEGY, config: Config) {
     dependency('@babel/core'),
     dependency('@babel/preset-env'),
     dependency('babel-preset-vue'),
-    dependency('@vue/babel-preset-jsx'),
+    dependency('@vue/babel-plugin-jsx'),
     dependency('@vue/babel-helper-vue-jsx-merge-props'),
     dependency('@babel/plugin-transform-runtime'),
     dependency('@babel/plugin-proposal-class-properties'),
