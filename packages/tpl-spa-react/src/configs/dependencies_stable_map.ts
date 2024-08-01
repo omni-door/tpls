@@ -80,7 +80,7 @@ export const devDependencies = {
   'webpack-dev-middleware': '4.0.4',
   'webpack-hot-middleware': '2.25.2',
   'webpack-merge': '5.7.3',
-  'webpackbar': '5.0.2',
+  'webpackbar': '6.0.1',
   'html-inline-css-webpack-plugin': '1.11.1',
   'html-webpack-externals-plugin': '3.8.0',
   'fork-ts-checker-webpack-plugin': '6.1.0',

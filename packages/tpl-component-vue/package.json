@@ -1,6 +1,6 @@
 {
   "name": "@omni-door/tpl-component-vue",
-  "version": "2.9.12",
+  "version": "2.9.13",
   "description": "",
   "bin": {
     "omni-component-vue": "./bin/omni-door-component-vue.js"

@@ -94,7 +94,7 @@ export const devDependencies = {
   'typescript': '~5.5.4',
   'typescript-transform-paths': '~3.4.7',
   'url-loader': '~3.0.0',
-  'vue': '~3.4.34',
+  'vue': '~3.4.35',
   'vue-class-component': '~7.2.6',
   'vue-eslint-parser': '~7.8.0',
   'vue-jest': '~4.0.1',
