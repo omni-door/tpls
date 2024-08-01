@@ -86,6 +86,7 @@ export async function devDependencies (strategy: STRATEGY, config: Config) {
     dependency('ts-patch'),
     dependency('typescript'),
     dependency('typescript-transform-paths'),
+    dependency('vue-tsc'),
     dependency('ts-node'),
     ...testTypesDependencies
   ] : [];
