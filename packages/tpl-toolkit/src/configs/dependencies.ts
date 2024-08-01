@@ -50,15 +50,6 @@ export async function devDependencies (strategy: STRATEGY, config: Config) {
     dependency('chai'),
     dependency('mocha'),
     dependency('nyc'),
-    dependency('karma'),
-    dependency('karma-coverage'),
-    dependency('karma-chrome-launcher'),
-    dependency('karma-firefox-launcher'),
-    dependency('karma-mocha'),
-    dependency('karma-opera-launcher'),
-    dependency('karma-safari-launcher'),
-    dependency('karma-typescript'),
-    dependency('karma-webpack'),
     dependency('webpack')
   ] : [];
 

@@ -112,5 +112,5 @@ export const devDependencies = {
   'react-docgen': '5.3.0',
   'react-docgen-typescript': '1.16.3',
   'react-styleguidist': '11.0.4',
-  'webpack': '~4.44.2'
+  'webpack': '~4.47.0'
 };

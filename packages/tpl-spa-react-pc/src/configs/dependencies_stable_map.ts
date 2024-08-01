@@ -74,7 +74,7 @@ export const devDependencies = {
   'ts-node': '~10.9.2',
   'typescript': '~4.9.5',
   'url-loader': '~4.1.1',
-  'webpack': '~5.72.1',
+  'webpack': '~5.93.0',
   'webpack-bundle-analyzer': '4.3.0',
   'webpack-cli': '~4.10.0',
   'webpack-dev-middleware': '4.0.4',

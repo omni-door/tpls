@@ -189,9 +189,8 @@ export async function $init ({
       [`.umirc.${ts ? 'ts' : 'js'}`]: tpl.umirc(params),
       // '.env': tpl.env(params),
       // unit test
-      'mocha.opts': test && tpl.mocha(params),
+      '.mocharc.js': test && tpl.mocha(params),
       'mocha.ts-node.js': test && tpl.mochaTsNode(params),
-      'karma.conf.js': test && tpl.karma(params),
     };
     /**
      * create files
