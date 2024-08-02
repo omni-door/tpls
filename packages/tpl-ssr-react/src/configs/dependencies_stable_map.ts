@@ -9,7 +9,7 @@ export const dependencies = {
   'next-url-prettifier': '1.4.0',
   'react': '^18.3.1',
   'react-dom': '^18.3.1',
-  'webpack-merge': '~5.8.0'
+  'webpack-merge': '~6.0.1'
 };
 
 export const devDependencies = {
@@ -34,7 +34,7 @@ export const devDependencies = {
   '@types/jest': '29.5.12',
   "babel-jest": "~29.7.0",
   'cross-env': '~7.0.3',
-  'http-proxy-middleware': '0.20.0',
+  'http-proxy-middleware': '3.0.0',
   'less': '~4.2.0',
   'less-loader': '~11.0.0',
   'next-compose-plugins': '~2.2.1',
@@ -67,5 +67,5 @@ export const devDependencies = {
   'stylelint-scss': '3.21.0',
   'ts-jest': '~29.2.3',
   'ts-node': '10.9.2',
-  'typescript': '~4.9.5'
+  'typescript': '~5.5.4'
 };
