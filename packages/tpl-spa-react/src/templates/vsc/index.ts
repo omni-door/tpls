@@ -30,7 +30,7 @@ const tpl =
     "editor.formatOnPaste": true
   },
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": \${eslint ? true : false}
+    "source.fixAll.eslint": \${eslint ? "explicit" : false}
   },
   "prettier.eslintIntegration": \${(eslint && prettier) ? true : false},
   "files.exclude": {
