@@ -1,6 +1,6 @@
 {
   "name": "@omni-door/tpl-spa-react-pc",
-  "version": "2.9.7",
+  "version": "2.9.8",
   "description": "",
   "bin": {
     "omni-spa-react-pc": "./bin/omni-door-spa-react-pc.js"
