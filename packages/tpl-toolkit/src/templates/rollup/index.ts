@@ -20,7 +20,7 @@ module.exports = function (config) {
     v.plugins.push(
       alias({
         entries: [
-          { find: '@utils', replacement: path.resolve(__dirname, 'src/utils') }
+          { find: '@/', replacement: path.resolve(__dirname, 'src/') }
         ]
       })
     )
