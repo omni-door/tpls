@@ -20,6 +20,7 @@ export const devDependencies = {
   'ts-node': '10.9.2',
   'tsconfig-paths': '~3.9.0',
   'ts-patch': '~3.2.1',
+  'tslib': '~2.6.3',
   'typescript': '~4.8.4',
   'typescript-transform-paths': '~3.4.7',
   '@omni-door/cli': 'latest',

@@ -66,6 +66,7 @@ export async function devDependencies (strategy: STRATEGY, config: Config) {
     dependency('typescript-transform-paths'),
     dependency('ts-node'),
     dependency('ts-loader'),
+    dependency('tslib'),
     ...testTypesDependencies
   ] : [];
 
