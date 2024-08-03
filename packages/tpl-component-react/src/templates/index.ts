@@ -23,9 +23,11 @@ import source_index, { tpl_src_index } from './source/index';
 import source_classnames, { tpl_src_classnames } from './source/classnames';
 import source_d, { tpl_src_declaration } from './source/declaration';
 import source_stories, { tpl_src_stories } from './source/stories';
+import public_github_svg, { tpl_public_github_svg } from './public/github-svg';
 import storybook_main, { tpl_storybook_main } from './storybook/main';
 import storybook_preview, { tpl_storybook_preview } from './storybook/preview';
-import storybook_mhead, { tpl_storybook_mhead } from './storybook/manager-head';
+import storybook_manager, { tpl_storybook_manager } from './storybook/manager';
+import storybook_theme, { tpl_storybook_theme } from './storybook/theme';
 import bisheng, { tpl_bisheng } from './bisheng';
 import posts_readme, { tpl_bisheng_posts } from './bisheng/posts';
 import doczrc, { tpl_docz } from './docz';
@@ -67,9 +69,11 @@ export { default as source_index, tpl_src_index } from './source/index';
 export { default as source_classnames, tpl_src_classnames } from './source/classnames';
 export { default as source_d, tpl_src_declaration } from './source/declaration';
 export { default as source_stories, tpl_src_stories } from './source/stories';
+export { default as public_github_svg, tpl_public_github_svg } from './public/github-svg';
 export { default as storybook_preview, tpl_storybook_preview } from './storybook/preview';
 export { default as storybook_main, tpl_storybook_main } from './storybook/main';
-export { default as storybook_mhead, tpl_storybook_mhead } from './storybook/manager-head';
+export { default as storybook_manager, tpl_storybook_manager } from './storybook/manager';
+export { default as storybook_theme, tpl_storybook_theme } from './storybook/theme';
 export { default as bisheng, tpl_bisheng } from './bisheng';
 export { default as posts_readme, tpl_bisheng_posts } from './bisheng/posts';
 export { default as doczrc, tpl_docz } from './docz';
@@ -113,9 +117,11 @@ export const tpls_init = {
   source_classnames,
   source_d,
   source_stories,
+  public_github_svg,
   storybook_preview,
   storybook_main,
-  storybook_mhead,
+  storybook_manager,
+  storybook_theme,
   doczrc,
   gatsby,
   bisheng,
@@ -150,9 +156,11 @@ export const tpls_origin_init = {
   tpl_src_classnames,
   tpl_src_index,
   tpl_src_stories,
+  tpl_public_github_svg,
   tpl_storybook_preview,
   tpl_storybook_main,
-  tpl_storybook_mhead,
+  tpl_storybook_manager,
+  tpl_storybook_theme,
   tpl_styleguidist,
   tpl_stylelint,
   tpl_tsconfig,

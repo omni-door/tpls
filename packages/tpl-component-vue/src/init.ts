@@ -192,9 +192,11 @@ export async function $init ({
       'DEV.zh-CN.md': tpl.readme_dev_cn({ ...params, install: installReadMe, runScript, paramScript }),
       // demo
       'src/stories/GetStarted.mdx': tpl.source_stories({ ...params, install: installReadMe, runScript, paramScript }),
+      'public/github-mark.svg': tpl.public_github_svg(params),
       '.storybook/main.ts': tpl.storybook_main(params),
       '.storybook/preview.ts': tpl.storybook_preview(params),
-      '.storybook/manager-head.html': tpl.storybook_mhead(params),
+      '.storybook/manager.ts': tpl.storybook_manager(params),
+      '.storybook/theme.ts': tpl.storybook_theme(params),
     };
     const file_path = (p: string) => path.resolve(initPath, p);
     for (const p in pathToFileContentMap) {

@@ -23,9 +23,11 @@ import source_classnames, { tpl_src_classnames } from './source/classnames';
 import source_d_global, { tpl_src_d_global } from './source/d-global';
 import source_d_shim_tsx, { tpl_src_d_shim_tsx } from './source/d-shim-tsx';
 import source_stories, { tpl_src_stories } from './source/stories';
+import public_github_svg, { tpl_public_github_svg } from './public/github-svg';
 import storybook_main, { tpl_storybook_main } from './storybook/main';
 import storybook_preview, { tpl_storybook_preview } from './storybook/preview';
-import storybook_mhead, { tpl_storybook_mhead } from './storybook/manager-head';
+import storybook_manager, { tpl_storybook_manager } from './storybook/manager';
+import storybook_theme, { tpl_storybook_theme } from './storybook/theme';
 import component_h, { tpl_new_component_h } from './new/h';
 import component_sfc, { tpl_new_component_sfc } from './new/sfc';
 import component_index, { tpl_new_index } from './new/index';
@@ -60,9 +62,11 @@ export { default as source_classnames, tpl_src_classnames } from './source/class
 export { default as source_d_global, tpl_src_d_global } from './source/d-global';
 export { default as source_d_shim_tsx, tpl_src_d_shim_tsx } from './source/d-shim-tsx';
 export { default as source_stories, tpl_src_stories } from './source/stories';
+export { default as public_github_svg, tpl_public_github_svg } from './public/github-svg';
 export { default as storybook_preview, tpl_storybook_preview } from './storybook/preview';
 export { default as storybook_main, tpl_storybook_main } from './storybook/main';
-export { default as storybook_mhead, tpl_storybook_mhead } from './storybook/manager-head';
+export { default as storybook_manager, tpl_storybook_manager } from './storybook/manager';
+export { default as storybook_theme, tpl_storybook_theme } from './storybook/theme';
 export { default as component_sfc, tpl_new_component_sfc } from './new/sfc';
 export { default as component_h, tpl_new_component_h } from './new/h';
 export { default as component_index, tpl_new_index } from './new/index';
@@ -99,9 +103,11 @@ export const tpls_init = {
   source_d_global,
   source_d_shim_tsx,
   source_stories,
+  public_github_svg,
   storybook_preview,
   storybook_main,
-  storybook_mhead,
+  storybook_manager,
+  storybook_theme,
 };
 
 export const tpls_origin_init = {
@@ -127,9 +133,11 @@ export const tpls_origin_init = {
   tpl_src_classnames,
   tpl_src_index,
   tpl_src_stories,
+  tpl_public_github_svg,
   tpl_storybook_preview,
   tpl_storybook_main,
-  tpl_storybook_mhead,
+  tpl_storybook_manager,
+  tpl_storybook_theme,
   tpl_stylelint,
   tpl_tsconfig,
   tpl_vscode_setting
