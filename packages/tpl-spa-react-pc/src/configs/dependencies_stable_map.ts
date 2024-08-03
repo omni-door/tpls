@@ -86,5 +86,5 @@ export const devDependencies = {
   'fork-ts-checker-webpack-plugin': '9.0.2',
   '@umijs/babel-plugin-auto-css-modules': '3.0.16',
   '@omni-door/cli': 'latest',
-  'babel-plugin-import': '1.13.0',
+  'babel-plugin-import': '1.13.8',
 };
