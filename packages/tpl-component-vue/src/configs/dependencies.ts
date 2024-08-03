@@ -138,6 +138,7 @@ export async function devDependencies (strategy: STRATEGY, config: Config) {
     dependency('@storybook/addon-links'),
     dependency('@storybook/test'),
     dependency('@storybook/theming'),
+    dependency('@storybook/manager-api'),
     dependency('storybook'),
     dependency('vite'),
     dependency('@vitejs/plugin-vue'),

@@ -29,6 +29,7 @@ export const devDependencies = {
   "@storybook/vue3-vite": "~8.2.7",
   "@storybook/test": "~8.2.7",
   "@storybook/theming": "~8.2.7",
+  "@storybook/manager-api": "~8.2.7",
   "storybook": "~8.2.7",
   "vite": "~5.3.5",
   "@vitejs/plugin-vue": "~5.1.1",
