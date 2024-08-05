@@ -1,6 +1,6 @@
 import { tplEngineInit } from '@omni-door/utils';
 import plugins_scss from './plugins_scss';
-import plugins_less from './plugins_scss';
+import plugins_less from './plugins_less';
 import rules_scss from './rules_scss';
 import extends_scss from './extends_scss';
 import extends_less from './extends_less';
@@ -19,8 +19,11 @@ module.exports = {
 		'stylelint-declaration-block-no-ignored-properties'
 	],
 	rules: {
-		'no-descending-specificity': null,\${alter_style({ all: 'rules_scss', scss: 'rules_scss' })}
+		'selector-no-vendor-prefix': null,
 		'selector-class-pattern': null,
+		'property-no-vendor-prefix': null,
+		'color-function-notation': null,
+		'no-descending-specificity': null,\${alter_style({ all: 'rules_scss', scss: 'rules_scss' })}
 		'plugin/declaration-block-no-ignored-properties': true
 	}
 };

@@ -107,8 +107,8 @@ input::-webkit-credentials-auto-fill-button {
   pointer-events: none;
 }
 
-input::placeholder,
-textarea::placeholder {
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
   color: #9b9b9b;
   font-weight: 500;
   font-size: 12px;

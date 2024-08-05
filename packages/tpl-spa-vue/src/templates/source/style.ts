@@ -10,7 +10,7 @@ const tpl =
   font-size: 16px;
   font-family: sans-serif;
   text-align: center;
-  background-color: rgba(170, 30, 38, 1);
+  background-color: rgba(170, 30, 38, 100%);
 }
 
 .main-btn {
