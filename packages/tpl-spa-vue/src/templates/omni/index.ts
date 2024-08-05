@@ -10,7 +10,7 @@ module.exports = {
   type: '\${project_type}', // 项目类型，请勿任意变动 (project type, please don't modify)
 
   dev: {
-    webpack: require(path.resolve(__dirname, 'webpack.config.dev.js')), // 开发服务端webpack配置 (dev-server webpack configuration)
+    webpack: () => require(path.resolve(__dirname, 'webpack.config.dev.js')), // 开发服务端webpack配置 (dev-server webpack configuration)
     proxy:  [
       // {
       //   route: '/api',
