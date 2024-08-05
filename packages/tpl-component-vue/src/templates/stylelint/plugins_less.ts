@@ -1,5 +1,5 @@
 const tpl = 
 `\`
-    'stylelint-config-prettier',\``;
+    'stylelint-less',\``;
 
 export default tpl;

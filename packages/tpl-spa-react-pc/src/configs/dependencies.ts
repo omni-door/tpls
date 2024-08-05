@@ -121,8 +121,7 @@ export async function devDependencies (strategy: STRATEGY, config: {
   const prettierDependencies = prettier ? [
     dependency('prettier'),
     eslint ? dependency('eslint-config-prettier') : '',
-    eslint ? dependency('eslint-plugin-prettier') : '',
-    stylelint ? dependency('stylelint-config-prettier') : ''
+    eslint ? dependency('eslint-plugin-prettier') : ''
   ] : [];
 
   const commitlintDependencies = commitlint ? [
@@ -139,7 +138,10 @@ export async function devDependencies (strategy: STRATEGY, config: {
     dependency('stylelint-order'),
     dependency('stylelint-declaration-block-no-ignored-properties'),
     ts ? dependency('@types/vfile-message') : '', // stylelint -> postcss-markdown -> remark -> unified -> @types/vfile(3.0.0) -> @types/vfile-message(*)
-    style === 'all' || style === 'scss' ? dependency('stylelint-scss') : ''
+    style === 'all' || style === 'scss' ? dependency('stylelint-config-standard-scss') : '',
+    style === 'all' || style === 'scss' ? dependency('stylelint-scss') : '',
+    style === 'all' || style === 'less' ? dependency('stylelint-config-standard-less') : '',
+    style === 'all' || style === 'less' ? dependency('stylelint-less') : ''
   ] : [];
 
   const devServerDependencies = [

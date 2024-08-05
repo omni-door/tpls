@@ -98,8 +98,7 @@ export async function devDependencies(strategy: STRATEGY, config: Config) {
   const prettierDependencies = prettier ? [
     dependency('prettier'),
     eslint ? dependency('eslint-config-prettier') : '',
-    eslint ? dependency('eslint-plugin-prettier') : '',
-    stylelint ? dependency('stylelint-config-prettier') : ''
+    eslint ? dependency('eslint-plugin-prettier') : ''
   ] : [];
 
   const commitlintDependencies = commitlint ? [
@@ -115,7 +114,10 @@ export async function devDependencies(strategy: STRATEGY, config: Config) {
     dependency('stylelint-config-rational-order'),
     dependency('stylelint-order'),
     dependency('stylelint-declaration-block-no-ignored-properties'),
-    style === 'all' || style === 'scss' ? dependency('stylelint-scss') : ''
+    style === 'all' || style === 'scss' ? dependency('stylelint-config-standard-scss') : '',
+    style === 'all' || style === 'scss' ? dependency('stylelint-scss') : '',
+    style === 'all' || style === 'less' ? dependency('stylelint-config-standard-less') : '',
+    style === 'all' || style === 'less' ? dependency('stylelint-less') : ''
   ] : [];
 
   const doczDependencies = [
