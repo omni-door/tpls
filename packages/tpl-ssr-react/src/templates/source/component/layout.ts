@@ -1,7 +1,7 @@
 import { tplEngineInit } from '@omni-door/utils';
 
 const tpl = 
-`\`import React, { memo } from 'react';
+`\`import { memo } from 'react';
 import Head from 'next/head';
 import Link from '\${serverType === 'koa-next' ? '@components/Link' : 'next/link'}';
 \${style ? \`import styles from './style/Layout.module.\${style === 'all' ? 'scss' : style}';\` : ''}

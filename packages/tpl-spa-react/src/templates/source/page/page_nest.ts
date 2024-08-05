@@ -1,7 +1,7 @@
 import { tplEngineInit } from '@omni-door/utils';
 
 const tpl = 
-`\`import React, { memo } from 'react';
+`\`import { memo } from 'react';
 import { Outlet } from 'react-router-dom';
 \${style ? \`import './style/\${pageName}.\${style === 'all' ? 'scss' : style}';\` : ''}
 \${ts ? \`/* import types */

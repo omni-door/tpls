@@ -4,7 +4,7 @@ const tpl =
 `\`\${ts ? "///<reference types='webpack-env' />" : ''}
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
-import React, { StrictMode, useLayoutEffect, useState } from 'react';
+import { StrictMode, useLayoutEffect, useState } from 'react';
 \${qiankun ? \`import { unmountComponentAtNode } from 'react-dom';
 import { createRoot } from 'react-dom/client';\` : \`import { createRoot } from 'react-dom/client';\` }
 import { HashRouter as Router, Link, useLocation } from 'react-router-dom';

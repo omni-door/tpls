@@ -1,7 +1,7 @@
 import { tplEngineInit } from '@omni-door/utils';
 
 const tpl = 
-`\`import React, { memo } from 'react';
+`\`import { memo } from 'react';
 \${style ? \`import styles from './style/\${componentName}.module.\${style === 'all' ? 'scss' : style}';\` : ''}
 \${ts ? \`/* import types */
 import type { FC, PropsWithChildren } from 'react';

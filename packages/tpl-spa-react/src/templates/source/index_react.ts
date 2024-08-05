@@ -5,7 +5,7 @@ const tpl =
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';\${layout === 'rem' ? \`
 import 'amfe-flexible';\` : ''}
-import React, { StrictMode } from 'react';
+import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { HashRouter as Router, Link, useLocation } from 'react-router-dom';
 import Routes from './routes';

@@ -1,7 +1,7 @@
 import { tplEngineInit } from '@omni-door/utils';
 
 const tpl = 
-`\`import React, { memo } from 'react';
+`\`import { memo } from 'react';
 import { Link as NextLink } from 'next-url-prettifier';
 import { nextRouter } from '../../routes';
 \${ts ? \`/* import types */
