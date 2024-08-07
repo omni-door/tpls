@@ -81,7 +81,9 @@ const tpl =
     ".docz/",
     ".storybook/",
     ".out/",
-    "*.js"
+    "*.js",
+    "*.cjs",
+    "*.mjs"
   ]
 }
 \``;

@@ -74,7 +74,9 @@ const tpl =
     "build/",
     "server/",
     "demo/",
-    "*.js"
+    "*.js",
+    "*.cjs",
+    "*.mjs"
   ]
 }
 \``;

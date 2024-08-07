@@ -76,6 +76,8 @@ const tpl =
     "build/",
     "server/",
     "demo/",
+    "*.cjs",
+    "*.mjs",
     \${serverType === 'koa-next' ? \`"*.js",
     "src/routes.js"\` : '"*.js"'}
   ],
