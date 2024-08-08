@@ -53,7 +53,7 @@ export async function devDependencies (strategy: STRATEGY, config: Config) {
     style ? dependency('postcss-loader') : '',
     style ? dependency('autoprefixer') : '',
     style && layout === 'rem' ? dependency('postcss-plugin-px2rem') : '',
-    style && layout === 'viewport' ? dependency('postcss-px-to-viewport') : '',
+    style && layout === 'viewport' ? dependency('postcss-px-to-viewport-8-plugin') : '',
     (style === 'all' || style === 'less') ? dependency('less') : '',
     (style === 'all' || style === 'less') ? dependency('less-loader') : '',
     (style === 'all' || style === 'scss') ? dependency('sass') : '',

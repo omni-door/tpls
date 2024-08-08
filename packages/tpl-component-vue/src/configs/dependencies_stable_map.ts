@@ -55,7 +55,7 @@ export const devDependencies = {
   'eslint-plugin-vue': '~7.12.0',
   'file-loader': '~5.0.2',
   'gulp': '4.0.2',
-  'gulp-autoprefixer': '7.0.1',
+  'gulp-autoprefixer': '9.0.0',
   'gulp-babel': '8.0.0',
   'gulp-clean-css': '4.3.0',
   'gulp-concat': '2.6.1',

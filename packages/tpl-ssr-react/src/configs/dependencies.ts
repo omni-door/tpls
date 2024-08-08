@@ -64,7 +64,7 @@ export async function devDependencies (strategy: STRATEGY, config: Config) {
     dependency('next-compose-plugins'),
     dependency('next-transpile-modules'),
     dependency('@next/bundle-analyzer'),
-    dependency('postcss-px-to-viewport'),
+    dependency('postcss-px-to-viewport-8-plugin'),
     dependency('sass'),
     dependency('less'),
     dependency('less-loader'),

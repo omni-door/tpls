@@ -13,8 +13,8 @@ module.exports = {
       unitPrecision: 10,
       propBlackList: ['border', 'border-width']
     })\` : layout === 'viewport' ? \`,
-    // https://github.com/evrone/postcss-px-to-viewport
-    require('postcss-px-to-viewport')({
+    // https://github.com/lkxian888/postcss-px-to-viewport-8-plugin
+    require('postcss-px-to-viewport-8-plugin')({
       viewportWidth: 375, // 视口宽度（数字)
       viewportHeight: 1334, // 视口高度（数字）
       unitPrecision: 3, // 设置的保留小数位数（数字）

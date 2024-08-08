@@ -5,9 +5,9 @@ const tpl =
 
 module.exports = {
   plugins: [
-    // https://github.com/evrone/postcss-px-to-viewport
+    // https://github.com/lkxian888/postcss-px-to-viewport-8-plugin
     [
-      'postcss-px-to-viewport',
+      'postcss-px-to-viewport-8-plugin',
       {
         viewportWidth: 375, // 视口宽度（数字)
         viewportHeight: 1334, // 视口高度（数字）

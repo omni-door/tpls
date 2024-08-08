@@ -54,7 +54,7 @@ export const devDependencies = {
   'lint-staged': '10.2.11',
   'null-loader': '4.0.0',
   'open': '7.1.0',
-  'postcss-px-to-viewport': '1.1.1',
+  'postcss-px-to-viewport-8-plugin': '1.2.5',
   'prettier': '~3.3.3',
   'sass': '~1.77.6',
   'stylelint': '16.8.1',
