@@ -4,7 +4,7 @@ const tpl =
 `\`{
   "editor.tabSize": 2,
   "editor.formatOnSave": \${eslint ? false : true},
-  "javascript.format.enable": \${eslint ? false : true},
+  "eslint.enable": \${eslint ? true : false},
   "[css]": {
     "editor.formatOnSave": true,
     "editor.formatOnPaste": true
@@ -25,14 +25,27 @@ const tpl =
     "editor.formatOnSave": true,
     "editor.formatOnPaste": true
   },
+  "[javascriptreact]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": \${eslint ? "explicit" : false}
+    },
+    "editor.formatOnSave": \${eslint ? false : true},
+    "editor.formatOnPaste": \${eslint ? false : true}
+  },
   "[typescript]": {
-    "editor.formatOnSave": true,
-    "editor.formatOnPaste": true
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": \${eslint ? "explicit" : false}
+    },
+    "editor.formatOnSave": \${eslint ? false : true},
+    "editor.formatOnPaste": \${eslint ? false : true}
   },
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": \${eslint ? "explicit" : false}
+  "[typescriptreact]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": \${eslint ? "explicit" : false}
+    },
+    "editor.formatOnSave": \${eslint ? false : true},
+    "editor.formatOnPaste": \${eslint ? false : true}
   },
-  "prettier.eslintIntegration": \${(eslint && prettier) ? true : false},
   "files.exclude": {
     "**/.vscode": true,
     "**/.git": true,

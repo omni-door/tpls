@@ -1,10 +1,10 @@
-import { tplEngineInit } from "@omni-door/utils";
+import { tplEngineInit } from '@omni-door/utils';
 
 const tpl = 
 `\`{
   "editor.tabSize": 2,
   "editor.formatOnSave": \${eslint ? false : true},
-  "javascript.format.enable": \${eslint ? false : true},
+  "eslint.enable": \${eslint ? true : false},
   "[css]": {
     "editor.formatOnSave": true,
     "editor.formatOnPaste": true
@@ -25,12 +25,26 @@ const tpl =
     "editor.formatOnSave": true,
     "editor.formatOnPaste": true
   },
-  "[typescript]": {
-    "editor.formatOnSave": true,
-    "editor.formatOnPaste": true
+  "[javascriptreact]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": \${eslint ? "explicit" : false}
+    },
+    "editor.formatOnSave": \${eslint ? false : true},
+    "editor.formatOnPaste": \${eslint ? false : true}
   },
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": \${eslint ? "explicit" : false}
+  "[typescript]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": \${eslint ? "explicit" : false}
+    },
+    "editor.formatOnSave": \${eslint ? false : true},
+    "editor.formatOnPaste": \${eslint ? false : true}
+  },
+  "[typescriptreact]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": \${eslint ? "explicit" : false}
+    },
+    "editor.formatOnSave": \${eslint ? false : true},
+    "editor.formatOnPaste": \${eslint ? false : true}
   },
   "files.exclude": {
     "**/.vscode": true,
@@ -50,4 +64,4 @@ export const tpl_vscode_setting = {
   tpl
 };
 
-export default tplEngineInit(tpl_vscode_setting, "tpl");
+export default tplEngineInit(tpl_vscode_setting, 'tpl');
