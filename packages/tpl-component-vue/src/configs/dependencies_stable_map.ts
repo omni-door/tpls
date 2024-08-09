@@ -103,6 +103,6 @@ export const devDependencies = {
   'vue-jest': '~4.0.1',
   'vue-loader': '~15.7.0',
   'vue-property-decorator': '~9.1.2',
-  'vue-template-compiler': '2.6.12',
+  'vue-template-compiler': '2.7.16',
   'vue-tsc': '~2.0.29'
 };

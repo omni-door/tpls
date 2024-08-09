@@ -3,7 +3,7 @@ export const dependencies = {
   'core-js': '^3.30.0',
   'react': '^18.3.1',
   'react-dom': '^18.3.1',
-  'react-router-dom': '^6.10.0',
+  'react-router-dom': '^6.26.0',
   'regenerator-runtime': '^0.13.11'
 };
 
