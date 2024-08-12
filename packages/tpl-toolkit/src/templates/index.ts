@@ -11,6 +11,7 @@ import prettier, { tpl_prettier } from './prettier';
 import prettierignore, { tpl_ignore_prettier } from './ignore/prettierignore';
 import readme, { tpl_readme } from './readme';
 import readme_cn, { tpl_readme_cn } from './readme/index.zh-CN';
+import docs, { tpl_docs } from './readme/docs';
 import readme_dev, { tpl_readme_dev } from './readme/dev';
 import readme_dev_cn, { tpl_readme_dev_cn } from './readme/dev.zh-CN';
 import rollup, { tpl_rollup } from './rollup';
@@ -23,7 +24,7 @@ import mochaTsNode, { tpl_tsnode } from './mocha/ts-node';
 import component_index, { tpl_new_index } from './new/index';
 import component_readme, { tpl_new_readme } from './new/readme';
 import component_test, { tpl_new_test } from './new/test';
-import umirc, { tpl_umirc } from './umi/umirc';
+import dumirc, { tpl_dumirc } from './umi/dumirc';
 import env, { tpl_env } from './umi/env';
 import vscode, { tpl_vscode_setting } from './vsc';
 
@@ -40,6 +41,7 @@ export { default as prettier, tpl_prettier } from './prettier';
 export { default as prettierignore, tpl_ignore_prettier } from './ignore/prettierignore';
 export { default as readme, tpl_readme } from './readme';
 export { default as readme_cn, tpl_readme_cn } from './readme/index.zh-CN';
+export { default as docs, tpl_docs } from './readme/docs';
 export { default as readme_dev, tpl_readme_dev } from './readme/dev';
 export { default as readme_dev_cn, tpl_readme_dev_cn } from './readme/dev.zh-CN';
 export { default as rollup, tpl_rollup } from './rollup';
@@ -52,7 +54,7 @@ export { default as mochaTsNode, tpl_tsnode } from './mocha/ts-node';
 export { default as component_index, tpl_new_index } from './new/index';
 export { default as component_readme, tpl_new_readme } from './new/readme';
 export { default as component_test, tpl_new_test } from './new/test';
-export { default as umirc, tpl_umirc } from './umi/umirc';
+export { default as dumirc, tpl_dumirc } from './umi/dumirc';
 export { default as env, tpl_env } from './umi/env';
 export { default as vscode, tpl_vscode_setting } from './vsc';
 
@@ -69,6 +71,7 @@ export const tpls_init = {
   pkj,
   prettier,
   prettierignore,
+  docs,
   readme,
   readme_cn,
   readme_dev,
@@ -80,7 +83,7 @@ export const tpls_init = {
   karma,
   mocha,
   mochaTsNode,
-  umirc,
+  dumirc,
   env,
   vscode
 };
@@ -96,6 +99,7 @@ export const tpls_origin_init = {
   tpl_omni,
   tpl_package,
   tpl_prettier,
+  tpl_docs,
   tpl_readme,
   tpl_readme_dev,
   tpl_readme_cn,
@@ -108,7 +112,7 @@ export const tpls_origin_init = {
   tpl_karma,
   tpl_mocha,
   tpl_tsnode,
-  tpl_umirc,
+  tpl_dumirc,
   tpl_env,
   tpl_vscode_setting
 };

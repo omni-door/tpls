@@ -185,8 +185,9 @@ export async function $init ({
       'README.zh-CN.md': tpl.readme_cn({ ...params, install: installReadMe, runScript, paramScript }),
       'DEV.md': tpl.readme_dev({ ...params, install: installReadMe, runScript, paramScript }),
       'DEV.zh-CN.md': tpl.readme_dev_cn({ ...params, install: installReadMe, runScript, paramScript }),
+      'docs/index.md': tpl.docs({ ...params, install: installReadMe, runScript, paramScript }),
       // demo
-      [`.umirc.${ts ? 'ts' : 'js'}`]: tpl.umirc(params),
+      [`.dumirc.${ts ? 'ts' : 'js'}`]: tpl.dumirc(params),
       // '.env': tpl.env(params),
       // unit test
       '.mocharc.js': test && tpl.mocha(params),
