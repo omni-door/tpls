@@ -17,7 +17,7 @@ const tpl =
     nav: [
       { title: 'Docs', link: '/docs' }
     ],
-    footer: \\\`<footer>1Money Co ©1money.com</footer>\\\`,
+    footer: \\\`<footer>OMNI-DOOR TEAM ©omni-door</footer>\\\`,
     prefersColor: { default: 'auto' },
   },
   styles: [\\\`.dumi-default-header-left { width: auto !important; margin-right: 16px; }\\\`],
