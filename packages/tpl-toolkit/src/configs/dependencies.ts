@@ -50,6 +50,7 @@ export async function devDependencies (strategy: STRATEGY, config: Config) {
     dependency('chai'),
     dependency('mocha'),
     dependency('nyc'),
+    ts ? dependency('tsx') : '',
     dependency('webpack')
   ] : [];
 
@@ -64,7 +65,6 @@ export async function devDependencies (strategy: STRATEGY, config: Config) {
     dependency('ts-patch'),
     dependency('typescript'),
     dependency('typescript-transform-paths'),
-    dependency('tsx'),
     dependency('ts-loader'),
     dependency('tslib'),
     ...testTypesDependencies

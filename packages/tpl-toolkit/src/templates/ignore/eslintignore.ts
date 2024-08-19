@@ -15,7 +15,7 @@ src/.umi
 .eslintrc.js
 *.config.js
 *.conf.js
-mocha.ts-node.js
+mocha.tsx.js
 \``;
 
 export const tpl_ignore_eslint = {
