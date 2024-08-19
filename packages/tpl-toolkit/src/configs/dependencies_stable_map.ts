@@ -17,7 +17,7 @@ export const devDependencies = {
   'ip': '1.1.5',
   'lint-staged': '10.0.7',
   'ts-loader': '9.5.1',
-  'ts-node': '10.9.2',
+  'tsx': '4.17.0',
   'tsconfig-paths': '~3.9.0',
   'ts-patch': '~3.2.1',
   'tslib': '~2.6.3',

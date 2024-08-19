@@ -3,7 +3,7 @@ import { tplEngineInit } from '@omni-door/utils';
 const tpl = 
 `\`module.exports = {
   require: \${ts ? \`[
-    'mocha.ts-node.js',
+    'tsx',
     'tsconfig-paths/register'
   ]\` : '[]' },
   reporter: 'spec',

@@ -191,7 +191,6 @@ export async function $init ({
       // '.env': tpl.env(params),
       // unit test
       '.mocharc.js': test && tpl.mocha(params),
-      'mocha.ts-node.js': test && tpl.mochaTsNode(params),
     };
     /**
      * create files

@@ -20,7 +20,6 @@ import indexTpl, { tpl_src_index } from './source';
 import getTsTpl, { tpl_src_get_ts } from './source/get_ts';
 import karma, { tpl_karma } from './karma';
 import mocha, { tpl_mocha } from './mocha';
-import mochaTsNode, { tpl_tsnode } from './mocha/ts-node';
 import component_index, { tpl_new_index } from './new/index';
 import component_readme, { tpl_new_readme } from './new/readme';
 import component_test, { tpl_new_test } from './new/test';
@@ -50,7 +49,6 @@ export { default as indexTpl, tpl_src_index } from './source';
 export { default as getTsTpl, tpl_src_get_ts } from './source/get_ts';
 export { default as karma, tpl_karma } from './karma';
 export { default as mocha, tpl_mocha } from './mocha';
-export { default as mochaTsNode, tpl_tsnode } from './mocha/ts-node';
 export { default as component_index, tpl_new_index } from './new/index';
 export { default as component_readme, tpl_new_readme } from './new/readme';
 export { default as component_test, tpl_new_test } from './new/test';
@@ -82,7 +80,6 @@ export const tpls_init = {
   getTsTpl,
   karma,
   mocha,
-  mochaTsNode,
   dumirc,
   env,
   vscode
@@ -111,7 +108,6 @@ export const tpls_origin_init = {
   tpl_ignore_prettier,
   tpl_karma,
   tpl_mocha,
-  tpl_tsnode,
   tpl_dumirc,
   tpl_env,
   tpl_vscode_setting
