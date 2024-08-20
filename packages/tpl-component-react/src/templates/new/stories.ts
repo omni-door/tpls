@@ -1,8 +1,7 @@
 import { tplEngineNew } from '@omni-door/utils';
 
 const tpl = 
-`\`import * as React from 'react';
-import { fn } from '@storybook/test';
+`\`import { fn } from '@storybook/test';
 import { \${componentName} } from './index';
 \${style ? "import './style';" : ''}
 import type { Meta, StoryObj } from '@storybook/react';
