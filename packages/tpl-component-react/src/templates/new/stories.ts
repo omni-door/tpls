@@ -15,7 +15,7 @@ const meta: Meta<typeof \${componentName}> = {
     prefixCls: { control: 'text' },
   },
   args: {
-    prefixCls: 'button',
+    prefixCls: '\${componentName.toLowerCase()}',
     onClick: fn(),
   },
   tags: ['autodocs'],
