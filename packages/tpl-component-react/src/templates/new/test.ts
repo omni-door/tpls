@@ -10,6 +10,17 @@ import { \${componentName} } from '../index';
 
 configure({ adapter: new Adapter() });
 
+const originalConsoleError = console.error;
+console.error = (message, ...optionalParams) => {
+  if (
+    message.includes('Could not parse CSS stylesheet') ||
+    message.includes('findDOMNode is deprecated and will be removed')
+  ) {
+      return;
+  }
+  originalConsoleError(message, ...optionalParams);
+};
+
 describe('\${componentName}', () => {
   it('renders correctly', () => {
     const wrapper = render(
