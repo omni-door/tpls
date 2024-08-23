@@ -63,16 +63,19 @@ export async function devDependencies(strategy: STRATEGY, config: Config) {
 
   const testDependencies = test ? [
     dependency('enzyme'),
-    dependency('enzyme-adapter-react-16'),
+    dependency('@cfaester/enzyme-adapter-react-18'),
     dependency('jest'),
     dependency('jest-transform-stub'),
+    dependency('jsdom'),
+    dependency('jsdom-global'),
+    dependency('sinon'),
     ts ? dependency('ts-jest') : dependency('babel-jest')
   ] : [];
 
   const testTypesDependencies = test ? [
     dependency('@types/jest'),
     dependency('@types/enzyme'),
-    dependency('@types/enzyme-adapter-react-16')
+    dependency('@types/jsdom')
   ] : [];
 
   const tsDependencies = ts ? [

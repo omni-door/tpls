@@ -90,15 +90,18 @@ export async function devDependencies (strategy: STRATEGY, config: {
 
   const testDependencies = test ? [
     dependency('enzyme'),
-    dependency('enzyme-adapter-react-16'),
+    dependency('@cfaester/enzyme-adapter-react-18'),
     dependency('jest'),
-    dependency('jest-transform-stub')
+    dependency('jest-transform-stub'),
+    dependency('jsdom'),
+    dependency('jsdom-global'),
+    dependency('sinon')
   ] : [];
 
   const testTypesDependencies = test ? [
     dependency('@types/jest'),
     dependency('@types/enzyme'),
-    dependency('@types/enzyme-adapter-react-16'),
+    dependency('@types/jsdom'),
     dependency('ts-jest')
   ] : [];
 
