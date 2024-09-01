@@ -8,6 +8,7 @@ const tpl =
 `\`\${use_strict}
 
 const path = require('path');
+const webpack = require('webpack');
 const { merge } = require('webpack-merge');
 const TerserPlugin = require('terser-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
