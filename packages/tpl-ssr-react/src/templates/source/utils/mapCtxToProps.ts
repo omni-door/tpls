@@ -6,7 +6,7 @@ const tpl =
 import type { GetServerSidePropsContext } from 'next';
 
 export interface MapCtxToProps {
-  props: Pick<GetServerSidePropsContext, 'params' | 'query' | 'resolvedUrl'>;
+  props: { page: string; } & Pick<GetServerSidePropsContext, 'params' | 'query'>;
 }
 \` : '' }
 export function mapCtxToProps(ctx\${ts ? ': GetServerSidePropsContext' : ''}) {
@@ -16,7 +16,7 @@ export function mapCtxToProps(ctx\${ts ? ': GetServerSidePropsContext' : ''}) {
     props: {
       params,
       query,
-      resolvedUrl
+      page: resolvedUrl
     }
   };
 }
