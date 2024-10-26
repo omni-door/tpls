@@ -1,22 +1,23 @@
 import { tplEngineInit } from '@omni-door/utils';
 
 const tpl = 
-`\`import paramsToQueryString from './paramsToQueryString';
+`\`'use server';
 \${ts ? \`/* import types */
-import type { NextPageContext } from 'next';
+import type { GetServerSidePropsContext } from 'next';
 
-export type MapCtxToProps = {
-  page: string;
-  query: NodeJS.Dict<string | string[]>;
-  path: string;
-};
+export interface MapCtxToProps {
+  props: Pick<GetServerSidePropsContext, 'params' | 'query' | 'resolvedUrl'>;
+}
 \` : '' }
-export function mapCtxToProps(ctx\${ts ? ': NextPageContext' : ''}) {
-  const { pathname, query, asPath } = ctx;
+export function mapCtxToProps(ctx\${ts ? ': GetServerSidePropsContext' : ''}) {
+  'use server';
+  const { params = null, query, resolvedUrl } = ctx;
   return {
-    page: pathname || '',
-    query,
-    path: asPath || \\\`\\\${pathname}\\\${paramsToQueryString(query)}\\\`
+    props: {
+      params,
+      query,
+      resolvedUrl
+    }
   };
 }
 

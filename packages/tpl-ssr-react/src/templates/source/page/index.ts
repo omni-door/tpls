@@ -6,7 +6,7 @@ import Layout from '@components/Layout';
 import \${pageName} from '@components/\${pageName}';
 import mapCtxToProps from '@utils/mapCtxToProps';
 \${ts ? \`/* import types */
-import type { NextPage } from 'next';
+import type { NextPage, GetServerSidePropsContext } from 'next';
 import type { MapCtxToProps } from '@utils/mapCtxToProps';
 
 interface \${pageName}PageProps extends MapCtxToProps {}
@@ -22,9 +22,9 @@ const \${pageName}Page\${ts ? \`: NextPage<\${pageName}PageProps>\` : ''}= props
   );
 };
 
-\${pageName}Page.getInitialProps = async ctx => {
+export async function getServerSideProps(ctx: GetServerSidePropsContext) {
   return mapCtxToProps(ctx);
-};
+}
 
 export default \${pageName}Page;
 \``;
