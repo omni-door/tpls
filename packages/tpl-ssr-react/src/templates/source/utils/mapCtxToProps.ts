@@ -5,8 +5,8 @@ const tpl =
 \${ts ? \`/* import types */
 import type { GetServerSidePropsContext } from 'next';
 
-export interface MapCtxToProps {
-  props: { page: string; } & Pick<GetServerSidePropsContext, 'params' | 'query'>;
+export interface MapCtxToProps extends Pick<GetServerSidePropsContext, 'params' | 'query'> {
+  page: string;
 }
 \` : '' }
 export function mapCtxToProps(ctx\${ts ? ': GetServerSidePropsContext' : ''}) {

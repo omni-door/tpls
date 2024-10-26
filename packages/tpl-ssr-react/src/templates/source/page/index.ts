@@ -15,7 +15,7 @@ const \${pageName}Page\${ts ? \`: NextPage<\${pageName}PageProps>\` : ''}= props
   return (
     <Layout
       title={'\${pageName}'}
-      page={props.props.page}
+      page={props.page}
     >
       <\${pageName} { ...props }/>
     </Layout>
