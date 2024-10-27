@@ -1,6 +1,6 @@
 {
   "name": "@omni-door/tpl-spa-vue",
-  "version": "2.9.15",
+  "version": "2.9.16",
   "description": "",
   "bin": {
     "omni-spa-vue": "./bin/omni-door-spa-vue.js"

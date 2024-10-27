@@ -64,15 +64,17 @@ const { exec, spawn } = require('child_process');
             [],
             { stdio: 'inherit', shell: true }
           );
-          child.on('error', function (e) {
-            reject(e);
-          });
-          child.on('close', function () {
-            spinner.color = 'green';
-            spinner.succeed(`模板 ${package} 发布成功！`);
-            const v = require(path.resolve(workPath, 'package.json')).version || versionTactic;
-            msg += `\n${i + 1}. publish ${package} to ${v};`
-            resolve();
+          child.stderr && child.stderr.on('data', err => console.error(err));
+          child.on('close', function (code) {
+            if (code == 0) {
+              spinner.color = 'green';
+              spinner.succeed(`模板 ${package} 发布成功！`);
+              const v = require(path.resolve(workPath, 'package.json')).version || versionTactic;
+              msg += `\n${i + 1}. publish ${package} to ${v};`
+              resolve();
+            } else {
+              reject(code);
+            }
           });
         });
       } catch (err) {
