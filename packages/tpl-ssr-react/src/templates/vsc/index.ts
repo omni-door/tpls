@@ -27,6 +27,7 @@ const tpl =
   },
   "[javascriptreact]": {
     "editor.codeActionsOnSave": {
+      "source.fixAll": \${eslint ? true : false},
       "source.fixAll.eslint": \${eslint ? "explicit" : false}
     },
     "editor.formatOnSave": \${eslint ? false : true},
@@ -34,6 +35,7 @@ const tpl =
   },
   "[typescript]": {
     "editor.codeActionsOnSave": {
+      "source.fixAll": \${eslint ? true : false},
       "source.fixAll.eslint": \${eslint ? "explicit" : false}
     },
     "editor.formatOnSave": \${eslint ? false : true},
@@ -41,6 +43,7 @@ const tpl =
   },
   "[typescriptreact]": {
     "editor.codeActionsOnSave": {
+      "source.fixAll": \${eslint ? true : false},
       "source.fixAll.eslint": \${eslint ? "explicit" : false}
     },
     "editor.formatOnSave": \${eslint ? false : true},

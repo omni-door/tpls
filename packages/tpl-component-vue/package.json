@@ -1,6 +1,6 @@
 {
   "name": "@omni-door/tpl-component-vue",
-  "version": "2.9.24",
+
   "description": "",
   "bin": {
     "omni-component-vue": "./bin/omni-door-component-vue.js"
@@ -37,7 +37,7 @@
     "build:tsc": "tsc --build",
     "build:branch": "../../scripts/branch.sh",
     "build:version": "../../scripts/version.sh",
-    "release": "npm run build:branch master TPL-COMPONENT-VUE && npm run build && npm run build:version TPL-COMPONENT-VUE",
+    "release": "npm run build && npm run build:version TPL-COMPONENT-VUE",
     "upgrade:utils": "yarn upgrade @omni-door/utils@latest"
   },
   "bugs": {

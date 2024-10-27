@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const inquirer = require('inquirer');
 const ora = require('ora');
-const { exec } = require('child_process');
+const { exec, spawn } = require('child_process');
 
 (async function () {
   const list_packages = fs.readdirSync(path.resolve(__dirname, '../packages/'));
@@ -58,13 +58,16 @@ const { exec } = require('child_process');
               ? 'i'
               : version
                 ? version
-                : ''
-          exec(`cd ${workPath} && yarn release ${versionTactic}`, function (err, stdout, stderr) {
-            if (err) {
-              reject(err);
-              return;
-            }
-            console.info(stdout || stderr);
+                : '';
+          const child = spawn(
+            `cd ${workPath} && yarn release ${versionTactic}`,
+            [],
+            { stdio: 'inherit', shell: true }
+          );
+          child.on('error', function (e) {
+            reject(e);
+          });
+          child.on('close', function () {
             spinner.color = 'green';
             spinner.succeed(`模板 ${package} 发布成功！`);
             const v = require(path.resolve(workPath, 'package.json')).version || versionTactic;
@@ -85,7 +88,7 @@ const { exec } = require('child_process');
       }
     }
   })
-  
+
   exec(`cd ${CWD} && yarn release:push '${msg}'`, function (err, stdout, stderr) {
     if (err) {
       console.error(err);

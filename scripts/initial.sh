@@ -888,6 +888,7 @@ const tpl =
     "editor.formatOnPaste": true
   },
   "editor.codeActionsOnSave": {
+    "source.fixAll": \${eslint ? true : false},
     "source.fixAll.eslint": \${eslint ? "explicit" : false}
   },
   "files.exclude": {
