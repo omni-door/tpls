@@ -1,8 +1,7 @@
 import { tplEngineInit } from '@omni-door/utils';
 
 const tpl = 
-`\`'use server';
-\${ts ? \`/* import types */
+`\`\${ts ? \`/* import types */
 import type { GetServerSidePropsContext } from 'next';
 
 export interface MapCtxToProps extends Pick<GetServerSidePropsContext, 'params' | 'query'> {
@@ -10,7 +9,6 @@ export interface MapCtxToProps extends Pick<GetServerSidePropsContext, 'params' 
 }
 \` : '' }
 export function mapCtxToProps(ctx\${ts ? ': GetServerSidePropsContext' : ''}) {
-  'use server';
   const { params = null, query, resolvedUrl } = ctx;
   return {
     props: {
