@@ -80,9 +80,9 @@ export const devDependencies = {
   'vue-loader': 'next',
   'webpack': '~5.96.1',
   'webpack-bundle-analyzer': '4.10.2',
-  'webpack-cli': '~5.1.4',
+  'webpack-cli': '~6.0.1',
   'webpack-dev-middleware': '7.3.0',
   'webpack-hot-middleware': '2.26.1',
   'webpack-merge': '6.0.1',
-  'webpackbar': '6.0.1'
+  'webpackbar': '7.0.0'
 };
