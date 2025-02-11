@@ -4,7 +4,7 @@ const tpl =
 `\`import * as React from 'react';
 import { headers } from 'next/headers';
 
-import '../src/styles/reset.css';
+import '../src/styles/reset.\${style === 'all' ? 'scss' : style}';
 
 export const metadata = {
   title: 'OMNI-DOOR',
