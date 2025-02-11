@@ -44,6 +44,7 @@ if (args.length > 0) {
     for (let i = 0; i < args.length; i++) {
       const item = args[i];
       const [ k, val ] = item.split('=');
+      if (val === '' || val === 'undefined' || val === 'null') continue;
       (options as Option)[k] = val === 'true'
         ? true
         : val === 'false'
