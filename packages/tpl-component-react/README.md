@@ -17,10 +17,8 @@ The React Component project template
 | folder | file |
 | --- | --- |
 | babel | babel.config.js |
-| bisheng | bisheng.config.js & posts/README.md |
 | commitlint | commitlint.config.js |
 | editor | .editorconfig |
-| docz | .doczrc.js & gatsby-config.js |
 | eslint | .eslintrc.js |
 | ignore | .eslintignore & .gitignore & .npmignore & .prettierignore |
 | jest | jest.config.js |
@@ -31,7 +29,6 @@ The React Component project template
 | readme | README.md & README.zh-CN.md & DEV.md & DEV.zh-CN.md |
 | source | the standard templates in `src` folder |
 | storybook | .storybook/config.js & .storybook/addons.js & .storybook/manager-head.html & .storybook/webpack.config.js |
-| styleguidist | styleguide.config.js |
 | stylelint | stylelint.config.js |
 | tsconfig | tsconfig.json |
 | vsc | .vscode/settings.json |

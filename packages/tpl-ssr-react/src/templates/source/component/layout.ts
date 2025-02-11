@@ -3,7 +3,7 @@ import { tplEngineInit } from '@omni-door/utils';
 const tpl = 
 `\`import { memo } from 'react';
 import Head from 'next/head';
-import Link from '\${serverType === 'koa-next' ? '@components/Link' : 'next/link'}';
+import Link from 'next/link';
 \${style ? \`import styles from './style/Layout.module.\${style === 'all' ? 'scss' : style}';\` : ''}
 \${ts ? \`/* import types */
 import type { FC, PropsWithChildren } from 'react';
@@ -28,13 +28,13 @@ export const Layout\${ts ? ': FC<PropsWithChildren<LayoutProps>>' : ''} = props 
       </Head>
       <header className={\${style ? "styles['layout-header']" : "'layout-header'"}}>
         <nav className={\${style ? "styles['layout-header-nav']" : "'layout-header-nav'"}}>
-          <Link \${serverType === 'koa-next' ? "page='home'" : "href='/' as='/'"}>
+          <Link href='/' as='/'>
             Home
           </Link>
-          <Link \${serverType === 'koa-next' ? "page='start'" : "href='/start' as='/start'"}>
+          <Link href='/start' as='/start'>
             Start
           </Link>
-          <Link \${serverType === 'koa-next' ? "page='docs'" : "href='/docs' as='/docs'"}>
+          <Link href='/docs' as='/docs'>
             Docs
           </Link>
         </nav>

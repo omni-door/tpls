@@ -16,10 +16,10 @@ import { dependencies, devDependencies } from './configs/dependencies';
 import { devDependencies as devDependencyMap } from './configs/dependencies_stable_map';
 /* import types */
 import type {
-  PKJTOOL,
+  PKJ_TOOL,
   STYLE,
   STRATEGY,
-  SSRSERVER
+  SSR_SERVER
 } from '@omni-door/utils';
 import type {
   TPLS_INITIAL,
@@ -43,9 +43,9 @@ export type InitOptions = {
   style: STYLE;
   stylelint: boolean;
   install: boolean;
-  pkgtool?: PKJTOOL;
+  pkgtool?: PKJ_TOOL;
   isSlient?: boolean;
-  ssrServer?: SSRSERVER;
+  ssrServer?: SSR_SERVER;
   tag?: string;
   tpls?: (tpls: TPLS_ORIGIN_INITIAL) => TPLS_INITIAL_RETURE;
   dependencies?: (dependecies_default: string[]) => ResultOfDependencies;
@@ -71,7 +71,7 @@ export async function $init ({
   tpls,
   pkgtool = 'pnpm',
   isSlient,
-  ssrServer = 'next',
+  ssrServer = 'next-app',
   tag,
   dependencies: dependencies_custom,
   devDependencies: devDependencies_custom,
@@ -158,13 +158,12 @@ export async function $init ({
       [`configs/${configFileName}`]: tpl.omni({ ...params, git }),
       'package.json': install && tpl.pkj(devDependencyMap['@types/react'])({ ...params, install, dependencies: '', devDependencies: '' }),
       '.gitignore': tpl.gitignore(params),
-      [`src/routes.js`]: ssrServer === 'koa-next' && tpl.source_routes(params),
       [`src/styles/reset.${suffix_stylesheet}`]: style && tpl.source_index_reset(params),
       // pages
-      [`pages/${ssrServer === 'koa-next' ? 'home' : 'index'}.${ts ? 'tsx' : 'jsx'}`]: tpl.source_page_index({ ...params, pageName: 'Home' }),
-      [`pages/start.${ts ? 'tsx' : 'jsx'}`]: tpl.source_page_index({ ...params, pageName: 'Start' }),
-      [`pages/docs.${ts ? 'tsx' : 'jsx'}`]: tpl.source_page_index({ ...params, pageName: 'Docs' }),
-      [`pages/_app.${ts ? 'tsx' : 'jsx'}`]: tpl.source_page_app(params),
+      [`${ssrServer === 'next-app' ? 'app/page' : 'pages/index'}.${ts ? 'tsx' : 'jsx'}`]: tpl.source_page_index({ ...params, pageName: 'Home' }),
+      [`${ssrServer === 'next-app' ? 'app/start/page' : 'pages/start'}.${ts ? 'tsx' : 'jsx'}`]: tpl.source_page_index({ ...params, pageName: 'Start' }),
+      [`${ssrServer === 'next-app' ? 'app/docs/page' : 'pages/docs'}.${ts ? 'tsx' : 'jsx'}`]: tpl.source_page_index({ ...params, pageName: 'Docs' }),
+      [`pages/_app.${ts ? 'tsx' : 'jsx'}`]: ssrServer === 'next-app' && tpl.source_page_app(params),
       // components - Home
       [`src/components/Home/index.${ts ? 'ts' : 'js'}`]: tpl.source_component_index({ ...params, componentName: 'Home' }),
       [`src/components/Home/Home.${ts ? 'tsx' : 'jsx'}`]: tpl.source_component_cp({ ...params, componentName: 'Home' }),
@@ -181,9 +180,6 @@ export async function $init ({
       [`src/components/Layout/index.${ts ? 'ts' : 'js'}`]: tpl.source_component_index({ ...params, componentName: 'Layout' }),
       [`src/components/Layout/Layout.${ts ? 'tsx' : 'jsx'}`]: tpl.source_component_layout({ ...params, componentName: 'Layout' }),
       [`src/components/Layout/style/Layout.module.${suffix_stylesheet}`]: style && tpl.source_component_layout_style({ ...params, componentName: 'Layout' }),
-      // components - Link
-      [`src/components/Link/index.${ts ? 'ts' : 'js'}`]: ssrServer === 'koa-next' && tpl.source_component_index({ ...params, componentName: 'Link' }),
-      [`src/components/Link/Link.${ts ? 'tsx' : 'jsx'}`]: ssrServer === 'koa-next' && tpl.source_component_link({ ...params, componentName: 'Link' }),
       // utils
       [`src/utils/mapCtxToProps.${ts ? 'ts' : 'js'}`]: tpl.source_utils_mapctx(params),
       [`src/utils/paramsToQueryString.${ts ? 'ts' : 'js'}`]: tpl.source_utils_params(params),
@@ -194,7 +190,6 @@ export async function $init ({
       // webpack
       'configs/webpack.config.js': tpl.webpack(params),
       // typescript
-      '@types/global.d.ts': ts && ssrServer === 'koa-next' && tpl.source_d(params),
       'tsconfig.json': ts && tpl.tsconfig(params),
       // unit test
       'configs/jest.config.js': test && tpl.jest(params),
@@ -211,7 +206,11 @@ export async function $init ({
       'babel.config.js': tpl.babel(params),
       // docs
       'README.md': tpl.readme({ ...params, install: installReadMe, runScript, paramScript }),
-      'README.zh-CN.md': tpl.readme_cn({ ...params, install: installReadMe, runScript, paramScript })
+      'README.zh-CN.md': tpl.readme_cn({ ...params, install: installReadMe, runScript, paramScript }),
+      // husky
+      '.husky/commit-msg': commitlint && tpl.husky_commit_msg(params),
+      '.husky/pre-commit': commitlint && tpl.husky_pre_commit(params),
+      '.husky/pre-push': commitlint && tpl.husky_pre_push(params),
     };
     const file_path = (p: string) => path.resolve(initPath, p);
     for (const p in pathToFileContentMap) {

@@ -39,6 +39,9 @@ import component_index, { tpl_new_index } from './new/index';
 import component_readme, { tpl_new_readme } from './new/readme';
 import component_stylesheet, { tpl_new_stylesheet } from './new/stylesheet';
 import component_test, { tpl_new_test } from './new/test';
+import husky_commit_msg, { tpl_husky_commit_msg } from './husky/commit-msg';
+import husky_pre_commit, { tpl_husky_pre_commit } from './husky/pre-commit';
+import husky_pre_push, { tpl_husky_pre_push } from './husky/pre-push';
 
 export { default as babel, tpl_babel } from './babel';
 export { default as commitlint, tpl_commitlint } from './commitlint';
@@ -81,6 +84,9 @@ export { default as component_index, tpl_new_index } from './new/index';
 export { default as component_readme, tpl_new_readme } from './new/readme';
 export { default as component_stylesheet, tpl_new_stylesheet } from './new/stylesheet';
 export { default as component_test, tpl_new_test } from './new/test';
+export { default as husky_commit_msg, tpl_husky_commit_msg } from './husky/commit-msg';
+export { default as husky_pre_commit, tpl_husky_pre_commit } from './husky/pre-commit';
+export { default as husky_pre_push, tpl_husky_pre_push } from './husky/pre-push';
 
 /* -- templates - init --  */
 export const tpls_init = {
@@ -118,7 +124,10 @@ export const tpls_init = {
   source_component_test,
   webpack_config_common,
   webpack_config_dev,
-  webpack_config_prod
+  webpack_config_prod,
+  husky_commit_msg,
+  husky_pre_commit,
+  husky_pre_push
 };
 
 export const tpls_origin_init = {
@@ -156,7 +165,10 @@ export const tpls_origin_init = {
   tpl_src_component_test,
   tpl_webpack_common,
   tpl_webpack_dev,
-  tpl_webpack_prod
+  tpl_webpack_prod,
+  tpl_husky_commit_msg,
+  tpl_husky_pre_commit,
+  tpl_husky_pre_push
 };
 
 export type TPLS_INITIAL = {

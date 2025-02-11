@@ -16,7 +16,7 @@ import { dependencies, devDependencies } from './configs/dependencies';
 import { devDependencies as devDependencyMap } from './configs/dependencies_stable_map';
 /* import types */
 import type {
-  PKJTOOL,
+  PKJ_TOOL,
   STYLE,
   STRATEGY
 } from '@omni-door/utils';
@@ -42,7 +42,7 @@ export type InitOptions = {
   style: STYLE;
   stylelint: boolean;
   install: boolean;
-  pkgtool?: PKJTOOL;
+  pkgtool?: PKJ_TOOL;
   isSlient?: boolean;
   tag?: string;
   tpls?: (tpls: TPLS_ORIGIN_INITIAL) => TPLS_INITIAL_RETURE;
@@ -198,7 +198,11 @@ export async function $init ({
       'configs/babel.config.js': tpl.babel(params), // build files
       // docs
       'README.md': tpl.readme({ ...params, install: installReadMe, runScript, paramScript }),
-      'README.zh-CN.md': tpl.readme_cn({ ...params, install: installReadMe, runScript, paramScript })
+      'README.zh-CN.md': tpl.readme_cn({ ...params, install: installReadMe, runScript, paramScript }),
+      // husky
+      '.husky/commit-msg': commitlint && tpl.husky_commit_msg(params),
+      '.husky/pre-commit': commitlint && tpl.husky_pre_commit(params),
+      '.husky/pre-push': commitlint && tpl.husky_pre_push(params),
     };
     const file_path = (p: string) => path.resolve(initPath, p);
     for (const p in pathToFileContentMap) {

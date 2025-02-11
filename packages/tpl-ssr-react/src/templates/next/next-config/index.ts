@@ -2,6 +2,7 @@ import { tplEngineInit } from '@omni-door/utils';
 
 const tpl = 
 `\`\${use_strict}
+/** @type {import('next').NextConfig} */
 
 const path = require('path');
 const withLess = require('next-with-less');

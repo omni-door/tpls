@@ -13,7 +13,6 @@ src
 node_modules
 .omni_cache
 .storybook
-.docz
 demo
 server
 
@@ -31,7 +30,6 @@ _config.yml
 coverage
 .nycrc
 mocha.opts
-doczrc.js
 
 yarn.lock
 package-lock.json

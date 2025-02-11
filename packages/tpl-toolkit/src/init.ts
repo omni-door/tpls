@@ -16,7 +16,7 @@ import {
 import { devDependencies } from './configs/dependencies';
 /* import types */
 import type {
-  PKJTOOL,
+  PKJ_TOOL,
   STRATEGY,
   BUILD
 } from '@omni-door/utils';
@@ -42,7 +42,7 @@ export type InitOptions = {
   prettier: boolean;
   commitlint: boolean;
   install: boolean;
-  pkgtool?: PKJTOOL;
+  pkgtool?: PKJ_TOOL;
   isSlient?: boolean;
   tag?: string;
   tpls?: (tpls: TPLS_ORIGIN_INITIAL) => TPLS_INITIAL_RETURE;
@@ -84,7 +84,7 @@ export async function $init ({
   //   pkgtool = 'yarn';
   // }
 
-  switch (pkgtool as PKJTOOL) {
+  switch (pkgtool as PKJ_TOOL) {
     case 'pnpm':
       installCliPrefix = `${pkgtool} add -P --save-exact --prefix ${initPath}`;
       installDevCliPrefix = `${pkgtool} add -D --save-exact --prefix ${initPath}`;
@@ -192,6 +192,10 @@ export async function $init ({
       // unit test
       '.mocharc.js': test && tpl.mocha(params),
       'mocha.tsx.js': test && ts && tpl.mocha_tsx(params),
+      // husky
+      '.husky/commit-msg': commitlint && tpl.husky_commit_msg(params),
+      '.husky/pre-commit': commitlint && tpl.husky_pre_commit(params),
+      '.husky/pre-push': commitlint && tpl.husky_pre_push(params),
     };
     /**
      * create files

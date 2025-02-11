@@ -9,15 +9,13 @@ dist/
 server/
 demo/
 node_modules/
-.docz/
 .storybook/
-.out/
 **/__test__/
 **/stories/
 **/*.stories.*
 
-doczrc.js
 gulpfile.js
+setupTests.js
 .eslintrc.js
 *.config.js
 *.conf.js

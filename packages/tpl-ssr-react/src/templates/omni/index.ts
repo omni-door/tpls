@@ -4,13 +4,10 @@ const tpl =
 `\`\${use_strict}
 
 const path = require('path');
-\${serverType === 'koa-next' ? "const { nextRouter } = require('../src/routes');" : ''}
+
 const serverOptions = {
-  \${serverType === 'koa-next' ? \`
   port: 6600, // 服务端口号 (server port)
-  nextRouter,
-  \` : 'port: 6600, // 服务端口号 (server port)'}
-  serverType: '\${serverType}', // 服务类型，koa-next 和 next
+  serverType: '\${serverType}',
   proxy:  [
     // {
     //   route: '/api',

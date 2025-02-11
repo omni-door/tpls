@@ -7,7 +7,6 @@ const tpl =
 ~*
 
 .nyc_output
-.docz
 node_modules
 lib
 es

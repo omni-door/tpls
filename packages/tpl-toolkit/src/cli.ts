@@ -1,7 +1,7 @@
 import { parse } from 'path';
 import $init from './init';
 import $new from './new';
-import type { BUILD, STRATEGY, PKJTOOL } from '@omni-door/utils';
+import type { BUILD, STRATEGY, PKJ_TOOL } from '@omni-door/utils';
 const args = process.argv.slice(2);
 
 type Option = {
@@ -39,7 +39,7 @@ if (args.length > 0) {
       prettier: true,
       commitlint: false,
       install: true,
-      pkgtool: 'yarn' as PKJTOOL
+      pkgtool: 'yarn' as PKJ_TOOL
     };
     for (let i = 0; i < args.length; i++) {
       const item = args[i];

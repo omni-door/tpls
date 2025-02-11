@@ -1,6 +1,6 @@
 import { getDependency, arr2str } from '@omni-door/utils';
 import { dependencies as dependenciesMap, devDependencies as devDependenciesMap } from './dependencies_stable_map';
-import type { STYLE, COMPONENTSERVER, STRATEGY } from '@omni-door/utils';
+import type { STYLE, COMPONENT_SERVER, STRATEGY } from '@omni-door/utils';
 
 interface Config {
   ts: boolean;
@@ -10,7 +10,7 @@ interface Config {
   commitlint: boolean;
   style: STYLE;
   stylelint: boolean;
-  devServer: COMPONENTSERVER;
+  devServer: COMPONENT_SERVER;
   tag?: string;
 }
 
@@ -62,9 +62,13 @@ export async function devDependencies(strategy: STRATEGY, config: Config) {
   ];
 
   const testDependencies = test ? [
-    dependency('enzyme'),
-    dependency('@cfaester/enzyme-adapter-react-18'),
+    dependency('@testing-library/dom'),
+    dependency('@testing-library/jest-dom'),
+    dependency('@testing-library/react'),
+    dependency('@testing-library/user-event'),
     dependency('jest'),
+    dependency('jest-canvas-mock'),
+    dependency('jest-environment-jsdom'),
     dependency('jest-transform-stub'),
     dependency('jsdom'),
     dependency('jsdom-global'),
@@ -74,7 +78,6 @@ export async function devDependencies(strategy: STRATEGY, config: Config) {
 
   const testTypesDependencies = test ? [
     dependency('@types/jest'),
-    dependency('@types/enzyme'),
     dependency('@types/jsdom')
   ] : [];
 
@@ -123,16 +126,6 @@ export async function devDependencies(strategy: STRATEGY, config: Config) {
     style === 'all' || style === 'less' ? dependency('stylelint-less') : ''
   ] : [];
 
-  const doczDependencies = [
-    dependency('docz'),
-    dependency('gatsby-theme-docz'),
-    (style === 'all' || style === 'less') ? dependency('less') : '',
-    (style === 'all' || style === 'less') ? dependency('gatsby-plugin-less') : '',
-    (style === 'all' || style === 'scss') ? dependency('sass') : '',
-    (style === 'all' || style === 'scss') ? dependency('gatsby-plugin-sass') : '',
-    dependency('react-hot-loader')
-  ];
-
   const storybookDependencies = [
     dependency('@chromatic-com/storybook'),
     dependency('@storybook/react'),
@@ -155,39 +148,11 @@ export async function devDependencies(strategy: STRATEGY, config: Config) {
     ...loaderDependencies
   ];
 
-  const bishengDependencies = [
-    dependency('bisheng'),
-    dependency('bisheng-theme-one'),
-    dependency('bisheng-plugin-react'),
-    ts ? dependency('@types/vfile-message') : ''
-  ];
-
-  const styleguidistDependencies = [
-    dependency('react-styleguidist'),
-    dependency('react-docgen'),
-    dependency('webpack'),
-    ts ? dependency('react-docgen-typescript') : '',
-    ...loaderDependencies,
-  ];
-
   const devServerDependencies: string[] = [
     dependency('ip'),
-    dependency('detect-port')
+    dependency('detect-port'),
+    ...storybookDependencies
   ];
-  switch (devServer) {
-    case 'docz':
-      devServerDependencies.push(...doczDependencies);
-      break;
-    case 'storybook':
-      devServerDependencies.push(...storybookDependencies);
-      break;
-    case 'bisheng':
-      devServerDependencies.push(...bishengDependencies);
-      break;
-    case 'styleguidist':
-      devServerDependencies.push(...styleguidistDependencies);
-      break;
-  }
 
   const buildDependencies = [
     dependency('gulp'),

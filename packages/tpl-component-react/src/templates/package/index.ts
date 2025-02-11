@@ -1,4 +1,4 @@
-import { tplEngineInit, COMPONENTSERVER } from '@omni-door/utils';
+import { tplEngineInit, COMPONENT_SERVER } from '@omni-door/utils';
 import script_test from './script_test';
 import script_commitlint from './script_commitlint';
 import script_lint from './script_lint';
@@ -73,28 +73,10 @@ export default ({
 }: {
   type_react: string;
   project_name: string;
-  devServer: COMPONENTSERVER;
+  devServer: COMPONENT_SERVER;
 }) => {
-  let devScript = '';
-  let demoScript = '';
-  switch(devServer) {
-    case 'docz':
-      devScript = 'docz dev';
-      demoScript = `docz build --base /dist-docz`;
-      break;
-    case 'storybook':
-      devScript = 'storybook dev -p 6200';
-      demoScript = `storybook build -c .storybook -o dist-story`;
-      break;
-    case 'bisheng':
-      devScript = 'bisheng start';
-      demoScript = 'bisheng build';
-      break;
-    case 'styleguidist':
-      devScript = 'styleguidist server --port 6200';
-      demoScript = 'styleguidist build';
-      break;
-  }
+  const devScript = 'storybook dev -p 6200';
+  const demoScript = 'storybook build -c .storybook -o dist-story';
   return tplEngineInit(tpl_package, 'tpl', {
     type_react,
     devScript,

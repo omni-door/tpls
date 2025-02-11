@@ -1,6 +1,6 @@
 {
   "name": "@omni-door/tpl-component-react",
-  "version": "2.9.32",
+  "version": "3.0.0",
   "description": "The React component-react project template",
   "bin": {
     "omni-component-react": "./bin/omni-door-component-react.js"
@@ -44,7 +44,7 @@
     "url": "https://github.com/omni-door/tpls/issues"
   },
   "dependencies": {
-    "@omni-door/utils": "^1.2.11"
+    "@omni-door/utils": "^1.4.0"
   },
   "devDependencies": {
     "typescript": "~3.9.10"

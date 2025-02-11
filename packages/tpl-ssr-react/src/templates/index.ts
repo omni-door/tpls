@@ -19,7 +19,6 @@ import tsconfig, { tpl_tsconfig } from './tsconfig';
 import vscode, { tpl_vscode_setting } from './vsc';
 import webpack, { tpl_webpack } from './webpack';
 
-import source_routes, { tpl_src_routes } from './source/routes';
 import source_index_reset, { tpl_src_reset } from './source/reset';
 import source_page_index, { tpl_src_page_index } from './source/page/index';
 import source_page_app, { tpl_src_page_app } from './source/page/_app';
@@ -28,8 +27,6 @@ import source_component_cp, { tpl_src_component_cp } from './source/component/co
 import source_component_style, { tpl_src_component_style } from './source/component/style';
 import source_component_layout, { tpl_src_component_layout } from './source/component/layout';
 import source_component_layout_style, { tpl_src_component_layout_style } from './source/component/style-layout';
-import source_component_link, { tpl_src_component_link } from './source/component/link';
-import source_d, { tpl_src_declaration } from './source/declaration';
 import source_utils_mapctx, { tpl_src_utils_mapctx } from './source/utils/mapCtxToProps';
 import source_utils_params, { tpl_src_utils_params } from './source/utils/paramsToQueryString';
 
@@ -39,6 +36,10 @@ import component_index, { tpl_new_index } from './new/index';
 import component_readme, { tpl_new_readme } from './new/readme';
 import component_stylesheet, { tpl_new_stylesheet } from './new/stylesheet';
 import component_test, { tpl_new_test } from './new/test';
+
+import husky_commit_msg, { tpl_husky_commit_msg } from './husky/commit-msg';
+import husky_pre_commit, { tpl_husky_pre_commit } from './husky/pre-commit';
+import husky_pre_push, { tpl_husky_pre_push } from './husky/pre-push';
 
 export { default as babel, tpl_babel } from './babel';
 export { default as commitlint, tpl_commitlint } from './commitlint';
@@ -60,7 +61,6 @@ export { default as tsconfig, tpl_tsconfig } from './tsconfig';
 export { default as vscode, tpl_vscode_setting } from './vsc';
 export { default as webpack, tpl_webpack } from './webpack';
 
-export { default as source_routes, tpl_src_routes } from './source/routes';
 export { default as source_index_reset, tpl_src_reset } from './source/reset';
 export { default as source_page_index, tpl_src_page_index } from './source/page/index';
 export { default as source_page_app, tpl_src_page_app } from './source/page/_app';
@@ -69,8 +69,6 @@ export { default as source_component_cp, tpl_src_component_cp } from './source/c
 export { default as source_component_style, tpl_src_component_style } from './source/component/style';
 export { default as source_component_layout, tpl_src_component_layout } from './source/component/layout';
 export { default as source_component_layout_style, tpl_src_component_layout_style } from './source/component/style-layout';
-export { default as source_component_link, tpl_src_component_link } from './source/component/link';
-export { default as source_d, tpl_src_declaration } from './source/declaration';
 export { default as source_utils_mapctx, tpl_src_utils_mapctx } from './source/utils/mapCtxToProps';
 export { default as source_utils_params, tpl_src_utils_params } from './source/utils/paramsToQueryString';
 
@@ -80,6 +78,11 @@ export { default as component_index, tpl_new_index } from './new/index';
 export { default as component_readme, tpl_new_readme } from './new/readme';
 export { default as component_stylesheet, tpl_new_stylesheet } from './new/stylesheet';
 export { default as component_test, tpl_new_test } from './new/test';
+
+export { default as husky_commit_msg, tpl_husky_commit_msg } from './husky/commit-msg';
+export { default as husky_pre_commit, tpl_husky_pre_commit } from './husky/pre-commit';
+export { default as husky_pre_push, tpl_husky_pre_push } from './husky/pre-push';
+
 /* -- templates - init --  */
 export const tpls_init = {
   babel,
@@ -102,7 +105,6 @@ export const tpls_init = {
   tsconfig,
   vscode,
   webpack,
-  source_routes,
   source_index_reset,
   source_page_index,
   source_page_app,
@@ -111,10 +113,11 @@ export const tpls_init = {
   source_component_style,
   source_component_layout,
   source_component_layout_style,
-  source_component_link,
-  source_d,
   source_utils_mapctx,
-  source_utils_params
+  source_utils_params,
+  husky_commit_msg,
+  husky_pre_commit,
+  husky_pre_push
 };
 
 export const tpls_origin_init = {
@@ -138,7 +141,6 @@ export const tpls_origin_init = {
   tpl_tsconfig,
   tpl_vscode_setting,
   tpl_webpack,
-  tpl_src_routes,
   tpl_src_reset,
   tpl_src_page_index,
   tpl_src_page_app,
@@ -147,10 +149,11 @@ export const tpls_origin_init = {
   tpl_src_component_style,
   tpl_src_component_layout,
   tpl_src_component_layout_style,
-  tpl_src_component_link,
-  tpl_src_declaration,
   tpl_src_utils_mapctx,
-  tpl_src_utils_params
+  tpl_src_utils_params,
+  tpl_husky_commit_msg,
+  tpl_husky_pre_commit,
+  tpl_husky_pre_push
 };
 
 export type TPLS_INITIAL = {

@@ -78,7 +78,6 @@ const tpl =
     "build/",
     "server/",
     "demo/",
-    ".docz/",
     ".storybook/",
     ".out/",
     "*.js",

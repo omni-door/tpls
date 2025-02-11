@@ -86,7 +86,7 @@ module.exports = {
     stylesheet: '\${style === 'all' ? 'scss' : style}',
 
     // [是否生成README文件, md 或 mdx 后缀] ([whether or not README generate file,  mdx or md suffix])
-    readme: [true, \${devServer === 'docz' ? "'mdx'" : "'md'"}]
+    readme: true
   },
 
   plugins: []

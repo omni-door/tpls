@@ -41,7 +41,7 @@ echo "import { logErr } from '@omni-door/utils';
 import { parse } from 'path';
 import \$init from './init';
 import \$new from './new';
-import type { STRATEGY, STYLE, PKJTOOL } from '@omni-door/utils';
+import type { STRATEGY, STYLE, PKJ_TOOL } from '@omni-door/utils';
 const args = process.argv.slice(2);
 
 type Option = {
@@ -86,7 +86,7 @@ if (args.length > 0) {
       style: '' as STYLE,
       stylelint: true,
       install: true,
-      pkgtool: 'pnpm' as PKJTOOL
+      pkgtool: 'pnpm' as PKJ_TOOL
     };
     for (let i = 0; i < args.length; i++) {
       const item = args[i];
@@ -126,7 +126,7 @@ import { dependencies, devDependencies } from './configs/dependencies';
 import { devDependencies as devDependencyMap } from './configs/dependencies_stable_map';
 /* import types */
 import type {
-  PKJTOOL,
+  PKJ_TOOL,
   STYLE,
   STRATEGY
 } from '@omni-door/utils';
@@ -152,7 +152,7 @@ export type InitOptions = {
   style: STYLE;
   stylelint: boolean;
   install: boolean;
-  pkgtool?: PKJTOOL;
+  pkgtool?: PKJ_TOOL;
   isSlient?: boolean;
   tag?: string;
   tpls?: (tpls: TPLS_ORIGIN_INITIAL) => TPLS_INITIAL_RETURE;

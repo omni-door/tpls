@@ -13,7 +13,6 @@ src
 *test*
 node_modules
 .storybook
-.docz
 demo
 server
 dist-*
@@ -30,6 +29,7 @@ DEV*.md
 *.conf.js
 tsconfig.json
 gulpfile.js
+setupTests.js
 
 _config.yml
 .nyc_output
@@ -37,7 +37,6 @@ _config.yml
 coverage
 .nycrc
 mocha.*
-doczrc.js
 
 yarn.lock
 package-lock.json

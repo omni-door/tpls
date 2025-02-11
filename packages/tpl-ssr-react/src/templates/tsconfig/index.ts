@@ -47,7 +47,7 @@ const tpl =
       "@components/*": ["src/components/*"]
     },                           /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */
     // "rootDirs": [],                        /* List of root folders whose combined content represents the structure of the project at runtime. */
-    "typeRoots": \${serverType === 'koa-next' ? '["node_modules/@types", "@types"]' : '["node_modules/@types"]'},                        /* List of folders to include type definitions from. */
+    "typeRoots": ["node_modules/@types"],                        /* List of folders to include type definitions from. */
     "types": \${test ? '["jest", "node"]' : '["node"]'},                           /* Type declaration files to be included in compilation. */
     // "allowSyntheticDefaultImports": true,  /* Allow default imports from modules with no default export. This does not affect code emit, just typechecking. */
     "esModuleInterop": true,                   /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */
@@ -78,8 +78,7 @@ const tpl =
     "demo/",
     "*.cjs",
     "*.mjs",
-    \${serverType === 'koa-next' ? \`"*.js",
-    "src/routes.js"\` : '"*.js"'}
+    "*.js"
   ],
   "include": [
     "next-env.d.ts",

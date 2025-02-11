@@ -30,7 +30,9 @@ module.exports = {
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
     '^.+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$': 'jest-transform-stub'
-  }
+  },
+
+  setupFiles: ['<rootDir>/setupTests.js', 'jest-canvas-mock']
 };
 \``;
 

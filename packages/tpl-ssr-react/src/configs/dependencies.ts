@@ -1,6 +1,6 @@
 import { getDependency, arr2str } from '@omni-door/utils';
 import { dependencies as dependenciesMap, devDependencies as devDependenciesMap } from './dependencies_stable_map';
-import type { STYLE, STRATEGY, SSRSERVER } from '@omni-door/utils';
+import type { STYLE, STRATEGY, SSR_SERVER } from '@omni-door/utils';
 
 interface Config {
   ts: boolean;
@@ -10,26 +10,17 @@ interface Config {
   commitlint: boolean;
   style: STYLE;
   stylelint: boolean;
-  ssrServer: SSRSERVER;
+  ssrServer: SSR_SERVER;
   tag?: string;
 }
 
 export async function dependencies (strategy: STRATEGY, config: Config) {
-  const { ssrServer } = config;
-  const isKoa = ssrServer === 'koa-next' || ssrServer === 'koa-nuxt';
   const dependency = await getDependency(strategy, dependenciesMap);
   const deps = [
     dependency('react'),
     dependency('react-dom'),
     dependency('next'),
     dependency('webpack-merge'),
-    isKoa ? dependency('next-url-prettifier') : '',
-    isKoa ? dependency('@koa/cors') : '',
-    isKoa ? dependency('koa') : '',
-    isKoa ? dependency('koa-bodyparser') : '',
-    isKoa ? dependency('koa-router') : '',
-    isKoa ? dependency('koa-static') : '',
-    isKoa ? dependency('koa2-connect') : ''
   ];
   return {
     depArr: [ ...deps ],
@@ -51,7 +42,6 @@ export async function devDependencies (strategy: STRATEGY, config: Config) {
     ssrServer,
     tag
   } = config;
-  const isKoa = ssrServer === 'koa-next' || ssrServer === 'koa-nuxt';
 
   const babelDependencies = [
     dependency('@babel/core'),

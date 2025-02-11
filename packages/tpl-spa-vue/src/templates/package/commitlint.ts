@@ -1,19 +1,5 @@
 const tpl = 
 `\`
-"husky": {
-  "hooks": {
-    "pre-commit": "lint-staged",
-    "pre-push": "\${
-      (eslint || stylelint || prettier) && test
-        ? 'npm run lint && npm run test'
-        : (eslint || stylelint || prettier)
-            ? 'npm run lint'
-            : test
-              ? 'npm run test'
-              : ''}",
-    "commit-msg": "npm run lint:commit"
-  }
-},
 "lint-staged": {
   \${eslint || prettier ? \`"src/**/*.{js,jsx,ts,tsx,vue}": [
     \${eslint ? \`"\${script_eslint_fix}"\${prettier ? ',' : ''}\` : ''}

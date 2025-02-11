@@ -17,10 +17,10 @@ import { dependencies, devDependencies } from './configs/dependencies';
 import { devDependencies as devDependencyMap } from './configs/dependencies_stable_map';
 /* import types */
 import type {
-  PKJTOOL,
+  PKJ_TOOL,
   STYLE,
   STRATEGY,
-  COMPONENTSERVER
+  COMPONENT_SERVER
 } from '@omni-door/utils';
 import type {
   TPLS_INITIAL,
@@ -37,7 +37,7 @@ export type InitOptions = {
   configFileName?: string;
   git?: string;
   npm?: string;
-  devServer: COMPONENTSERVER;
+  devServer: COMPONENT_SERVER;
   ts: boolean;
   test: boolean;
   eslint: boolean;
@@ -46,7 +46,7 @@ export type InitOptions = {
   style: STYLE;
   stylelint: boolean;
   install: boolean;
-  pkgtool?: PKJTOOL;
+  pkgtool?: PKJ_TOOL;
   isSlient?: boolean;
   tag?: string;
   tpls?: (tpls: TPLS_ORIGIN_INITIAL) => TPLS_INITIAL_RETURE;
@@ -90,7 +90,7 @@ export async function $init ({
   //   pkgtool = 'yarn';
   // }
 
-  switch (pkgtool as PKJTOOL) {
+  switch (pkgtool as PKJ_TOOL) {
     case 'pnpm':
       installCliPrefix = `${pkgtool} add -P --save-exact --prefix ${initPath}`;
       installDevCliPrefix = `${pkgtool} add -D --save-exact --prefix ${initPath}`;
@@ -181,6 +181,7 @@ export async function $init ({
       'tsconfig.json': ts && tpl.tsconfig(params),
       // unit test
       'jest.config.js': test && tpl.jest(params),
+      'setupTests.js': test && tpl.jest_setup(params),
       // lint
       '.vscode/settings.json': tpl.vscode(params),
       '.editorconfig': (eslint || prettier) && tpl.editor(params),
@@ -191,7 +192,7 @@ export async function $init ({
       'stylelint.config.js': stylelint && tpl.stylelint(params),
       'commitlint.config.js': commitlint && tpl.commitlint(params),
       // build
-      'babel.config.js': (!ts || devServer === 'storybook' || devServer === 'styleguidist') && tpl.babel(params),
+      'babel.config.js': (!ts || devServer === 'storybook') && tpl.babel(params),
       'gulpfile.js': tpl.gulpfile(params),
       // docs
       'README.md': tpl.readme({ ...params, install: installReadMe, runScript, paramScript }),
@@ -199,18 +200,16 @@ export async function $init ({
       'DEV.md': tpl.readme_dev({ ...params, install: installReadMe, runScript, paramScript }),
       'DEV.zh-CN.md': tpl.readme_dev_cn({ ...params, install: installReadMe, runScript, paramScript }),
       // demo
-      'src/index.mdx': devServer === 'docz' && tpl.mdx(params),
-      'bisheng.config.js': devServer === 'bisheng' && tpl.bisheng(params),
-      'posts/README.md': devServer === 'bisheng' && tpl.posts_readme()(params),
-      'public/github-mark.svg': devServer === 'storybook' && tpl.public_github_svg(params),
-      '.storybook/main.ts': devServer === 'storybook' && tpl.storybook_main(params),
-      '.storybook/preview.ts': devServer === 'storybook' && tpl.storybook_preview(params),
-      '.storybook/manager.ts': devServer === 'storybook' && tpl.storybook_manager(params),
-      '.storybook/theme.ts': devServer === 'storybook' && tpl.storybook_theme(params),
-      'src/stories/GetStarted.mdx': devServer === 'storybook' && tpl.source_stories({ ...params, install: installReadMe, runScript, paramScript }),
-      'doczrc.js': devServer === 'docz' && tpl.doczrc(params),
-      'gatsby-config.js': devServer === 'docz' && tpl.gatsby(params),
-      'styleguide.config.js': devServer === 'styleguidist' && tpl.styleguidist({ ...params, git })
+      'public/github-mark.svg': tpl.public_github_svg(params),
+      '.storybook/main.ts': tpl.storybook_main(params),
+      '.storybook/preview.ts': tpl.storybook_preview(params),
+      '.storybook/manager.ts': tpl.storybook_manager(params),
+      '.storybook/theme.ts': tpl.storybook_theme(params),
+      'src/stories/GetStarted.mdx': tpl.source_stories({ ...params, install: installReadMe, runScript, paramScript }),
+      // husky
+      '.husky/commit-msg': commitlint && tpl.husky_commit_msg(params),
+      '.husky/pre-commit': commitlint && tpl.husky_pre_commit(params),
+      '.husky/pre-push': commitlint && tpl.husky_pre_push(params),
     };
     /**
      * create files

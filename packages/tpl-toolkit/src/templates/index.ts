@@ -27,6 +27,9 @@ import component_test, { tpl_new_test } from './new/test';
 import dumirc, { tpl_dumirc } from './umi/dumirc';
 import env, { tpl_env } from './umi/env';
 import vscode, { tpl_vscode_setting } from './vsc';
+import husky_commit_msg, { tpl_husky_commit_msg } from './husky/commit-msg';
+import husky_pre_commit, { tpl_husky_pre_commit } from './husky/pre-commit';
+import husky_pre_push, { tpl_husky_pre_push } from './husky/pre-push';
 
 export { default as babel, tpl_babel } from './babel';
 export { default as commitlint, tpl_commitlint } from './commitlint';
@@ -57,6 +60,9 @@ export { default as component_test, tpl_new_test } from './new/test';
 export { default as dumirc, tpl_dumirc } from './umi/dumirc';
 export { default as env, tpl_env } from './umi/env';
 export { default as vscode, tpl_vscode_setting } from './vsc';
+export { default as husky_commit_msg, tpl_husky_commit_msg } from './husky/commit-msg';
+export { default as husky_pre_commit, tpl_husky_pre_commit } from './husky/pre-commit';
+export { default as husky_pre_push, tpl_husky_pre_push } from './husky/pre-push';
 
 /* -- templates - init --  */
 export const tpls_init = {
@@ -85,7 +91,10 @@ export const tpls_init = {
   mocha_tsx,
   dumirc,
   env,
-  vscode
+  vscode,
+  husky_commit_msg,
+  husky_pre_commit,
+  husky_pre_push
 };
 
 export const tpls_origin_init = {
@@ -114,7 +123,10 @@ export const tpls_origin_init = {
   tpl_mocha_tsx,
   tpl_dumirc,
   tpl_env,
-  tpl_vscode_setting
+  tpl_vscode_setting,
+  tpl_husky_commit_msg,
+  tpl_husky_pre_commit,
+  tpl_husky_pre_push
 };
 
 export type TPLS_INITIAL = {

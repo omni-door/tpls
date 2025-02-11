@@ -1,6 +1,6 @@
 {
   "name": "@omni-door/tpl-spa-react-pc",
-  "version": "2.9.23",
+  "version": "3.0.0",
   "description": "",
   "bin": {
     "omni-spa-react-pc": "./bin/omni-door-spa-react-pc.js"
@@ -44,7 +44,7 @@
     "url": "https://github.com/omni-door/tpls/issues"
   },
   "dependencies": {
-    "@omni-door/utils": "^1.2.11"
+    "@omni-door/utils": "^1.4.0"
   },
   "devDependencies": {
     "typescript": "~3.9.10"

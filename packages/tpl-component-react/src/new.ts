@@ -85,8 +85,7 @@ export function $new ({
     const content_interface = ts && tpl.component_interface({ ...params, cc: type === 'cc' });
     const content_cc = type === 'cc' && tpl.component_class(params);
     const content_fc = type === 'fc' && tpl.component_functional(params);
-    const content_readme = md === 'md' && tpl.component_readme(params);
-    const content_mdx = md === 'mdx' && tpl.component_mdx(params);
+    const content_readme = tpl.component_readme(params);
     const content_stories = hasStorybook && tpl.component_stories(params);
     const content_style = stylesheet && tpl.component_style(params);
     const content_stylesheet = stylesheet && tpl.component_stylesheet(params);
@@ -108,8 +107,7 @@ export function $new ({
           ? 'tsx'
           : 'jsx'
       }`]: content_stories,
-      'README.md': content_readme,
-      'README.mdx': content_mdx
+      'README.md': content_readme
     };
     /**
      * create files

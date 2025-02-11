@@ -1,12 +1,7 @@
 import { expect } from 'chai';
 import tpl_babel from '../babel';
-import tpl_bisheng from '../bisheng';
-import tpl_bisheng_posts from '../bisheng/posts';
 import tpl_commitlint from '../commitlint';
 import tpl_editor from '../editor';
-import tpl_docz from '../docz';
-import tpl_docz_mdx from '../docz/mdx';
-import tpl_docz_gatsby from '../docz/gatsby';
 import tpl_eslint from '../eslint';
 import tpl_gulpfile from '../gulpfile';
 import tpl_eslintignore from '../ignore/eslintignore';
@@ -30,18 +25,6 @@ describe('[tpl-component-react]: tpl_babel template test', function () {
   });
 });
 
-describe('[tpl-component-react]: tpl_bisheng template test', function () {
-  it('type checking', function () {
-    expect(tpl_bisheng).to.be.a('function');
-  });
-});
-
-describe('[tpl-component-react]: tpl_bisheng_posts template test', function () {
-  it('type checking', function () {
-    expect(tpl_bisheng_posts).to.be.a('function');
-  });
-});
-
 describe('[tpl-component-react]: tpl_commitlint template test', function () {
   it('type checking', function () {
     expect(tpl_commitlint).to.be.a('function');
@@ -51,30 +34,6 @@ describe('[tpl-component-react]: tpl_commitlint template test', function () {
 describe('[tpl-component-react]: tpl_editor template test', function () {
   it('type checking', function () {
     expect(tpl_editor).to.be.a('function');
-  });
-});
-
-describe('[tpl-component-react]: tpl_docz template test', function () {
-  it('type checking', function () {
-    expect(tpl_docz).to.be.a('function');
-  });
-});
-
-describe('[tpl-component-react]: tpl_docz template test', function () {
-  it('type checking', function () {
-    expect(tpl_docz).to.be.a('function');
-  });
-});
-
-describe('[tpl-component-react]: tpl_docz_mdx template test', function () {
-  it('type checking', function () {
-    expect(tpl_docz_mdx).to.be.a('function');
-  });
-});
-
-describe('[tpl-component-react]: tpl_docz_gatsby template test', function () {
-  it('type checking', function () {
-    expect(tpl_docz_gatsby).to.be.a('function');
   });
 });
 
