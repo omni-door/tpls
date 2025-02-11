@@ -28,7 +28,7 @@ describe('\${componentName}', () => {
   });
   it('simulate events', async () => {
     const onClick = jest.fn(); 
-    const wrapper = render(
+    render(
       <\${componentName} data-testid='id-\${componentName.toLowerCase()}' onClick={onClick} />
     );
     const user = userEvent.setup();

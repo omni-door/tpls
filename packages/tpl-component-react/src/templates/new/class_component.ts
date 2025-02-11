@@ -9,20 +9,13 @@ import type { PropsWithChildren } from 'react';
 import type { \${componentName}Props, \${componentName}States } from './interface';
 \` : ''}
 export class \${componentName} extends PureComponent\${ts ? \`<PropsWithChildren<\${componentName}Props>, \${componentName}States>\` : ''} {
-  /**
-   * prop-types can make sure the type-check whatever the environment whether or not use typescript
-   */
-  \${ts ? 'public ' : ''}static propTypes = {
-    className: propTypes.string,
-    prefixCls: propTypes.string
-  };
-
   \${ts ? 'public ' : ''}render() {
-    const { children, className, onClick, prefixCls = '\${componentName.toLowerCase()}' } = this.props;
+    const { children, className, onClick, prefixCls = '\${componentName.toLowerCase()}', ...rest } = this.props;
     const classes = classnames(prefixCls);
 
     return (
       <div
+        {...rest}
         className={classes(void 0, className)}
         onClick={onClick}
       >

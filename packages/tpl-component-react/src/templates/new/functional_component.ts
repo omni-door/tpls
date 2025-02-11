@@ -9,11 +9,12 @@ import type { FC, PropsWithChildren } from 'react';
 import type { \${componentName}Props } from './interface';
 \` : ''}
 export const \${componentName}\${ts ? \`: FC<PropsWithChildren<\${componentName}Props>>\` : ''} = props => {
-  const { children, className, onClick, prefixCls = '\${componentName.toLowerCase()}' } = props;
+  const { children, className, onClick, prefixCls = '\${componentName.toLowerCase()}', ...rest } = props;
   const classes = classnames(prefixCls);
 
   return (
     <div
+      {...rest}
       className={classes(void 0, className)}
       onClick={onClick}
     >
