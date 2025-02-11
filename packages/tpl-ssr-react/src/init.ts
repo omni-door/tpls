@@ -159,10 +159,15 @@ export async function $init ({
       'package.json': install && tpl.pkj(devDependencyMap['@types/react'])({ ...params, install, dependencies: '', devDependencies: '' }),
       '.gitignore': tpl.gitignore(params),
       [`src/styles/reset.${suffix_stylesheet}`]: style && tpl.source_index_reset(params),
+      // app
+      [`'app/page'.${ts ? 'tsx' : 'jsx'}`]: ssrServer === 'next-app' && tpl.source_app_page({ ...params, pageName: 'Home' }),
+      [`'app/start/page'.${ts ? 'tsx' : 'jsx'}`]: ssrServer === 'next-app' && tpl.source_app_page({ ...params, pageName: 'Start' }),
+      [`'app/docs/page'.${ts ? 'tsx' : 'jsx'}`]: ssrServer === 'next-app' && tpl.source_app_page({ ...params, pageName: 'Docs' }),
+      [`'app/layout'.${ts ? 'tsx' : 'jsx'}`]: ssrServer === 'next-app' && tpl.source_app_layout(params),
       // pages
-      [`${ssrServer === 'next-app' ? 'app/page' : 'pages/index'}.${ts ? 'tsx' : 'jsx'}`]: tpl.source_page_index({ ...params, pageName: 'Home' }),
-      [`${ssrServer === 'next-app' ? 'app/start/page' : 'pages/start'}.${ts ? 'tsx' : 'jsx'}`]: tpl.source_page_index({ ...params, pageName: 'Start' }),
-      [`${ssrServer === 'next-app' ? 'app/docs/page' : 'pages/docs'}.${ts ? 'tsx' : 'jsx'}`]: tpl.source_page_index({ ...params, pageName: 'Docs' }),
+      [`'pages/index'.${ts ? 'tsx' : 'jsx'}`]: ssrServer === 'next-pages' && tpl.source_page_index({ ...params, pageName: 'Home' }),
+      [`'pages/start'.${ts ? 'tsx' : 'jsx'}`]: ssrServer === 'next-pages' && tpl.source_page_index({ ...params, pageName: 'Start' }),
+      [`'pages/docs'.${ts ? 'tsx' : 'jsx'}`]: ssrServer === 'next-pages' && tpl.source_page_index({ ...params, pageName: 'Docs' }),
       [`pages/_app.${ts ? 'tsx' : 'jsx'}`]: ssrServer === 'next-pages' && tpl.source_page_app(params),
       // components - Home
       [`src/components/Home/index.${ts ? 'ts' : 'js'}`]: tpl.source_component_index({ ...params, componentName: 'Home' }),

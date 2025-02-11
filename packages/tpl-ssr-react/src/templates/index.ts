@@ -20,6 +20,8 @@ import vscode, { tpl_vscode_setting } from './vsc';
 import webpack, { tpl_webpack } from './webpack';
 
 import source_index_reset, { tpl_src_reset } from './source/reset';
+import source_app_page, { tpl_src_app_page } from './source/app/page';
+import source_app_layout, { tpl_src_app_layout } from './source/app/layout';
 import source_page_index, { tpl_src_page_index } from './source/page/index';
 import source_page_app, { tpl_src_page_app } from './source/page/_app';
 import source_component_index, { tpl_src_component_index } from './source/component';
@@ -62,6 +64,8 @@ export { default as vscode, tpl_vscode_setting } from './vsc';
 export { default as webpack, tpl_webpack } from './webpack';
 
 export { default as source_index_reset, tpl_src_reset } from './source/reset';
+export { default as source_app_page, tpl_src_app_page } from './source/app/page';
+export { default as source_app_layout, tpl_src_app_layout } from './source/app/layout';
 export { default as source_page_index, tpl_src_page_index } from './source/page/index';
 export { default as source_page_app, tpl_src_page_app } from './source/page/_app';
 export { default as source_component_index, tpl_src_component_index } from './source/component';
@@ -106,6 +110,8 @@ export const tpls_init = {
   vscode,
   webpack,
   source_index_reset,
+  source_app_page,
+  source_app_layout,
   source_page_index,
   source_page_app,
   source_component_index,
@@ -142,6 +148,8 @@ export const tpls_origin_init = {
   tpl_vscode_setting,
   tpl_webpack,
   tpl_src_reset,
+  tpl_src_app_page,
+  tpl_src_app_layout,
   tpl_src_page_index,
   tpl_src_page_app,
   tpl_src_component_index,
