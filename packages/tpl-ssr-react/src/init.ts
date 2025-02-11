@@ -163,7 +163,7 @@ export async function $init ({
       [`${ssrServer === 'next-app' ? 'app/page' : 'pages/index'}.${ts ? 'tsx' : 'jsx'}`]: tpl.source_page_index({ ...params, pageName: 'Home' }),
       [`${ssrServer === 'next-app' ? 'app/start/page' : 'pages/start'}.${ts ? 'tsx' : 'jsx'}`]: tpl.source_page_index({ ...params, pageName: 'Start' }),
       [`${ssrServer === 'next-app' ? 'app/docs/page' : 'pages/docs'}.${ts ? 'tsx' : 'jsx'}`]: tpl.source_page_index({ ...params, pageName: 'Docs' }),
-      [`pages/_app.${ts ? 'tsx' : 'jsx'}`]: ssrServer === 'next-app' && tpl.source_page_app(params),
+      [`pages/_app.${ts ? 'tsx' : 'jsx'}`]: ssrServer === 'next-pages' && tpl.source_page_app(params),
       // components - Home
       [`src/components/Home/index.${ts ? 'ts' : 'js'}`]: tpl.source_component_index({ ...params, componentName: 'Home' }),
       [`src/components/Home/Home.${ts ? 'tsx' : 'jsx'}`]: tpl.source_component_cp({ ...params, componentName: 'Home' }),
