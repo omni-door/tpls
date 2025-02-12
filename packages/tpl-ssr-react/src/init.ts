@@ -186,7 +186,7 @@ export async function $init ({
       [`src/components/Layout/Layout.${ts ? 'tsx' : 'jsx'}`]: tpl.source_component_layout({ ...params, componentName: 'Layout' }),
       [`src/components/Layout/style/Layout.module.${suffix_stylesheet}`]: style && tpl.source_component_layout_style({ ...params, componentName: 'Layout' }),
       // utils
-      [`src/utils/mapCtxToProps.${ts ? 'ts' : 'js'}`]: tpl.source_utils_mapctx(params),
+      [`src/utils/mapCtxToProps.${ts ? 'ts' : 'js'}`]: ssrServer === 'next-pages' && tpl.source_utils_mapctx(params),
       [`src/utils/paramsToQueryString.${ts ? 'ts' : 'js'}`]: tpl.source_utils_params(params),
       // next configs
       'next.config.js': tpl.nextConfig(params),
