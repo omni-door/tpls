@@ -1,13 +1,13 @@
 import { tplEngineNew } from '@omni-door/utils';
 
 const tpl = 
-`\`\${ts ? \`import type { MouseEvent } from 'react';\` : ''}
+`\`\${ts ? \`import type { MouseEventHandler } from 'react';\` : ''}
 \${cc ? \`export interface \${componentName}States {}\n\` : ''}
 
 export interface \${componentName}Props {
   className?: string;
   prefixCls?: string;
-  onClick?: (\${ts ? \`e: MouseEvent<HTMLDivElement, MouseEvent>\` : 'e'}) => any;
+  onClick?: (\${ts ? \`e: MouseEventHandler<HTMLDivElement>\` : 'e'}) => any;
 }
 \``;
 
