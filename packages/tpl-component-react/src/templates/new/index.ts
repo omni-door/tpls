@@ -7,7 +7,7 @@ export { \${componentName} } from './\${componentName}';
 
 export default \${componentName};
 
-export * from './interface';
+\${ts ? \`export * from './interface';\` : ''}
 \``;
 
 export const tpl_new_index = {

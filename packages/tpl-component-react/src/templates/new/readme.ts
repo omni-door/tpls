@@ -8,7 +8,7 @@ const tpl =
 | --- | --- | --- | --- |
 | className(optional) | The extra classname for \${componentName} | string | - |
 | prefixCls(optional) | The classname prefix for wholly control the component style | string | \\\`'\${componentName.toLowerCase()}'\\\` |
-| onClick(optional) | The click event | (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => any | - |
+| onClick(optional) | The click event | MouseEventHandler<HTMLDivElement> | - |
 
 
 ## Example
