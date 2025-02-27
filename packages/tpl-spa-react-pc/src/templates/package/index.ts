@@ -5,13 +5,13 @@ import script_lint from './script_lint';
 import script_lint_es from './script_lint_es';
 import script_lint_prettier from './script_lint_prettier';
 import script_lint_style from './script_lint_style';
+import script_prepare from './script_prepare';
 import field_commitlint from './field_commitlint';
 import field_eslint from './field_eslint';
 import field_prettier from './field_prettier';
 import field_stylelint from './field_stylelint';
 import commitlint from './commitlint';
 import resolutions from './resolutions';
-
 
 const tpl = 
 `\`{
@@ -27,6 +27,7 @@ const tpl =
     \${alter('prettier', 'script_lint_prettier')}
     \${alter('stylelint', 'script_lint_style')}
     \${alter('commitlint', 'script_commitlint')}
+    \${alter('commitlint', 'script_prepare')}
     "new": "omni new",
     "build": "cross-env NODE_ENV=production omni build",
     "release": "omni release"
@@ -56,6 +57,7 @@ export const tpl_package = {
   tpl,
   script_test,
   script_commitlint,
+  script_prepare,
   script_lint,
   script_lint_es,
   script_lint_prettier,

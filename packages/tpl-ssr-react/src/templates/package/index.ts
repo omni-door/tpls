@@ -1,6 +1,7 @@
 import { tplEngineInit } from "@omni-door/utils";
 import script_test from './script_test';
 import script_commitlint from './script_commitlint';
+import script_prepare from './script_prepare';
 import script_lint from './script_lint';
 import script_lint_es from './script_lint_es';
 import script_lint_prettier from './script_lint_prettier';
@@ -26,6 +27,7 @@ const tpl =
     \${alter('prettier', 'script_lint_prettier')}
     \${alter('stylelint', 'script_lint_style')}
     \${alter('commitlint', 'script_commitlint')}
+    \${alter('commitlint', 'script_prepare')}
     "new": "omni new",
     "build": "cross-env BUILD_ENV=production omni build",
     "release": "omni release"
@@ -55,6 +57,7 @@ export const tpl_package = {
   tpl,
   script_test,
   script_commitlint,
+  script_prepare,
   script_lint,
   script_lint_es,
   script_lint_prettier,
