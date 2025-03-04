@@ -84,7 +84,6 @@ export async function devDependencies(strategy: STRATEGY, config: Config) {
   const tsDependencies = ts ? [
     dependency('@types/classnames'),
     dependency('@types/node'),
-    dependency('@types/prop-types'),
     dependency('@types/react'),
     dependency('@types/react-dom'),
     dependency('ts-patch'),
@@ -176,8 +175,7 @@ export async function devDependencies(strategy: STRATEGY, config: Config) {
     !tag ? dependency('@omni-door/cli') : `@omni-door/cli@${tag}`,
     dependency('del'),
     dependency('react'),
-    dependency('react-dom'),
-    dependency('prop-types')
+    dependency('react-dom')
   ];
 
   return {

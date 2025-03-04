@@ -42,8 +42,7 @@ const tpl =
   "author": "",
   "peerDependencies": {
     "react": ">=16.8.0",
-    "react-dom": ">=16.8.0",
-    "prop-types": ">=15.7.0"
+    "react-dom": ">=16.8.0"
   },
   \${!install ? dependencies : ''}
   \${!install ? devDependencies : ''}

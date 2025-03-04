@@ -7,7 +7,6 @@ export const dependencies = {
 export const devDependencies = {
   'react': '^19.0.0',
   'react-dom': '^19.0.0',
-  'prop-types': '^15.8.1',
   '@babel/core': '~7.25.9',
   '@babel/preset-env': '~7.25.9',
   '@babel/preset-react': '~7.25.9',
@@ -19,7 +18,6 @@ export const devDependencies = {
   '@types/jest': '~29.5.12',
   '@types/jsdom': '~21.1.7',
   '@types/node': '~18.19.39',
-  "@types/prop-types": "~15.7.12",
   '@types/react': '~19.0.8',
   '@types/react-dom': '~19.0.3',
   '@typescript-eslint/eslint-plugin': '~8.23.0',

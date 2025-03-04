@@ -2,7 +2,6 @@ import { tplEngineNew } from '@omni-door/utils';
 
 const tpl = 
 `\`import { PureComponent } from 'react';
-import propTypes from 'prop-types';
 import classnames from '@/utils/classnames';
 \${ts ? \`/* import types */
 import type { PropsWithChildren } from 'react';
