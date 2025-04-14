@@ -62,5 +62,5 @@ export const devDependencies = {
   'stylelint-scss': '6.11.0',
   'ts-jest': '~29.2.3',
   'ts-node': '10.9.2',
-  'typescript': '~5.7.3'
+  'typescript': '~5.8.3'
 };

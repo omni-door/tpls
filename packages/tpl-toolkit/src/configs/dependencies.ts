@@ -37,12 +37,9 @@ export async function devDependencies (strategy: STRATEGY, config: Config) {
     dependency('@rollup/plugin-babel'),
     dependency('@rollup/plugin-commonjs'),
     dependency('@rollup/plugin-node-resolve'),
-    // todo temporary delay use the @rollup/plugin-typescript because it has some bug
-    // ts ? dependency('@rollup/plugin-typescript') : '',
-    ts ? dependency('rollup-plugin-typescript') : '',
-    ts ? dependency('rollup-plugin-typescript2') : '',
+    ts ? dependency('@rollup/plugin-typescript') : '',
     dependency('@rollup/plugin-json'),
-    dependency('rollup-plugin-terser'),
+    dependency('@rollup/plugin-terser'),
     ...babelDependencies
   ];
 

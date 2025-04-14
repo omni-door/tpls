@@ -73,7 +73,7 @@ export const devDependencies = {
   'ts-jest': '~29.2.3',
   'ts-loader': '~9.5.1',
   'ts-node': '~10.9.2',
-  'typescript': '~5.7.3',
+  'typescript': '~5.8.3',
   'url-loader': '~4.1.1',
   'vue-eslint-parser': '~7.8.0',
   'vue-jest': 'next',

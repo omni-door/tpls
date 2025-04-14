@@ -3,14 +3,15 @@ import { tplEngineInit } from '@omni-door/utils';
 const tpl = 
 `\`const path = require('path');
 const alias = require('@rollup/plugin-alias');
-const typescript = require('rollup-plugin-typescript');
+const typescript = require('@rollup/plugin-typescript');
 const { nodeResolve } = require('@rollup/plugin-node-resolve');
 const commonjs = require('@rollup/plugin-commonjs');
 const { babel } = require('@rollup/plugin-babel');
 const json = require('@rollup/plugin-json');
-const { terser } = require('rollup-plugin-terser');
+const terser = require('@rollup/plugin-terser');
 
-module.exports = function (config) {
+module.exports = function (getConfig) {
+  const config = getConfig(true);
   const extensions = ['.ts', '.js'];
 
   config.forEach(v => {
@@ -37,6 +38,11 @@ module.exports = function (config) {
       compact: true
     },
     plugins: [
+      alias({
+        entries: [
+          { find: '@/', replacement: path.resolve(__dirname, 'src/') }
+        ]
+      }),
       nodeResolve({
         extensions,
         preferBuiltins: true,
@@ -44,10 +50,13 @@ module.exports = function (config) {
       }),
       commonjs(),
       typescript({
-        target: 'es2015',
-        module: 'ESNext',
-        lib: ['es5', 'es6', 'es2015', 'es2016', 'dom'],
-        declaration: false
+        compilerOptions: {
+          target: 'es2015',
+          module: 'ESNext',
+          lib: ['es5', 'es6', 'es2015', 'es2016', 'dom'],
+          declaration: false,
+          outDir: 'umd',
+        }
       }),
       babel({
         exclude: 'node_modules/**',
