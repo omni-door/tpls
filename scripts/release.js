@@ -60,13 +60,12 @@ const { exec, spawn } = require('child_process');
                 ? version
                 : '';
           const child = spawn(
-            // 'yarn',
-            `cd ${workPath} && yarn release ${versionTactic}`,
-            // [
-            //   'release',
-            //   versionTactic
-            // ],
-            { stdio: 'inherit', shell: true, cwd: CWD }
+            'yarn',
+            [
+              'release',
+              versionTactic
+            ],
+            { stdio: 'inherit', shell: true, cwd: workPath }
           );
           child.stderr && child.stderr.on('data', err => console.error(err));
           child.on('close', function (code) {
