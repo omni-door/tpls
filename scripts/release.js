@@ -60,9 +60,13 @@ const { exec, spawn } = require('child_process');
                 ? version
                 : '';
           const child = spawn(
+            // 'yarn',
             `cd ${workPath} && yarn release ${versionTactic}`,
-            [],
-            { stdio: 'inherit', shell: true }
+            // [
+            //   'release',
+            //   versionTactic
+            // ],
+            { stdio: 'inherit', shell: true, cwd: CWD }
           );
           child.stderr && child.stderr.on('data', err => console.error(err));
           child.on('close', function (code) {
@@ -91,7 +95,7 @@ const { exec, spawn } = require('child_process');
     }
   })
 
-  exec(`cd ${CWD} && yarn release:push '${msg}'`, function (err, stdout, stderr) {
+  exec(`yarn release:push '${msg}'`, { cwd: CWD },  function (err, stdout, stderr) {
     if (err) {
       console.error(err);
       return;
