@@ -6,7 +6,10 @@ const tpl =
 *~
 ~*
 
+.github
 .vscode
+.husky
+.cursor
 build
 src
 *test*

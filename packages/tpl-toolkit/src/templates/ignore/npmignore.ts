@@ -8,6 +8,8 @@ const tpl =
 
 .github
 .vscode
+.husky
+.cursor
 build
 src
 *test*
@@ -26,7 +28,7 @@ DEV*.md
 *.config.js
 *.conf.js
 tsconfig.json
-.umirc*
+.dumirc*
 .env
 
 _config.yml
