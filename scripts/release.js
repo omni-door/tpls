@@ -47,7 +47,7 @@ const { exec, spawn } = require('child_process');
   await new Promise(async (res, rej) => {
     for (let i = 0; i < packages.length; i++) {
       const package = packages[i];
-      const spinner = ora(`模板 ${package} 发布中，请稍后……\n`).start();
+      const spinner = ora(`模板 ${package} 发布中，请稍后……`).start();
       spinner.spinner = 'weather';
       spinner.color = 'magenta';
       try {
@@ -59,6 +59,8 @@ const { exec, spawn } = require('child_process');
               : version
                 ? version
                 : '';
+          // Stop spinner so spawned process can own the terminal for real-time logs and OTP input.
+          spinner.stop();
           const child = spawn(
             'yarn',
             [
@@ -67,7 +69,6 @@ const { exec, spawn } = require('child_process');
             ],
             { stdio: 'inherit', shell: true, cwd: workPath }
           );
-          child.stderr && child.stderr.on('data', err => console.error(err));
           child.on('close', function (code) {
             if (code == 0) {
               spinner.color = 'green';
