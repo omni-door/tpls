@@ -1,6 +1,6 @@
 {
   "name": "@omni-door/tpl-component-vue",
-  "version": "3.2.1",
+  "version": "3.2.2",
   "description": "",
   "bin": {
     "omni-component-vue": "./bin/omni-door-component-vue.js"
@@ -44,7 +44,7 @@
     "url": "https://github.com/omni-door/tpls/issues"
   },
   "dependencies": {
-    "@omni-door/utils": "^1.4.0"
+    "@omni-door/utils": "^1.4.1"
   },
   "devDependencies": {
     "typescript": "~3.9.10"
