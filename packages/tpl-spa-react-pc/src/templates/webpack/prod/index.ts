@@ -28,8 +28,7 @@ const {
 const publicPath = '';
 
 module.exports = merge(commonConfig, {
-  // 需要 source-map 请开启
-  // Remove annotation when need source-map
+  // Uncomment to enable source maps.
   // devtool: 'cheap-module-source-map',
   cache: {
     type: 'memory'
@@ -119,8 +118,7 @@ module.exports = merge(commonConfig, {
       filename: hash ? \\\`[name].[\\\${typeof hash === 'string' ? hash : 'contenthash'}:8].css\\\` : '[name].css'
     }),
     \` : ''}
-    // ! 需要分析打包时，请打开注释
-    // Remove annotation when need analyze package
+    // Uncomment to analyze bundle output.
     // new BundleAnalyzerPlugin({
     //   analyzerMode: 'static',
     //   defaultSizes: 'parsed',
@@ -139,10 +137,8 @@ module.exports = merge(commonConfig, {
       filename: 'index.html'
     }),
 
-    // 走统一 CDN 的静态资源
-    // The static resources of CDN
-    // 能一定程度上减少资源加载时长和构建时长
-    // It can reduce some download source and construction time
+    // Serve static assets from a shared CDN.
+    // This can reduce asset load time and build time.
     // new HtmlWebpackExternalsPlugin({
     //   externals: [
     //     {
@@ -167,16 +163,12 @@ module.exports = merge(commonConfig, {
     //     }
     //   ]
     // })\${style ? \`,
-    // 将同步的外链 link 注入到 html 中
-    // Inject the outer-links into html-style tag
-    //! 能一定程度上减少首屏时长
-    // It can reduce some first-screen time
+    // Inline synchronous external CSS links into the HTML.
+    //! Can reduce time to first paint.
     new HTMLInlineCSSWebpackPlugin({
       filter(fileName) {
-        //! 注意，若是更改了 splitChunks异步加载 的配置
-        // Note that if you change the configuration of splitChunks
-        //! 需要过滤掉异步的css文件，否则会导致页面白屏！！！
-        // You need to filter out asynchronous CSS files, otherwise the page will be white!!!
+        //! If you change the splitChunks async configuration,
+        //! filter out async CSS files to avoid a blank page.
         return !fileName.includes('async');
       }
     })

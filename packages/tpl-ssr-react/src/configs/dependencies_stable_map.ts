@@ -1,7 +1,7 @@
 export const dependencies = {
-  'next': '~15.1.6',
-  'react': '^19.0.0',
-  'react-dom': '^19.0.0',
+  'next': '~15.5.9',
+  'react': '^19.2.3',
+  'react-dom': '^19.2.3',
   'webpack-merge': '~6.0.1'
 };
 
@@ -12,10 +12,10 @@ export const devDependencies = {
   '@babel/plugin-proposal-decorators': '~7.25.9',
   '@babel/runtime': '~7.25.9',
   '@commitlint/cli': '8.3.5',
-  '@next/bundle-analyzer': '~15.1.6',
+  '@next/bundle-analyzer': '~15.5.9',
   '@types/node': '~18.19.39',
-  '@types/react': '~19.1.2',
-  '@types/react-dom': '~19.1.2',
+  '@types/react': '~19.2.8',
+  '@types/react-dom': '~19.2.3',
   '@types/vfile-message': '1.0.1',
   '@typescript-eslint/eslint-plugin': '~8.30.0',
   '@typescript-eslint/parser': '~8.30.0',

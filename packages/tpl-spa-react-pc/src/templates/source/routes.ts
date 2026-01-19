@@ -16,17 +16,17 @@ import type { RouteObject } from 'react-router-dom';
 \` : ''}
 \${ts ? \`
 export interface IRoute {
-  // 是否默认路由 (default child routes)
+  // Whether this is the default child route.
   index?: boolean;
-  // 路由路径 (The path for route)
+  // Route path.
   path: string;
-  // 路由对应的组件 (The render component for route)
+  // Component rendered for the route.
   element: LazyExoticComponent<ComponentType<any>> | NamedExoticComponent<any>;
-  // 启用懒加载的fallback (the fallback for lazy load)
+  // Fallback component for lazy loading.
   fallback?: NonNullable<ReactNode> | null;
-  // 嵌套路由 (nest route)
+  // Nested routes.
   children?: IRoute[];
-  // 重定向路径 (redirect path)
+  // Redirect path.
   redirect?: string;
 }
 \` : ''}

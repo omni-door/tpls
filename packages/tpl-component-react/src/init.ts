@@ -85,7 +85,7 @@ export async function $init ({
 
   // if (pkgtool === 'pnpm') {
   //   logInfo('back to yarn because the typescript cannot compatible with the soft connection of pnpm');
-  //   logInfo('回退至 yarn，因为 typescript 暂时无法兼容 pnpm 的软连机制');
+  //   logInfo('Fallback to yarn because TypeScript is not yet compatible with pnpm symlink layout.');
   //   logInfo('https://github.com/microsoft/TypeScript/issues/29221');
   //   pkgtool = 'yarn';
   // }
@@ -114,8 +114,8 @@ export async function $init ({
       paramScript = '-- -';
   }
 
-  // 模板解析
-  logTime('PARSE(模板解析)');
+  // Template parsing
+  logTime('PARSE');
   let custom_tpl_list = {};
   try {
     custom_tpl_list = typeof tpls === 'function'
@@ -142,8 +142,8 @@ export async function $init ({
             return result;
           } catch (err) {
             logWarn(err as any);
-            logWarn(`The custom template "${name}" parsing occured error, the default template will be used for initialization`);
-            logWarn(`自定义模板 "${name}" 解析出错，将使用默认模板进行初始化`);
+            logWarn(`The custom template "${name}" parsing encountered an error; the default template will be used for initialization`);
+
             return originTpl(config);
           }
         };
@@ -153,15 +153,15 @@ export async function $init ({
     }
   } catch (err_tpls) {
     logWarn(err_tpls as any);
-    logWarn('The custom template generating occured error, all will be initializated with the default template');
-    logWarn('生成自定义模板出错，将全部使用默认模板进行初始化');
+    logWarn('Custom template generation failed; all templates will be initialized with the default template');
+
   }
   const tpl = { ...tpls_init, ...custom_tpl_list };
   const project_type = 'component-react' as 'component-react';
-  logTime('PARSE(模板解析)', true);
+  logTime('PARSE', true);
 
-  // 生成项目文件
-  logTime('CREATE(创建文件)');
+  // Generate project files
+  logTime('CREATE');
   const params = { project_type, project_name, ts, test, eslint, prettier, commitlint, style, stylelint: !!style && stylelint, strategy, configFileName };
   try {
     const pathToFileContentMap = {
@@ -226,10 +226,10 @@ export async function $init ({
     logErr(`${err.name}: ${err.message} at \n${err.stack}`);
     error ? error(err) : process.exit(1);
   }
-  logTime('CREATE(创建文件)', true);
+  logTime('CREATE', true);
 
-  // 项目依赖解析
-  logTime('DEPENDENCY(依赖解析)');
+  // Dependency resolution
+  logTime('DEPENDENCY');
   let {
     depArr,
     depStr
@@ -326,20 +326,20 @@ export async function $init ({
   buildDepStr && installDevCliArr.push(buildDepStr);
   customDepStr && installDevCliArr.push(customDepStr);
   const installDevCli = `${installDevCliPrefix} ${installDevCliArr.join(' ')}`;
-  logTime('DEPENDENCY(依赖解析)', true);
+  logTime('DEPENDENCY', true);
 
   if (install) {
-    // 项目依赖安装
-    logTime('INSTALL(安装依赖)');
+    // Install project dependencies
+    logTime('INSTALL');
     exec([
       installCli,
       installDevCli
     ], res => {
-      logTime('INSTALL(安装依赖)', true);
+      logTime('INSTALL', true);
       success(res);
     }, error, isSlient);
   } else {
-    logTime('STATIC(生成静态依赖文件)');
+    logTime('STATIC');
     const processDepStr = (str: string, prefix: string) => {
       if (!str) return '';
       let result = '';
@@ -373,7 +373,7 @@ export async function $init ({
         devDependencies: processDepStr(`${defaultDepStr || ''} ${tsDepStr || ''} ${testDepStr || ''} ${eslintDepStr || ''} ${prettierDepStr || ''} ${commitlintDepStr || ''} ${stylelintDepStr || ''} ${devServerDepStr || ''} ${buildDepStr || ''} ${customDepStr || ''}`, 'devDependencies')
       })
     });
-    logTime('STATIC(生成静态依赖文件)', true);
+    logTime('STATIC', true);
     success([]);
   }
 }

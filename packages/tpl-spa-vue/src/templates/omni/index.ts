@@ -7,10 +7,10 @@ const path = require('path');
 const { merge } = require('webpack-merge');
 
 module.exports = {
-  type: '\${project_type}', // 项目类型，请勿任意变动 (project type, please don't modify)
+  type: '\${project_type}', // Project type; do not modify.
 
   dev: {
-    webpack: () => require(path.resolve(__dirname, 'webpack.config.dev.js')), // 开发服务端webpack配置 (dev-server webpack configuration)
+    webpack: () => require(path.resolve(__dirname, 'webpack.config.dev.js')), // Dev server webpack configuration.
     proxy:  [
       // {
       //   route: '/api',
@@ -19,71 +19,71 @@ module.exports = {
       //     changeOrigin: true
       //   }
       // }
-    ], // 开发服务代理配置 (dev-server proxy config)
-    port: 6200, // 开发服务端口号 (dev-server port)
-    // host: 'dev.domain.com', // 开发服务端host (dev-server host)
-    // https: true, // 以https协议启动开发服务 (start dev-server with https)
+    ], // Dev server proxy configuration.
+    port: 6200, // Dev server port.
+    // host: 'dev.domain.com', // Dev server host.
+    // https: true, // Start dev server with HTTPS.
     devMiddlewareOptions: {
       headers: { 'Access-Control-Allow-Origin': '*' }
     }
   },
 
   build: {
-    // 构建完成后是否自动发布 (auto release project after build success)
+    // Auto-release after a successful build.
     autoRelease: false,
 
-    // 输入路径 (the build source directory)
-    // 务必使用绝对路径 (must be a absolute path)
+    // Build source directory.
+    // Must be an absolute path.
     srcDir: path.resolve(__dirname, '../src'),
 
-    // 输出路径 (the directory for compiled project)
-    // 务必使用绝对路径 (must be a absolute path)
+    // Build output directory.
+    // Must be an absolute path.
     outDir: path.resolve(__dirname, '../dist'),
 
-    // 构建的资源是否加上hash，可选 'hash'、'contenthash'、'chunkhash' (whether the hash tag add to building result)
+    // Whether to add hashes to build assets: 'hash', 'contenthash', or 'chunkhash'.
     hash: true,
 
-    // 构建阶段的自定义配置回调 (The callback will be call in the build-process)
-    // 返回自定义的配置 (You can return your custom build configuration)
+    // Build configuration callback.
+    // Return a custom build configuration.
     configuration: config => merge(config, require(path.resolve(__dirname, 'webpack.config.prod.js'))),
 
     reserve: {
-      assets: [] // 构建结果保留其他资源的路径 (reserve other asset paths)
+      assets: [] // Preserve additional asset paths in the build output.
     },
 
     preflight: {
-      typescript: \${!!ts}, // 构建时是否处理ts或tsx文件 (whether or not process the ts or tsx files)
-      test: \${!!test}, // 构建时是否进行单元测试 (whether or not process unit-test)
-      eslint: \${!!eslint}, // 构建时是否进行eslint检测 (whether or not process eslint checking)
-      prettier: \${!!prettier}, // 构建时是否进行prettier检测 (whether or not process prettier checking)
-      stylelint: \${!!stylelint}, // 构建时是否进行stylelint检测 (whether or not process stylelint checking)
+      typescript: \${!!ts}, // Whether to process TS/TSX files during build.
+      test: \${!!test}, // Whether to run unit tests during build.
+      eslint: \${!!eslint}, // Whether to run ESLint during build.
+      prettier: \${!!prettier}, // Whether to run Prettier during build.
+      stylelint: \${!!stylelint}, // Whether to run Stylelint during build.
     }
   },
 
   release: {
-    git: '\${git}', // 发布的git仓库地址 (project git repo url)
+    git: '\${git}', // Git repository URL for release.
     preflight: {
-      test: \${!!test}, // 发布前是否进行单元测试 (whether or not process unit-test)
-      eslint: \${!!eslint}, // 发布前是否进行eslint检测 (whether or not process eslint checking)
-      prettier: \${!!prettier}, // 发布前是否进行prettier检测 (whether or not process prettier checking)
-      stylelint: \${!!stylelint}, // 发布前是否进行stylelint检测 (whether or not process stylelint checking)
-      commitlint: \${!!commitlint}, // 发布前是否进行commitlint检测 (whether or not process commitlint checking)
-      branch: 'master' // 发布前进行分支检测，设置为空字符串则不会检测 (only can release in this branch, set empty string to ignore this check)
+      test: \${!!test}, // Whether to run unit tests before release.
+      eslint: \${!!eslint}, // Whether to run ESLint before release.
+      prettier: \${!!prettier}, // Whether to run Prettier before release.
+      stylelint: \${!!stylelint}, // Whether to run Stylelint before release.
+      commitlint: \${!!commitlint}, // Whether to run Commitlint before release.
+      branch: 'master' // Only allow release on this branch; set empty string to skip.
     }
   },
 
   template: {
-    // 生成模板的根路径 (the root directory for generate template)
-    // 务必使用绝对路径 (must be a absolute path)
+    // Template root directory.
+    // Must be an absolute path.
     root: path.resolve(__dirname, '../src/components'),
 
-    // 是否创建ts文件 (whether or not generate typescript)
+    // Whether to generate TypeScript files.
     typescript: \${!!ts},
 
-    // 是否创建单元测试文件 (whether or not generate unit test frame)
+    // Whether to generate unit test files.
     test: \${!!test},
 
-    // 样式文件类型 (stylesheet type)
+    // Stylesheet type.
     stylesheet: '\${style === 'all' ? 'scss' : style}'
   },
 

@@ -1,12 +1,12 @@
 export const dependencies = {
-  'react': '^19.0.0',
-  'react-dom': '^19.0.0',
+  'react': '^19.2.3',
+  'react-dom': '^19.2.3',
   'classnames': '~2.2.6'
 };
 
 export const devDependencies = {
-  'react': '^19.0.0',
-  'react-dom': '^19.0.0',
+  'react': '^19.2.3',
+  'react-dom': '^19.2.3',
   '@babel/core': '~7.25.9',
   '@babel/preset-env': '~7.25.9',
   '@babel/preset-react': '~7.25.9',
@@ -18,8 +18,8 @@ export const devDependencies = {
   '@types/jest': '~29.5.12',
   '@types/jsdom': '~21.1.7',
   '@types/node': '~18.19.39',
-  '@types/react': '~19.1.2',
-  '@types/react-dom': '~19.1.2',
+  '@types/react': '~19.2.8',
+  '@types/react-dom': '~19.2.3',
   '@typescript-eslint/eslint-plugin': '~8.23.0',
   '@typescript-eslint/parser': '~8.23.0',
   'babel-loader': '~8.3.0',
@@ -70,7 +70,7 @@ export const devDependencies = {
   'typescript': '~5.5.4',
   'typescript-transform-paths': '~3.4.7',
   'url-loader': '~3.0.0',
-  // storybook 依赖
+  // Storybook dependencies.
   "@chromatic-com/storybook": "~1.6.1",
   "@storybook/addon-actions": "~8.5.3",
   "@storybook/addon-console": "~3.0.0",
